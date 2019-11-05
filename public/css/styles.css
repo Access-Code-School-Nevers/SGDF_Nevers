@@ -35,6 +35,9 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+hr{
+  width: 30%;
+}
 .color_button{
     background-color: #003a5d !important;
     color: white !important;
@@ -181,18 +184,25 @@ header{
 .search_article_reservez{
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.search_article_reservez h2{
+    text-align: center;
 }
 .search_article_reservez_form{
   width: 100%;
-  max-width: 800px;
-  height: 110px;
-  padding: 10px;
-  border: 1px solid #afadad;
-  margin: 19px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+      max-width: 800px;
+      height: 110px;
+      padding: 10px;
+      border: 1px solid #afafafbd;
+      margin: 19px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      background-color: white;
 }
 .search_article_reservez_form p{
   margin-bottom: 10px!important;
@@ -201,29 +211,37 @@ header{
   flex-direction: column;
   justify-content: flex-end;
 }
+.search_article_reservez_form p input{
+  height: 35px;
+  border-radius: 7px;
+  border: 1px solid #b1b1b1;
+}
 .input_search_article{
   width: 100%;
-  max-width: 450px;
+
 }
 .input_quantity_article{
-  width: 60px;
+  width: 100%;
 }
 #search_name{
   width: 100%;
+  max-width: 500px;
 }
 #icon_x{
   width: 60px;
 }
 #search_quantity{
-  width: 17%;
+  width: 60px;
   margin-right: 20px;
 }
 
 .submit_search_article{
   height: 35px;
-  width: 130px;
+  width: 90px;
   border: none;
   border-radius: 35px;
+  background-color: #003a5d;
+  color: wheat;
   margin: 0 10px 8px 0;
 }
 
@@ -243,8 +261,10 @@ footer{
 
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MEDIA QUERIES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-@media screen and (min-width: 1268px) {
-
+@media screen and (max-width: 1000px) {
+  .search_article_reservez_form{
+    width: 80%;
+  }
 }
 @media screen and (max-width: 1267px) {
 
