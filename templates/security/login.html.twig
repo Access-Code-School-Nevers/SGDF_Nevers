@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des stocks - Connexion{% endblock %}
+
+{% block body %}
+<form method="post">
+  <div class="support_view">
+    <div class="container_view flex-height">
+    <div class="w-100">
+      {% if app.user %}
+        <!-- <div class="mb-3">
+          <a href="{{ path('app_logout') }}">Vous êtes connecté en tant que {{ app.user.username }}, Déconnexion</a>
+        </div> -->
+      {% endif %}
+
+      <div class="d-flex justify-content-center">
+          <img id="logo-connect" src="/img/scouts-horizontal.png" alt="Logo de scouts guides de france">
+      </div>
+
+      <h1 class="h1 mb-3 font-weight-bold text-center">GESTION DES STOCKS</h1>
+      <h2 class="h3 mb-3 font-weight-bold text-center">CONNEXION</h2>
+
+      <div class="d-flex justify-content-center mt-4">
+        <div id="login-form">
+          <input type="text" value="{{ last_username }}" name="nom" id="inputNom" placeholder="Numéro d'adhérent" class="form-control mt-2" required autofocus>
+          <input type="password" name="password" id="inputPassword" placeholder="Mot de passe" class="form-control mt-2" required>
+
+          <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+          <button class="btn btn-lg btn-primary w-100 mt-4 main-blue-color" type="submit">Se connecter</button>
+        </div>
+      </div>
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+
+      {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+      {% endif %}
+    </div>
+  </div>
+  </div>
+
+</form>
+{% endblock %}

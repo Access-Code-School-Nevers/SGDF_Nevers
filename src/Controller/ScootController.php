@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ScootController extends AbstractController
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("/app/home", name="home")
      */
     public function home()
     {
