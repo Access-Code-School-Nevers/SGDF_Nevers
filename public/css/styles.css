@@ -53,14 +53,15 @@ hr{
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< sccrollbar >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 /* width */
 ::-webkit-scrollbar {
-  width: 5px;
+  background-color: #ffffff00;
+  width: 6px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-
-  background-color: none;
+  box-shadow: 0px 1px 0px 1px lightgray;
   border-radius: 10px;
+  background-color: #ffffff00;
 }
 
 /* Handle */
@@ -71,8 +72,7 @@ hr{
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: grey;
-
+  background: black;
 }
 /* <<<<<<<<<<<<<<<<<<<<<<<<< container >>>>>>>>>>>>>>>>>>>>>>>>>>*/
 .container_view{
@@ -82,7 +82,7 @@ hr{
     margin-top: 20px;
     background-color: #ffffffde;
     position: fixed;
-    overflow: overlay;
+    overflow: auto;
     border-radius: 5px;
 }
 
@@ -300,7 +300,7 @@ header{
   background-color: white;
   border-radius: 5px;
   border: 1px solid grey;
-  overflow: overlay;
+  overflow-y: auto;
 }
 .table_articles{
   border-spacing: 0px;
