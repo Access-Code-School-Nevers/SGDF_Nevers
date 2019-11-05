@@ -162,6 +162,22 @@ header{
     margin-right: 15px;
 }
 
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< RESERVEZ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.search_tool_reservez{
+  display: flex;
+  justify-content: center;
+}
+.search_tool_reservez_form{
+    width: 600px;
+    border: 1px solid #afadad;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.search_tool_reservez_form p{
+  flex:1;
+}
+
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FOOTER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 footer{
