@@ -4,25 +4,32 @@
 
 {% block body %}
 <form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+  <div class="support_view">
+    <div class="container_view flex-height">
+    <div class="w-100">
+      {% if app.user %}
+        <!-- <div class="mb-3">
+          <a href="{{ path('app_logout') }}">Vous êtes connecté en tant que {{ app.user.username }}, Déconnexion</a>
+        </div> -->
+      {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
+      <div class="d-flex justify-content-center">
+          <img id="logo-connect" src="/img/scouts-horizontal.png" alt="Logo de scouts guides de france">
+      </div>
+
+      <h1 class="h1 mb-3 font-weight-bold text-center">GESTION DES STOCKS</h1>
+      <h2 class="h3 mb-3 font-weight-bold text-center">CONNEXION</h2>
+
+      <div class="d-flex justify-content-center mt-4">
+        <div id="login-form">
+          <input type="text" value="{{ last_username }}" name="nom" id="inputNom" placeholder="Numéro d'adhérent" class="form-control mt-2" required autofocus>
+          <input type="password" name="password" id="inputPassword" placeholder="Mot de passe" class="form-control mt-2" required>
+
+          <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+          <button class="btn btn-lg btn-primary w-100 mt-4 main-blue-color" type="submit">Se connecter</button>
         </div>
-    {% endif %}
-
-    <h1 class="h3 mb-3 font-weight-normal">CONNEXION</h1>
-    <label for="inputNom">Nom</label>
-    <input type="text" value="{{ last_username }}" name="nom" id="inputNom" class="form-control" required autofocus>
-    <label for="inputPassword">Mot de passe</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" required>
-
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+      </div>
 
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -35,8 +42,12 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Connexion
-    </button>
+      {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+      {% endif %}
+    </div>
+  </div>
+  </div>
+
 </form>
 {% endblock %}

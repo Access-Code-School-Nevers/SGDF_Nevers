@@ -1,3 +1,16 @@
+/* <<<<<<<<<<<< Variables >>>>>>>>>>>> */
+body {
+  --main-blue-color: #003a5d;
+}
+
+
+.main-blue-color{
+  background-color: var(--main-blue-color);
+}
+.main-blue-color-txt{
+  color: var(--main-blue-color);
+}
+
 /* <<<<<<<<<<<<<<<<<<<<<<<<<< RESET CSS >>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
 *{
@@ -226,9 +239,33 @@ footer{
     .card {
       margin: 0 30px 15px 30px;
   }
-  }
-  @media screen and (max-width: 600px) {
-    .card {
+}
+@media screen and (max-width: 600px) {
+  .card {
     width: 80%;
   }
+  .h1{
+    font-size:1.8rem;
   }
+  .h2{
+    font-size:1.2rem;
+  }
+  #login-form{
+    width:80% !important;
+  }
+}
+
+
+  /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< LOGIN >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+#logo-connect{
+  width:200px;
+  height:auto;
+}
+#login-form{
+  width:50%;
+  margin:0 auto;
+}
+.flex-height{
+  display: flex;
+  align-items: center;
+}
