@@ -24,18 +24,31 @@ li{
 a{
   text-decoration: none !important;
 }
+body:before{
+content: "";
+background-image: url(https://s2.best-wallpaper.net/wallpaper/3840x2160/1702/Tools-collection-wood-workbench_3840x2160.jpg);
+background-color: #000000;
+background-attachment: fixed;
+background-size: cover;
+z-index: -1;
+height: 100%;
+top: 0;
+width: 100vw;
+height: 100vh;
+position: absolute;
+}
+body.addBlur:before{
+  filter: blur(5px);
+}
 body{
     background-color: lightgray;
-    /* fond a choisir */
     /* background-image: url(http://itertiat.fr/wp-content/uploads/2015/11/fond-ecran-bleu.jpg); */
     /* background-image: url(https://www.robertsau.eu/wp-content/uploads/2018/02/Foret_Robertsau-Karpfenloch.jpg); */
     /* background-image: url(http://st.gde-fon.com/wallpapers_original/542084_stena_instrumentyi_itd_3816x2180_www.Gde-Fon.com.jpg); */
     /* background-image: url(https://s2.best-wallpaper.net/wallpaper/3840x2160/1702/Tools-collection-wood-workbench_3840x2160.jpg); */
-    background-image: url(https://static.miweb.padigital.es/var/m_d/d0/d02/66374/975353-44218748_m.jpg);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
+    /* background-image: url(https://static.miweb.padigital.es/var/m_d/d0/d02/66374/975353-44218748_m.jpg); */
 }
+
 hr{
   width: 30%;
 }
@@ -186,7 +199,7 @@ header{
     background-color: #132551;
 }
 .logo_home{
-    margin-top: 50px;
+    margin-top: 0;
 }
 .card{
     width: 400px;
