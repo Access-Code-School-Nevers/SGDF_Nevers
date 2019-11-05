@@ -38,4 +38,4 @@ Voici la liste des bundles installés et leurs commandes.
 [jlc92130](https://github.com/jlc92130)
 
 ## License
-[MIT](https://github.com/Access-Code-School-Nevers/SGDF_Nevers/blob/master/LICENSE)
+[GNU General Public License](https://github.com/Access-Code-School-Nevers/SGDF_Nevers/blob/master/LICENSE)
