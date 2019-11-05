@@ -50,6 +50,30 @@ hr{
     border: none !important;
     text-transform: uppercase;
 }
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< sccrollbar >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+
+  background-color: none;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #002942;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: grey;
+
+}
 /* <<<<<<<<<<<<<<<<<<<<<<<<< container >>>>>>>>>>>>>>>>>>>>>>>>>>*/
 .container_view{
     width: 85vw;
@@ -195,10 +219,12 @@ header{
   align-items: center;
   flex-direction: column;
   margin-top: 20px;
+  margin-bottom: 1em;
 }
 .search_article_reservez h3{
     text-align: center;
-    font-size: 1.25em;
+    font-size: 1em;
+    margin-bottom: 1em;
 }
 .search_article_reservez_form{
   width: 100%;
@@ -206,7 +232,6 @@ header{
       height: 110px;
       padding: 10px;
       border: 1px solid #afafafbd;
-      margin: 19px;
       border-radius: 10px;
       display: flex;
       justify-content: center;
@@ -224,6 +249,7 @@ header{
   height: 35px;
   border-radius: 7px;
   border: 1px solid #b1b1b1;
+  padding-left: 10px;
 }
 .input_search_article{
   width: 100%;
@@ -257,18 +283,24 @@ header{
 }
 /* <<<<< tableau reservez >>>> */
 .table_container{
-  max-height: 150px;
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+.table_container h4{
+  font-size: 1em;
+  margin-bottom: 1em;
 }
 .table_container_color{
+  max-height: 178px;
   width: 80%;
   display: flex;
   justify-content: center;
   background-color: white;
   border-radius: 5px;
   border: 1px solid grey;
+  overflow: overlay;
 }
 .table_articles{
   border-spacing: 0px;
@@ -301,9 +333,6 @@ footer{
     background-color: #003a5d;
     color: white;
 }
-
-
-
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MEDIA QUERIES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 @media screen and (max-width: 1000px) {
