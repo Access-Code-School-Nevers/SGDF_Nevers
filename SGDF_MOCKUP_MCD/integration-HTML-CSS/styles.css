@@ -1,0 +1,209 @@
+/* <<<<<<<<<<<<<<<<<<<<<<<<<< RESET CSS >>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+body{
+    background-color: lightgray;
+    /* fond a choisir */
+    /* background-image: url(http://itertiat.fr/wp-content/uploads/2015/11/fond-ecran-bleu.jpg); */
+    /* background-image: url(https://www.robertsau.eu/wp-content/uploads/2018/02/Foret_Robertsau-Karpfenloch.jpg); */
+    /* background-image: url(http://st.gde-fon.com/wallpapers_original/542084_stena_instrumentyi_itd_3816x2180_www.Gde-Fon.com.jpg); */
+    /* background-image: url(https://s2.best-wallpaper.net/wallpaper/3840x2160/1702/Tools-collection-wood-workbench_3840x2160.jpg); */
+    background-image: url(https://static.miweb.padigital.es/var/m_d/d0/d02/66374/975353-44218748_m.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.color_button{
+    background-color: #003a5d !important;
+    color: white !important;
+    transition: 1s all;
+}
+.color_button:hover{
+    background-color: #132551 !important;
+}
+.button_style{
+    border: none !important;
+    text-transform: uppercase;
+}
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<< HEADER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+header{
+    height: 30px;
+    background-color: #003a5d;
+}
+
+/* << Dropdown >> */
+.dropbtn {
+    color: white;
+    padding: 8px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #132551;
+  }
+  
+  .dropdown {
+    position: absolute;
+    right: 1%;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+    -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+    user-select: none; /* Propriété standard */
+  }
+
+  .dropdown-content a:hover {background-color: #ddd}
+  
+  .show {display:block;}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Home >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+#home{
+    display: flex;
+    justify-content: center;
+}
+.container_home{
+    width: 85vw;
+    box-shadow: 0px 0px 15px lightgrey;
+    height: calc(95vh - 30px);
+    margin-top: 20px;
+    background-color: #ffffffde;
+    position: fixed;
+    overflow: overlay;
+    border-radius: 5px;
+}
+.container_button{
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+}
+.container_button_list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.container_button_list li{
+    margin-bottom: 2em;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.button_home{
+    width: 25vw;
+    height: 18vh;
+    background-color: #003a5d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 3px #9d9d9d;
+    font-weight: bold;
+    font-size: 2em;
+    transition: 0.3s all;
+    min-width: 210px;
+    max-width: 400px;
+    min-height: 100px;
+}
+.button_home:hover{
+    background-color: #132551;
+}
+.logo_home{
+    height: 120px;
+    margin-top: 50px;
+}
+.card{
+    width: 400px;
+    margin: 0 30px 30px 30px
+}
+.container_card{
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+}
+.card_title_custom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+.card_title_custom h5{
+    margin-bottom: 0 !important;
+    margin-right: 15px;
+}
+.card_title_custom i{
+    margin-right: 15px;
+}
+
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FOOTER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+footer{
+    height: 1vh;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    box-shadow: 0px 0px 6px 1px #515151;
+    background-color: #003a5d;
+    color: white;
+}
+
+
+
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MEDIA QUERIES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+@media screen and (min-width: 1268px) {
+    .container_button_list{
+        display: none;
+    }
+  }
+  @media screen and (max-width: 1267px) {
+    .container_card{
+        display: none;
+    }
+    
+  }
+@media screen and (max-width: 968px) {
+    .button_home{
+        width: 50vw;
+        height: 17vh;
+    }
+    .container_button_list{
+        flex-direction: column;
+    }
+    .logo_home{
+        display: none;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    .button_home{
+        width: 60vw;
+        height: 15vh;
+    }
+  }
