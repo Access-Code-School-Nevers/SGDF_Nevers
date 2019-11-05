@@ -18,7 +18,7 @@ class ScootController extends AbstractController
     }
 
     /**
-     * @Route("/reservez", name="reservez")
+     * @Route("/app/reservez", name="reservez")
      */
     public function reservez()
     {

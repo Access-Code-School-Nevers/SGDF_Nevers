@@ -50,6 +50,23 @@ hr{
     border: none !important;
     text-transform: uppercase;
 }
+/* <<<<<<<<<<<<<<<<<<<<<<<<< container >>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.container_view{
+    width: 85vw;
+    box-shadow: 0px 0px 15px lightgrey;
+    height: calc(95vh - 30px);
+    margin-top: 20px;
+    background-color: #ffffffde;
+    position: fixed;
+    overflow: overlay;
+    border-radius: 5px;
+}
+
+.container_full_view{
+  width: 100vw !important;
+  height: 100vh !important;
+  margin-top: 0!important;
+}
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<< HEADER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
@@ -107,16 +124,7 @@ header{
     display: flex;
     justify-content: center;
 }
-.container_view{
-    width: 85vw;
-    box-shadow: 0px 0px 15px lightgrey;
-    height: calc(95vh - 30px);
-    margin-top: 20px;
-    background-color: #ffffffde;
-    position: fixed;
-    overflow: overlay;
-    border-radius: 5px;
-}
+
 .container_button{
     margin-top: 2em;
     display: flex;
@@ -188,8 +196,9 @@ header{
   flex-direction: column;
   margin-top: 20px;
 }
-.search_article_reservez h2{
+.search_article_reservez h3{
     text-align: center;
+    font-size: 1.25em;
 }
 .search_article_reservez_form{
   width: 100%;
@@ -236,16 +245,52 @@ header{
 }
 
 .submit_search_article{
-  height: 35px;
-  width: 90px;
+  height: 30px;
+  width: 70px;
   border: none;
-  border-radius: 35px;
+  flex-shrink: 0;
+  border-radius: 10px;
   background-color: #003a5d;
-  color: wheat;
+  color: white;
   margin: 0 10px 8px 0;
+  cursor: pointer !important;
 }
-
-
+/* <<<<< tableau reservez >>>> */
+.table_container{
+  max-height: 150px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.table_container_color{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+.table_articles{
+  border-spacing: 0px;
+  border-collapse: collapse;
+  width: 100%;
+}
+.head_table{
+  border-collapse: collapse;
+  height: 40px;
+  background-color: #003a5d;
+  color: white;
+}
+tr{
+  border-bottom: 1px lightgray solid;
+  height: 35px;
+}
+th{
+  padding-left:10px;
+}
+.fa-trash{
+  color: #ff2828;
+}
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FOOTER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 footer{
     height: 1vh;
@@ -264,11 +309,14 @@ footer{
 @media screen and (max-width: 1000px) {
   .search_article_reservez_form{
     width: 80%;
+    height: 100%;
   }
 }
-@media screen and (max-width: 1267px) {
-
-
+@media screen and (max-width: 700px) {
+  .search_article_reservez_form{
+    width: 90%;
+    flex-wrap: wrap;
+  }
 }
 @media screen and (max-width: 1082px) {
     .logo_home{
