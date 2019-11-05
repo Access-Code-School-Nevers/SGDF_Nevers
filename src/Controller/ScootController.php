@@ -16,4 +16,17 @@ class ScootController extends AbstractController
 
         ]);
     }
+
+
+
+
+    /**
+     * @Route("/inventaire", name="inventaire")
+     */
+    public function inventaire()
+    {
+        return $this->render('scoot/inventaire.html.twig', [
+
+        ]);
+    }
 }
