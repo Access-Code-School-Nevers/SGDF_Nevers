@@ -1,6 +1,7 @@
 /* <<<<<<<<<<<< Variables >>>>>>>>>>>> */
 body {
   --main-blue-color: #003a5d;
+  --second-blue-color: #00578c;
 }
 
 
@@ -39,12 +40,12 @@ hr{
   width: 30%;
 }
 .color_button{
-    background-color: #003a5d !important;
+    background-color: var(--main-blue-color) !important;
     color: white !important;
     transition: 1s all;
 }
 .color_button:hover{
-    background-color: #132551 !important;
+    background-color: var(--second-blue-color) !important;
 }
 .button_style{
     border: none !important;
@@ -66,13 +67,13 @@ hr{
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #002942;
+  background: var(--main-blue-color);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: black;
+  background: var(--second-blue-color);
 }
 /* <<<<<<<<<<<<<<<<<<<<<<<<< container >>>>>>>>>>>>>>>>>>>>>>>>>>*/
 .container_view{
@@ -90,13 +91,14 @@ hr{
   width: 100vw !important;
   height: 100vh !important;
   margin-top: 0!important;
+  box-shadow: none;
 }
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<< HEADER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
 header{
     height: 30px;
-    background-color: #003a5d;
+    background-color: var(--main-blue-color);
 }
 
 /* << Dropdown >> */
@@ -109,7 +111,7 @@ header{
   }
 
   .dropbtn:hover, .dropbtn:focus {
-    background-color: #132551;
+    background-color: var(--second-blue-color);
   }
 
   .dropdown {
@@ -168,7 +170,7 @@ header{
 .button_home{
     width: 25vw;
     height: 18vh;
-    background-color: #003a5d;
+    background-color: var(--main-blue-color);
     color: white;
     border: none;
     border-radius: 10px;
@@ -276,10 +278,14 @@ header{
   border: none;
   flex-shrink: 0;
   border-radius: 10px;
-  background-color: #003a5d;
+  background-color: var(--main-blue-color);
   color: white;
   margin: 0 10px 8px 0;
   cursor: pointer !important;
+  transition: 0.5s all;
+}
+.submit_search_article:hover{
+  background-color: var(--second-blue-color);
 }
 /* <<<<< tableau reservez >>>> */
 .table_container{
@@ -310,7 +316,7 @@ header{
 .head_table{
   border-collapse: collapse;
   height: 40px;
-  background-color: #003a5d;
+  background-color: var(--main-blue-color);
   color: white;
 }
 tr{
@@ -330,7 +336,7 @@ footer{
     width: 100%;
     bottom: 0px;
     box-shadow: 0px 0px 6px 1px #515151;
-    background-color: #003a5d;
+    background-color: var(--main-blue-color);
     color: white;
 }
 
