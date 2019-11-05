@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<!-- header -->
+<header>
+    <nav>
+        <div class="dropdown">
+            <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="#">Déconexion</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Home -->
+<section class="support_view">
+    <div class="container_view">
+      <div class="search_article_reservez">
+        <form class="search_article_reservez_form" action="index.html" method="post">
+          <p>
+            <label for="">Nom de l'article recherché</label>
+            <input type="text" name="" value="">
+          </p>
+          <p>X</p>
+          <p>
+            <label for="">quantité</label>
+            <input type="text" name="" value="">
+          </p>
+          <button type="button" name="button" class="submit_search_article">Valider</button>
+        </form>
+      </div>
+
+
+    </div>
+</section>
+
+<!-- footer -->
+<footer>
+
+</footer>
+{% endblock %}

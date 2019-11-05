@@ -7,6 +7,9 @@
 li{
     list-style: none;
 }
+a{
+  text-decoration: none !important;
+}
 body{
     background-color: lightgray;
     /* fond a choisir */
@@ -47,17 +50,17 @@ header{
     border: none;
     cursor: pointer;
   }
-  
+
   .dropbtn:hover, .dropbtn:focus {
     background-color: #132551;
   }
-  
+
   .dropdown {
     position: absolute;
     right: 1%;
     display: inline-block;
   }
-  
+
   .dropdown-content {
     display: none;
     position: absolute;
@@ -67,7 +70,7 @@ header{
     z-index: 1;
     right: 0;
   }
-  
+
   .dropdown-content a {
     color: black;
     padding: 12px 16px;
@@ -80,15 +83,15 @@ header{
   }
 
   .dropdown-content a:hover {background-color: #ddd}
-  
+
   .show {display:block;}
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Home >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-#home{
+.support_view{
     display: flex;
     justify-content: center;
 }
-.container_home{
+.container_view{
     width: 85vw;
     box-shadow: 0px 0px 15px lightgrey;
     height: calc(95vh - 30px);
@@ -133,7 +136,7 @@ header{
     background-color: #132551;
 }
 .logo_home{
-    height: 120px;
+    height: 100px;
     margin-top: 50px;
 }
 .card{
@@ -162,6 +165,34 @@ header{
     margin-right: 15px;
 }
 
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< RESERVEZ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.search_article_reservez{
+  display: flex;
+  justify-content: center;
+}
+.search_article_reservez_form{
+    width: 600px;
+    height: 110px;
+    padding: 10px;
+    border: 1px solid #afadad;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+.search_article_reservez_form p{
+  margin-bottom: 10px!important;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: flex-end;
+}
+.submit_search_article{
+  height: 35px;
+  width: 90px;
+  border: none;
+  border-radius: 35px;
+}
+
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FOOTER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 footer{
@@ -179,31 +210,25 @@ footer{
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MEDIA QUERIES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 @media screen and (min-width: 1268px) {
-    .container_button_list{
-        display: none;
-    }
-  }
-  @media screen and (max-width: 1267px) {
-    .container_card{
-        display: none;
-    }
-    
-  }
-@media screen and (max-width: 968px) {
-    .button_home{
-        width: 50vw;
-        height: 17vh;
-    }
-    .container_button_list{
-        flex-direction: column;
-    }
+
+}
+@media screen and (max-width: 1267px) {
+
+
+}
+@media screen and (max-width: 1082px) {
     .logo_home{
         display: none;
     }
-  }
-  @media screen and (max-width: 400px) {
-    .button_home{
-        width: 60vw;
-        height: 15vh;
+    .card-text{
+      display: none;
     }
+    .card {
+      margin: 0 30px 15px 30px;
+  }
+  }
+  @media screen and (max-width: 600px) {
+    .card {
+    width: 80%;
+  }
   }
