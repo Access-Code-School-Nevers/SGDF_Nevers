@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ScootController!{% endblock %}
+
+{% block body %}
+<!-- header -->
+<header>
+    <nav>
+        <div class="dropdown">
+            <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="#">Déconexion</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Home -->
+<section id="home">
+    <div class="container_home">
+        <div class="d-flex justify-content-center">
+            <img class="logo_home" src="./img/scouts-vertical.png" alt="logo de scouts guides de france">
+        </div>
+
+        <nav class="container_button">
+            <ul class="container_button_list">
+                <li><button class="button_home">RESERVER</button></li>
+                <li><button class="button_home">RETRAIT</button></li>
+                <li><button class="button_home">RESTITUER</button></li>
+                <li><button class="button_home">HISTORIQUE</button></li>
+            </ul>
+            <div class="container_card">
+
+                <div class="card text-center">
+                        <div class="card-body">
+                            <div class="card_title_custom">
+                                    <i class="fas fa-hammer"></i>
+                                <h5>Réservez votre matériel</h5>
+                            </div>
+                            <p class="card-text">Pour réserver votre matériel vérifiez que celui-ci est disponible en quantité suffisante.</p>
+                        </div>
+                        <button class="card-footer color_button button_style text-muted">
+                            Réservez
+                        </button>
+                </div>
+
+                <div class="card text-center">
+                        <div class="card-body">
+                            <div class="card_title_custom">
+                                <i class="fas fa-calendar-check"></i>
+                                <h5>Retrait</h5>
+                            </div>
+                            <p class="card-text">Cliquez juste en dessous et scannez les articles à emprunter.</p>
+                        </div>
+                        <button class="card-footer color_button button_style text-muted">
+                            Retrait
+                        </button>
+                </div>
+
+                <div class="card text-center">
+                        <div class="card-body">
+                            <div class="card_title_custom">
+                                <i class="fas fa-handshake"></i>
+                                <h5>Restituer votre matériel</h5>
+                            </div>
+
+                            <p class="card-text">Pour restituer votre matériel vérifiez l'état, scannez chaque article et déposez les dans leurs rangements respectifs.</p>
+                        </div>
+                        <button class="card-footer color_button button_style text-muted">
+                            RESTITUER
+                        </button>
+                </div>
+
+                <div class="card text-center">
+                        <div class="card-body">
+                            <div class="card_title_custom">
+                                <i class="fas fa-calendar-alt"></i>
+                                <h5>Historique</h5>
+                            </div>
+                            <p class="card-text">Cliquez en dessous pour accéder à l'historique de vos précédents emprunts.</p>
+                        </div>
+                        <button class="card-footer color_button button_style text-muted">
+                                HISTORIQUE
+                        </button>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+</section>
+
+<!-- footer -->
+<footer>
+
+</footer>
+{% endblock %}
