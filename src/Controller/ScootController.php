@@ -12,7 +12,7 @@ class ScootController extends AbstractController
      */
     public function home()
     {
-        return $this->render('scoot/home/home.html.twig', [
+        return $this->render('scoot/home.html.twig', [
 
         ]);
     }
