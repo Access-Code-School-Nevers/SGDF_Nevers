@@ -84,11 +84,11 @@ header{
   .show {display:block;}
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Home >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-#home{
+.support_view{
     display: flex;
     justify-content: center;
 }
-.container_home{
+.container_view{
     width: 85vw;
     box-shadow: 0px 0px 15px lightgrey;
     height: calc(95vh - 30px);

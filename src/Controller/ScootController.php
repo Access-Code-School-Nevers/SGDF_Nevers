@@ -16,4 +16,15 @@ class ScootController extends AbstractController
 
         ]);
     }
+
+    /**
+     * @Route("/reservez", name="reservez")
+     */
+    public function reservez()
+    {
+        return $this->render('scoot/reservez.html.twig', [
+
+        ]);
+    }
+
 }
