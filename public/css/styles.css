@@ -7,6 +7,9 @@
 li{
     list-style: none;
 }
+a{
+  text-decoration: none !important;
+}
 body{
     background-color: lightgray;
     /* fond a choisir */
@@ -163,19 +166,31 @@ header{
 }
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< RESERVEZ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-.search_tool_reservez{
+.search_article_reservez{
   display: flex;
   justify-content: center;
 }
-.search_tool_reservez_form{
+.search_article_reservez_form{
     width: 600px;
+    height: 110px;
+    padding: 10px;
     border: 1px solid #afadad;
     border-radius: 10px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
-.search_tool_reservez_form p{
-  flex:1;
+.search_article_reservez_form p{
+  margin-bottom: 10px!important;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: flex-end;
+}
+.submit_search_article{
+  height: 35px;
+  width: 90px;
+  border: none;
+  border-radius: 35px;
 }
 
 
