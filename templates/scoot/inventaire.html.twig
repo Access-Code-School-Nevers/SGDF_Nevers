@@ -4,41 +4,8 @@
 
 {% block body %}
 {% if app.user is not null and (app.user.roles[0] == 'ROLE_ADMIN' or app.user.roles[0] == 'ROLE_RESPONSABLE') %}
-    <!-- header -->
-    <header>
-        <nav>
-
-            <div class="dropdown display:inline-block">
-              Bonjour ???
-                <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
-
-                <div id="myDropdown" class="dropdown-content">
-                  <a href="#">Déconexion</a>
-                </div>
-          </div>
-
-
-
-
-          {# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <h3 class="inventaire">INVENTAIRE <span class="sr-only">(current)</h3>
-          </div> #}
-        </nav>
-
-            {# <div class="dropdown">
-                <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
-                <div id="myDropdown" class="dropdown-content">
-                  <a href="#">Déconexion</a>
-                </div>
-            </div>
-        </nav> #}
-    </header>
 
     <!-- Inventaire-->
-
     <section class="support_view">
       <div class="container_view">
             <nav class="container_button">

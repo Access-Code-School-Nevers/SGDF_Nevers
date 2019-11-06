@@ -3,21 +3,6 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-<!-- header -->
-<header>
-    <nav>
-      <h1>Accueil</h1>
-        <div class="dropdown">
-          {% if app.user is not null and app.user.roles[0] == 'ROLE_RESPONSABLE' %}Bonjour Responsable Chef{% endif %}
-          {% if app.user is not null and app.user.roles[0] == 'ROLE_ADMIN' %}Bonjour Admin{% endif %}
-          {% if app.user is not null and app.user.roles[0] == 'ROLE_CHEF' %}Bonjour Chef{% endif %}
-            <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
-            <div id="myDropdown" class="dropdown-content">
-              <a href="/logout">Déconnexion</a>
-            </div>
-        </div>
-    </nav>
-</header>
 
 <!-- Home -->
 <section class="support_view">
@@ -29,9 +14,7 @@
         <nav class="container_button">
             <div class="container_card">
 
-            {% if app.user is not null and (app.user.roles[0] == 'ROLE_ADMIN' or app.user.roles[0] == 'ROLE_RESPONSABLE' or app.user.roles[0] == 'ROLE_CHEF') %}
-            {% if app.user is not null and (app.user.roles[0] == 'ROLE_ADMIN' or app.user.roles[0] == 'ROLE_RESPONSABLE') %}
-            {% if app.user is not null and (app.user.roles[0] == 'ROLE_ADMIN' or app.user.roles[0] == 'ROLE_RESPONSABLE') %}
+      {% if app.user is not null and (app.user.roles[0] == 'ROLE_ADMIN' or app.user.roles[0] == 'ROLE_RESPONSABLE') %}
             <div class="card text-center">
                     <div class="card-body">
                         <div class="card_title_custom">
@@ -44,7 +27,7 @@
                             INVENTAIRE
                     </a>
             </div>
-            {% endif %}
+
             {% if app.user is not null and (app.user.roles[0] == 'ROLE_ADMIN') %}
             <div class="card text-center">
                     <div class="card-body">
@@ -60,7 +43,7 @@
             </div>
             {% endif %}
 
-            {% endif %}
+    {% endif %}
 
             <div class="card text-center">
                     <div class="card-body">
@@ -115,18 +98,8 @@
                             HISTORIQUE
                     </button>
             </div>
-            {% endif %}
-
-                <!-- Gestion du rôle de l'utilisateur pour afficher certaines informations -->
-                {% if app.user is not null and (app.user.roles[0] == 'ROLE_ADMIN' or app.user.roles[0] == 'ROLE_ADMIN') %}
-                {% endif %}
             </div>
         </nav>
     </div>
 </section>
-
-<!-- footer -->
-<footer>
-
-</footer>
 {% endblock %}

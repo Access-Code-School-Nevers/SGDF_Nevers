@@ -17,7 +17,8 @@ class ScootController extends AbstractController
     public function home()
     {
         return $this->render('scoot/home.html.twig', [
-
+          'title' => 'Accueil',
+          'arrow' => ''
         ]);
     }
 
@@ -31,6 +32,8 @@ class ScootController extends AbstractController
 
         return $this->render('scoot/inventaire.html.twig', [
             'form' => $form->createView(),
+            'title' => 'Inventaire',
+
         ]);
     }
 
@@ -40,6 +43,7 @@ class ScootController extends AbstractController
     public function reservez()
     {
       return $this->render('scoot/reservez.html.twig', [
+        'title' => 'Je réserve',
       ]);
     }
 }

@@ -1,0 +1,21 @@
+{% block header %}
+<!-- header -->
+<header>
+    <nav>
+      <div class="content_nav_left">
+        {% if arrow is not defined %}
+        <a href="./home"><i class="fas fa-arrow-left"></i></a> {% endif %}
+      </div>
+      <h1>{{title}}</h1>
+        <div class="dropdown">
+          {% if app.user is not null and app.user.roles[0] == 'ROLE_RESPONSABLE' %}Bonjour Responsable Chef{% endif %}
+          {% if app.user is not null and app.user.roles[0] == 'ROLE_ADMIN' %}Bonjour Admin{% endif %}
+          {% if app.user is not null and app.user.roles[0] == 'ROLE_CHEF' %}Bonjour Chef{% endif %}
+            <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="/logout">Déconexion</a>
+            </div>
+        </div>
+    </nav>
+</header>
+{% endblock %}
