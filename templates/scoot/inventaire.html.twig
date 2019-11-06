@@ -3,6 +3,7 @@
 {% block title %}Inventaire{% endblock %}
 
 {% block body %}
+{% if app.user is not null and app.user.roles[0] == 'ROLE_ADMIN' %}
 
     <!-- header -->
     <header>
@@ -53,7 +54,7 @@
 
   </div>
 </div>
-              
+
                 <section>
                   {{ form(form) }}
                 </section>
@@ -66,4 +67,5 @@
     <footer>
 
     </footer>
+    {% endif %}
 {% endblock %}
