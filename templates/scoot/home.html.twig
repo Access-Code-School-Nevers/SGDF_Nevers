@@ -66,6 +66,7 @@
                         </button>
                 </div>
 
+
                 <div class="card text-center">
                         <div class="card-body">
                             <div class="card_title_custom">
@@ -79,6 +80,9 @@
                         </button>
                 </div>
 
+                <!-- Gestion du rôle de l'utilisateur pour afficher certaines informations -->
+                {% if app.user is not null and app.user.roles[0] == 'ROLE_ADMIN' %}
+                {% endif %}
             </div>
         </nav>
     </div>
