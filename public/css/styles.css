@@ -159,9 +159,37 @@ header{
   .show {display:block;}
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Home >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+
 .support_view{
     display: flex;
     justify-content: center;
+}
+.container_view{
+    width: 85vw;
+    box-shadow: 0px 0px 15px lightgrey;
+    height: calc(95vh - 30px);
+    margin-top: 20px;
+    background-color: #ffffffde;
+    position: fixed;
+    overflow: overlay;
+    border-radius: 5px;
+}
+
+.container_view_creerObj{
+    width: 50vw;
+    box-shadow: 0px 0px 15px lightgrey;
+    height: calc(40vh - 30px);
+    margin-top: 20px;
+    background-color: #ffffffde;
+    position: fixed;
+    overflow: overlay;
+    border-radius: 5px;
+}
+
+# content_creerButton {
+  display: flex;
+  flex-direction: column;
 }
 
 .container_button{
@@ -202,6 +230,13 @@ header{
 .logo_home{
     margin-top: 0;
 }
+
+.logo_inventaire{
+    height: 20px;
+    margin-top: 0px;
+}
+
+
 .card{
     width: 400px;
     margin: 0 30px 30px 30px
@@ -301,6 +336,7 @@ header{
 .submit_search_article:hover{
   background-color: var(--second-blue-color);
 }
+
 /* <<<<< tableau reservez >>>> */
 .table_container{
   display: flex;
@@ -343,6 +379,91 @@ th{
 .fa-trash{
   color: #ff2828;
 }
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< INVENTAIRE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+.inventaire {
+  display: flex;
+  justify-content: center;
+}
+.input_search_article{
+  width: 100%;
+
+}
+.input_quantity_article{
+  width: 100%;
+}
+#search_name{
+  width: 100%;
+  max-width: 500px;
+}
+#icon_x{
+  width: 60px;
+}
+#search_quantity{
+  width: 60px;
+  margin-right: 20px;
+}
+
+
+.submit_search_article{
+  height: 30px;
+  width: 70px;
+  border: none;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background-color: var(--main-blue-color);
+  color: white;
+  margin: 0 10px 8px 0;
+  cursor: pointer !important;
+  transition: 0.5s all;
+}
+.submit_search_article:hover{
+  background-color: var(--second-blue-color);
+}
+/* <<<<< tableau reservez >>>> */
+.table_container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.table_container h4{
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+.table_container_color{
+  max-height: 178px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid grey;
+  overflow-y: auto;
+}
+.table_articles{
+  border-spacing: 0px;
+  border-collapse: collapse;
+  width: 100%;
+}
+.head_table{
+  border-collapse: collapse;
+  height: 40px;
+  background-color: var(--main-blue-color);
+  color: white;
+}
+tr{
+  border-bottom: 1px lightgray solid;
+  height: 35px;
+}
+th{
+  padding-left:10px;
+}
+.fa-trash{
+  color: #ff2828;
+}
+
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FOOTER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 footer{
     height: 1vh;
