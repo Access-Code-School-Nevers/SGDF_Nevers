@@ -3,20 +3,19 @@
 {% block title %}Inventaire{% endblock %}
 
 {% block body %}
-{% if app.user is not null and app.user.roles[0] == 'ROLE_ADMIN' %}
-
+{% if app.user is not null and (app.user.roles[0] == 'ROLE_ADMIN' or app.user.roles[0] == 'ROLE_RESPONSABLE') %}
     <!-- header -->
     <header>
         <nav>
 
             <div class="dropdown display:inline-block">
+              Bonjour ???
                 <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
 
                 <div id="myDropdown" class="dropdown-content">
                   <a href="#">Déconexion</a>
                 </div>
           </div>
-        </div>
 
 
 
@@ -92,4 +91,92 @@
 
     </footer>
     {% endif %}
+    {% if app.user is not null and app.user.roles[0] == 'ROLE_RESPONSABLE' %}
+        <!-- header -->
+        <header>
+            <nav>
+
+                <div class="dropdown display:inline-block">
+                  Bonjour Admin
+                    <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
+
+                    <div id="myDropdown" class="dropdown-content">
+                      <a href="#">Déconexion</a>
+                    </div>
+              </div>
+
+
+
+
+              {# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <h3 class="inventaire">INVENTAIRE <span class="sr-only">(current)</h3>
+              </div> #}
+            </nav>
+
+                {# <div class="dropdown">
+                    <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
+                    <div id="myDropdown" class="dropdown-content">
+                      <a href="#">Déconexion</a>
+                    </div>
+                </div>
+            </nav> #}
+        </header>
+
+        <!-- Inventaire-->
+
+        <section class="support_view">
+          <div class="container_view">
+                <nav class="container_button">
+
+                <div class="card border-primary mb-3" style="max-width: 60rem;">
+      <div class="card-header">Pour commencer, je crée mes objets </div>
+      <div class="card-body text-primary">
+      <section>
+
+
+
+
+        <div class="form-group">
+      {{ form_start(form) }}
+      <div class="my-custom-class-for-errors">
+          {{ form_errors(form) }}
+      </div>
+
+      <div class="row">
+          <div class="col">
+              {{ form_row(form.titre) }}
+          </div>
+          <div class="col" id="some-custom-id">
+              {{ form_row(form.description) }}
+          </div>
+          <div class="col" id="some-custom-id">
+              {{ form_row(form.photo) }}
+          </div>
+      </div>
+    {{ form_end(form) }}
+      </div>
+
+
+
+      </section>
+
+
+      </div>
+    </div>
+
+                    <section>
+                      {{ form(form) }}
+                    </section>
+
+
+        </section>
+
+        <!-- footer -->
+        <footer>
+
+        </footer>
+        {% endif %}
 {% endblock %}
