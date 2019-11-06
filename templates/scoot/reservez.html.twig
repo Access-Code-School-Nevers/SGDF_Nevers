@@ -17,27 +17,94 @@
 
 <!-- Home -->
 <section class="support_view">
-    <div class="container_view">
+    <div class="container_view container_full_view">
+      <!-- Mettre la date avant la recherche -->
       <div class="search_article_reservez">
-        <h2>Saisie du materiel à reserver </h2>
+        <h3>Saisie du matériel à reserver </h3>
         <form class="search_article_reservez_form" action="index.html" method="post">
           <p id="search_name">
             <label for="">Nom de l'article recherché</label>
-            <input type="text" class="input_search_article" name="" value="" placeholder=' ex: "Pelle"' required>
+            <input type="text" class="input_search_article" name="" value="" placeholder='ex: "Pelle"' required>
           </p>
-          <p id="icon_x">X</p>
-          <p id="search_quantity">
-            <label for="">quantité</label>
-            <input type="text" class="input_quantity_article" name="" value="" placeholder=" 0" required>
-          </p>
-          <button type="button" name="button" class="submit_search_article">Valider</button>
+          <div class="d-flex">
+            <p id="icon_x">X</p>
+            <p id="search_quantity">
+              <label for="">quantité</label>
+              <input type="text" class="input_quantity_article" name="" value="" placeholder="0" required>
+            </p>
+          </div>
+
+          <input type="submit" name="button" value="OK" class="submit_search_article">
         </form>
+      </div>
+      <div class="d-flex justify-content-center">
         <hr>
       </div>
       <div class="table_container">
-        <tbody>
-          
-        </tbody>
+        <h4>Articles choisis</h3>
+        <div class="table_container_color">
+          <table class="table_articles">
+            <thead class="head_table">
+              <tr>
+                <th>Articles</th>
+                <th>Quantitées</th>
+                <th> Action </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Pelle</th>
+                <th>5</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+              <tr>
+                <th>tentes</th>
+                <th>10</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+              <tr>
+                <th>tentes</th>
+                <th>10</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+              <tr>
+                <th>tentes</th>
+                <th>10</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+              <tr>
+                <th>tentes</th>
+                <th>10</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+              <tr>
+                <th>tentes</th>
+                <th>10</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+              <tr>
+                <th>tentes</th>
+                <th>10</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+              <tr>
+                <th>tentes</th>
+                <th>10</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+              <tr>
+                <th>tentes</th>
+                <th>10</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+              <tr>
+                <th>tentes</th>
+                <th>10</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
 
