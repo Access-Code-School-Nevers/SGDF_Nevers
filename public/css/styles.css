@@ -135,7 +135,26 @@ header nav h1 {
   font-size: 1.25em;
   color: white;
   font-weight: bold;
+  text-transform: uppercase;
 }
+.content_nav_left{
+    position: absolute;
+    left: 1%;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3px;
+
+}
+.content_nav_left a{
+      color: white;
+      transition: 0.5s all;
+}
+.content_nav_left a:hover{
+  color: #bbd7ff;
+}
+
 
 /* << Dropdown >> */
 .dropbtn {
