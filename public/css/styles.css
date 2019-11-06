@@ -281,6 +281,7 @@ header nav h1 {
 .card_title_custom h5{
     margin-bottom: 0 !important;
     margin-right: 15px;
+    font-weight: bold;
 }
 .card_title_custom i{
     margin-right: 15px;
@@ -362,6 +363,10 @@ header nav h1 {
 #search_name{
   width: 100%;
   max-width: 500px;
+}
+.search_article_reservez_form p label{
+  font-weight: bold;
+  margin-bottom: 0.5em !important;
 }
 #icon_x{
   width: 60px;
