@@ -10,7 +10,7 @@ use App\Form\CreerObjetType;
 class ScootController extends AbstractController
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("/app/home", name="home")
      */
     public function home()
     {
@@ -21,18 +21,7 @@ class ScootController extends AbstractController
 
 
     /**
-       * @Route("/reservez", name="reservez")
-       */
-      public function reservez()
-      {
-          return $this->render('scoot/reservez.html.twig', [
-          ]);
-      }
-
-
-
-    /**
-     * @Route("/inventaire", name="inventaire")
+     * @Route("/app/reservez", name="reservez")
      */
     public function inventaire()
     { $creerObjet = new CreerObjet();

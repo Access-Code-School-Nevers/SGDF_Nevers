@@ -1,3 +1,17 @@
+/* <<<<<<<<<<<< Variables >>>>>>>>>>>> */
+body {
+  --main-blue-color: #003a5d;
+  --second-blue-color: #00578c;
+}
+
+
+.main-blue-color{
+  background-color: var(--main-blue-color);
+}
+.main-blue-color-txt{
+  color: var(--main-blue-color);
+}
+
 /* <<<<<<<<<<<<<<<<<<<<<<<<<< RESET CSS >>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
 *{
@@ -10,36 +24,94 @@ li{
 a{
   text-decoration: none !important;
 }
+body:before{
+content: "";
+background-image: url(https://s2.best-wallpaper.net/wallpaper/3840x2160/1702/Tools-collection-wood-workbench_3840x2160.jpg);
+background-color: #000000;
+background-attachment: fixed;
+background-size: cover;
+z-index: -1;
+height: 100%;
+top: 0;
+width: 100vw;
+height: 100vh;
+position: absolute;
+}
+body.addBlur:before{
+  filter: blur(5px);
+}
 body{
     background-color: lightgray;
-    /* fond a choisir */
     /* background-image: url(http://itertiat.fr/wp-content/uploads/2015/11/fond-ecran-bleu.jpg); */
     /* background-image: url(https://www.robertsau.eu/wp-content/uploads/2018/02/Foret_Robertsau-Karpfenloch.jpg); */
     /* background-image: url(http://st.gde-fon.com/wallpapers_original/542084_stena_instrumentyi_itd_3816x2180_www.Gde-Fon.com.jpg); */
     /* background-image: url(https://s2.best-wallpaper.net/wallpaper/3840x2160/1702/Tools-collection-wood-workbench_3840x2160.jpg); */
-    background-image: url(https://static.miweb.padigital.es/var/m_d/d0/d02/66374/975353-44218748_m.jpg);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
+    /* background-image: url(https://static.miweb.padigital.es/var/m_d/d0/d02/66374/975353-44218748_m.jpg); */
+}
+
+hr{
+  width: 30%;
 }
 .color_button{
-    background-color: #003a5d !important;
+    background-color: var(--main-blue-color) !important;
     color: white !important;
     transition: 1s all;
 }
 .color_button:hover{
-    background-color: #132551 !important;
+    background-color: var(--second-blue-color) !important;
 }
 .button_style{
     border: none !important;
     text-transform: uppercase;
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< sccrollbar >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+/* width */
+::-webkit-scrollbar {
+  background-color: #ffffff00;
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: 0px 1px 0px 1px lightgray;
+  border-radius: 10px;
+  background-color: #ffffff00;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--main-blue-color);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--second-blue-color);
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<< container >>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.container_view{
+    width: 85vw;
+    box-shadow: 0px 0px 15px lightgrey;
+    height: calc(95vh - 30px);
+    margin-top: 20px;
+    background-color: #ffffffde;
+    position: fixed;
+    overflow: auto;
+    border-radius: 5px;
+}
+
+.container_full_view{
+  width: 100vw !important;
+  height: 100vh !important;
+  margin-top: 0!important;
+  box-shadow: none;
 }
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<< HEADER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
 header{
     height: 30px;
-    background-color: #003a5d;
+    background-color: var(--main-blue-color);
 }
 
 /* << Dropdown >> */
@@ -52,7 +124,7 @@ header{
   }
 
   .dropbtn:hover, .dropbtn:focus {
-    background-color: #132551;
+    background-color: var(--second-blue-color);
   }
 
   .dropdown {
@@ -139,7 +211,7 @@ header{
 .button_home{
     width: 25vw;
     height: 18vh;
-    background-color: #003a5d;
+    background-color: var(--main-blue-color);
     color: white;
     border: none;
     border-radius: 10px;
@@ -155,8 +227,7 @@ header{
     background-color: #132551;
 }
 .logo_home{
-    height: 100px;
-    margin-top: 50px;
+    margin-top: 0;
 }
 
 .logo_inventaire{
@@ -314,8 +385,83 @@ th{
   display: flex;
   justify-content: center;
 }
+.input_search_article{
+  width: 100%;
+
+}
+.input_quantity_article{
+  width: 100%;
+}
+#search_name{
+  width: 100%;
+  max-width: 500px;
+}
+#icon_x{
+  width: 60px;
+}
+#search_quantity{
+  width: 60px;
+  margin-right: 20px;
+}
 
 
+.submit_search_article{
+  height: 30px;
+  width: 70px;
+  border: none;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background-color: var(--main-blue-color);
+  color: white;
+  margin: 0 10px 8px 0;
+  cursor: pointer !important;
+  transition: 0.5s all;
+}
+.submit_search_article:hover{
+  background-color: var(--second-blue-color);
+}
+/* <<<<< tableau reservez >>>> */
+.table_container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.table_container h4{
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+.table_container_color{
+  max-height: 178px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid grey;
+  overflow-y: auto;
+}
+.table_articles{
+  border-spacing: 0px;
+  border-collapse: collapse;
+  width: 100%;
+}
+.head_table{
+  border-collapse: collapse;
+  height: 40px;
+  background-color: var(--main-blue-color);
+  color: white;
+}
+tr{
+  border-bottom: 1px lightgray solid;
+  height: 35px;
+}
+th{
+  padding-left:10px;
+}
+.fa-trash{
+  color: #ff2828;
+}
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FOOTER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 footer{
@@ -324,20 +470,22 @@ footer{
     width: 100%;
     bottom: 0px;
     box-shadow: 0px 0px 6px 1px #515151;
-    background-color: #003a5d;
+    background-color: var(--main-blue-color);
     color: white;
 }
 
-
-
-
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MEDIA QUERIES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-@media screen and (min-width: 1268px) {
-
+@media screen and (max-width: 1000px) {
+  .search_article_reservez_form{
+    width: 80%;
+    height: 100%;
+  }
 }
-@media screen and (max-width: 1267px) {
-
-
+@media screen and (max-width: 700px) {
+  .search_article_reservez_form{
+    width: 90%;
+    flex-wrap: wrap;
+  }
 }
 @media screen and (max-width: 1082px) {
     .logo_home{
@@ -349,10 +497,33 @@ footer{
     .card {
       margin: 0 30px 15px 30px;
   }
-  }
-  @media screen and (max-width: 600px) {
-    .card {
+}
+@media screen and (max-width: 600px) {
+  .card {
     width: 80%;
   }
-
+  .h1{
+    font-size:1.8rem;
   }
+  .h2{
+    font-size:1.2rem;
+  }
+  #login-form{
+    width:80% !important;
+  }
+}
+
+
+  /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< LOGIN >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+#logo-connect{
+  width:200px;
+  height:auto;
+}
+#login-form{
+  width:50%;
+  margin:0 auto;
+}
+.flex-height{
+  display: flex;
+  align-items: center;
+}
