@@ -33,6 +33,11 @@ class Article
      */
     private $emplacement;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Peremption", mappedBy="article", cascade={"persist", "remove"})
+     */
+    private $peremption;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -70,6 +75,23 @@ class Article
     public function setEmplacement(?Emplacement $emplacement): self
     {
         $this->emplacement = $emplacement;
+
+        return $this;
+    }
+
+    public function getPeremption(): ?Peremption
+    {
+        return $this->peremption;
+    }
+
+    public function setPeremption(Peremption $peremption): self
+    {
+        $this->peremption = $peremption;
+
+        // set the owning side of the relation if necessary
+        if ($peremption->getArticle() !== $this) {
+            $peremption->setArticle($this);
+        }
 
         return $this;
     }

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,16 @@ class Reservation
      * @ORM\JoinColumn(nullable=false)
      */
     private $utilisateur;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ReservationHasArticles", mappedBy="reservation")
+     */
+    private $reservationHasArticles;
+
+    public function __construct()
+    {
+        $this->reservationHasArticles = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +98,37 @@ class Reservation
     public function setUtilisateur(?Utilisateur $utilisateur): self
     {
         $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ReservationHasArticles[]
+     */
+    public function getReservationHasArticles(): Collection
+    {
+        return $this->reservationHasArticles;
+    }
+
+    public function addReservationHasArticle(ReservationHasArticles $reservationHasArticle): self
+    {
+        if (!$this->reservationHasArticles->contains($reservationHasArticle)) {
+            $this->reservationHasArticles[] = $reservationHasArticle;
+            $reservationHasArticle->setReservation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservationHasArticle(ReservationHasArticles $reservationHasArticle): self
+    {
+        if ($this->reservationHasArticles->contains($reservationHasArticle)) {
+            $this->reservationHasArticles->removeElement($reservationHasArticle);
+            // set the owning side to null (unless already changed)
+            if ($reservationHasArticle->getReservation() === $this) {
+                $reservationHasArticle->setReservation(null);
+            }
+        }
 
         return $this;
     }
