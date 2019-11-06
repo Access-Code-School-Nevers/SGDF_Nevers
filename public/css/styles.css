@@ -41,7 +41,7 @@ body.addBlur:before{
   filter: blur(5px);
 }
 body{
-    background-color: lightgray;
+    background-color: black;
     /* background-image: url(http://itertiat.fr/wp-content/uploads/2015/11/fond-ecran-bleu.jpg); */
     /* background-image: url(https://www.robertsau.eu/wp-content/uploads/2018/02/Foret_Robertsau-Karpfenloch.jpg); */
     /* background-image: url(http://st.gde-fon.com/wallpapers_original/542084_stena_instrumentyi_itd_3816x2180_www.Gde-Fon.com.jpg); */
@@ -93,7 +93,6 @@ hr{
     width: 85vw;
     box-shadow: 0px 0px 15px lightgrey;
     height: calc(95vh - 30px);
-    margin-top: 20px;
     background-color: #ffffffde;
     position: fixed;
     overflow: auto;
@@ -105,6 +104,7 @@ hr{
   height: 100vh !important;
   margin-top: 0!important;
   box-shadow: none;
+  border-radius: 0px !important;
 }
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<< HEADER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -165,9 +165,10 @@ header{
 }
 
 .container_button{
-    margin-top: 2em;
     display: flex;
     justify-content: center;
+    overflow: auto;
+    padding-top: 20px;
 }
 .container_button_list{
     display: flex;
