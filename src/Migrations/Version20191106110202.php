@@ -22,11 +22,8 @@ final class Version20191106110202 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-<<<<<<< HEAD:src/Migrations/Version20191106085014.php
-        $this->addSql('CREATE TABLE article (id INT AUTO_INCREMENT NOT NULL, objet_id INT NOT NULL, emplacement_id INT NOT NULL, etat TINYINT(1) NOT NULL, INDEX IDX_23A0E66F520CF5A (objet_id), INDEX IDX_23A0E66C4598A51 (emplacement_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-=======
+
         $this->addSql('CREATE TABLE article (id INT AUTO_INCREMENT NOT NULL, objet_id INT NOT NULL, emplacement_id INT NOT NULL, etat TinyInt(1) NOT NULL, INDEX IDX_23A0E66F520CF5A (objet_id), INDEX IDX_23A0E66C4598A51 (emplacement_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
->>>>>>> d7ecdefe62936627f4f7bc697dae79fec1c4aa5b:src/Migrations/Version20191106110202.php
         $this->addSql('CREATE TABLE emplacement (id INT AUTO_INCREMENT NOT NULL, site_id INT NOT NULL, INDEX IDX_C0CF65F6F6BD1646 (site_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE objet (id INT AUTO_INCREMENT NOT NULL, titre VARCHAR(255) NOT NULL, description LONGTEXT NOT NULL, quantite SMALLINT NOT NULL, photo VARCHAR(50) DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE peremption (article_id INT NOT NULL, date_peremption DATE NOT NULL, PRIMARY KEY(article_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
