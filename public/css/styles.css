@@ -24,6 +24,9 @@ li{
 a{
   text-decoration: none !important;
 }
+h1{
+  margin-bottom: 0!important;
+}
 body:before{
 content: "";
 background-image: url(https://s2.best-wallpaper.net/wallpaper/3840x2160/1702/Tools-collection-wood-workbench_3840x2160.jpg);
@@ -115,8 +118,21 @@ hr{
 /* <<<<<<<<<<<<<<<<<<<<<<<<< HEADER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
 header{
-    height: 30px;
+    height: 40px;
     background-color: var(--main-blue-color);
+    position: relative;
+}
+header nav{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header nav h1 {
+  font-size: 1.25em;
+  color: white;
 }
 
 /* << Dropdown >> */
@@ -269,13 +285,14 @@ header{
 }
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< RESERVEZ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+#date_reservez_content{
+  margin-top: 20px;
+}
 .container_search_article_reservez{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 20px;
-  margin-bottom: 1em;
 }
 .container_search_article_reservez h3{
     text-align: center;
@@ -290,7 +307,7 @@ header{
       border-radius: 10px;
       display: flex;
       justify-content: space-around;
-      align-items: flex-end;
+      align-items: center;
       background-color: white;
 }
 .date_article_reservez_form p{
@@ -304,7 +321,11 @@ header{
   font-weight: bold;
 }
 .input_date_form{
-
+  width: 157px !important;
+}
+.content_date{
+  display: flex;
+  align-items: flex-end;
 }
 .search_article_reservez_form{
   width: 100%;
@@ -510,7 +531,7 @@ footer{
     height: 100%;
   }
   .date_article_reservez_form{
-    width: 90%;
+    width: 80%;
     padding: 10px;
     height: 100%;
     flex-direction: column;
@@ -524,6 +545,12 @@ footer{
   .search_article_reservez_form{
     width: 90%;
     flex-wrap: wrap;
+  }
+  .date_article_reservez_form{
+    width: 90%;
+  }
+  .table_container_color{
+    width: 90%;
   }
 }
 @media screen and (max-width: 1082px) {
@@ -549,6 +576,10 @@ footer{
   }
   #login-form{
     width:80% !important;
+  }
+  .content_date{
+    flex-direction: column;
+    padding-bottom: 1rem;
   }
 }
 
