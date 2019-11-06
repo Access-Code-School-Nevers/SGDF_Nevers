@@ -12,7 +12,6 @@
       {% endblock %}
     </head>
     <body>
-
         {% include 'components/header.html.twig' %}
         {% block body %}{% endblock %}
 
@@ -25,8 +24,6 @@
         {% endblock %}
 
         {% include 'components/footer.html.twig' %}
-
-
         {% for message in app.flashes('success') %}
           <div class="alert alert-success alert-custom" onclick="hideMessage(this)">
             {{ message }}
