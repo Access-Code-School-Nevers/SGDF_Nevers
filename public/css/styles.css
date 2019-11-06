@@ -170,6 +170,7 @@ header nav h1 {
   }
 
   .dropdown {
+    color: white;
     position: absolute;
     right: 1%;
     display: inline-block;

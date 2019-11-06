@@ -40,4 +40,5 @@ class ScootController extends AbstractController
       return $this->render('scoot/reservez.html.twig', [
       ]);
     }
+    
 }
