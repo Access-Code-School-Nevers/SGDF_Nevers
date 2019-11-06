@@ -12,6 +12,9 @@ class UtilisateurType extends AbstractType
     {
         $builder
             ->add('field_name')
+            ->add('password')
+            ->add('roles')
+
         ;
     }
 
