@@ -17,7 +17,7 @@ class Article
     private $id;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="smallint", columnDefinition="TinyInt(1) NOT NULL")
      */
     private $etat;
 
