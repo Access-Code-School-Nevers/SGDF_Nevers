@@ -38,6 +38,11 @@ class Objet
      */
     private $articles;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $photo;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -111,6 +116,18 @@ class Objet
                 $article->setObjet(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }
