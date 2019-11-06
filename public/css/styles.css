@@ -41,12 +41,15 @@ body.addBlur:before{
   filter: blur(5px);
 }
 body{
-    background-color: lightgray;
+    background-color: black;
     /* background-image: url(http://itertiat.fr/wp-content/uploads/2015/11/fond-ecran-bleu.jpg); */
     /* background-image: url(https://www.robertsau.eu/wp-content/uploads/2018/02/Foret_Robertsau-Karpfenloch.jpg); */
     /* background-image: url(http://st.gde-fon.com/wallpapers_original/542084_stena_instrumentyi_itd_3816x2180_www.Gde-Fon.com.jpg); */
     /* background-image: url(https://s2.best-wallpaper.net/wallpaper/3840x2160/1702/Tools-collection-wood-workbench_3840x2160.jpg); */
     /* background-image: url(https://static.miweb.padigital.es/var/m_d/d0/d02/66374/975353-44218748_m.jpg); */
+}
+label{
+  margin-bottom: 0 !important;
 }
 
 hr{
@@ -93,11 +96,11 @@ hr{
     width: 85vw;
     box-shadow: 0px 0px 15px lightgrey;
     height: calc(95vh - 30px);
-    margin-top: 20px;
     background-color: #ffffffde;
     position: fixed;
     overflow: auto;
     border-radius: 5px;
+
 }
 
 .container_full_view{
@@ -105,6 +108,8 @@ hr{
   height: 100vh !important;
   margin-top: 0!important;
   box-shadow: none;
+  border-radius: 0px !important;
+  padding-bottom: 50px;
 }
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<< HEADER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -193,9 +198,10 @@ header{
 }
 
 .container_button{
-    margin-top: 2em;
     display: flex;
     justify-content: center;
+    overflow: auto;
+    padding-top: 20px;
 }
 .container_button_list{
     display: flex;
@@ -263,7 +269,7 @@ header{
 }
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< RESERVEZ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-.search_article_reservez{
+.container_search_article_reservez{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -271,10 +277,34 @@ header{
   margin-top: 20px;
   margin-bottom: 1em;
 }
-.search_article_reservez h3{
+.container_search_article_reservez h3{
     text-align: center;
     font-size: 1em;
     margin-bottom: 1em;
+}
+.date_article_reservez_form{
+  width: 100%;
+      max-width: 800px;
+      height: 70px;
+      border: 1px solid #afafafbd;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      background-color: white;
+}
+.date_article_reservez_form p{
+  display: flex;
+}
+.date_article_reservez_form p label{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  font-weight: bold;
+}
+.input_date_form{
+
 }
 .search_article_reservez_form{
   width: 100%;
@@ -295,15 +325,13 @@ header{
   flex-direction: column;
   justify-content: flex-end;
 }
-.search_article_reservez_form p input{
+
+.input_style{
+  width: 100%;
   height: 35px;
   border-radius: 7px;
   border: 1px solid #b1b1b1;
   padding-left: 10px;
-}
-.input_search_article{
-  width: 100%;
-
 }
 .input_quantity_article{
   width: 100%;
@@ -349,6 +377,7 @@ header{
 }
 .table_container_color{
   max-height: 178px;
+  max-width: 800px;
   width: 80%;
   display: flex;
   justify-content: center;
@@ -479,6 +508,16 @@ footer{
   .search_article_reservez_form{
     width: 80%;
     height: 100%;
+  }
+  .date_article_reservez_form{
+    width: 90%;
+    padding: 10px;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .date_article_reservez_form p{
+    margin-bottom: 0;
   }
 }
 @media screen and (max-width: 700px) {

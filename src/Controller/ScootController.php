@@ -22,7 +22,7 @@ class ScootController extends AbstractController
 
 
     /**
-     * @Route("/app/reservez", name="reservez")
+     * @Route("/app/inventaire", name="inventaire")
      */
     public function inventaire()
     { $creerObjet = new CreerObjet();
@@ -31,5 +31,13 @@ class ScootController extends AbstractController
         return $this->render('scoot/inventaire.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+      /**
+    * @Route("/app/reservez", name="reservez")
+    */
+    public function reservez()
+    {
+      return $this->render('scoot/reservez.html.twig', [
+      ]);
     }
 }
