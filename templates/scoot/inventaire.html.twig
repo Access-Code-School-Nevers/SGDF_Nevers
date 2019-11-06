@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inventaire{% endblock %}
+
+{% block body %}
+
+    <!-- header -->
+    <header>
+        <nav>
+
+            <div class="dropdown display:inline-block">
+                <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
+
+                <div id="myDropdown" class="dropdown-content">
+                  <a href="#">Déconexion</a>
+                </div>
+          </div>
+        </div>
+
+
+
+
+          {# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <h3 class="inventaire">INVENTAIRE <span class="sr-only">(current)</h3>
+          </div> #}
+        </nav>
+
+            {# <div class="dropdown">
+                <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
+                <div id="myDropdown" class="dropdown-content">
+                  <a href="#">Déconexion</a>
+                </div>
+            </div>
+        </nav> #}
+    </header>
+
+    <!-- Inventaire-->
+
+    <section class="support_view">
+      <div class="container_view">
+            <nav class="container_button">
+
+            <div class="card border-primary mb-3" style="max-width: 60rem;">
+  <div class="card-header">Pour commencer, je crée mes objets </div>
+  <div class="card-body text-primary">
+  <section>
+    {{ form(form) }}
+  </section>
+
+
+  </div>
+</div>
+              
+                <section>
+                  {{ form(form) }}
+                </section>
+
+            </nav>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+
+    </footer>
+{% endblock %}

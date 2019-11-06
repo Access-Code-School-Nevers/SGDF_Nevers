@@ -7,6 +7,9 @@
 li{
     list-style: none;
 }
+a{
+  text-decoration: none !important;
+}
 body{
     background-color: lightgray;
     /* fond a choisir */
@@ -84,11 +87,13 @@ header{
   .show {display:block;}
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Home >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-#home{
+
+
+.support_view{
     display: flex;
     justify-content: center;
 }
-.container_home{
+.container_view{
     width: 85vw;
     box-shadow: 0px 0px 15px lightgrey;
     height: calc(95vh - 30px);
@@ -98,6 +103,23 @@ header{
     overflow: overlay;
     border-radius: 5px;
 }
+
+.container_view_creerObj{
+    width: 50vw;
+    box-shadow: 0px 0px 15px lightgrey;
+    height: calc(40vh - 30px);
+    margin-top: 20px;
+    background-color: #ffffffde;
+    position: fixed;
+    overflow: overlay;
+    border-radius: 5px;
+}
+
+# content_creerButton {
+  display: flex;
+  flex-direction: column;
+}
+
 .container_button{
     margin-top: 2em;
     display: flex;
@@ -136,6 +158,13 @@ header{
     height: 100px;
     margin-top: 50px;
 }
+
+.logo_inventaire{
+    height: 20px;
+    margin-top: 0px;
+}
+
+
 .card{
     width: 400px;
     margin: 0 30px 30px 30px
@@ -161,6 +190,131 @@ header{
 .card_title_custom i{
     margin-right: 15px;
 }
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< RESERVEZ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.search_article_reservez{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 1em;
+}
+.search_article_reservez h3{
+    text-align: center;
+    font-size: 1em;
+    margin-bottom: 1em;
+}
+.search_article_reservez_form{
+  width: 100%;
+      max-width: 800px;
+      height: 110px;
+      padding: 10px;
+      border: 1px solid #afafafbd;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      background-color: white;
+}
+.search_article_reservez_form p{
+  margin-bottom: 10px!important;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.search_article_reservez_form p input{
+  height: 35px;
+  border-radius: 7px;
+  border: 1px solid #b1b1b1;
+  padding-left: 10px;
+}
+.input_search_article{
+  width: 100%;
+
+}
+.input_quantity_article{
+  width: 100%;
+}
+#search_name{
+  width: 100%;
+  max-width: 500px;
+}
+#icon_x{
+  width: 60px;
+}
+#search_quantity{
+  width: 60px;
+  margin-right: 20px;
+}
+
+.submit_search_article{
+  height: 30px;
+  width: 70px;
+  border: none;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background-color: var(--main-blue-color);
+  color: white;
+  margin: 0 10px 8px 0;
+  cursor: pointer !important;
+  transition: 0.5s all;
+}
+.submit_search_article:hover{
+  background-color: var(--second-blue-color);
+}
+
+/* <<<<< tableau reservez >>>> */
+.table_container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.table_container h4{
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+.table_container_color{
+  max-height: 178px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid grey;
+  overflow-y: auto;
+}
+.table_articles{
+  border-spacing: 0px;
+  border-collapse: collapse;
+  width: 100%;
+}
+.head_table{
+  border-collapse: collapse;
+  height: 40px;
+  background-color: var(--main-blue-color);
+  color: white;
+}
+tr{
+  border-bottom: 1px lightgray solid;
+  height: 35px;
+}
+th{
+  padding-left:10px;
+}
+.fa-trash{
+  color: #ff2828;
+}
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< INVENTAIRE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+.inventaire {
+  display: flex;
+  justify-content: center;
+}
+
 
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FOOTER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/

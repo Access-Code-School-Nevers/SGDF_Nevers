@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ScootController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
 <!-- header -->
@@ -16,8 +16,8 @@
 </header>
 
 <!-- Home -->
-<section id="home">
-    <div class="container_home">
+<section class="support_view">
+    <div class="container_view">
         <div class="d-flex justify-content-center">
             <img class="logo_home" src="./img/scouts-vertical.png" alt="logo de scouts guides de france">
         </div>
@@ -33,9 +33,9 @@
                             </div>
                             <p class="card-text">Pour réserver votre matériel vérifiez que celui-ci est disponible en quantité suffisante.</p>
                         </div>
-                        <button class="card-footer color_button button_style text-muted">
+                        <a href="http://localhost:8000/reservez" class="card-footer color_button button_style text-muted" >
                             Réservez
-                        </button>
+                        </a>
                 </div>
 
                 <div class="card text-center">

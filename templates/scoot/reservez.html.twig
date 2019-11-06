@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<!-- header -->
+<header>
+    <nav>
+        <div class="dropdown">
+            <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="#">Déconexion</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Home -->
+<section class="support_view">
+    <div class="container_view container_full_view">
+      <!-- Mettre la date avant la recherche -->
+      <div class="search_article_reservez">
+        <h3>Saisie du matériel à reserver </h3>
+        <form class="search_article_reservez_form" action="index.html" method="post">
+          <p id="search_name">
+            <label for="">Nom de l'article recherché</label>
+            <input type="text" class="input_search_article" name="" value="" placeholder='ex: "Pelle"' required>
+          </p>
+          <div class="d-flex">
+            <p id="icon_x">X</p>
+            <p id="search_quantity">
+              <label for="">quantité</label>
+              <input type="text" class="input_quantity_article" name="" value="" placeholder="0" required>
+            </p>
+          </div>
+
+          <input type="submit" name="button" value="OK" class="submit_search_article">
+        </form>
+      </div>
+      <div class="d-flex justify-content-center">
+        <hr>
+      </div>
+      <div class="table_container">
+        <h4>Articles choisis</h3>
+        <div class="table_container_color">
+          <table class="table_articles">
+            <thead class="head_table">
+              <tr>
+                <th>Articles</th>
+                <th>Quantitées</th>
+                <th> Action </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Pelle</th>
+                <th>5</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+              <tr>
+                <th>tentes</th>
+                <th>10</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+              <tr>
+                <th>tentes</th>
+                <th>10</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+              <tr>
+                <th>tentes</th>
+                <th>10</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+              <tr>
+                <th>tentes</th>
+                <th>10</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+              <tr>
+                <th>tentes</th>
+                <th>10</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+              <tr>
+                <th>tentes</th>
+                <th>10</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+              <tr>
+                <th>tentes</th>
+                <th>10</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+              <tr>
+                <th>tentes</th>
+                <th>10</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+              <tr>
+                <th>tentes</th>
+                <th>10</th>
+                <th class="pl-4"><a href="#"><i class="fas fa-trash"></i></a></th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
+    </div>
+</section>
+
+<!-- footer -->
+<footer>
+
+</footer>
+{% endblock %}
