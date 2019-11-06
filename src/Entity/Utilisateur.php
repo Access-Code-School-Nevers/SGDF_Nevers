@@ -129,9 +129,9 @@ class Utilisateur implements UserInterface
       if($this->getRole() == 1)
         return array('ROLE_ADMIN');
       else if($this->getRole() == 2)
-        return array('ROLE_ADMIN');
+        return array('ROLE_RESPONSABLE');
       else if($this->getRole() == 3)
-        return array('ROLE_ADMIN');
+        return array('ROLE_CHEF');
       else
         return array();
     }

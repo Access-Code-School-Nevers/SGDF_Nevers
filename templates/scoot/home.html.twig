@@ -76,20 +76,12 @@
                         </div>
                         <button class="card-footer color_button button_style text-muted">
                                 HISTORIQUE
-                                {% if is_granted('ROLE_ADMIN') %}
-                                    Administrateur
-                                {% elseif is_granted('ROLE_RESPONSABLE') %}
-                                    Responsable
-                                {% elseif is_granted('ROLE_CHEF') %}
-                                    Chef
-                                {% else %}
-                                    Anonymous
-                                {% endif %}
                         </button>
                 </div>
-                {% for role in app.user.roles %}
-                {{ role }} <br>
-                {% endfor %}
+
+                <!-- Gestion du rôle de l'utilisateur pour afficher certaines informations -->
+                {% if app.user is not null and app.user.roles[0] == 'ROLE_ADMIN' %}
+                {% endif %}
             </div>
         </nav>
     </div>
