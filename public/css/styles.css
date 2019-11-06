@@ -69,6 +69,7 @@ hr{
 .button_style{
     border: none !important;
     text-transform: uppercase;
+    font-weight: bold;
 }
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< sccrollbar >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 /* width */
@@ -110,7 +111,7 @@ hr{
   width: 100vw !important;
   height: 100vh !important;
   margin-top: 0!important;
-  box-shadow: none;
+  box-shadow: none !important;
   border-radius: 0px !important;
   padding-bottom: 50px;
 }
@@ -133,7 +134,27 @@ header nav{
 header nav h1 {
   font-size: 1.25em;
   color: white;
+  font-weight: bold;
+  text-transform: uppercase;
 }
+.content_nav_left{
+    position: absolute;
+    left: 1%;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3px;
+
+}
+.content_nav_left a{
+      color: white;
+      transition: 0.5s all;
+}
+.content_nav_left a:hover{
+  color: #bbd7ff;
+}
+
 
 /* << Dropdown >> */
 .dropbtn {
@@ -279,6 +300,7 @@ header nav h1 {
 .card_title_custom h5{
     margin-bottom: 0 !important;
     margin-right: 15px;
+    font-weight: bold;
 }
 .card_title_custom i{
     margin-right: 15px;
@@ -361,6 +383,10 @@ header nav h1 {
   width: 100%;
   max-width: 500px;
 }
+.search_article_reservez_form p label{
+  font-weight: bold;
+  margin-bottom: 0.5em !important;
+}
 #icon_x{
   width: 60px;
 }
@@ -391,6 +417,7 @@ header nav h1 {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 5em;
 }
 .table_container h4{
   font-size: 1em;
