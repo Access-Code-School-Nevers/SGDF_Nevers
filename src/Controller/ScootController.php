@@ -14,6 +14,7 @@ class ScootController extends AbstractController
      */
     public function home()
     {
+      $this->denyAccessUnlessGranted('ROLE_ADMIN');
         return $this->render('scoot/home.html.twig', [
 
         ]);

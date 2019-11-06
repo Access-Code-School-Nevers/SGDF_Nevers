@@ -65,6 +65,7 @@
                         </button>
                 </div>
 
+
                 <div class="card text-center">
                         <div class="card-body">
                             <div class="card_title_custom">
@@ -75,9 +76,20 @@
                         </div>
                         <button class="card-footer color_button button_style text-muted">
                                 HISTORIQUE
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    Administrateur
+                                {% elseif is_granted('ROLE_RESPONSABLE') %}
+                                    Responsable
+                                {% elseif is_granted('ROLE_CHEF') %}
+                                    Chef
+                                {% else %}
+                                    Anonymous
+                                {% endif %}
                         </button>
                 </div>
-
+                {% for role in app.user.roles %}
+                {{ role }} <br>
+                {% endfor %}
             </div>
         </nav>
     </div>

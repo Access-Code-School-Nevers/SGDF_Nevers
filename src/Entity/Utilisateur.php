@@ -33,7 +33,7 @@ class Utilisateur implements UserInterface
     private $roles;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="smallint", columnDefinition="TinyInt(1) NOT NULL")
      */
     private $role;
 
