@@ -20,5 +20,11 @@
         <script src="https://kit.fontawesome.com/6fee70888d.js"></script>
         <script src="/js/script.js"></script>
         {% endblock %}
+
+        {% for message in app.flashes('success') %}
+          <div class="alert alert-success alert-custom" onclick="hideMessage(this)">
+            {{ message }}
+          </div>
+        {% endfor %}
     </body>
 </html>
