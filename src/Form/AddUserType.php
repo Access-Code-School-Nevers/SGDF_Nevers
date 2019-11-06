@@ -15,20 +15,20 @@ class AddUserType extends AbstractType
   {
     $builder
       ->add('nom', null,
-          [ 'label' => false,
+          [ 'label' => 'Nom',
             'attr' => array('placeholder' => 'Nom de l\'utilisateur')
           ])
       ->add('password', PasswordType::class,
-          [ 'label' => false,
+          [ 'label' => 'Mot de passe',
             'attr' => array('placeholder' => 'Mot de passe')
           ])
       ->add('role', ChoiceType::class, [
-          'label' => false,
+          'label' => 'Rôle de l\'utilisateur',
           'choices' => [
-            'Administrateur' => 1,
+            'Chef' => 3,
             'Responsable matériel' => 2,
-            'Chef' => 3
-          ],
+            'Administrateur' => 1
+          ]
         ])
       ->add('save', SubmitType::class, [
           'attr' => ['class' => 'w-100 btn-primary main-blue-color'],

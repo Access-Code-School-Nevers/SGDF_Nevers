@@ -8,19 +8,17 @@
     <div class="w-100">
       <div class="d-flex justify-content-center mt-4">
         <div class="mid-form">
-          <div class="form-group">
-            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-              {{ form_row(form.nom) }}
-              {{ form_row(form.password) }}
-              {{ form_row(form.role) }}
+          {{ form_start(form) }}
+            {{ form_row(form.nom) }}
+            {{ form_row(form.password) }}
+            {{ form_row(form.role) }}
 
-              {{ form_widget(form.save, { 'label': 'Enregistrer' }) }}
+            {{ form_widget(form.save, { 'label': 'Enregistrer' }) }}
 
-              <div class="my-custom-class-for-errors">
-                {{ form_errors(form) }}
-              </div>
-            {{ form_end(form) }}
-          </div>
+            <div class="my-custom-class-for-errors">
+              {{ form_errors(form) }}
+            </div>
+          {{ form_end(form) }}
         </div>
       </div>
     </div>
