@@ -3,22 +3,6 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-<!-- header -->
-<header>
-    <nav>
-      <div class="content_nav_left">
-        <a href="./home"><i class="fas fa-arrow-left"></i></a>
-      </div>
-      <h1>Je réserve</h1>
-        <div class="dropdown">
-            <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
-            <div id="myDropdown" class="dropdown-content">
-              <a href="#">Déconexion</a>
-            </div>
-        </div>
-    </nav>
-</header>
-
 <!-- Home -->
 <section class="support_view">
     <div class="container_view container_full_view">
@@ -132,9 +116,5 @@
 
     </div>
 </section>
-
-<!-- footer -->
-<footer>
-
-</footer>
+{% include 'components/footer.html.twig' %}
 {% endblock %}
