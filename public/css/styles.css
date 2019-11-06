@@ -602,7 +602,7 @@ footer{
   .h2{
     font-size:1.2rem;
   }
-  #login-form{
+  .mid-form{
     width:80% !important;
   }
   .content_date{
@@ -612,16 +612,27 @@ footer{
 }
 
 
-  /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< LOGIN >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< LOGIN >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 #logo-connect{
   width:200px;
   height:auto;
 }
-#login-form{
+.mid-form{
   width:50%;
   margin:0 auto;
 }
 .flex-height{
   display: flex;
   align-items: center;
+}
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ALERTE MESSAGE >>>>>>>>>>>>>>>>>>>> */
+.alert-custom{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  border-radius: 0;
+  margin:0;
+  cursor:pointer;
 }

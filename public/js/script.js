@@ -17,3 +17,9 @@ function myFunction() {
       }
     }
   }
+
+
+// Hide flash message
+function hideMessage(el){
+  el.style.display = "none";
+}
