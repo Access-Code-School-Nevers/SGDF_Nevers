@@ -21,7 +21,7 @@ class ScootController extends AbstractController
 
 
     /**
-     * @Route("/app/reservez", name="reservez")
+     * @Route("/app/inventaire", name="reservez")
      */
     public function inventaire()
     { $creerObjet = new CreerObjet();
