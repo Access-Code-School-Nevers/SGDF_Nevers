@@ -47,7 +47,32 @@
   <div class="card-header">Pour commencer, je crée mes objets </div>
   <div class="card-body text-primary">
   <section>
-    {{ form(form) }}
+
+
+
+
+    <div class="form-group">
+  {{ form_start(form) }}
+  <div class="my-custom-class-for-errors">
+      {{ form_errors(form) }}
+  </div>
+
+  <div class="row">
+      <div class="col">
+          {{ form_row(form.titre) }}
+      </div>
+      <div class="col" id="some-custom-id">
+          {{ form_row(form.description) }}
+      </div>
+      <div class="col" id="some-custom-id">
+          {{ form_row(form.photo) }}
+      </div>
+  </div>
+{{ form_end(form) }}
+  </div>
+
+
+
   </section>
 
 
