@@ -3,18 +3,6 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-<!-- header -->
-<header>
-    <nav>
-      <h1>Accueil</h1>
-        <div class="dropdown">
-            <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
-            <div id="myDropdown" class="dropdown-content">
-              <a href="/logout">Déconnexion</a>
-            </div>
-        </div>
-    </nav>
-</header>
 
 <!-- Home -->
 <section class="support_view">
@@ -26,96 +14,92 @@
         <nav class="container_button">
             <div class="container_card">
 
-              <div class="card text-center">
-                      <div class="card-body">
-                          <div class="card_title_custom">
-                              <i class="fas fa-box"></i>
-                              <h5>Inventaire</h5>
-                          </div>
-                          <p class="card-text">Cliquez pour faire l'inventaire du matériel.</p>
-                      </div>
-                      <button class="card-footer color_button button_style text-muted">
-                              INVENTAIRE
-                      </button>
-              </div>
-
-              <div class="card text-center">
-                      <div class="card-body">
-                          <div class="card_title_custom">
-                              <i class="fas fa-users"></i>
-                              <h5>Espace Membre</h5>
-                          </div>
-                          <p class="card-text">Cliquez en dessous pour créer un nouveau membre.</p>
-                      </div>
-                      <button class="card-footer color_button button_style text-muted">
-                              Espace Membre
-                      </button>
-              </div>
-
-                <div class="card text-center">
-                        <div class="card-body">
-                            <div class="card_title_custom">
-                                    <i class="fas fa-tools"></i>
-                                <h5>Réservez votre matériel</h5>
-                            </div>
-                            <p class="card-text">Pour réserver votre matériel vérifiez que celui-ci est disponible en quantité suffisante.</p>
+      {% if app.user is not null and (app.user.roles[0] == 'ROLE_ADMIN' or app.user.roles[0] == 'ROLE_RESPONSABLE') %}
+            <div class="card text-center">
+                    <div class="card-body">
+                        <div class="card_title_custom">
+                            <i class="fas fa-box"></i>
+                            <h5>Inventaire</h5>
                         </div>
-                        <a href="http://localhost:8000/app/reservez" class="card-footer color_button button_style text-muted" >
-                            Réservez
-                        </a>
-                </div>
+                        <p class="card-text">Cliquez pour faire l'inventaire du matériel.</p>
+                    </div>
+                    <a href="./inventaire" class="card-footer color_button button_style text-muted">
+                            INVENTAIRE
+                    </a>
+            </div>
 
-                <div class="card text-center">
-                        <div class="card-body">
-                            <div class="card_title_custom">
-                                <i class="fas fa-calendar-check"></i>
-                                <h5>Retrait</h5>
-                            </div>
-                            <p class="card-text">Cliquez juste en dessous et scannez les articles à emprunter.</p>
+            {% if app.user is not null and (app.user.roles[0] == 'ROLE_ADMIN') %}
+            <div class="card text-center">
+                    <div class="card-body">
+                        <div class="card_title_custom">
+                            <i class="fas fa-users"></i>
+                            <h5>Espace Membre</h5>
                         </div>
-                        <button class="card-footer color_button button_style text-muted">
-                            Retrait
-                        </button>
-                </div>
+                        <p class="card-text">Cliquez en dessous pour créer un nouveau membre.</p>
+                    </div>
+                    <a href="/app/ajouter-utilisateur" class="card-footer color_button button_style text-muted">
+                            Espace Membre
+                    </a>
+            </div>
+            {% endif %}
 
-                <div class="card text-center">
-                        <div class="card-body">
-                            <div class="card_title_custom">
-                                <i class="fas fa-handshake"></i>
-                                <h5>Restituer votre matériel</h5>
-                            </div>
+    {% endif %}
 
-                            <p class="card-text">Pour restituer votre matériel vérifiez l'état, scannez chaque article et déposez les dans leurs rangements respectifs.</p>
+            <div class="card text-center">
+                    <div class="card-body">
+                        <div class="card_title_custom">
+                                <i class="fas fa-tools"></i>
+                            <h5>Réservez votre matériel</h5>
                         </div>
-                        <button class="card-footer color_button button_style text-muted">
-                            RESTITUER
-                        </button>
-                </div>
+                        <p class="card-text">Pour réserver votre matériel vérifiez que celui-ci est disponible en quantité suffisante.</p>
+                    </div>
+                    <a href="/app/reservez" class="card-footer color_button button_style text-muted" >
+                        Réservez
+                    </a>
+            </div>
 
-
-                <div class="card text-center">
-                        <div class="card-body">
-                            <div class="card_title_custom">
-                                <i class="fas fa-calendar-alt"></i>
-                                <h5>Historique</h5>
-                            </div>
-                            <p class="card-text">Cliquez en dessous pour accéder à l'historique de vos précédents emprunts.</p>
+            <div class="card text-center">
+                    <div class="card-body">
+                        <div class="card_title_custom">
+                            <i class="fas fa-calendar-check"></i>
+                            <h5>Retrait</h5>
                         </div>
-                        <button class="card-footer color_button button_style text-muted">
-                                HISTORIQUE
-                        </button>
-                </div>
+                        <p class="card-text">Cliquez juste en dessous et scannez les articles à emprunter.</p>
+                    </div>
+                    <button class="card-footer color_button button_style text-muted">
+                        Retrait
+                    </button>
+            </div>
 
-                <!-- Gestion du rôle de l'utilisateur pour afficher certaines informations -->
-                {% if app.user is not null and app.user.roles[0] == 'ROLE_ADMIN' %}
-                {% endif %}
+            <div class="card text-center">
+                    <div class="card-body">
+                        <div class="card_title_custom">
+                            <i class="fas fa-handshake"></i>
+                            <h5>Restituer votre matériel</h5>
+                        </div>
+
+                        <p class="card-text">Pour restituer votre matériel vérifiez l'état, scannez chaque article et déposez les dans leurs rangements respectifs.</p>
+                    </div>
+                    <button class="card-footer color_button button_style text-muted">
+                        RESTITUER
+                    </button>
+            </div>
+
+
+            <div class="card text-center">
+                    <div class="card-body">
+                        <div class="card_title_custom">
+                            <i class="fas fa-calendar-alt"></i>
+                            <h5>Historique</h5>
+                        </div>
+                        <p class="card-text">Cliquez en dessous pour accéder à l'historique de vos précédents emprunts.</p>
+                    </div>
+                    <button class="card-footer color_button button_style text-muted">
+                            HISTORIQUE
+                    </button>
+            </div>
             </div>
         </nav>
     </div>
 </section>
-
-<!-- footer -->
-<footer>
-
-</footer>
 {% endblock %}
