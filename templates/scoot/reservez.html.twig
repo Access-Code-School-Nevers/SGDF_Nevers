@@ -6,6 +6,10 @@
 <!-- header -->
 <header>
     <nav>
+      <div class="content_nav_left">
+        <a href="./home"><i class="fas fa-arrow-left"></i></a>
+      </div>
+      <h1>Je réserve</h1>
         <div class="dropdown">
             <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
             <div id="myDropdown" class="dropdown-content">
@@ -19,20 +23,25 @@
 <section class="support_view">
     <div class="container_view container_full_view">
       <!-- Mettre la date avant la recherche -->
-      <div class="container_search_article_reservez">
-        <h3>Mes dates</h3>
+      <div id="date_reservez_content" class="container_search_article_reservez">
+
         <form class="date_article_reservez_form">
-          <p><label for="date-start">Début:</label>
-            <input class="input_date_form input_style" type="date" name="date-start" value="">
-          </p>
-          <p>
-            <label for="date-end">Fin:</label>
-            <input class="input_style" type="date" name="date-end" value="">
-          </p>
+          <div class="content_date">
+            <p class="mt-3 mr-3 ml-3"><label for="date-start">Début:</label>
+              <input class="input_date_form input_style" type="date" name="date-start" value="" required>
+            </p>
+            <p class="mt-3 mr-3 ml-3">
+              <label for="date-end">Fin:</label>
+              <input class="input_date_form input_style" type="date" name="date-end" value="" required>
+            </p>
+          </div>
         </form>
       </div>
+      <div class="d-flex justify-content-center">
+        <hr>
+      </div>
       <div class="container_search_article_reservez">
-        <h3>Saisie du matériel à reserver </h3>
+
         <form class="search_article_reservez_form" action="index.html" method="post">
           <p id="search_name">
             <label for="Name">Nom de l'article recherché</label>
@@ -41,8 +50,8 @@
           <div class="d-flex">
             <p id="icon_x">X</p>
             <p id="search_quantity">
-              <label for="quantity">quantité</label>
-              <input type="text" class="input_quantity_article" name="quantity" value="" placeholder="0" required>
+              <label for="quantity">Quantité</label>
+              <input type="text" class="input_quantity_article input_style" name="quantity" value="" placeholder="0" required>
             </p>
           </div>
 
