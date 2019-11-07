@@ -1,0 +1,9 @@
+{% extends 'bundles/TwigBundle/Exception/baseError.html.twig' %}
+
+{% block body %}
+  <h1 class="font-weight-bold">Erreur serveur</h1>
+
+  <i class="fas fa-server fa-5x my-5"></i>
+  <p>Oups, le serveur est cassé ! Vous pouvez patienter quelques minutes avant de réessayer.</p>
+  <p><a href="{{ path('app_login') }}">Cliquez ici pour retourner à la page principale.</a></p>
+{% endblock %}

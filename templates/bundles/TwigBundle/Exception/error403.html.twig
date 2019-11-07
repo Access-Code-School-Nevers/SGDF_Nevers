@@ -1,0 +1,9 @@
+{% extends 'bundles/TwigBundle/Exception/baseError.html.twig' %}
+
+{% block body %}
+  <h1 class="font-weight-bold">Accès refusé</h1>
+
+  <i class="fas fa-lock fa-5x my-5"></i>
+  <p>Vous n'avez pas l'autorisation nécessaire pour accéder à cette page.</p>
+  <p><a href="{{ path('app_login') }}">Cliquez ici pour retourner à la page principale.</a></p>
+{% endblock %}
