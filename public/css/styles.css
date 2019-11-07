@@ -230,7 +230,7 @@ header nav h1 {
     border-radius: 5px;
 }
 
-# content_creerButton {
+#content_creerButton {
   display: flex;
   flex-direction: column;
 }
@@ -497,48 +497,6 @@ th{
 }
 .submit_search_article:hover{
   background-color: var(--second-blue-color);
-}
-/* <<<<< tableau reservez >>>> */
-.table_container{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-.table_container h4{
-  font-size: 1em;
-  margin-bottom: 1em;
-}
-.table_container_color{
-  max-height: 178px;
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  border-radius: 5px;
-  border: 1px solid grey;
-  overflow-y: auto;
-}
-.table_articles{
-  border-spacing: 0px;
-  border-collapse: collapse;
-  width: 100%;
-}
-.head_table{
-  border-collapse: collapse;
-  height: 40px;
-  background-color: var(--main-blue-color);
-  color: white;
-}
-tr{
-  border-bottom: 1px lightgray solid;
-  height: 35px;
-}
-th{
-  padding-left:10px;
-}
-.fa-trash{
-  color: #ff2828;
 }
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FOOTER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
