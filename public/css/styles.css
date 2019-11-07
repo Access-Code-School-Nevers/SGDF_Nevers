@@ -408,6 +408,22 @@ header nav h1 {
   cursor: pointer !important;
   transition: 0.5s all;
 }
+.submit_reservez{
+  height: 40px;
+  width: 90px;
+  border: none;
+  font-size: 1.25em;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background-color: var(--main-blue-color);
+  color: white;
+  margin: 0 10px 8px 0;
+  cursor: pointer !important;
+  transition: 0.5s all;
+}
+.submit_reservez:hover{
+  background-color: var(--second-blue-color);
+}
 .submit_search_article:hover{
   background-color: var(--second-blue-color);
 }
@@ -418,7 +434,7 @@ header nav h1 {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 5em;
+  margin-bottom: 2em;
 }
 .table_container h4{
   font-size: 1em;
