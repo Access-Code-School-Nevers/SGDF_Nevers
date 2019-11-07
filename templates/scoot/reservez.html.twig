@@ -6,13 +6,15 @@
 
 <!-- Home -->
 <section class="support_view">
-    <form class="container_view container_full_view">
-      <!-- Mettre la date avant la recherche -->
-      <div id="date_reservez_content" class="container_search_article_reservez">
 
+    <form class="container_view container_full_view">
+
+      <!-- Reservation dates -->
+      <div id="date_reservez_content" class="container_search_article_reservez">
         <div class="date_article_reservez_form">
           <div class="content_date">
-            <p class="mt-3 mr-3 ml-3"><label for="date-start">Début:</label>
+            <p class="mt-3 mr-3 ml-3">
+              <label for="date-start">Début:</label>
               <input class="input_date_form input_style" type="date" name="date-start" value="" required>
             </p>
             <p class="mt-3 mr-3 ml-3">
@@ -22,11 +24,13 @@
           </div>
         </div>
       </div>
+
       <div class="d-flex justify-content-center">
         <hr>
       </div>
-      <div class="container_search_article_reservez">
 
+      <!-- Search articles in list -->
+      <div class="container_search_article_reservez">
         <div class="search_article_reservez_form" action="index.html" method="post">
           <p id="search_name">
             <label for="Name">Nom de l'article recherché</label>
@@ -39,13 +43,15 @@
               <input type="text" class="input_quantity_article input_style" name="quantity" value="" placeholder="0" required>
             </p>
           </div>
-
           <input type="submit" name="button" value="OK" class="submit_search_article">
         </div>
       </div>
+
       <div class="d-flex justify-content-center">
         <hr>
       </div>
+
+      <!-- List of articles chosen with quantity and the possibility to delete them from choice -->
       <div class="table_container">
         <h4>Articles choisis</h4>
         <div class="table_container_color">
@@ -54,7 +60,7 @@
               <tr>
                 <th>Articles</th>
                 <th>Quantitées</th>
-                <th> Action </th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -115,8 +121,8 @@
       <div class="d-flex justify-content-center">
         <input type="submit" name="button" value="Valider" class="submit_reservez">
       </div>
-
     </form>
-</section>
-{% include 'components/footer.html.twig' %}
+  </section>
+
+  {% include 'components/footer.html.twig' %}
 {% endblock %}

@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class AddUserType extends AbstractType
 {
+  // Function that automatically build the form with data of User entity
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
     $builder
