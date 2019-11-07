@@ -435,6 +435,7 @@ header nav h1 {
   flex-direction: column;
   align-items: center;
   margin-bottom: 2em;
+  width: 100%;
 }
 .table_container h4{
   font-size: 1em;
@@ -555,6 +556,10 @@ th{
 }
 .fa-trash{
   color: #ff2828;
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< HISTORIQUE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.height_table_historique{
+  max-height: 80vh !important;
 }
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FOOTER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/

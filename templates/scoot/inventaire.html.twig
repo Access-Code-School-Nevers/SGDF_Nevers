@@ -3,6 +3,7 @@
 {% block title %}Inventaire{% endblock %}
 
 {% block body %}
+{% if app.user is not null and (app.user.roles[0] == 'ROLE_ADMIN' or app.user.roles[0] == 'ROLE_RESPONSABLE') %}
 
     <!-- header -->
     {# <header> #}
@@ -81,4 +82,5 @@
     <footer>
 
     </footer>
+    {% endif %}
 {% endblock %}
