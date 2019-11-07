@@ -4,42 +4,99 @@
 
 {% block body %}
 
-<section class="support_view">
-  <div class="container_view">
-        <nav class="container_button">
-        <div class="card border-primary mb-3" style="max-width: 60rem;">
-          <div class="card-header">Pour commencer, je crée mes objets </div>
-            <div class="container">
-                <button type="button" class="btn btn-primary btn-lg mb-2">CREER UN OBJET</button>
+
+          <div class="support_view">
+            <div class="container_view">
+                  <nav class="container_button">
+                  <div class="card border-primary mb-3" style="max-width: 60rem;">
+                      <h4> Ajouter des articles </h4>
+                      <div class="container">
+                      <div class="form-group">
+
+                             <div class="card mb-3" style="width: 20rem;">
+                                      {{ form_start(form) }}
+                                      <div class="my-custom-class-for-errors">
+                                          {{ form_errors(form) }}
+                                      </div>
+                                      <div class="row">
+                                        <div class="col">
+                                          {{form_row(form.objet)}}
+                                        </div>
+                                        <div class="row">
+                                          {{form_row(form.peremption)}}
+                                        </div>
+                                      </div>
+
+
+
+                                          {{ form_end(form) }}
+
+
+                         </div>
+                         <div class="row">
+                           <div class="col">
+                             <span> état </span>
+                           </div>
+                           <div class="col">
+                             <span> quantitées </span>
+                           </div>
+                         </div>
+                         <div class="row">
+                           <div class="col">
+                             <span> neuf </span>
+                           </div>
+                           <div class="col">
+                           <input type="text" id="name" name="name" required
+                           minlength="0" maxlength="3" size="10">
+                           </div>
+                         </div>
+                         <div class="row">
+                           <div class="col">
+                             <span> bon </span>
+                           </div>
+                           <div class="col">
+                             <span> <input type="text" id="name" name="name" required
+                             minlength="0" maxlength="3" size="10"> </span>
+                           </div>
+                         </div>
+                         <div class="row">
+                           <div class="col">
+                             <span> moyen </span>
+                           </div>
+                           <div class="col">
+                           <input type="text" id="name" name="name" required
+                           minlength="0" maxlength="3" size="10">
+                           </div>
+                         </div>
+                         <div class="row">
+                           <div class="col">
+                             <span> defectueux </span>
+                           </div>
+                           <div class="col">
+                           <input type="text" id="name" name="name" required
+                           minlength="0" maxlength="3" size="10">
+                           </div>
+                         </div>
+                         <div class="row">
+                          <div class="col">
+                            <span> incomplet </span>
+                          </div>
+                          <div class="col">
+                            <input type="text" id="name" name="name" required
+                            minlength="0" maxlength="3" size="10">
+                            </div>
+                          </div>
+
+
+
+
+                          <button type="submit" class="btn btn-primary"> AJOUTER </button>
+                      </div>
+                  </div>
             </div>
-        </div>
-  </div>
-</section>
-
-
-
-          <div class="separateur">
-            <hr>
           </div>
 
-<section>
-          <div class="container">
-             <h4>Ajouter des articles</h4>
-             <div class="card" style="width: 60rem;">
-                      {{ form_start(form) }}
-                      <div class="my-custom-class-for-errors">
-                          {{ form_errors(form) }}
-                      </div>
-                        {{form_row(form.objet)}}
-                        {{form_row(form.peremption)}}
-                        <div class="col-md-12 text-center">
-                          <button type="submit" class="btn btn-primary">AJOUTER</button>
-                        </div>
-                    {{ form_end(form) }}
-              </div>
-            </div>
 
-</section>
 
 <!-- footer -->
 <footer>

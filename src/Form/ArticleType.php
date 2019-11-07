@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Article;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,15 +15,13 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('objet',null,
-                  [ 'label' => 'Articles',
+                  [ 'label' => 'Articles existants',
                     'attr' => array('placeholder' => '')
                   ])
-            ->add('peremption',null,
-                  [ 'label' => 'Articles périssable',
-                    'attr' => array('placeholder' => '10/11/2020')
-                  ])
-            
-        ;
+            ->add('peremption', DateType::class, array(
+                  'widget' => 'single_text',
+            ));
+
     }
 
     public function configureOptions(OptionsResolver $resolver)
