@@ -62,4 +62,13 @@ class ScootController extends AbstractController
       ]);
     }
 
+    /**
+    * @Route("/app/historique", name="historique")
+    */
+    public function historique()
+    {
+      return $this->render('scoot/historique.html.twig', [
+        'title' => 'Historique',
+      ]);
+    }
 }

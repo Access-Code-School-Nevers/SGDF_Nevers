@@ -3,8 +3,10 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-  <!-- Home -->
-  <section class="support_view">
+
+<!-- Home -->
+<section class="support_view">
+
     <form class="container_view container_full_view">
 
       <!-- Reservation dates -->
@@ -51,7 +53,7 @@
 
       <!-- List of articles chosen with quantity and the possibility to delete them from choice -->
       <div class="table_container">
-        <h4>Articles choisis</h3>
+        <h4>Articles choisis</h4>
         <div class="table_container_color">
           <table class="table_articles">
             <thead class="head_table">
@@ -121,6 +123,6 @@
       </div>
     </form>
   </section>
-  
+
   {% include 'components/footer.html.twig' %}
 {% endblock %}
