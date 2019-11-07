@@ -1,0 +1,11 @@
+{% extends 'bundles/TwigBundle/Exception/baseError.html.twig' %}
+
+{% block title %}Erreur{% endblock %}
+
+{% block body %}
+  <h1 class="font-weight-bold">Erreur</h1>
+
+  <i class="fas fa-question fa-5x my-5"></i>
+  <p>Une erreur s'est produite. Qu'essayiez-vous de faire ?</p>
+  <p><a href="{{ path('app_login') }}">Cliquez ici pour retourner à la page principale.</a></p>
+{% endblock %}
