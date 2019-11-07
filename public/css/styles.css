@@ -515,6 +515,10 @@ th{
 .submit_search_article:hover{
   background-color: var(--second-blue-color);
 }
+
+.margeButton {margin-top: 6%;
+  width: 40%;
+}
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< HISTORIQUE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 .height_table_historique{
   max-height: 80vh !important;

@@ -5,7 +5,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Objet;
 use App\Form\CreerObjetType;
-
+use App\Entity\Article;
+use App\Form\ArticleType;
 
 class ScootController extends AbstractController
 {
