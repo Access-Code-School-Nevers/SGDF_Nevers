@@ -5,7 +5,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Objet;
 use App\Form\CreerObjetType;
-
+use App\Entity\Article;
+use App\Form\ArticleType;
 
 class ScootController extends AbstractController
 {
@@ -14,10 +15,10 @@ class ScootController extends AbstractController
      */
     public function home()
     {
-        return $this->render('scoot/home.html.twig', [
-          'title' => 'Accueil',
-          'arrow' => ''
-        ]);
+      return $this->render('scoot/home.html.twig', [
+        'title' => 'Accueil',
+        'arrow' => '' // Hide the back arrow if on main page
+      ]);
     }
 
     /**
@@ -28,22 +29,19 @@ class ScootController extends AbstractController
       $creerObjet = new Objet();
       $form = $this -> createForm(CreerObjetType::class, $creerObjet);
 
-
         return $this->render('scoot/inventaire.html.twig', [
-            'form' => $form->createView(),
-            'title' => 'Inventaire',
-
+          'form' => $form->createView(),
+          'title' => 'Inventaire'
         ]);
     }
 
     /**
-    * @Route("/app/reservez", name="reservez")
+    * @Route("/app/historique", name="historique")
     */
-    public function reservez()
+    public function historique()
     {
-      return $this->render('scoot/reservez.html.twig', [
-        'title' => 'Je réserve',
+      return $this->render('scoot/historique.html.twig', [
+        'title' => 'Historique',
       ]);
     }
-
 }
