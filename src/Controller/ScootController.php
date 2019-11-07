@@ -5,7 +5,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Objet;
 use App\Form\CreerObjetType;
-
+use App\Entity\Article;
+use App\Form\ArticleType;
 
 class ScootController extends AbstractController
 {
@@ -35,6 +36,23 @@ class ScootController extends AbstractController
 
         ]);
     }
+
+    /**
+    * @Route("/app/saisi_article", name="saisi_article")
+    */
+    public function saisi_articles()
+    {
+      $article = new Article();
+      $form = $this -> createForm(ArticleType::class, $article);
+
+
+        return $this->render('scoot/saisi_article.html.twig', [
+            'form' => $form->createView(),
+            'title' => 'Inventaire',
+
+        ]);
+    }
+
 
     /**
     * @Route("/app/reservez", name="reservez")

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inventaire{% endblock %}
+
+{% block body %}
+
+<section class="support_view">
+  <div class="container_view">
+        <nav class="container_button">
+        <div class="card border-primary mb-3" style="max-width: 60rem;">
+          <div class="card-header">Pour commencer, je crée mes objets </div>
+            <div class="container">
+                <button type="button" class="btn btn-primary btn-lg mb-2">CREER UN OBJET</button>
+            </div>
+        </div>
+  </div>
+</section>
+
+
+
+          <div class="separateur">
+            <hr>
+          </div>
+
+<section>
+          <div class="container">
+             <h4>Ajouter des articles</h4>
+             <div class="card" style="width: 60rem;">
+                      {{ form_start(form) }}
+                      <div class="my-custom-class-for-errors">
+                          {{ form_errors(form) }}
+                      </div>
+                        {{form_row(form.objet)}}
+                        {{form_row(form.peremption)}}
+                        <div class="col-md-12 text-center">
+                          <button type="submit" class="btn btn-primary">AJOUTER</button>
+                        </div>
+                    {{ form_end(form) }}
+              </div>
+            </div>
+
+</section>
+
+<!-- footer -->
+<footer>
+
+</footer>
+{% endblock %}

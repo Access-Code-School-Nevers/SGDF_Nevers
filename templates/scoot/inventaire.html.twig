@@ -42,47 +42,36 @@
     <section class="support_view">
       <div class="container_view">
             <nav class="container_button">
+    <div class="card border-primary mb-3" style="max-width: 60rem;">
+              <div class="card-header">Pour commencer, je crée mes objets </div>
 
-            <div class="card border-primary mb-3" style="max-width: 60rem;">
-  <div class="card-header">Pour commencer, je crée mes objets </div>
-  <div class="card-body">
-
-  <section>
-
-    <div class="container">
-    <div class="form-group">
-        {{ form_start(form) }}
+    <div class="card-body">
+    <section>
+      <div class="container">
+        <div class="form-group">
+          {{ form_start(form) }}
             <div class="my-custom-class-for-errors">
                 {{ form_errors(form) }}
             </div>
+              {{form_row(form.titre)}}
+              {{form_row(form.description)}}
+            <div class="row">
 
+            <div class="col">
+            <div class="col">
+              {{form_row(form.photo)}}
+            </div>
 
-          {{form_row(form.titre)}}
-          {{form_row(form.description)}}
-          {{form_row(form.photo)}}
-
-
-<<<<<<< HEAD
-
-
-          <div class="col-md-12 text-center">
-            <button type="submit" class="btn btn-primary">ENREGISTRER</button>
+              <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary">ENREGISTRER</button>
+              </div>
+          {{ form_end(form) }}
           </div>
-=======
-          {{ form_row(form.titre) }}
-          {{ form_row(form.description) }}
-          {{ form_row(form.photo) }}
->>>>>>> 7f56b37a80d5c040f6ac39f5c9476311c1fa3a1a
-{{ form_end(form) }}
-</div>
-  </div>
-
-
-
-  </section>
-
-
-  </div>
+        </div>
+      </section>
+      </div>
+      </div>
+      </div>
 
     </section>
 
