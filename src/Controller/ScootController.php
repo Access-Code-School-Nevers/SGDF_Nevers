@@ -35,16 +35,6 @@ class ScootController extends AbstractController
     }
 
     /**
-    * @Route("/app/reservez", name="reservez")
-    */
-    public function reservez()
-    {
-      return $this->render('scoot/reservez.html.twig', [
-        'title' => 'Je réserve'
-      ]);
-    }
-
-    /**
     * @Route("/app/historique", name="historique")
     */
     public function historique()
