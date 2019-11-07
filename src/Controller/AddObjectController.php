@@ -23,7 +23,7 @@ class AddObjectController extends AbstractController
 
         //add object to data base
         $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($objetInfo);
+        $entityManager->persist($objet);
         $entityManager->flush();
 
         $this->addFlash('success', 'objet créer !');
