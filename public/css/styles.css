@@ -650,6 +650,9 @@ footer{
     flex-direction: column;
     padding-bottom: 1rem;
   }
+  #nameUser{
+    display:none;
+  }
 }
 
 
