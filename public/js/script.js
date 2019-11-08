@@ -23,3 +23,40 @@ function myFunction() {
 function hideMessage(el){
   el.style.display = "none";
 }
+
+
+/////////////////////////// ---  SCAN FUNCTION --- /////////////////////////
+var idScan = 0;
+
+// Start a scan
+function initScan(id){
+  idScan = id;
+
+  Quagga.init({
+    inputStream : {
+      name : "Live",
+      type : "LiveStream",
+      target: document.querySelector('#barcode-scanner')    // Or '#yourElement' (optional)
+    },
+    decoder : {
+      readers : ["codabar_reader"]
+    }
+  }, function(err) {
+      if (err) {
+          console.log(err);
+          return
+      }
+
+      document.getElementById('barcode-scanner').style.display = "block";
+      Quagga.start();
+  });
+}
+
+// Stop scan after detection
+Quagga.onDetected(function(result) {
+  // console.log(result);
+  // console.log(result.codeResult.code);
+  document.getElementById('codebar'+idScan).value = result.codeResult.code;
+  document.getElementById('barcode-scanner').style.display = "none";
+  Quagga.stop();
+});
