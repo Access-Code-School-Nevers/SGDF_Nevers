@@ -5,10 +5,21 @@
 {% block body %}
 
 <section class="support_view">
-  <div class="container_view flex-height">
+  <div class="container_view">
+    <div class="alert alert-secondary mb-5" role="alert">
+      <div class="mid-form">
+        <div class="text-center"><b>Rôles</b></div>
+        <ul>
+          <li><b>Administrateur</b> : Gestion des membres, Inventaire, Réservation de matériel</li>
+          <li><b>Responsable matériel</b> : Inventaire, Réservation de matériel</li>
+          <li><b>Chef</b> : Réservation de matériel</li>
+        </ul>
+      </div>
+    </div>
     <div class="w-100">
       <div class="d-flex justify-content-center mt-4">
         <div class="mid-form">
+
           {{ form_start(form) }}
             {{ form_row(form.nom) }}
             {{ form_row(form.password) }}
