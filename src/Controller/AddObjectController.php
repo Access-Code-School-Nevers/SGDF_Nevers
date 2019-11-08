@@ -16,21 +16,24 @@ class AddObjectController extends AbstractController
      */
     public function addObjet(Request $request)
     {
-      $objet = new Objet();
-      $form->handleRequest($request);
-      if ($form->isSubmitted() && $form->isValid()) {
-        $objetInfo = $form->getData();
+      if($request->isMethod('POST')) {
+        $objet = new Objet();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+          $objetInfo = $form->getData();
 
-        //add object to data base
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($objet);
-        $entityManager->flush();
+          //add object to data base
+          $entityManager = $this->getDoctrine()->getManager();
+          $entityManager->persist($objet);
+          $entityManager->flush();
 
-        $this->addFlash('success', 'objet créer !');
-        return $this->redirectToRoute("inventaire");
-      }
+          $this->addFlash('success', 'objet créer !');
+          return $this->redirectToRoute("inventaire");
+        }
         return $this->render('scoot/inventaire.html.twig', [
             'controller_name' => 'AddObjectController',
-        ]);
+          ]);
+      }
+      
     }
 }
