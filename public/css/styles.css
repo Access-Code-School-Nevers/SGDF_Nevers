@@ -3,7 +3,9 @@ body {
   --main-blue-color: #003a5d;
   --second-blue-color: #00578c;
 }
-
+.second-blue-color{
+  background-color: var(--second-blue-color);
+}
 
 .main-blue-color{
   background-color: var(--main-blue-color);
