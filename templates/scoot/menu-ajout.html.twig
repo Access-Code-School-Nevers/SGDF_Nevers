@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Menu d'ajout{% endblock %}
+
+{% block body %}
+<section class="support_view">
+  <div class="container_view flex-height">
+    <div class="w-100">
+      <div class="d-flex justify-content-center mt-4">
+        <div class="mid-form">
+          <!-- Add an object -->
+          <div class="container_card">
+            <div class="card text-center">
+              <div class="card-body">
+                <div class="card_title_custom">
+                  <i class="fas fa-box"></i>
+                  <h5>Objet</h5>
+                </div>
+                <p class="card-text">Cliquer ci-dessous pour ajouter un objet dans l'inventaire.</p>
+              </div>
+              <a href="/app/inventaire" class="card-footer color_button button_style text-muted">AJOUTER UN OBJET</a>
+            </div>
+          </div>
+
+          <!-- Add an article -->
+          <div class="container_card">
+            <div class="card text-center">
+              <div class="card-body">
+                <div class="card_title_custom">
+                  <i class="fas fa-box"></i>
+                  <h5>Article</h5>
+                </div>
+                <p class="card-text">Cliquer ci-dessous pour ajouter un article dans l'inventaire.</p>
+              </div>
+              <a href="/app/inventaire" class="card-footer color_button button_style text-muted">AJOUTER UN ARTICLE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
