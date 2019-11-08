@@ -21,6 +21,11 @@ class Peremption
      */
     private $datePeremption;
 
+    /**
+     * @ORM\Column(type="smallint", columnDefinition="TinyInt(1) NOT NULL")
+     */
+    private $archive;
+
     public function getDatePeremption(): ?\DateTimeInterface
     {
         return $this->datePeremption;
@@ -41,6 +46,18 @@ class Peremption
     public function setArticle(Article $article): self
     {
         $this->article = $article;
+
+        return $this;
+    }
+
+    public function getArchive(): ?int
+    {
+        return $this->archive;
+    }
+
+    public function setArchive(int $archive): self
+    {
+        $this->archive = $archive;
 
         return $this;
     }
