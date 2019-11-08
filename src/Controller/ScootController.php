@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Objet;
 use App\Form\CreerObjetType;
@@ -31,41 +32,67 @@ class ScootController extends AbstractController
 
         return $this->render('scoot/inventaire.html.twig', [
           'form' => $form->createView(),
-          'title' => 'Inventaire'
+          'title' => 'Inventaire test'
         ]);
     }
 
     /**
     * @Route("/app/saisi_article", name="saisi_article")
     */
-    public function saisi_articles()
+    public function saisi_articles(Request $request)
     {
       $article = new Article();
       $form = $this -> createForm(ArticleType::class, $article);
 
 
-      // Handle request if user has completed the form
-      $form->handleRequest($request);
-      if ($form->isSubmitted() && $form->isValid()) {
-        $task = $form->getData();
+      // Handle request if user has submitted the form
+       $form->handleRequest($request);
+       if ($form->isSubmitted() && $form->isValid()) {
 
 
-        // Adding user to DB
-        // $entityManager = $this->getDoctrine()->getManager();
-        // $entityManager->persist($task);
-        // $entityManager->flush();
 
-        // Success message
+          if($_POST) {
+            require 'validation.php';
 
-      }
+            $ajoutvaleur = array(
+              'neuf' => '[01234]|required || null|required',
+              'bon' => '[01234]|required || null|required',
+              'moyen' => '[01234]|required || null|required',
+              'defectueux' => '[01234]|required || null|required',
+              'incomplet' => '[01234]|required || null|required',
+            );
+            $validation = new Validation();
+
+            if($validation->validate($_POST, $ajoutvaleur) == true) {
+              var_dump($_POST);
+            }
+            else {
+              echo '<ul>';
+              foreach ($validation->errors as $error) {
+                echo '<li>' . $error . '</li>';
+              }
+              echo '</ul>';
+            }
+          }
 
 
-        return $this->render('scoot/saisi_article.html.twig', [
-            'form' => $form->createView(),
-            'title' => 'Inventaire',
 
-        ]);
+         //Adding user to DB
+         $entityManager = $this->getDoctrine()->getManager(); //recuperation de l entityManager
+         $entityManager->persist($ajoutvaleur); // prepare l objet ajoutvaleur pour le mettre dans bdd
+         $entityManager->flush();//envoi l objet dans la bdd
+
+         return new Response('états ajoutés');
+
+         //Success message
+
     }
+            return $this->render('scoot/saisi_article.html.twig', [
+                'form' => $form->createView(),
+                'title' => 'Inventaire articles'
+
+            ]);
+  }
 
 
 
@@ -86,16 +113,6 @@ class ScootController extends AbstractController
     {
       return $this->render('scoot/historique.html.twig', [
         'title' => 'Historique',
-      ]);
-    }
-
-    /**
-    * @Route("/app/menu-ajout", name="menuAjout")
-    */
-    public function ajoutMenu()
-    {
-      return $this->render('scoot/menu-ajout.html.twig', [
-        'title' => 'Menu d\'ajout',
       ]);
     }
 }
