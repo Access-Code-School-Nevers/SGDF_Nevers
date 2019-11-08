@@ -35,6 +35,7 @@ security:
     access_control:
         - { path: ^/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/app/ajouter-utilisateur, roles: ROLE_ADMIN }
+        - { path: ^/app/menu-ajout, roles: [ROLE_ADMIN, ROLE_RESPONSABLE] }
         - { path: ^/app/inventaire, roles: [ROLE_ADMIN, ROLE_RESPONSABLE] }
         - { path: ^/app/, roles: [ROLE_ADMIN, ROLE_RESPONSABLE, ROLE_CHEF] } # A laisser en dernier pour eviter tout conflit avec les pages au-dessus
         # - { path: ^/admin, roles: ROLE_ADMIN }
