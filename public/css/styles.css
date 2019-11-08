@@ -121,6 +121,7 @@ hr{
   padding-bottom: 50px;
 }
 
+
 /* <<<<<<<<<<<<<<<<<<<<<<<<< HEADER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
 header{
@@ -583,6 +584,40 @@ th{
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< HISTORIQUE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 .height_table_historique{
   max-height: 80vh !important;
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< RESTITUER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.content_restituer_articles{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px
+}
+.info_articles{
+  display: flex;
+  position: relative;
+  border: 1px solid #b9b9b9;
+  border-radius: 5px;
+  background-color: white;
+  max-width: 500px;
+  width: 100%;
+  height: 100px;
+  padding-left: 1em;
+  align-items: center;
+}
+.info_articles:before{
+  content: "";
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  transform: rotate(45deg);
+  bottom: -16px;
+  left: 22px;
+  background-color: #ffffff;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #b9b9b9;
 }
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FOOTER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
