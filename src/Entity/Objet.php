@@ -31,7 +31,7 @@ class Objet
     /**
      * @ORM\Column(type="smallint")
      */
-    private $quantite;
+    private $pcb;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="objet")
@@ -42,6 +42,11 @@ class Objet
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $photo;
+
+    /**
+     * @ORM\Column(type="smallint", columnDefinition="TinyInt(1) NOT NULL")
+     */
+    private $perissable;
 
     public function __construct()
     {
@@ -77,14 +82,14 @@ class Objet
         return $this;
     }
 
-    public function getQuantite(): ?int
+    public function getPcb(): ?int
     {
-        return $this->quantite;
+        return $this->pcb;
     }
 
-    public function setQuantite(int $quantite): self
+    public function setPcb(int $pcb): self
     {
-        $this->quantite = $quantite;
+        $this->pcb = $pcb;
 
         return $this;
     }
@@ -128,6 +133,18 @@ class Objet
     public function setPhoto(?string $photo): self
     {
         $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getPerissable(): ?int
+    {
+        return $this->perissable;
+    }
+
+    public function setPerissable(int $perissable): self
+    {
+        $this->perissable = $perissable;
 
         return $this;
     }
