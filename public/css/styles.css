@@ -3,7 +3,7 @@ body {
   --main-blue-color: #003a5d;
   --second-blue-color: #00578c;
 }
-.second-blue-color{
+.second-blue-color:hover{
   background-color: var(--second-blue-color);
 }
 
@@ -59,6 +59,9 @@ label{
 
 hr{
   width: 30%;
+}
+.form-control{
+  padding: 0 !important;
 }
 .color_button{
     background-color: var(--main-blue-color) !important;
@@ -377,7 +380,7 @@ header nav h1 {
   height: 35px;
   border-radius: 7px;
   border: 1px solid #b1b1b1;
-  padding-left: 10px;
+  padding-left: 10px !important;
 }
 .input_quantity_article{
   width: 100%;

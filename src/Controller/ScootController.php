@@ -44,4 +44,14 @@ class ScootController extends AbstractController
         'title' => 'Historique',
       ]);
     }
+
+    /**
+    * @Route("/app/restituer", name="restituer")
+    */
+    public function restituer()
+    {
+      return $this->render('scoot/restituer.html.twig', [
+        'title' => 'Restituer',
+      ]);
+    }
 }
