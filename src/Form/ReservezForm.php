@@ -19,9 +19,11 @@ class ReservezForm extends AbstractType
     $builder
     ->add('dateDebut', DateType::class, array(
           'widget' => 'single_text',
+          'attr' => ['class' => 'input_date_form input_style'],
     ))
       ->add('dateFin', DateType::class, array(
             'widget' => 'single_text',
+            'attr' => ['class' => 'input_date_form input_style'],
       ))
       ->add('Valider', SubmitType::class, [
           'attr' => ['class' => 'w-100 btn-primary main-blue-color second-blue-color'],

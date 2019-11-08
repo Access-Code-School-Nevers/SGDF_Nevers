@@ -94,18 +94,6 @@ class ScootController extends AbstractController
             ]);
   }
 
-
-
-    /**
-    * @Route("/app/reservez", name="reservez")
-    */
-    public function reservez()
-    {
-      return $this->render('scoot/reservez.html.twig', [
-        'title' => 'Je réserve'
-      ]);
-    }
-
     /**
     * @Route("/app/historique", name="historique")
     */
@@ -113,6 +101,16 @@ class ScootController extends AbstractController
     {
       return $this->render('scoot/historique.html.twig', [
         'title' => 'Historique',
+      ]);
+    }
+
+    /**
+    * @Route("/app/restituer", name="restituer")
+    */
+    public function restituer()
+    {
+      return $this->render('scoot/restituer.html.twig', [
+        'title' => 'Restituer',
       ]);
     }
 }
