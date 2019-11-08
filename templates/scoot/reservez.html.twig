@@ -3,10 +3,15 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-  <!-- Home -->
-  <section class="support_view">
-    <form class="container_view container_full_view">
 
+<!-- Home -->
+<section class="support_view">
+
+    <form class="container_view container_full_view">
+      <!-- {{ form_start(form) }}
+        {{ form_row(form.dateDebut) }}
+        {{ form_row(form.dateFin) }}
+      {{ form_end(form) }} -->
       <!-- Reservation dates -->
       <div id="date_reservez_content" class="container_search_article_reservez">
         <div class="date_article_reservez_form">
@@ -51,7 +56,7 @@
 
       <!-- List of articles chosen with quantity and the possibility to delete them from choice -->
       <div class="table_container">
-        <h4>Articles choisis</h3>
+        <h4>Articles choisis</h4>
         <div class="table_container_color">
           <table class="table_articles">
             <thead class="head_table">
@@ -121,6 +126,6 @@
       </div>
     </form>
   </section>
-  
+
   {% include 'components/footer.html.twig' %}
 {% endblock %}

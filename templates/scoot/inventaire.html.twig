@@ -3,71 +3,56 @@
 {% block title %}Inventaire{% endblock %}
 
 {% block body %}
+    <!-- Inventaire-->
 
-    <!-- header -->
-    {# <header> #}
-        {# <nav>
+    <section class="support_view">
+      <div class="container_view">
+            <nav class="container_button">
+    <div class="card border-primary mb-3" style="max-width: 60rem;">
+              <div class="card-header">Pour commencer, je crée mes objets </div>
 
-            <div class="dropdown display:inline-block">
-                <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
+    <div class="card-body">
+    <section>
+      <div class="container">
+        <div class="form-group">
+          {{ form_start(form) }}
+            <div class="my-custom-class-for-errors">
+                {{ form_errors(form) }}
+            </div>
+            <div
+              {{form_row(form.titre)}}
+              {{form_row(form.description)}}
 
-                <div id="myDropdown" class="dropdown-content">
-                  <a href="#">Déconexion</a>
+              <div class="row">
+                <div class="margeButton col-5 ">
+                  <button type="submit" class="btn btn-primary"> photos <i class="fas fa-camera"></i> </button>
                 </div>
+                <div class="col-5">
+                  {{form_row(form.photo)}}
+                </div>
+          {{form_row(form.titre)}}
+          {{form_row(form.description)}}
+          {{form_row(form.photo)}}
+
+          <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary">ENREGISTRER</button>
           </div>
-        </div>
-
-
-
-
-          {# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <h3 class="inventaire">INVENTAIRE <span class="sr-only">(current)</h3>
-          </div> #}
-        </nav>
-
-            {# <div class="dropdown">
-                <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
-                <div id="myDropdown" class="dropdown-content">
-                  <a href="#">Déconexion</a>
-                </div>
-            </div>
-        </nav> #}
-    </header> #}
-
-
-<!-- Form to add an object to DB -->
-<section class="support_view">
-  <div class="container_view">
-    <nav class="container_button">
-      <div class="card border-primary mb-3" style="max-width: 60rem;">
-        <div class="card-header">Pour commencer, je crée mes objets </div>
-        <div class="card-body">
-          <section>
-            <div class="container">
-              <div class="form-group">
-                {{ form_start(form) }}
-                <div class="my-custom-class-for-errors">
-                  {{ form_errors(form) }}
-                </div>
-
-                {{form_row(form.titre)}}
-                {{form_row(form.description)}}
-                {{form_row(form.photo)}}
-
-                <div class="col-md-12 text-center">
-                  <button type="submit" class="btn btn-primary">ENREGISTRER</button>
-                </div>
-
-                {{ form_end(form) }}
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
-    </nav>
+{{ form_end(form) }}
+</div>
   </div>
-</section>
+
+
+
+  </section>
+
+
+  </div>
+
+    </section>
+
+    <!-- footer -->
+    <footer>
+
+    </footer>
+
 {% endblock %}

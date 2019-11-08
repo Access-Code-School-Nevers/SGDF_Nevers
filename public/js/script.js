@@ -18,6 +18,12 @@ function myFunction() {
     }
   }
 
+$(document).ready(function() {
+    $('.js-datepicker').datepicker({
+      format: 'yyyy-mm-dd'
+    });
+});
+
 
 // Hide flash message
 function hideMessage(el){

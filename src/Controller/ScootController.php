@@ -5,7 +5,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Objet;
 use App\Form\CreerObjetType;
-
+use App\Entity\Article;
+use App\Form\ArticleType;
 
 class ScootController extends AbstractController
 {
@@ -35,13 +36,12 @@ class ScootController extends AbstractController
     }
 
     /**
-    * @Route("/app/reservez", name="reservez")
+    * @Route("/app/historique", name="historique")
     */
-    public function reservez()
+    public function historique()
     {
-      return $this->render('scoot/reservez.html.twig', [
-        'title' => 'Je réserve'
+      return $this->render('scoot/historique.html.twig', [
+        'title' => 'Historique',
       ]);
     }
-
 }
