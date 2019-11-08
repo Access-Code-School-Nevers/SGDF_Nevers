@@ -521,6 +521,17 @@ th{
 }
 
 
+
+/* <<<<< saisi_article >>>> */
+.ajouter {
+  float: right
+}
+.inputsaisiarticle {
+  margin-bottom: 1em;
+}
+
+
+
 /* <<<<< tableau reservez >>>> */
 .table_container{
   display: flex;
