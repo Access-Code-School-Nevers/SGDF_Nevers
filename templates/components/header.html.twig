@@ -7,14 +7,12 @@
       {% if arrow is not defined %}
       <a href="./home"><i class="fas fa-arrow-left"></i></a> {% endif %}
     </div>
-    
+
     <h1>{{title}}</h1>
 
     {% if Login is not defined %}
       <div class="dropdown">
-        {% if app.user is not null and app.user.roles[0] == 'ROLE_RESPONSABLE' %}Bonjour Responsable Matériel{% endif %}
-        {% if app.user is not null and app.user.roles[0] == 'ROLE_ADMIN' %}Bonjour Admin{% endif %}
-        {% if app.user is not null and app.user.roles[0] == 'ROLE_CHEF' %}Bonjour Chef{% endif %}
+        <span id="nameUser">{{app.user.nom|capitalize}}</span>
 
         <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
 
