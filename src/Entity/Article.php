@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
- 
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
@@ -18,11 +18,6 @@ class Article
      * @ORM\Column(type="integer")
      */
     private $id;
-
-    /**
-     * @ORM\Column(type="smallint", columnDefinition="TinyInt(1) NOT NULL")
-     */
-    private $etat;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Objet", inversedBy="articles")
@@ -41,21 +36,14 @@ class Article
      */
     private $peremption;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Etat", mappedBy="article", cascade={"persist", "remove"})
+     */
+    private $etat;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getEtat(): ?bool
-    {
-        return $this->etat;
-    }
-
-    public function setEtat(bool $etat): self
-    {
-        $this->etat = $etat;
-
-        return $this;
     }
 
     public function getObjet(): ?Objet
@@ -94,6 +82,23 @@ class Article
         // set the owning side of the relation if necessary
         if ($peremption->getArticle() !== $this) {
             $peremption->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function getEtat(): ?Etat
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(Etat $etat): self
+    {
+        $this->etat = $etat;
+
+        // set the owning side of the relation if necessary
+        if ($etat->getArticle() !== $this) {
+            $etat->setArticle($this);
         }
 
         return $this;
