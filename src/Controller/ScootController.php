@@ -44,12 +44,29 @@ class ScootController extends AbstractController
       $form = $this -> createForm(ArticleType::class, $article);
 
 
+      // Handle request if user has completed the form
+      $form->handleRequest($request);
+      if ($form->isSubmitted() && $form->isValid()) {
+        $task = $form->getData();
+
+
+        // Adding user to DB
+        // $entityManager = $this->getDoctrine()->getManager();
+        // $entityManager->persist($task);
+        // $entityManager->flush();
+
+        // Success message
+
+      }
+
+
         return $this->render('scoot/saisi_article.html.twig', [
             'form' => $form->createView(),
             'title' => 'Inventaire',
 
         ]);
     }
+
 
 
     /**

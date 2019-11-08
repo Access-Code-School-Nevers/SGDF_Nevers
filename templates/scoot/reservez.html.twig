@@ -8,7 +8,10 @@
 <section class="support_view">
 
     <form class="container_view container_full_view">
-
+      {{ form_start(form) }}
+        {{ form_row(form.dateDebut) }}
+        {{ form_row(form.dateFin) }}
+      {{ form_end(form) }}
       <!-- Reservation dates -->
       <div id="date_reservez_content" class="container_search_article_reservez">
         <div class="date_article_reservez_form">
