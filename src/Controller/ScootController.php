@@ -44,4 +44,14 @@ class ScootController extends AbstractController
         'title' => 'Historique',
       ]);
     }
+
+    /**
+    * @Route("/app/menu-ajout", name="menuAjout")
+    */
+    public function ajoutMenu()
+    {
+      return $this->render('scoot/menu-ajout.html.twig', [
+        'title' => 'Menu d\'ajout',
+      ]);
+    }
 }
