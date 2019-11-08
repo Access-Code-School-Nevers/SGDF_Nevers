@@ -656,6 +656,15 @@ footer{
   #nameUser{
     display:none;
   }
+  .alert{
+    font-size:0.7rem !important;
+  }
+  header nav h1{
+    font-size:1rem !important;
+  }
+  body{
+    font-size:0.8rem;
+  }
 }
 
 
@@ -693,4 +702,9 @@ footer{
 }
 #barcode-scanner{
   display:none;
+}
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SCAN >>>>>>>>>>>>>>>>>>>> */
+.alert{
+  font-size:0.9rem;
 }
