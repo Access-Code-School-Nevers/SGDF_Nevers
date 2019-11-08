@@ -13,19 +13,28 @@
                       <div class="container">
                       <div class="form-group">
 
-                             <div class="card mb-3" style="width: 20rem;">
+                             <div class="card mb-3 border-0" style="width: 20rem;">
                                       {{ form_start(form) }}
                                       <div class="my-custom-class-for-errors">
                                           {{ form_errors(form) }}
                                       </div>
                                       <div class="row">
                                         <div class="col">
-                                          {{form_row(form.objet)}}
+                                          {{form_label(form.objet)}}
                                         </div>
-                                        <div class="row">
-                                          {{form_row(form.peremption)}}
+                                        <div class="col">
+                                          {{form_widget(form.objet)}}
+                                          {{form_errors(form.objet)}}
                                         </div>
                                       </div>
+                                        <div class="row">
+                                          <div class="col">
+                                            {{form_label(form.peremption)}}
+                                          </div>
+                                          <div class="col">
+                                            {{form_widget(form.peremption)}}
+                                          </div>
+                                        </div>
 
 
 
@@ -33,7 +42,7 @@
 
 
                          </div>
-                         <div class="row">
+                         <div class="row inputsaisiarticle">
                            <div class="col">
                              <span> état </span>
                            </div>
@@ -41,7 +50,7 @@
                              <span> quantitées </span>
                            </div>
                          </div>
-                         <div class="row">
+                         <div class="row inputsaisiarticle">
                            <div class="col">
                              <span> neuf </span>
                            </div>
@@ -50,7 +59,7 @@
                            minlength="0" maxlength="3" size="10">
                            </div>
                          </div>
-                         <div class="row">
+                         <div class="row inputsaisiarticle">
                            <div class="col">
                              <span> bon </span>
                            </div>
@@ -59,7 +68,7 @@
                              minlength="0" maxlength="3" size="10"> </span>
                            </div>
                          </div>
-                         <div class="row">
+                         <div class="row inputsaisiarticle">
                            <div class="col">
                              <span> moyen </span>
                            </div>
@@ -68,7 +77,7 @@
                            minlength="0" maxlength="3" size="10">
                            </div>
                          </div>
-                         <div class="row">
+                         <div class="row inputsaisiarticle">
                            <div class="col">
                              <span> defectueux </span>
                            </div>
@@ -77,20 +86,24 @@
                            minlength="0" maxlength="3" size="10">
                            </div>
                          </div>
-                         <div class="row">
+                         <div class="row inputsaisiarticle">
                           <div class="col">
                             <span> incomplet </span>
                           </div>
                           <div class="col">
-                            <input type="text" id="name" name="name" required
-                            minlength="0" maxlength="3" size="10">
-                            </div>
+                          <input type="text" id="name" name="name" required
+                          minlength="0" maxlength="3" size="10">
+                          </div>
+                          </div>
+                          <div class="margeButton ajouter ">
+                            <button type="submit" class="btn btn-primary pull-right"> AJOUTER </button>
+                          </div>
                           </div>
 
 
 
 
-                          <button type="submit" class="btn btn-primary"> AJOUTER </button>
+
                       </div>
                   </div>
             </div>

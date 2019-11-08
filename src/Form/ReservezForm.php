@@ -8,6 +8,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+
 
 class ReservezForm extends AbstractType
 {
@@ -15,10 +17,14 @@ class ReservezForm extends AbstractType
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
     $builder
-      ->add('dateDebut')
-      ->add('dateFin')
-      ->add('save', SubmitType::class, [
-          'attr' => ['class' => 'w-100 btn-primary main-blue-color'],
+    ->add('dateDebut', DateType::class, array(
+          'widget' => 'single_text',
+    ))
+      ->add('dateFin', DateType::class, array(
+            'widget' => 'single_text',
+      ))
+      ->add('Valider', SubmitType::class, [
+          'attr' => ['class' => 'w-100 btn-primary main-blue-color second-blue-color'],
         ])
     ;
   }
