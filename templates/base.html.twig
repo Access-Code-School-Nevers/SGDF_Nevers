@@ -43,8 +43,8 @@
                             {
                                 return {
                                     objet_id: objet.id,
-                                    objet_name: objet.name,
-                                    state_image: state.image
+                                    objet_titre: objet.titre,
+
                                 }
                             })
                         }
@@ -57,19 +57,9 @@
                 },
                 {
                     name: 'objets',
-                    source: states.ttAdapter(),
-                    display: 'objet_name',
-                    templates: {
-                        suggestion: function (data)
-                        {
-                            return `
-                                <a href='{{ path('city_page') }}/`+data.state_id+`'>
-                                    <strong>`+data.objet_id+`</strong>
-                                    <span>`+data.objet_name+`</span>
-                                </div>
-                            `
-                        },
-                      }
+                    source: objets.ttAdapter(),
+                    display: 'objet_titre',
+                     
                     })
 
               })

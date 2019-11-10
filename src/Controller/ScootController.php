@@ -8,6 +8,11 @@ use App\Entity\Objet;
 use App\Form\CreerObjetType;
 use App\Entity\Article;
 use App\Form\ArticleType;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ScootController extends AbstractController
 {
@@ -42,7 +47,7 @@ class ScootController extends AbstractController
     * @Route("/app/saisi_article", name="saisi_article")
     */
 
-    
+/*
 // Méthode(EDDY)
     public function index()
     {
@@ -54,6 +59,51 @@ class ScootController extends AbstractController
             'objet' => '$objet',
         ]);
     }
+// fin methode Eddy
+*/
+//Autre methode
+/**
+    * @Route("/handle_search/{_query?}", name="handle_search", methods={"POST", "GET"})
+    */
+   public function handleSearchRequest(Request $request, $_query)
+   {
+       $em = $this->getDoctrine()->getManager();
+       if ($_query)
+       {
+           $data = $em->getRepository(Objet::class)->findByName($_query);
+       } else {
+           $data = $em->getRepository(Objet::class)->findAll();
+       }
+
+       // setting up the serializer
+       $normalizers = [
+           new ObjectNormalizer()
+       ];
+       $encoders =  [
+           new JsonEncoder()
+       ];
+       $serializer = new Serializer($normalizers, $encoders);
+       $data = $serializer->serialize($data, 'json');
+       return new JsonResponse($data, 200, [], true);
+   }
+
+   /**
+    * @Route("/objet/{id?}", name="objet_page", methods={"GET"})
+    */
+    public function objetSingle(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $objet = null;
+
+        if ($id) {
+            $objet = $em->getRepository(Objet::class)->findOneBy(['id' => $id]);
+        }
+        return $this->render('scoot/saisi_article.html.twig', [
+            'objet'  =>      $objet
+        ]);
+    }
+
+//fin autre methode
 
     /**
     * @Route("/app/saisi_article", name="saisi_article")
