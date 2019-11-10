@@ -36,15 +36,21 @@ class ScootController extends AbstractController
         ]);
 
     }
-    // this fonction create
 
+
+    /**
+    * @Route("/app/saisi_article", name="saisi_article")
+    */
+
+    
+// Méthode(EDDY)
     public function index()
     {
-        // Méthode find qui permet de récupérer les données dans la bdd avec ici le critère de filtre par id
+        // find qui permet de récupérer les données dans la bdd avec ici le critère de filtre par id
         $objet = $this->getDoctrine()->getRepository(Objet::class)->find([id]);
 
         // j'envoie les données à la vue
-        return $this->render('scoot/index.html.twig', [
+        return $this->render('scoot/saisi_article.html.twig', [
             'objet' => '$objet',
         ]);
     }

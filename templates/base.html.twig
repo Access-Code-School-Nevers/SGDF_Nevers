@@ -24,6 +24,59 @@
         <script src="/js/script.js"></script>
         {% endblock %}
 
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <script type="text/javascript" src="bloodhound.jquery.min.js"></script>
+        <script type="text/javascript" src="typeahead.jquery.min.js"></script>
+        <script type="text/javascript"
+              $(document).ready(function()
+              {
+              var objets = new Bloodhound(
+                {
+                    datumTokenizer: Bloodhound.tokenizers.whitespace,
+                    queryTokenizer: Bloodhound.tokenizers.whitespace,
+                    remote: {
+                        url: "{{ path('handle_search') }}/%QUERY%",
+                        wildcard: '%QUERY%',
+                        filter: function (objets)
+                        {
+                            return $.map(objets, function (objet)
+                            {
+                                return {
+                                    objet_id: objet.id,
+                                    objet_name: objet.name,
+                                    state_image: state.image
+                                }
+                            })
+                        }
+                    }
+                })
+                objets.initialize();
+                $('#form_query').typeahead(
+                {
+                    hint: true
+                },
+                {
+                    name: 'objets',
+                    source: states.ttAdapter(),
+                    display: 'objet_name',
+                    templates: {
+                        suggestion: function (data)
+                        {
+                            return `
+                                <a href='{{ path('city_page') }}/`+data.state_id+`'>
+                                    <strong>`+data.objet_id+`</strong>
+                                    <span>`+data.objet_name+`</span>
+                                </div>
+                            `
+                        },
+                      }
+                    })
+
+              })
+
+        </script>
+
+
         {% include 'components/footer.html.twig' %}
         {% for message in app.flashes('success') %}
           <div class="alert alert-success alert-custom" onclick="hideMessage(this)">

@@ -23,12 +23,18 @@
                                         <div class="col">
                                           {{form_label(form.objet)}}
                                         </div>
-
+//methode(EDDY)
                                           <div class="col">
-                                            {{form_widget(form.objet)}}
+                                              <input list="typeObjet" type="text" id="objet.id">
+                                              {% for obj in objet %}
+                                              <datalist id="typeObjet">
+                                                <option value="obj.id">
+                                              </datalist>
+                                              {% endfor %}
                                           </div>
+//Fin methode(EDDY)
                                       </div>
-                                        
+
                                         <div class="row">
                                           <div class="col">
                                             {{form_label(form.peremption)}}
