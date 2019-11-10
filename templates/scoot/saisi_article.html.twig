@@ -15,6 +15,7 @@
 
                              <div class="card mb-3 border-0" style="width: 20rem;">
                                       {{ form_start(form) }}
+
                                       <div class="my-custom-class-for-errors">
                                           {{ form_errors(form) }}
                                       </div>
@@ -22,11 +23,12 @@
                                         <div class="col">
                                           {{form_label(form.objet)}}
                                         </div>
-                                        <div class="col">
-                                          {{form_widget(form.objet)}}
-                                          {{form_errors(form.objet)}}
-                                        </div>
+
+                                          <div class="col">
+                                            {{form_widget(form.objet)}}
+                                          </div>
                                       </div>
+                                        
                                         <div class="row">
                                           <div class="col">
                                             {{form_label(form.peremption)}}

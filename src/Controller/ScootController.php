@@ -34,6 +34,19 @@ class ScootController extends AbstractController
           'form' => $form->createView(),
           'title' => 'Inventaire test'
         ]);
+
+    }
+    // this fonction create
+
+    public function index()
+    {
+        // Méthode find qui permet de récupérer les données dans la bdd avec ici le critère de filtre par id
+        $objet = $this->getDoctrine()->getRepository(Objet::class)->find([id]);
+
+        // j'envoie les données à la vue
+        return $this->render('scoot/index.html.twig', [
+            'objet' => '$objet',
+        ]);
     }
 
     /**
@@ -51,29 +64,29 @@ class ScootController extends AbstractController
 
 
 
-          if($_POST) {
-            require 'validation.php';
-
-            $ajoutvaleur = array(
-              'neuf' => '[01234]|required || null|required',
-              'bon' => '[01234]|required || null|required',
-              'moyen' => '[01234]|required || null|required',
-              'defectueux' => '[01234]|required || null|required',
-              'incomplet' => '[01234]|required || null|required',
-            );
-            $validation = new Validation();
-
-            if($validation->validate($_POST, $ajoutvaleur) == true) {
-              var_dump($_POST);
-            }
-            else {
-              echo '<ul>';
-              foreach ($validation->errors as $error) {
-                echo '<li>' . $error . '</li>';
-              }
-              echo '</ul>';
-            }
-          }
+          // if($_POST) {
+          //   require 'validation.php';
+          //
+          //   $ajoutvaleur = array(
+          //     'neuf' => '[01234]|required || null|required',
+          //     'bon' => '[01234]|required || null|required',
+          //     'moyen' => '[01234]|required || null|required',
+          //     'defectueux' => '[01234]|required || null|required',
+          //     'incomplet' => '[01234]|required || null|required',
+          //   );
+          //   $validation = new Validation();
+          //
+          //   if($validation->validate($_POST, $ajoutvaleur) == true) {
+          //     var_dump($_POST);
+          //   }
+          //   else {
+          //     echo '<ul>';
+          //     foreach ($validation->errors as $error) {
+          //       echo '<li>' . $error . '</li>';
+          //     }
+          //     echo '</ul>';
+          //   }
+          // }
 
 
 

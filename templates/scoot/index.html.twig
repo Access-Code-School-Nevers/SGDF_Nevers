@@ -1,0 +1,11 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des objets{% endblock %}
+
+{% block body %}
+
+{# je fais une boucle sur objet(tableau contenant mes objets). #}
+{% for obj in objet %}
+    <datalist>{{ obj.titre }}</datalist>
+{% endfor %}
