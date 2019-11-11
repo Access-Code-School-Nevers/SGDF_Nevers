@@ -118,34 +118,6 @@ class ScootController extends AbstractController
        $form->handleRequest($request);
        if ($form->isSubmitted() && $form->isValid()) {
 
-
-
-          // if($_POST) {
-          //   require 'validation.php';
-          //
-          //   $ajoutvaleur = array(
-          //     'neuf' => '[01234]|required || null|required',
-          //     'bon' => '[01234]|required || null|required',
-          //     'moyen' => '[01234]|required || null|required',
-          //     'defectueux' => '[01234]|required || null|required',
-          //     'incomplet' => '[01234]|required || null|required',
-          //   );
-          //   $validation = new Validation();
-          //
-          //   if($validation->validate($_POST, $ajoutvaleur) == true) {
-          //     var_dump($_POST);
-          //   }
-          //   else {
-          //     echo '<ul>';
-          //     foreach ($validation->errors as $error) {
-          //       echo '<li>' . $error . '</li>';
-          //     }
-          //     echo '</ul>';
-          //   }
-          // }
-
-
-
          //Adding user to DB
          $entityManager = $this->getDoctrine()->getManager(); //recuperation de l entityManager
          $entityManager->persist($ajoutvaleur); // prepare l objet ajoutvaleur pour le mettre dans bdd

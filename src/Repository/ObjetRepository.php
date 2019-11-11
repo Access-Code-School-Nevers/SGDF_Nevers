@@ -40,7 +40,7 @@ class ObjetRepository extends ServiceEntityRepository
     }
 */
 
-//autre methode
+//methode2
 public function findByName($value)
 {
     return $this->createQueryBuilder('c')
@@ -52,7 +52,7 @@ public function findByName($value)
         ->getResult()
     ;
 }
-// fin autre methode
+// fin  methode2
     /*
     public function findOneBySomeField($value): ?Objet
     {

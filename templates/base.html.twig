@@ -24,10 +24,36 @@
         <script src="/js/script.js"></script>
         {% endblock %}
 
-        <script type="text/javascript" src="jquery.min.js"></script>
+<!-- methode 2 -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
+  </script>
+
+<!-- methode3 -->
+<script type="text/javascript">
+  $(document).ready(function()
+  {$("#recherche").keyup(function(){
+    var recherche = $(this).val();
+    var data = "motclef=" + recherche;
+    $.ajax({
+      type : "GET",
+      url : "result.php",
+      data : data,
+
+      $("#resultat").html(server_reponse).show();
+    });
+
+  });
+  }
+</script>
+
+
+<!-- methode 2 -->
+        {# <script type="text/javascript" src="jquery.min.js"></script>
         <script type="text/javascript" src="bloodhound.jquery.min.js"></script>
         <script type="text/javascript" src="typeahead.jquery.min.js"></script>
-        <script type="text/javascript"
+        <script type="text/javascript">
+
+
               $(document).ready(function()
               {
               var objets = new Bloodhound(
@@ -59,12 +85,14 @@
                     name: 'objets',
                     source: objets.ttAdapter(),
                     display: 'objet_titre',
-                     
+
                     })
 
               })
 
-        </script>
+        </script> #}
+
+
 
 
         {% include 'components/footer.html.twig' %}

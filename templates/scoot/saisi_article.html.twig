@@ -19,20 +19,32 @@
                                       <div class="my-custom-class-for-errors">
                                           {{ form_errors(form) }}
                                       </div>
+
                                       <div class="row">
                                         <div class="col">
                                           {{form_label(form.objet)}}
                                         </div>
-{# //methode(EDDY)
-                                          <div class="col">
+ <!-- methode 3 -->
+                                          <div class="col search">
+                                            <input type="text" id="recherche" class="text" name="recherche" required
+                                            minlength="0" maxlength="3" size="10">
+                                          </div>
+                                          <div class="resultat" id="resultat">
+
+                                          </div>
+                                        </div>
+
+
+ <!-- methode(EDDY)
+                                          {# <div class="col">
                                               <input list="typeObjet" type="text" id="objet.id">
                                               {% for obj in objet %}
                                               <datalist id="typeObjet">
                                                 <option value="obj.id">
                                               </datalist>
                                               {% endfor %}
-                                          </div>
-//Fin methode(EDDY)        #}
+                                          </div> #}
+Fin methode(EDDY)   -->
                                       </div>
 
                                         <div class="row">
@@ -43,9 +55,6 @@
                                             {{form_widget(form.peremption)}}
                                           </div>
                                         </div>
-
-
-
                                           {{ form_end(form) }}
 
 
