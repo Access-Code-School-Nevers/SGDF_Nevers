@@ -5,7 +5,6 @@
 {% block body %}
 
 
-<<<<<<< HEAD
           <div class="support_view">
             <div class="container_view">
                   <nav class="container_button">
@@ -15,220 +14,108 @@
                       <div class="form-group">
 
                              <div class="card mb-3 border-0" style="width: 20rem;">
-                                      {{ form_start(form) }}
+                                {{ form_start(form) }}
 
                                       <div class="my-custom-class-for-errors">
                                           {{ form_errors(form) }}
                                       </div>
 
                                       <div class="row">
-                                        <div class="col">
-                                          {{form_label(form.objet)}}
-                                        </div>
- <!-- methode 3 -->
-                                          {# <div class="col search">
-                                            <input type="text" id="recherche" class="text" name="recherche" required
-                                            minlength="0" maxlength="3" size="10">
+                                          <div class="col">
+                                            {{form_label(form.objet)}}
                                           </div>
-                                          <div class="resultat" id="resultat">
 
+                                          <div class="col">
+                                            <input list="typeObjet" type="text" id="objet.id">
+                                            <datalist id="typeObjet">
+                                              {% for obj in objet %}
+                                                <option value={{obj.id}}> {{obj.title}} </option>
+                                              {% endfor %}
+                                            </datalist>
                                           </div>
-                                        </div> #}
 
-
-<!-- methode eddy -->
-                                           <div class="col">
-                                              <input list="typeObjet" type="text" id="objet.id">
-                                              <datalist id="typeObjet">
-
-                                              </datalist>
-                                           </div>
-<!-- end methode eddy -->
                                       </div>
 
-                                        <div class="row">
+                                      <div class="row">
                                           <div class="col">
                                             {{form_label(form.peremption)}}
                                           </div>
                                           <div class="col">
                                             {{form_widget(form.peremption)}}
                                           </div>
+                                      </div>
+
+                                      <div class="row inputsaisiarticle">
+                                           <div class="col">
+                                             <span> état </span>
+                                           </div>
+                                           <div class="col">
+                                             <span> quantitées </span>
+                                           </div>
+                                      </div>
+                                       <div class="row inputsaisiarticle">
+                                         <div class="col">
+                                           <span> neuf </span>
+                                         </div>
+                                         <div class="col">
+                                         <input type="text" id="name" name="name" required
+                                         minlength="0" maxlength="3" size="10">
+                                         </div>
+                                       </div>
+                                       <div class="row inputsaisiarticle">
+                                         <div class="col">
+                                           <span> bon </span>
+                                         </div>
+                                         <div class="col">
+                                           <span> <input type="text" id="name" name="name" required
+                                           minlength="0" maxlength="3" size="10"> </span>
+                                         </div>
+                                       </div>
+                                       <div class="row inputsaisiarticle">
+                                           <div class="col">
+                                             <span> moyen </span>
+                                           </div>
+                                           <div class="col">
+                                              <input type="text" id="name" name="name" required
+                                           minlength="0" maxlength="3" size="10">
+                                           </div>
                                         </div>
-                                          {{ form_end(form) }}
+                                       <div class="row inputsaisiarticle">
+                                           <div class="col">
+                                             <span> defectueux </span>
+                                           </div>
+                                           <div class="col">
+                                              <input type="text" id="name" name="name" required
+                                              minlength="0" maxlength="3" size="10">
+                                           </div>
+                                       </div>
+                                       <div class="row inputsaisiarticle">
+                                            <div class="col">
+                                              <span> incomplet </span>
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" id="name" name="name" required
+                                                minlength="0" maxlength="3" size="10">
+                                            </div>
+                                        </div>
+                                        <div class="scan_articles_resituer">
+                                              <input type="text" name="" value="" required>
+                                              <button class="button_scan_restituer" type="button" name="button"><i class="fas fa-barcode"></i></button>
+                                        </div>
+                                        <div class="margeButton ajouter ">
+                                          <button type="submit" class="btn btn-primary pull-right"> AJOUTER </button>
+                                        </div>
+                        {{ form_end(form) }}
+                      </div>
 
-
-                         </div>
-                         <div class="row inputsaisiarticle">
-                           <div class="col">
-                             <span> état </span>
-                           </div>
-                           <div class="col">
-                             <span> quantitées </span>
-                           </div>
-                         </div>
-                         <div class="row inputsaisiarticle">
-                           <div class="col">
-                             <span> neuf </span>
-                           </div>
-                           <div class="col">
-                           <input type="text" id="name" name="name" required
-                           minlength="0" maxlength="3" size="10">
-                           </div>
-                         </div>
-                         <div class="row inputsaisiarticle">
-                           <div class="col">
-                             <span> bon </span>
-                           </div>
-                           <div class="col">
-                             <span> <input type="text" id="name" name="name" required
-                             minlength="0" maxlength="3" size="10"> </span>
-                           </div>
-                         </div>
-                         <div class="row inputsaisiarticle">
-                           <div class="col">
-                             <span> moyen </span>
-                           </div>
-                           <div class="col">
-                           <input type="text" id="name" name="name" required
-                           minlength="0" maxlength="3" size="10">
-                           </div>
-                         </div>
-                         <div class="row inputsaisiarticle">
-                           <div class="col">
-                             <span> defectueux </span>
-                           </div>
-                           <div class="col">
-                           <input type="text" id="name" name="name" required
-                           minlength="0" maxlength="3" size="10">
-                           </div>
-                         </div>
-                         <div class="row inputsaisiarticle">
-                          <div class="col">
-                            <span> incomplet </span>
-                          </div>
-                          <div class="col">
-                          <input type="text" id="name" name="name" required
-                          minlength="0" maxlength="3" size="10">
-                          </div>
-                          </div>
-                          <div class="scan_articles_resituer">
-                            <input type="text" name="" value="" required>
-                            <button class="button_scan_restituer" type="button" name="button"><i class="fas fa-barcode"></i></button>
-                          </div>
-                          <div class="margeButton ajouter ">
-                            <button type="submit" class="btn btn-primary pull-right"> AJOUTER </button>
-                          </div>
-                          </div>
-
-
-
-
-=======
-  <div class="support_view">
-    <div class="container_view">
-      <nav class="container_button">
-        <div class="card border-primary mb-3" style="max-width: 60rem;">
-          <h4> Ajouter des articles </h4>
-          <div class="container">
-          <div class="form-group">
-             {{ form_start(form) }}
-             <div class="card mb-3 border-0" style="width: 20rem;">
-
-              <div class="my-custom-class-for-errors">
-                  {{ form_errors(form) }}
-              </div>
-
-              <div class="row">
-                <div class="col">
-                  <input type='hidden' id='objectId'>
-                  <label for="idObjet">Objet</label>
-                  <input list="objects" type="text">
-                  <datalist id="objects">
-                  {% for obj in objects %}
-                    <option value="{{obj.id}}">{{obj.titre}}</option>
-                  {% endfor %}
-                  </datalist>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col">
-                  {{form_label(form.peremption)}}
-                </div>
-                <div class="col">
-                  {{form_widget(form.peremption)}}
-                </div>
-              </div>
+                      </div>
+                  </div>
             </div>
->>>>>>> 8558d7168d5e242f38264faad91933aac93804bb
 
-           <div class="row inputsaisiarticle">
-             <div class="col">
-               <span> état </span>
-             </div>
-             <div class="col">
-               <span> quantitées </span>
-             </div>
-           </div>
-           <div class="row inputsaisiarticle">
-             <div class="col">
-               <span> neuf </span>
-             </div>
-             <div class="col">
-             <input type="text" id="name" name="name" required
-             minlength="0" maxlength="3" size="10">
-             </div>
-           </div>
-           <div class="row inputsaisiarticle">
-             <div class="col">
-               <span> bon </span>
-             </div>
-             <div class="col">
-               <span> <input type="text" id="name" name="name" required
-               minlength="0" maxlength="3" size="10"> </span>
-             </div>
-           </div>
-           <div class="row inputsaisiarticle">
-             <div class="col">
-               <span> moyen </span>
-             </div>
-             <div class="col">
-             <input type="text" id="name" name="name" required
-             minlength="0" maxlength="3" size="10">
-             </div>
-           </div>
-           <div class="row inputsaisiarticle">
-             <div class="col">
-               <span> defectueux </span>
-             </div>
-             <div class="col">
-             <input type="text" id="name" name="name" required
-             minlength="0" maxlength="3" size="10">
-             </div>
-           </div>
-           <div class="row inputsaisiarticle">
-            <div class="col">
-              <span> incomplet </span>
-            </div>
-            <div class="col">
-            <input type="text" id="name" name="name" required
-            minlength="0" maxlength="3" size="10">
-            </div>
-            </div>
-            <div class="scan_articles_resituer">
-              <input type="text" name="" value="" required>
-              <button class="button_scan_restituer" type="button" name="button"><i class="fas fa-barcode"></i></button>
-            </div>
-            <div class="margeButton ajouter ">
-              <button type="submit" class="btn btn-primary pull-right"> AJOUTER </button>
-            </div>
-            {{ form_end(form) }}
-            </div>
+            </nav>
           </div>
-        </div>
-      </nav>
-    </div>
-  </div>
+
+          </div>
 
 
 
