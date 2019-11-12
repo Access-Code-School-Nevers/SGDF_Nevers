@@ -37,15 +37,26 @@
                           <button class="button_scan_restituer" type="button" name="button"><i class="fas fa-barcode"></i></button>
                         </div></th>
                       </tr>
-                      <tr>
+                      <tr class="bar-success">
                         <th class="pl-4">
-                        <p><i class="fas fa-boxes"></i></p>
-                        <p>Tentes <span>x2</span> </p>
-                        <p>rangée n° 13</p>
-                        <div class="scan_articles_resituer">
-                          <input type="text" name="" value="" placeholder="ex: 01 0045 7896 543" required>
-                          <button class="button_scan_restituer" type="button" name="button"><i class="fas fa-barcode"></i></button>
-                        </div></th>
+                        <div class="scan-in-progress">
+                          <p><i class="fas fa-boxes"></i></p>
+                          <p>Tentes <span>x2</span> </p>
+                          <p>rangée n° 13</p>
+                          <div class="scan_articles_resituer scan-in-progress">
+                            <input type="text" name="" value="" placeholder="ex: 01 0045 7896 543" required>
+                            <button class="button_scan_restituer" type="button" name="button"><i class="fas fa-barcode"></i></button>
+                          </div>
+                        </div>
+                        <div class="scan-success">
+                          <p>Article scannez avec <span class="font-weight-bold">success!</span></p>
+                          <button type="button" name="button" class="button_success button_style">ok</button>
+                          <div class="check-box-success">
+                            <i class="fas fa-check check-success"></i>
+                          </div>
+                        </div>
+
+                      </th>
                       </tr>
                       <tr>
                         <th class="pl-4">
@@ -55,7 +66,8 @@
                         <div class="scan_articles_resituer">
                           <input type="text" name="" value="" placeholder="ex: 01 0045 7896 543" required>
                           <button class="button_scan_restituer" type="button" name="button"><i class="fas fa-barcode"></i></button>
-                        </div></th>
+                        </div>
+                      </th>
                       </tr>
 
 
