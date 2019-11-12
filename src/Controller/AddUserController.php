@@ -47,7 +47,8 @@ class AddUserController extends AbstractController
     // Render the form
     return $this->render('scoot/addUser.html.twig', [
         'form' => $form->createView(),
-        'title' => 'Ajouter un Utilisateur'
+        'title' => 'Ajouter un Utilisateur',
+        'backUrl' => './home',
     ]);
   }
 }

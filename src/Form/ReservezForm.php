@@ -26,7 +26,7 @@ class ReservezForm extends AbstractType
             'attr' => ['class' => 'input_date_form input_style'],
       ))
       ->add('Valider', SubmitType::class, [
-          'attr' => ['class' => 'w-100 btn-primary main-blue-color second-blue-color'],
+          'attr' => ['class' => 'w-100 btn-primary main-blue-color second-blue-color mb-5'],
         ])
     ;
   }
