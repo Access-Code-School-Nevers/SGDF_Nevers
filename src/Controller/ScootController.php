@@ -70,7 +70,7 @@ class ScootController extends AbstractController
 
     }
 
-      return $this->render('scoot/saisi_article.html.twig', [
+      return $this->render('scoot/saisi_article_perissable.html.twig', [
           'form' => $form->createView(),
           'title' => 'Inventaire articles',
           'objects' => $objects,
