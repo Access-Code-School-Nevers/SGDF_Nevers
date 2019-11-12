@@ -44,6 +44,7 @@ class ScootController extends AbstractController
     }
 
 
+
     /**
     * @Route("/app/saisi_article_perissable", name="saisi_article_perissable")
     */
@@ -142,6 +143,17 @@ class ScootController extends AbstractController
     {
       return $this->render('scoot/menu-ajout.html.twig', [
         'title' => 'Menu inventaire',
+        'backUrl' => './home',
+      ]);
+    }
+
+    /**
+    * @Route("/app/retrait", name="retrait")
+    */
+    public function retrait()
+    {
+      return $this->render('scoot/retrait.html.twig', [
+        'title' => 'retrait',
         'backUrl' => './home',
       ]);
     }
