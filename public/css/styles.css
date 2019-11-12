@@ -4,7 +4,10 @@ body {
   --second-blue-color: #00578c;
 }
 .second-blue-color:hover{
-  background-color: var(--second-blue-color);
+  background-color: var(--second-blue-color) !important;
+}
+.second-blue-color{
+  transition: 0.3s all;
 }
 
 .main-blue-color{
