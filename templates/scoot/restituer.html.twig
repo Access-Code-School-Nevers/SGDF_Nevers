@@ -26,57 +26,56 @@
                   </thead>
                   <tbody class="body_table_resituer">
 
-                      <tr>
-
+                    <tr class="bar-success"><!-- rajouter la class "bar-success" lors de la validation -->
                         <th class="pl-4">
-                        <p><i class="fas fa-boxes"></i></p>
-                        <p>Pelles <span>x5</span> </p>
-                        <p>rangée n° 12</p>
-                        <div class="scan_articles_resituer">
-                          <input class="input_style_restituer" type="text" name="" value="" placeholder="ex: 01 0045 7896 543" required>
-                          <div class="input_button">
-                            <button class="button_scan_restituer m-0" type="button" name="button"></button>
+                          <div class="d-none scan-in-progress"> <!-- par default "display: flex;" || rajouter la class "d-none" lors de la validation -->
+                            <p><i class="fas fa-boxes"></i></p>
+                            <p>Pelles <span>x5</span> </p>
+                            <p>rangée n° 12</p>
+                            <div class="scan_articles_resituer">
+                                <input class="input_style_restituer" type="text" name="" value="" placeholder="ex: 01 0045 7896 543" required>
+                                <a href="#" class="input_button">
+                                    <div class="button_scan_restituer m-0"></div>
+                                </a>
+                            </div>
+                            <div class="check-box-success">
+                            </div>
                           </div>
+                          <div class="scan-success"> <!-- par default en display: none;  || enlever la class "d-none" lors de la validation -->
+                            <p>Article scanné avec <span class="font-weight-bold">succès!</span></p>
+                            <button type="button" name="button" class="button_success button_style">ok</button>
+                            <div class="check-box-success">
+                              <i class="fas fa-check check-success"></i>
+                            </div>
+                          </div>
+                      </th>
+                    </tr>
 
-                        </div>
-                        <div class="check-box-success">
-                        </div>
-                      </th>
+                    <tr class=""><!-- rajouter la class "bar-success" lors de la validation -->
+                          <th class="pl-4">
+                            <div class="scan-in-progress"> <!-- par default "display: flex;" || rajouter la class "d-none" lors de la validation -->
+                              <p><i class="fas fa-boxes"></i></p>
+                              <p>Pelles <span>x5</span> </p>
+                              <p>rangée n° 12</p>
+                              <div class="scan_articles_resituer">
+                                  <input class="input_style_restituer" type="text" name="" value="" placeholder="ex: 01 0045 7896 543" required>
+                                  <a href="#" class="input_button">
+                                      <div class="button_scan_restituer m-0"></div>
+                                  </a>
+                              </div>
+                              <div class="check-box-success">
+                              </div>
+                            </div>
+                            <div class="d-none scan-success"> <!-- par default en display: none;  || enlever la class "d-none" lors de la validation -->
+                              <p>Article scanné avec <span class="font-weight-bold">succès!</span></p>
+                              <button type="button" name="button" class="button_success button_style">ok</button>
+                              <div class="check-box-success">
+                                <i class="fas fa-check check-success"></i>
+                              </div>
+                            </div>
+                        </th>
                       </tr>
-                      <tr class="bar-success">
-                        <th class="pl-4">
-                        <div class="scan-in-progress">
-                          <p><i class="fas fa-boxes"></i></p>
-                          <p>Tentes <span>x2</span> </p>
-                          <p>rangée n° 13</p>
-                          <div class="scan_articles_resituer scan-in-progress">
-                            <input class="input_style" type="text" name="" value="" placeholder="ex: 01 0045 7896 543" required>
-                            <button class="button_scan_restituer" type="button" name="button"></button>
-                          </div>
-                        </div>
-                        <div class="scan-success">
-                          <p>Article scanné avec <span class="font-weight-bold">succès!</span></p>
-                          <button type="button" name="button" class="button_success button_style">ok</button>
-                          <div class="check-box-success">
-                            <i class="fas fa-check check-success"></i>
-                          </div>
-                        </div>
 
-                      </th>
-                      </tr>
-                      <tr>
-                        <th class="pl-4">
-                        <p><i class="fas fa-boxes"></i></p>
-                        <p>Piquet <span>x5</span> </p>
-                        <p>rangée n° 14</p>
-                        <div class="scan_articles_resituer">
-                          <input class="input_style" type="text" name="" value="" placeholder="ex: 01 0045 7896 543" required>
-                          <button class="button_scan_restituer" type="button" name="button"></button>
-                        </div>
-                        <div class="check-box-success">
-                        </div>
-                      </th>
-                      </tr>
 
 
 
