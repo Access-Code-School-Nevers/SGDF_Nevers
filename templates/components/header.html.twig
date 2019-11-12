@@ -5,7 +5,7 @@
     <!-- Link to go back to previous page, hide on some pages when arrow variable is defined -->
     <div class="content_nav_left">
       {% if arrow is not defined %}
-      <a href="./home"><i class="fas fa-arrow-left"></i></a> {% endif %}
+      <a href="{{ backUrl }}"><i class="fas fa-arrow-left"></i></a> {% endif %}
     </div>
 
     <h1>{{title}}</h1>
@@ -14,7 +14,7 @@
       <div class="dropdown">
         <span id="nameUser">{{app.user.nom|capitalize}}</span>
 
-        <i onclick="myFunction()" class="fas fa-user dropbtn"></i>
+        <i onclick="myFunction()" class="fas fa-user dropbtn second-blue-color"></i>
 
         <!-- Disconect link -->
         <div id="myDropdown" class="dropdown-content">

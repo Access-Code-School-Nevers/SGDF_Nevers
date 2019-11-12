@@ -15,14 +15,9 @@ class ArticleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('objet', TextType::class,
-              [ 'label' => 'Article',
-                'attr' => array('placeholder' => 'Nom de l\'article')
-            ])
             ->add('peremption', DateType::class, array(
                   'widget' => 'single_text',
                 ))
-            ->add('submit', SubmitType::class)
             ->getForm()
             ;
 

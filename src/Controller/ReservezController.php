@@ -19,7 +19,8 @@ class ReservezController extends AbstractController
 
       return $this->render('scoot/reservez.html.twig', [
           'form' => $form->createView(),
-          'title' => 'Je réserve'
+          'title' => 'Je réserve',
+          'backUrl' => './home',
       ]);
     }
 }
