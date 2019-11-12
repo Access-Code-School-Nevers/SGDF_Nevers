@@ -1,5 +1,5 @@
 
-//methode 3
+
 <?php
 include_once 'env.php';
 if(isset($_GET['motclef'])){
