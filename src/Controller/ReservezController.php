@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Reservation;
 use App\Form\ReservezForm;
-use App\Entity\Objet;
 
 class ReservezController extends AbstractController
 {

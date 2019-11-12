@@ -19,7 +19,7 @@ class ReservezForm extends AbstractType
     $builder
     ->add('dateDebut', DateType::class, array(
           'widget' => 'single_text',
-          'attr' => ['class' => 'input_date_form input_style'],
+          'attr' => ['class' => 'input_date_form input_style', 'onFocusOut' => 'getAvailablesObjets(this)'],
     ))
       ->add('dateFin', DateType::class, array(
             'widget' => 'single_text',
