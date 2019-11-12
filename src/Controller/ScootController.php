@@ -46,70 +46,10 @@ class ScootController extends AbstractController
     /**
     * @Route("/app/saisi_article", name="saisi_article")
     */
-
-/*
-// Méthode(EDDY)
-    public function index()
-    {
-        // find qui permet de récupérer les données dans la bdd avec ici le critère de filtre par id
-        $objet = $this->getDoctrine()->getRepository(Objet::class)->find([id]);
-
-        // j'envoie les données à la vue
-        return $this->render('scoot/saisi_article.html.twig', [
-            'objet' => '$objet',
-        ]);
-    }
-// fin methode Eddy
-*/
-//Autre methode
-/**
-    * @Route("/handle_search/{_query?}", name="handle_search", methods={"POST", "GET"})
-    */
-   public function handleSearchRequest(Request $request, $_query)
-   {
-       $em = $this->getDoctrine()->getManager();
-       if ($_query)
-       {
-           $data = $em->getRepository(Objet::class)->findByName($_query);
-       } else {
-           $data = $em->getRepository(Objet::class)->findAll();
-       }
-
-       // setting up the serializer
-       $normalizers = [
-           new ObjectNormalizer()
-       ];
-       $encoders =  [
-           new JsonEncoder()
-       ];
-       $serializer = new Serializer($normalizers, $encoders);
-       $data = $serializer->serialize($data, 'json');
-       return new JsonResponse($data, 200, [], true);
-   }
-
-   /**
-    * @Route("/objet/{id?}", name="objet_page", methods={"GET"})
-    */
-    public function objetSingle(Request $request, $id)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $objet = null;
-
-        if ($id) {
-            $objet = $em->getRepository(Objet::class)->findOneBy(['id' => $id]);
-        }
-        return $this->render('scoot/saisi_article.html.twig', [
-            'objet'  =>      $objet
-        ]);
-    }
-
-//fin autre methode
-
-    /**
-    * @Route("/app/saisi_article", name="saisi_article")
-    */
     public function saisi_articles(Request $request)
     {
+      $objects = $this->getDoctrine()->getRepository(Objet::class)->findAll();
+
       $article = new Article();
       $form = $this -> createForm(ArticleType::class, $article);
 
@@ -128,11 +68,12 @@ class ScootController extends AbstractController
          //Success message
 
     }
-            return $this->render('scoot/saisi_article.html.twig', [
-                'form' => $form->createView(),
-                'title' => 'Inventaire articles'
 
-            ]);
+      return $this->render('scoot/saisi_article.html.twig', [
+          'form' => $form->createView(),
+          'title' => 'Inventaire articles',
+          'objects' => $objects
+      ]);
   }
 
     /**

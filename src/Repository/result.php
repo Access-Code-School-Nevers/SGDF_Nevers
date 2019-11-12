@@ -1,5 +1,4 @@
-
-
+<!-- methode 3 -->
 <?php
 include_once 'env.php';
 if(isset($_GET['motclef'])){
@@ -15,7 +14,7 @@ if(isset($_GET['motclef'])){
       echo "titre:".$result->title;
     }
     }else{
-      echo "aucun résultat trouvé";
+      echo "l'objet n'existe pas il faut le creer";
     }
 
   }
