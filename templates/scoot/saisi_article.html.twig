@@ -21,12 +21,11 @@
 
               <div class="row">
                 <div class="col">
-                  <input type='hidden' id='objectId'>
                   <label for="idObjet">Objet</label>
                   <input list="objects" type="text">
                   <datalist id="objects">
                   {% for obj in objects %}
-                    <option value="{{obj.id}}">{{obj.titre}}</option>
+                    <option>{{obj.titre}}</option>
                   {% endfor %}
                   </datalist>
                 </div>
