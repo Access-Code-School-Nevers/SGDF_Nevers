@@ -66,3 +66,22 @@ Quagga.onDetected(function(result) {
   document.getElementById('barcode-scanner').style.display = "none";
   Quagga.stop();
 });
+
+
+// Test datalist
+document.querySelector('input[list="objects"]').addEventListener('input', onInput);
+
+function onInput(e) {
+   var input = e.target,
+       val = input.value;
+       list = input.getAttribute('list'),
+       options = document.getElementById(list).childNodes;
+
+  for(var i = 0; i < options.length; i++) {
+    if(options[i].value === val) {
+      document.getElementById('objectId').value = val;
+      e.target.value = options[i].innerText;
+      break;
+    }
+  }
+}
