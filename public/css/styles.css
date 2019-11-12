@@ -3,10 +3,13 @@ body {
   --main-blue-color: #003a5d;
   --second-blue-color: #00578c;
 }
-.second-blue-color:hover{
-  background-color: var(--second-blue-color);
-}
 
+.second-blue-color:hover{
+  background-color: var(--second-blue-color) !important;
+}
+.second-blue-color{
+  transition: 0.3s all;
+}
 .main-blue-color{
   background-color: var(--main-blue-color);
 }
@@ -105,7 +108,7 @@ hr{
     width: 85vw;
     box-shadow: 0px 0px 15px lightgrey;
     height: calc(95vh - 30px);
-    background-color: #ffffffde;
+    background-color: rgba(255, 255, 255, 0.8705882352941177);
     position: fixed;
     overflow: auto;
     border-radius: 5px;
@@ -179,7 +182,7 @@ header nav h1 {
     color: white;
     position: absolute;
     right: 1%;
-    display: inline-block;
+    top: 5px;
   }
 
   .dropdown-content {
