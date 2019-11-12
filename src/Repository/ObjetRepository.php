@@ -40,19 +40,7 @@ class ObjetRepository extends ServiceEntityRepository
     }
 */
 
-//methode2
-public function findByName($value)
-{
-    return $this->createQueryBuilder('c')
-        ->andWhere('c.title like :query')
-        ->setParameter('query', "%". $value ."%")
-        // ->orderBy('c.id', 'ASC')
-        // ->setMaxResults(10)
-        ->getQuery()
-        ->getResult()
-    ;
-}
-// fin  methode2
+ 
     /*
     public function findOneBySomeField($value): ?Objet
     {
