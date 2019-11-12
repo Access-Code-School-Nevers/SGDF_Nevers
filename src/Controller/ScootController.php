@@ -8,6 +8,7 @@ use App\Entity\Objet;
 use App\Form\CreerObjetType;
 use App\Entity\Article;
 use App\Form\ArticleType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
@@ -30,10 +31,22 @@ class ScootController extends AbstractController
     /**
      * @Route("/app/inventaire", name="inventaire")
      */
-    public function inventaire()
+    public function inventaire(Request $request)
     {
       $creerObjet = new Objet();
       $form = $this -> createForm(CreerObjetType::class, $creerObjet);
+
+      // $form->handleRequest($request);
+      // if ($form->isSubmitted() && $form->isValid()) {
+      //
+      //   //add object to data base
+      //   $entityManager = $this->getDoctrine()->getManager();
+      //   $entityManager->persist($creerObjet);
+      //   $entityManager->flush();
+      //
+      //   $this->addFlash('success', 'objet créer !');
+      //   return $this->redirectToRoute("inventaire");
+      // }
 
         return $this->render('scoot/inventaire.html.twig', [
           'form' => $form->createView(),

@@ -119,8 +119,8 @@ function addArticleToReservation(){
       var deleteObject = row.insertCell(2);
 
       // Add values
-      objectName.innerHTML = '<input type="text" name="listObjects[]" value="'+objectSelected+'" disabled>';
-      quantityDisplayed.innerHTML = '<input type="text" name="listObjects[]" value="'+quantitySelected+'" disabled>';
+      objectName.innerHTML = '<input type="text" name="listObjects[]" value="'+objectSelected+'" readonly>';
+      quantityDisplayed.innerHTML = '<input type="text" name="quantityObjects[]" value="'+quantitySelected+'" readonly>';
       deleteObject.innerHTML = '<span onClick="deleteObjectFromList(this)"><i class="fas fa-trash"></i></span>';
     }
     else

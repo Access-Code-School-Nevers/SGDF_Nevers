@@ -1,29 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inventaire{% endblock %}
+{% block title %}Inventaire : créer un objet{% endblock %}
 
 {% block body %}
     <!-- Inventaire-->
 
     <section class="support_view">
-      <div class="container_view">
-            <nav class="container_button">
-    <div class="card border-primary mb-3" style="max-width: 60rem;">
-              <div class="card-header">Pour commencer, je crée mes objets </div>
+      <nav class="container_button">
+      <div class="card border-primary mb-3" style="max-width: 60rem;">
+        <div class="card-header">Pour commencer, je crée mes objets </div>
 
-    <div class="card-body">
-    <section>
-      <div class="container">
-        <div class="form-group">
-          {{ form_start(form) }}
-            <div class="my-custom-class-for-errors">
-                {{ form_errors(form) }}
-            </div>
-            <div>
-
+        <div class="card-body">
+          <div class="container">
+            <div class="form-group">
+              
               {{form_row(form.titre)}}
               {{form_row(form.description)}}
               {{form_row(form.pcb)}}
+
+              <div class="perissable">
+                <label for="">Type d'objet</label>
+                <div class="">
+                  <button type="button" class="btn btn-outline-primary">perissable</button>
+                  <button type="button" class="btn btn-outline-primary">non perissable</button>
+                </div>
+              </div>
 
               <div class="row">
                 <div class="margeButton col-5 ">
@@ -32,22 +33,14 @@
                 <div class="col-5">
                   {{form_row(form.photo)}}
                 </div>
+              </div>
+              <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary">ENREGISTRER</button>
+              </div>
 
-
-          <div class="col-md-12 text-center">
-            <button type="submit" class="btn btn-primary">ENREGISTRER</button>
+            </div>
           </div>
-{{ form_end(form) }}
-</div>
-  </div>
-
-
-
-  </section>
-
-
-  </div>
-
+        </div>
     </section>
 
     <!-- footer -->
