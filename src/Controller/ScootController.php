@@ -95,4 +95,15 @@ class ScootController extends AbstractController
         'title' => 'Restituer',
       ]);
     }
+
+    /**
+     * @Route("/app/menu-ajout", name="menu-ajout")
+     */
+    public function menuAdd()
+    {
+      return $this->render('scoot/menu-ajout.html.twig', [
+        'title' => 'Menu inventaire',
+        'arrow' => '' // Hide the back arrow if on main page
+      ]);
+    }
 }
