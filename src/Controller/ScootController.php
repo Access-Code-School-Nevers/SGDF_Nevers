@@ -102,7 +102,7 @@ class ScootController extends AbstractController
 
       $article = new Article();
       $form = $this -> createForm(ArticleType::class, $article);
-
+      $task = $form->getData();
 
       // Handle request if user has submitted the form
        $form->handleRequest($request);
