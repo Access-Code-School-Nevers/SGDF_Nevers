@@ -32,7 +32,7 @@ class AddUserType extends AbstractType
           ]
         ])
       ->add('save', SubmitType::class, [
-          'attr' => ['class' => 'w-100 btn-primary main-blue-color'],
+          'attr' => ['class' => 'w-100 btn-primary main-blue-color second-blue-color'],
         ])
     ;
   }
