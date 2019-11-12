@@ -5,6 +5,8 @@ namespace App\Form;
 use App\Entity\Objet;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CreerObjetType extends AbstractType
@@ -17,6 +19,7 @@ class CreerObjetType extends AbstractType
         ->add('description')
         ->add('pcb')
         ->add('photo')
+
     ;
   }
 
