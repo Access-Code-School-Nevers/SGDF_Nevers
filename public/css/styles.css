@@ -538,52 +538,6 @@ th{
   margin-bottom: 1em;
 }
 
-
-
-/* <<<<< tableau reservez >>>> */
-.table_container{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-.table_container h4{
-  font-size: 1em;
-  margin-bottom: 1em;
-}
-.table_container_color{
-  max-height: 178px;
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  background-color: #003a5d1f;
-  box-shadow: inset 0px 0px 100px 100px white;
-  border-radius: 5px;
-  border: 1px solid #dadada;
-  overflow-y: auto;
-}
-.table_articles{
-  border-spacing: 0px;
-  border-collapse: collapse;
-  width: 100%;
-}
-.head_table{
-  border-collapse: collapse;
-  height: 40px;
-  background-color: var(--main-blue-color);
-  color: white;
-}
-tr{
-  border-bottom: 1px lightgray solid;
-  height: 35px;
-}
-th{
-  padding-left:10px;
-}
-.fa-trash{
-  color: #ff2828;
-}
-
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< HISTORIQUE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 .height_table_historique{
   max-height: 80vh !important;
@@ -700,20 +654,20 @@ th{
   align-items: center;
 }
 .check-box-success{
-  color: #ffffff;
+  color: #4a9a17;
   height: 40px;
   width: 40px;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #f2fff8;
+  border: 1px dashed #c3c3c3;
   border-radius: 10px;
-  background-color: var(--success-green-color);
-  /* text-shadow: 0px 0px 5px white; */
+  background-color: #ffffff;
   box-shadow: 0px 0px 10px white;
   right: 20px;
   top: 4px;
+  font-size: 3em;
 }
 .bar-success{
   box-shadow: inset 1px -9px 1px 0px var(--success-green-color) !important;
@@ -721,7 +675,6 @@ th{
   background-color: #f2fff8 !important;
 }
 .fa-check{
-    font-size: 1.8em;
     display: flex !important;
     justify-content: center;
     align-items: center;

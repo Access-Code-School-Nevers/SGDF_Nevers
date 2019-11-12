@@ -46,6 +46,41 @@ class ScootController extends AbstractController
 
 
     /**
+    * @Route("/app/saisi_article_perissable", name="saisi_article_perissable")
+    */
+    public function saisi_articles_perissables(Request $request)
+    {
+      $objects = $this->getDoctrine()->getRepository(Objet::class)->findAll();
+
+      $article = new Article();
+      $form = $this -> createForm(ArticleType::class, $article);
+
+      // Handle request if user has submitted the form
+       $form->handleRequest($request);
+       if ($form->isSubmitted() && $form->isValid()) {
+
+         //Adding user to DB
+         $entityManager = $this->getDoctrine()->getManager(); //recuperation de l entityManager
+         $entityManager->persist($ajoutvaleur); // prepare l objet ajoutvaleur pour le mettre dans bdd
+         $entityManager->flush();//envoi l objet dans la bdd
+
+         return new Response('états ajoutés');
+
+         //Success message
+
+    }
+
+      return $this->render('scoot/saisi_article.html.twig', [
+          'form' => $form->createView(),
+          'title' => 'Inventaire articles',
+          'objects' => $objects,
+          'backUrl' => './home',
+      ]);
+  }
+
+
+
+    /**
     * @Route("/app/saisi_article", name="saisi_article")
     */
     public function saisi_articles(Request $request)
