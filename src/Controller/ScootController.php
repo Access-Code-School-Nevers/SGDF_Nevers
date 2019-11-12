@@ -37,7 +37,8 @@ class ScootController extends AbstractController
 
         return $this->render('scoot/inventaire.html.twig', [
           'form' => $form->createView(),
-          'title' => 'Inventaire test'
+          'title' => 'Inventaire test',
+          'backUrl' => './menu-ajout',
         ]);
 
     }
@@ -72,7 +73,8 @@ class ScootController extends AbstractController
       return $this->render('scoot/saisi_article.html.twig', [
           'form' => $form->createView(),
           'title' => 'Inventaire articles',
-          'objects' => $objects
+          'objects' => $objects,
+          'backUrl' => './home',
       ]);
   }
 
@@ -83,6 +85,7 @@ class ScootController extends AbstractController
     {
       return $this->render('scoot/historique.html.twig', [
         'title' => 'Historique',
+        'backUrl' => './home',
       ]);
     }
 
@@ -93,6 +96,7 @@ class ScootController extends AbstractController
     {
       return $this->render('scoot/restituer.html.twig', [
         'title' => 'Restituer',
+        'backUrl' => './home',
       ]);
     }
 
@@ -103,7 +107,7 @@ class ScootController extends AbstractController
     {
       return $this->render('scoot/menu-ajout.html.twig', [
         'title' => 'Menu inventaire',
-        'arrow' => '' // Hide the back arrow if on main page
+        'backUrl' => './home',
       ]);
     }
 }
