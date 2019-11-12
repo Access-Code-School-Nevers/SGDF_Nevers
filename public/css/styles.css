@@ -670,6 +670,7 @@ th{
 }
 .scan-in-progress{
     display: flex;
+    align-items: center;
 }
 .scan-success{
   display: flex;
@@ -787,6 +788,9 @@ footer{
   }
 }
 @media screen and (max-width: 700px) {
+  .check-box-success{
+    display: none;
+  }
   .search_article_reservez_form{
     width: 90%;
     flex-wrap: wrap;
@@ -838,6 +842,23 @@ footer{
   body{
     font-size:0.8rem;
   }
+}
+@media screen and (max-width: 500px) {
+  .body_table_resituer tr th p {
+      margin-right: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  .input_style_restituer{
+    width: 30vw;
+  }
+  .body_table_resituer tr {
+    box-shadow: inset 1px -9px 1px 0px #00619c;
+}
+.scan-in-progress p .fa-boxes{
+  display: none;
+}
 }
 
 
