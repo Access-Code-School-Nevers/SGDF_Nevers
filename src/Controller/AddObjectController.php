@@ -12,7 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class AddObjectController extends AbstractController
 {
     /**
-     * @Route("/add/object", name="inventaire")
+     * @Route("/app/inventaire", name="inventaire")
      */
     public function addObjet(Request $request)
     {
@@ -20,7 +20,7 @@ class AddObjectController extends AbstractController
         $objet = new Objet();
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-          $objetInfo = $form->getData();
+          $objet = $form->getData();
 
           //add object to data base
           $entityManager = $this->getDoctrine()->getManager();
@@ -30,10 +30,12 @@ class AddObjectController extends AbstractController
           $this->addFlash('success', 'objet créer !');
           return $this->redirectToRoute("inventaire");
         }
+
         return $this->render('scoot/inventaire.html.twig', [
             'controller_name' => 'AddObjectController',
           ]);
+
       }
-      
+
     }
 }

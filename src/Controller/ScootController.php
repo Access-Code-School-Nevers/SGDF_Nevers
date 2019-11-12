@@ -7,6 +7,8 @@ use App\Entity\Objet;
 use App\Form\CreerObjetType;
 use App\Entity\Article;
 use App\Form\ArticleType;
+use App\Controller\AddObjectControllert;
+
 
 class ScootController extends AbstractController
 {
