@@ -5,7 +5,7 @@
     <!-- Link to go back to previous page, hide on some pages when arrow variable is defined -->
     <div class="content_nav_left">
       {% if arrow is not defined %}
-      <a href="./home"><i class="fas fa-arrow-left"></i></a> {% endif %}
+      <a href="{{ backUrl }}"><i class="fas fa-arrow-left"></i></a> {% endif %}
     </div>
 
     <h1>{{title}}</h1>
