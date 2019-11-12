@@ -36,70 +36,94 @@ class ScootController extends AbstractController
       $creerObjet = new Objet();
       $form = $this -> createForm(CreerObjetType::class, $creerObjet);
 
-      // $form->handleRequest($request);
-      // if ($form->isSubmitted() && $form->isValid()) {
-      //
-      //   //add object to data base
-      //   $entityManager = $this->getDoctrine()->getManager();
-      //   $entityManager->persist($creerObjet);
-      //   $entityManager->flush();
-      //
-      //   $this->addFlash('success', 'objet créer !');
-      //   return $this->redirectToRoute("inventaire");
-      // }
+      $form->handleRequest($request);
+      if ($form->isSubmitted() && $form->isValid()) {
+        $objetInfo = $form->getData();
+        //add object to data base
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($objetInfo);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'objet créer !');
+        return $this->redirectToRoute("inventaire");
+      }
 
         return $this->render('scoot/inventaire.html.twig', [
           'form' => $form->createView(),
           'title' => 'Inventaire test',
-          'backUrl' => './menu-ajout',
+          'backUrl' => './home'
         ]);
 
     }
 
 
-
     /**
-    * @Route("/app/saisi_article_perissable", name="saisi_article_perissable")
+    * @Route("/app/saisi_article", name="saisi_article")
     */
-    public function saisi_articles_perissables(Request $request)
+
+/*
+// Méthode(EDDY)
+    public function index()
     {
-      $objects = $this->getDoctrine()->getRepository(Objet::class)->findAll();
+        // find qui permet de récupérer les données dans la bdd avec ici le critère de filtre par id
+        $objet = $this->getDoctrine()->getRepository(Objet::class)->find([id]);
 
-      $article = new Article();
-      $form = $this -> createForm(ArticleType::class, $article);
+        // j'envoie les données à la vue
+        return $this->render('scoot/saisi_article.html.twig', [
+            'objet' => '$objet',
+        ]);
+    }
+// fin methode Eddy
+*/
+//Autre methode
+/**
+    * @Route("/handle_search/{_query?}", name="handle_search", methods={"POST", "GET"})
+    */
+   public function handleSearchRequest(Request $request, $_query)
+   {
+       $em = $this->getDoctrine()->getManager();
+       if ($_query)
+       {
+           $data = $em->getRepository(Objet::class)->findByName($_query);
+       } else {
+           $data = $em->getRepository(Objet::class)->findAll();
+       }
 
-      // Handle request if user has submitted the form
-       $form->handleRequest($request);
-       if ($form->isSubmitted() && $form->isValid()) {
+       // setting up the serializer
+       $normalizers = [
+           new ObjectNormalizer()
+       ];
+       $encoders =  [
+           new JsonEncoder()
+       ];
+       $serializer = new Serializer($normalizers, $encoders);
+       $data = $serializer->serialize($data, 'json');
+       return new JsonResponse($data, 200, [], true);
+   }
 
-         //Adding user to DB
-         $entityManager = $this->getDoctrine()->getManager(); //recuperation de l entityManager
-         $entityManager->persist($ajoutvaleur); // prepare l objet ajoutvaleur pour le mettre dans bdd
-         $entityManager->flush();//envoi l objet dans la bdd
+   /**
+    * @Route("/objet/{id?}", name="objet_page", methods={"GET"})
+    */
+    public function objetSingle(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $objet = null;
 
-         return new Response('états ajoutés');
-
-         //Success message
-
+        if ($id) {
+            $objet = $em->getRepository(Objet::class)->findOneBy(['id' => $id]);
+        }
+        return $this->render('scoot/saisi_article.html.twig', [
+            'objet'  =>      $objet
+        ]);
     }
 
-      return $this->render('scoot/saisi_article.html.twig', [
-          'form' => $form->createView(),
-          'title' => 'Inventaire articles',
-          'objects' => $objects,
-          'backUrl' => './home',
-      ]);
-  }
-
-
+//fin autre methode
 
     /**
     * @Route("/app/saisi_article", name="saisi_article")
     */
     public function saisi_articles(Request $request)
     {
-      $objects = $this->getDoctrine()->getRepository(Objet::class)->findAll();
-
       $article = new Article();
       $form = $this -> createForm(ArticleType::class, $article);
 
@@ -118,13 +142,11 @@ class ScootController extends AbstractController
          //Success message
 
     }
+            return $this->render('scoot/saisi_article.html.twig', [
+                'form' => $form->createView(),
+                'title' => 'Inventaire articles'
 
-      return $this->render('scoot/saisi_article.html.twig', [
-          'form' => $form->createView(),
-          'title' => 'Inventaire articles',
-          'objects' => $objects,
-          'backUrl' => './home',
-      ]);
+            ]);
   }
 
     /**
@@ -134,7 +156,6 @@ class ScootController extends AbstractController
     {
       return $this->render('scoot/historique.html.twig', [
         'title' => 'Historique',
-        'backUrl' => './home',
       ]);
     }
 
@@ -145,29 +166,6 @@ class ScootController extends AbstractController
     {
       return $this->render('scoot/restituer.html.twig', [
         'title' => 'Restituer',
-        'backUrl' => './home',
-      ]);
-    }
-
-    /**
-     * @Route("/app/menu-ajout", name="menu-ajout")
-     */
-    public function menuAdd()
-    {
-      return $this->render('scoot/menu-ajout.html.twig', [
-        'title' => 'Menu inventaire',
-        'backUrl' => './home',
-      ]);
-    }
-
-    /**
-    * @Route("/app/retrait", name="retrait")
-    */
-    public function retrait()
-    {
-      return $this->render('scoot/retrait.html.twig', [
-        'title' => 'retrait',
-        'backUrl' => './home',
       ]);
     }
 }
