@@ -625,19 +625,32 @@ th{
   height: 30px;
 }
 .button_scan_restituer{
-  height: 30px;
+  height: 29px;
   width: 40px;
   font-size: 1.6em;
   padding: 0;
   text-align: center;
-  background-color: #fffde6;
-  border: 1px solid #d0d0d0;
-  box-shadow: 1px 0px 6px #797979;
+  background-image: url("../img/icon_scan.svg");
+  background-size: contain;
+  background-position: center;
+  background-color: white;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 11px;
+  border-radius: 0px;
+  border: none;
   margin-left: 25px;
+  padding-left: 10px;
+}
+.input_button{
+  height: 30px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+.input_style_restituer{
+
 }
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< RETRAIT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 .scan-in-progress{

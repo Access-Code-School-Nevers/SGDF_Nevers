@@ -48,9 +48,9 @@ class ObjetRepository extends ServiceEntityRepository
     if(count($tmpDate) == 3 && checkDate($tmpDate[1],$tmpDate[2],$tmpDate[0])){
       $conn = $this->getEntityManager()->getConnection();
 
-      $sql = "SELECT id, titre, sum(qty) as quantite
+      $sql = "SELECT id, titre, sum(qty) as quantite, GROUP_CONCAT(id_article) as id_article
               FROM (
-                  SELECT O.id, titre, count(*) as qty
+                  SELECT O.id, titre, count(*) as qty, GROUP_CONCAT(A.id) as id_article
                   FROM objet O
                   LEFT JOIN article A ON O.id = A.objet_id
                   LEFT JOIN reservation_has_articles RAS ON A.id = RAS.article_id
@@ -59,7 +59,7 @@ class ObjetRepository extends ServiceEntityRepository
 
                   UNION ALL
 
-                  SELECT O.id, titre, count(*) as qty
+                  SELECT O.id, titre, count(*) as qty, GROUP_CONCAT(A.id) as id_article
                   FROM objet O
                   LEFT JOIN article A ON O.id = A.objet_id
                   LEFT JOIN reservation_has_articles RAS ON A.id = RAS.article_id
