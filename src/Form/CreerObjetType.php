@@ -16,8 +16,9 @@ class CreerObjetType extends AbstractType
     $builder
         ->add('titre')
         ->add('description')
-        ->add('quantite')
+        ->add('pcb')
         ->add('photo')
+        ->add('perissable')
     ;
   }
 

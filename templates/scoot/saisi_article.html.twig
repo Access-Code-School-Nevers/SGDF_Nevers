@@ -15,18 +15,38 @@
 
                              <div class="card mb-3 border-0" style="width: 20rem;">
                                       {{ form_start(form) }}
+
                                       <div class="my-custom-class-for-errors">
                                           {{ form_errors(form) }}
                                       </div>
+
                                       <div class="row">
                                         <div class="col">
                                           {{form_label(form.objet)}}
                                         </div>
-                                        <div class="col">
-                                          {{form_widget(form.objet)}}
-                                          {{form_errors(form.objet)}}
+ <!-- methode 3 -->
+                                          <div class="col search">
+                                            <input type="text" id="recherche" class="text" name="recherche" required
+                                            minlength="0" maxlength="3" size="10">
+                                          </div>
+                                          <div class="resultat" id="resultat">
+
+                                          </div>
                                         </div>
+
+
+ <!-- methode(EDDY)
+                                          {# <div class="col">
+                                              <input list="typeObjet" type="text" id="objet.id">
+                                              {% for obj in objet %}
+                                              <datalist id="typeObjet">
+                                                <option value="obj.id">
+                                              </datalist>
+                                              {% endfor %}
+                                          </div> #}
+Fin methode(EDDY)   -->
                                       </div>
+
                                         <div class="row">
                                           <div class="col">
                                             {{form_label(form.peremption)}}
@@ -35,9 +55,6 @@
                                             {{form_widget(form.peremption)}}
                                           </div>
                                         </div>
-
-
-
                                           {{ form_end(form) }}
 
 
@@ -94,6 +111,10 @@
                           <input type="text" id="name" name="name" required
                           minlength="0" maxlength="3" size="10">
                           </div>
+                          </div>
+                          <div class="scan_articles_resituer">
+                            <input type="text" name="" value="" required>
+                            <button class="button_scan_restituer" type="button" name="button"><i class="fas fa-barcode"></i></button>
                           </div>
                           <div class="margeButton ajouter ">
                             <button type="submit" class="btn btn-primary pull-right"> AJOUTER </button>
