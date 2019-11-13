@@ -7,7 +7,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Objet;
 use App\Form\CreerObjetType;
 use App\Entity\Article;
-use App\Form\ArticleType;
+use App\Form\ArticleNonPerissable;
+use App\Entity\Emplacement;
+use App\Form\ArticlePerissable;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -66,7 +68,7 @@ class ScootController extends AbstractController
       $objects = $this->getDoctrine()->getRepository(Objet::class)->findAll();
 
       $article = new Article();
-      $form = $this -> createForm(ArticleType::class, $article);
+      $form = $this -> createForm(ArticlePerissable::class, $article);
 
       // Handle request if user has submitted the form
        $form->handleRequest($request);
@@ -97,26 +99,71 @@ class ScootController extends AbstractController
     * @Route("/app/saisi_article", name="saisi_article")
     */
     public function saisi_articles(Request $request)
-    {
+    { // We take the proprerties and functions of "Objet" Entity that we put in var $objets
       $objects = $this->getDoctrine()->getRepository(Objet::class)->findAll();
-
+      // creation of a new article
       $article = new Article();
-      $form = $this -> createForm(ArticleType::class, $article);
+      $form = $this -> createForm(ArticleNonPerissable::class, $article);
       $task = $form->getData();
 
       // Handle request if user has submitted the form
        $form->handleRequest($request);
        if ($form->isSubmitted() && $form->isValid()) {
+//get the ID of the article
+$id_article = $request->request->get('id');
+//get the quantity of the field "neuf"
+$neuf = $request->request->get('neuf');
+$bon = $request->request->get('bon');
+$moyen = $request->request->get('moyen');
+$defectueux = $request->request->get('defectueux');
+$incomplet = $request->request->get('incomplet');
+$objet = $request->request->get('objet');
 
-         //Adding user to DB
-         $entityManager = $this->getDoctrine()->getManager(); //recuperation de l entityManager
-         $entityManager->persist($ajoutvaleur); // prepare l objet ajoutvaleur pour le mettre dans bdd
-         $entityManager->flush();//envoi l objet dans la bdd
+// get the code a barre of the user
+$cab = $request->request->get('cab');
 
-         return new Response('états ajoutés');
+// We take the proprerties and functions of "Objet" Entity that we put in var $objets
+$recupere_Objet_props = $this->getDoctrine()->getRepository(Objet::class);
+//I get the object dial in the input "objet" box by the user
+$product=$recupere_Objet_props->findBy(['titre'=>$objet]);
+// recuperation de l id de l objet
+// $id_objet = $product.id;
 
-         //Success message
 
+////// id Emplacement///////
+
+//We take the proprerties and functions of Entity "Emplacement" et les fonctions de son Repository
+$recupere_Emplacement_props = $this->getDoctrine()->getRepository(Emplacement::class);
+
+//on recupere le cab de input ou il y a le code a bar
+$cab=$recupere_Emplacement_props->findBy(['id'=>$cab]);
+
+// set of Entity "Objet"
+$article->setObjet($product[0]);
+// set of Entity "Emplacement"
+$article->setEmplacement($cab[0]);
+
+$entityManager = $this->getDoctrine()->getManager(); //use the entityManager
+$entityManager->persist($article); //   objet "article" ready to be flush in dbb
+$entityManager->flush();
+
+
+
+
+
+// if($neuf>0)
+// $etat='5'
+// for(i=0;i<$neuf;i++) {
+  // $entityManager = $this->getDoctrine()->getManager(); //recuperation de l entityManager
+  // $entityManager->persist($cab); // prepare l objet ajoutvaleur pour le mettre dans bdd
+  // $entityManager->flush();
+//}
+
+
+
+// Success message
+$this->addFlash('success', 'Article crée avec succès!');
+return $this->redirectToRoute("saisi_article");
     }
 
       return $this->render('scoot/saisi_article.html.twig', [

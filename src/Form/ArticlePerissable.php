@@ -10,15 +10,15 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class ArticleType extends AbstractType
+class ArticlePerissable extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('peremption', DateType::class, array(
-                  'widget' => 'single_text',
-                ))
-            ->add('emplacement')
+        ->add('peremption', DateType::class, array(
+              'widget' => 'single_text',
+            ))
+
             ->getForm()
             ;
 

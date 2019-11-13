@@ -11,7 +11,7 @@
           <h4> Ajouter des articles </h4>
           <div class="container">
           <div class="form-group">
-
+            {{form_start(form)}}
              <div class="card mb-3 border-0" style="width: 20rem;">
 
               <div class="my-custom-class-for-errors">
@@ -21,9 +21,9 @@
               <div class="row">
                 <div class="col">
                   <label for="idObjet">Objet</label>
-                  <input list="objects" type="text">
+                  <input list="objects" type="text" name="objet">
                   <datalist id="objects">
-                  {% for obj in objects %}
+                  {% for obj in objects %}  // objects provient du controller
                     <option>{{obj.titre}}</option>
                   {% endfor %}
                   </datalist>
@@ -44,7 +44,7 @@
                <span> neuf </span>
              </div>
              <div class="col">
-             <input type="text" id="name" name="name" required
+             <input type="text" id="neuf" name="neuf" required
              minlength="0" maxlength="3" size="10">
              </div>
            </div>
@@ -53,7 +53,7 @@
                <span> bon </span>
              </div>
              <div class="col">
-               <span> <input type="text" id="name" name="name" required
+               <span> <input type="text" id="bon" name="bon" required
                minlength="0" maxlength="3" size="10"> </span>
              </div>
            </div>
@@ -62,7 +62,7 @@
                <span> moyen </span>
              </div>
              <div class="col">
-             <input type="text" id="name" name="name" required
+             <input type="text" id="moyen" name="moyen" required
              minlength="0" maxlength="3" size="10">
              </div>
            </div>
@@ -71,7 +71,7 @@
                <span> defectueux </span>
              </div>
              <div class="col">
-             <input type="text" id="name" name="name" required
+             <input type="text" id="defectueux" name="defectueux" required
              minlength="0" maxlength="3" size="10">
              </div>
            </div>
@@ -80,18 +80,18 @@
               <span> incomplet </span>
             </div>
             <div class="col">
-            <input type="text" id="name" name="name" required
+            <input type="text" id="incomplet" name="incomplet" required
             minlength="0" maxlength="3" size="10">
             </div>
             </div>
             <div class="scan_articles_resituer">
-              <input type="text" name="" value="" required>
+              <input type="text" name="cab" value="" required>
               <button class="button_scan_restituer " type="button" name="button"><i class="fas fa-barcode"></i></button>
             </div>
             <div class="margeButton ajouter ">
               <button type="submit" class="btn btn-primary pull-right"> AJOUTER </button>
             </div>
-
+              {{form_end(form)}}
             </div>
 
             </nav>
