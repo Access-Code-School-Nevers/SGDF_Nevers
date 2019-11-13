@@ -8,6 +8,7 @@ use App\Entity\Objet;
 use App\Form\CreerObjetType;
 use App\Entity\Article;
 use App\Form\ArticleType;
+// use App\Controller\ReservezController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -52,10 +53,16 @@ class ScootController extends AbstractController
           echo "tous les champs du formulaire doivent être remplis excepté celui des photos";
         }
 
+        // if(count($form['titre']) < 0 )
+        // {
+        //   echo "objet déjà existant";
+        // }
         //add object to data base
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($creerObjet);
         $entityManager->flush();
+
+
 
         $this->addFlash('success', 'objet créer !');
         return $this->redirectToRoute("inventaire");
