@@ -47,4 +47,38 @@ class PeremptionRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    // Update articles to be archived
+    public function addArticlesToArchive($listArticles){
+      $nbArticles = count($listArticles);
+      $articlesToExecute = [];
+      $hasArticlesPerishables = 0;
+
+      if($nbArticles > 0){
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = 'UPDATE peremption SET archive = 1 WHERE article_id IN (';
+        for($i=0, $v=$nbArticles ; $i<$v ; $i++){
+          $listArticles[$i] = intval($listArticles[$i]);
+          if(is_int($listArticles[$i])){
+            $sql .= ':id'.$i.',';
+            $articlesToExecute['id'.$i] = $listArticles[$i];
+            $hasArticlesPerishables++;
+          }
+        }
+
+        if($hasArticlesPerishables > 0){
+          $sql = substr($sql,0,-1);
+          $sql .= ')';
+
+          // PDO to escape values to avoid injections
+          $stmt = $conn->prepare($sql);
+          $stmt->execute($articlesToExecute);
+
+          return true;
+        }
+        else return false;
+      }
+      else return false;
+    }
 }

@@ -9,59 +9,51 @@
       <nav class="container_button">
         <div class="card border-primary mb-3" style="max-width: 60rem;">
           <h4> Ajouter des articles </h4>
+
           <div class="container">
-          <div class="form-group">
-             {{ form_start(form) }}
-             <div class="card mb-3 border-0" style="width: 20rem;">
+            <div class="form-group">
+              <div>
+                  <div class="row">
+                    <div class="col">
+                      <label for="idObjet">Objet</label>
+                      <input list="objects" type="text">
+                        <datalist id="objects">
+                            {% for obj in objects %}
+                            <option>{{obj.titre}}</option>
+                            {% endfor %}
+                        </datalist>
+                    </div>
+                  </div>
+              </div>
+              <div>
+                <div class="row">
+                   <div class="col">
+                      {{form_label(form.peremption)}}
+                  </div>
+                  <div class="col">
+                      {{form_widget(form.peremption)}}
+                  </div>
+                </div>
 
-              <div class="my-custom-class-for-errors">
-                  {{ form_errors(form) }}
               </div>
 
-              <div class="row">
-                <div class="col">
-                  <label for="idObjet">Objet</label>
-                  <input list="objects" type="text">
-                  <datalist id="objects">
-                  {% for obj in objects %}
-                    <option>{{obj.titre}}</option>
-                  {% endfor %}
-                  </datalist>
-                </div>
+              <div>
+                    <div class="scan_articles_resituer">
+                      <input type="text" name="" value="" placeholder="ex: 01 0045 7896 543" required>
+                      <button class="button_scan_restituer" type="button" name="button"><i class="fas fa-barcode"></i></button>
+                    </div>
               </div>
 
-              <div class="row">
-                <div class="col">
-                  {{form_label(form.peremption)}}
-                </div>
-                <div class="col">
-                  {{form_widget(form.peremption)}}
-                </div>
+              <div class="margeButton ajouter ">
+                <button type="submit" class="btn btn-primary pull-right"> AJOUTER </button>
               </div>
-            </div>
-
-           <div class="row inputsaisiarticle">
-
-               <div class="col">
-                  {{form_label(form.peremption)}}
-               </div>
-               <div class="col">
-                 <span> quantitées </span>
-               </div>
-           </div>
-
-            <div class="margeButton ajouter ">
-              <button type="submit" class="btn btn-primary pull-right"> AJOUTER </button>
-            </div>
-            {{ form_end(form) }}
-            </div>
-
-            </nav>
           </div>
 
-          </div>
-
-
+        </div>
+    </div>
+    </nav>
+  </div>
+</div>
 
 <!-- footer -->
 <footer>

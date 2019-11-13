@@ -29,7 +29,7 @@ class ReservationHasArticles
         return $this->reservation;
     }
 
-    public function setReservation(int $reservation): self
+    public function setReservation(Reservation $reservation): self
     {
         $this->reservation = $reservation;
 
@@ -41,7 +41,7 @@ class ReservationHasArticles
         return $this->article;
     }
 
-    public function setArticle(int $article): self
+    public function setArticle(Article $article): self
     {
         $this->article = $article;
 
