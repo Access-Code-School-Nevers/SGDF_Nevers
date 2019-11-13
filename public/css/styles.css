@@ -533,6 +533,7 @@ th{
   margin: 0 10px 8px 0;
   cursor: pointer !important;
   transition: 0.5s all;
+  line-height: 28px;
 }
 .submit_search_article:hover{
   background-color: var(--second-blue-color);
