@@ -13,16 +13,18 @@
         <div class="card-body">
           <div class="container">
             <div class="form-group">
-              
+              {{form_start(form)}}
               {{form_row(form.titre)}}
               {{form_row(form.description)}}
               {{form_row(form.pcb)}}
 
               <div class="perissable">
                 <label for="">Type d'objet</label>
-                <div class="">
-                  <button type="button" class="btn btn-outline-primary">perissable</button>
-                  <button type="button" class="btn btn-outline-primary">non perissable</button>
+                <div class="row">
+                  {{form_row(form.perissable)}}
+
+                  <!-- <button type="button" class="btn btn-outline-primary">perissable</button>
+                  <button type="button" class="btn btn-outline-primary">non perissable</button> -->
                 </div>
               </div>
 
@@ -35,9 +37,10 @@
                 </div>
               </div>
               <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">ENREGISTRER</button>
+                {{form_widget(form.enregistrer)}}
+                <!-- <button type="submit" class="btn btn-primary">ENREGISTRER</button> -->
               </div>
-
+              {{form_end(form)}}
             </div>
           </div>
         </div>

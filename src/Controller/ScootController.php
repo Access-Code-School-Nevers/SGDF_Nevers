@@ -37,21 +37,36 @@ class ScootController extends AbstractController
       $form = $this -> createForm(CreerObjetType::class, $creerObjet);
 
       $form->handleRequest($request);
-      if ($form->isSubmitted() && $form->isValid()) {
-        $objetInfo = $form->getData();
+
+      if ($form->isSubmitted() && $form->isValid())
+      {
+
+        $creerObjet = $form->getData();
+
+        if(!empty($_POST['titre']) && !empty($_POST['description']) && !empty($_POST['pcb']) && !empty($_POST['perissable']))
+        {
+
+        }
+        else
+        {
+          echo "tous les champs du formulaire doivent être remplis excepté celui des photos";
+        }
+
         //add object to data base
         $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($objetInfo);
+        $entityManager->persist($creerObjet);
         $entityManager->flush();
 
         $this->addFlash('success', 'objet créer !');
         return $this->redirectToRoute("inventaire");
+
+
       }
 
         return $this->render('scoot/inventaire.html.twig', [
           'form' => $form->createView(),
           'title' => 'Inventaire test',
-          'backUrl' => './home'
+          'backUrl' => './menu-ajout',
         ]);
 
     }
@@ -113,7 +128,8 @@ class ScootController extends AbstractController
             $objet = $em->getRepository(Objet::class)->findOneBy(['id' => $id]);
         }
         return $this->render('scoot/saisi_article.html.twig', [
-            'objet'  =>      $objet
+            'objet' => $objet,
+            'backUrl' => './home',
         ]);
     }
 
@@ -141,13 +157,14 @@ class ScootController extends AbstractController
 
          //Success message
 
-    }
+        }
             return $this->render('scoot/saisi_article.html.twig', [
                 'form' => $form->createView(),
-                'title' => 'Inventaire articles'
+                'title' => 'Inventaire articles',
+                'backUrl' => './home',
 
             ]);
-  }
+      }
 
     /**
     * @Route("/app/historique", name="historique")
@@ -156,6 +173,7 @@ class ScootController extends AbstractController
     {
       return $this->render('scoot/historique.html.twig', [
         'title' => 'Historique',
+        'backUrl' => './home',
       ]);
     }
 
@@ -166,6 +184,7 @@ class ScootController extends AbstractController
     {
       return $this->render('scoot/restituer.html.twig', [
         'title' => 'Restituer',
+        'backUrl' => './home',
       ]);
     }
 }
