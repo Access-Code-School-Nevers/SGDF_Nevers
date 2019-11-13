@@ -458,6 +458,7 @@ header nav h1 {
   border-radius: 5px;
   border: 1px solid #dadada;
   overflow-y: auto;
+  position: relative;
 }
 .table_articles{
   border-spacing: 0px;
@@ -553,6 +554,18 @@ th{
 .inputsaisiarticle {
   margin-bottom: 1em;
 }
+.loader_display{
+  height: 100px;
+  width: 400px;
+  background-color: #0d344b;
+  position: absolute;
+  right: 0;
+  top: 100px;
+  border: 1px solid black;
+  box-shadow: 0px 0px 1000px 5000px #000000a3;
+  border-top-left-radius: 140px;
+  border-bottom-left-radius: 140px;
+}
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< HISTORIQUE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 .height_table_historique{
@@ -606,7 +619,8 @@ th{
   border: 0;
 }
 .body_table_resituer{
-  padding: 10px 30px 20px;
+  padding: 10px 30px 55px;
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -741,6 +755,17 @@ th{
 .button_success:hover{
   background-color: #00c11c;
 }
+.input_style_restituer{
+  padding-left: 10px;
+}
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<RETRAIT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.button_confirm_retrait{
+  position: absolute;
+  bottom: 0;
+}
+
+
+
 @-webkit-keyframes pulse {
   0% {
     -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
