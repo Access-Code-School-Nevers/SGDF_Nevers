@@ -47,4 +47,37 @@ class ReservationHasArticlesRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    // Insert articles of a specific reservation
+    public function addArticlesToReservation($reservationId, $listArticles){
+      $nbArticles = count($listArticles);
+      $articlesToExecute = [];
+      $hasArticlesToExecute = 0;
+
+      if($nbArticles > 0 && is_int($reservationId)){
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = 'INSERT INTO reservation_has_articles VALUES ';
+        for($i=0, $v=$nbArticles ; $i<$v ; $i++){
+          $listArticles[$i] = intval($listArticles[$i]);
+          if(is_int($listArticles[$i])){
+            $sql .= '('.$reservationId.', :id'.$i.'),';
+            $articlesToExecute['id'.$i] = $listArticles[$i];
+            $hasArticlesToExecute++;
+          }
+        }
+
+        if($hasArticlesToExecute > 0){
+          $sql = substr($sql,0,-1);
+
+          // PDO to escape values to avoid injections
+          $stmt = $conn->prepare($sql);
+          $stmt->execute($articlesToExecute);
+
+          return true;
+        }
+        else return false;
+      }
+      else return false;
+    }
 }

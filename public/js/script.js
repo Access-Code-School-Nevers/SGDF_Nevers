@@ -90,44 +90,54 @@ function addArticleToReservation(){
   var quantitySelected = Number(document.getElementById('quantitySelected').value);
 
   if(objectSelected.length > 0 && typeof quantitySelected == 'number' && quantitySelected > 0){
+    var maximumSelection = parseInt(objectSelected.substring(objectSelected.indexOf('(') + 1, objectSelected.indexOf('max') - 1));
     objectSelected = objectSelected.substring(0,objectSelected.indexOf('(') - 1);
     var alreadySelected = 0;
     var hasRow = 0;
 
-    // Verify that object is not already selected
-    var inputsObjects = document.getElementsByTagName('input');
-    for(var i=0, v=inputsObjects.length ; i<v ; i++){
-      if(inputsObjects[i].name == "listObjects[]"){
-        hasRow = 1;
-        if(inputsObjects[i].value == objectSelected){
-          alreadySelected = 1;
-          break;
+    // Verify that the user didn't selected more than possible
+    if(maximumSelection >= quantitySelected){
+      // Verify that object is not already selected
+      var inputsObjects = document.getElementsByTagName('input');
+      for(var i=0, v=inputsObjects.length ; i<v ; i++){
+        if(inputsObjects[i].name == "listObjects[]"){
+          hasRow = 1;
+          if(inputsObjects[i].value == objectSelected){
+            alreadySelected = 1;
+            break;
+          }
         }
       }
-    }
 
-    // Display the table if no articles in it and about to add one
-    if(hasRow == 0){
-      document.getElementById('tableArticlesList').style.display = "flex";
-    }
+      // Display the table if no articles in it and about to add one
+      if(hasRow == 0){
+        document.getElementById('reservez_form_Valider').disabled = false;
+      }
 
-    if(alreadySelected == 0){
-      // Insert a new row
-      var row = document.getElementById('displayListObjectsSelected').insertRow();
-      var objectName = row.insertCell(0);
-      var quantityDisplayed = row.insertCell(1);
-      var deleteObject = row.insertCell(2);
+      if(alreadySelected == 0){
+        // Insert a new row
+        var row = document.getElementById('displayListObjectsSelected').insertRow();
+        var objectName = row.insertCell(0);
+        var quantityDisplayed = row.insertCell(1);
+        var deleteObject = row.insertCell(2);
 
-      // Add values
-      objectName.innerHTML = '<input type="text" name="listObjects[]" value="'+objectSelected+'" readonly>';
-      quantityDisplayed.innerHTML = '<input type="text" name="quantityObjects[]" value="'+quantitySelected+'" readonly>';
-      deleteObject.innerHTML = '<span onClick="deleteObjectFromList(this)"><i class="fas fa-trash"></i></span>';
+        // Add values
+        objectName.innerHTML = '<input type="text" name="listObjects[]" value="'+objectSelected+'" readonly>';
+        quantityDisplayed.innerHTML = '<input type="text" name="quantityObjects[]" value="'+quantitySelected+'" readonly>';
+        deleteObject.innerHTML = '<span onClick="deleteObjectFromList(this)"><i class="fas fa-trash"></i></span>';
+
+        // Reset inputs
+        document.getElementById('objectSelected').value = '';
+        document.getElementById('quantitySelected').value = '';
+      }
+      else
+        displayAlert('Cet objet est déjà sélectionné.');
     }
     else
-      console.log('Cet objet est déjà sélectionné.')
+      displayAlert('Impossible de réserver autant d\'articles');
   }
   else
-    console.log('champ non renseigné.');
+    displayAlert('Un des champs n\'est pas correctement renseigné.');
 }
 
 // Delete an object selected
@@ -146,8 +156,24 @@ function deleteObjectFromList(el){
     }
   }
 
-  // Hide table if no articles in it
+  // Display the table if no articles in it and about to add one
   if(hasRow == 0){
-    document.getElementById('tableArticlesList').style.display = "none";
+    document.getElementById('reservez_form_Valider').disabled = true;
   }
+}
+
+
+// Display an alert message
+function displayAlert(text){
+  var alert = document.createElement('div');
+  alert.classList.add('alert','alert-danger','alert-custom');
+  alert.setAttribute("onclick","hideMessage(this)");
+  alert.innerHTML = text;
+  document.body.appendChild(alert);
+
+  // Remove after 3 seconds
+  setTimeout(function(){
+    if(document.getElementsByClassName('alert')[0] != undefined)
+      document.getElementsByClassName('alert')[0].remove();
+  }, 3000);
 }

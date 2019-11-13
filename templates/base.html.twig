@@ -30,5 +30,10 @@
             {{ message }}
           </div>
         {% endfor %}
+        {% for message in app.flashes('danger') %}
+          <div class="alert alert-danger alert-custom" onclick="hideMessage(this)">
+            {{ message }}
+          </div>
+        {% endfor %}
     </body>
 </html>

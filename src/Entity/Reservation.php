@@ -96,7 +96,7 @@ class Reservation
         return $this->utilisateur;
     }
 
-    public function setUtilisateur(string $utilisateur): self
+    public function setUtilisateur(Utilisateur $utilisateur): self
     {
         $this->utilisateur = $utilisateur;
 
