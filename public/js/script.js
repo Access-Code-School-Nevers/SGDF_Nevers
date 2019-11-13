@@ -1,5 +1,13 @@
 // Variables
 var idScan = 0;
+var containerElt = document.querySelector(".container_view");
+//viewResponsive
+if(window.innerWidth >= 1268) {
+containerElt.classList.remove("container_full_view");
+console.log(window.innerWidth);
+} else {
+  containerElt.classList.add("container_full_view");
+}
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
