@@ -85,6 +85,9 @@ hr{
     text-transform: uppercase;
     font-weight: bold;
 }
+.w-150px{
+  width: 150px !important;
+}
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< sccrollbar >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 /* width */
 ::-webkit-scrollbar {
@@ -618,7 +621,7 @@ th{
   border: 0;
 }
 .body_table_resituer{
-  padding: 10px 30px 55px;
+  padding: 10px 30px 20px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -757,12 +760,23 @@ th{
 .input_style_restituer{
   padding-left: 10px;
 }
+.button_confirm_restituer{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 130px;
+}
+.button_confirm_restituer button{
+    margin-right: 0 !important;
+}
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<RETRAIT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 .button_confirm_retrait{
-  position: absolute;
-  bottom: 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 130px;
 }
-
+.button_confirm_retrait button{
+    margin-right: 0 !important;
+}
 
 
 @-webkit-keyframes pulse {
