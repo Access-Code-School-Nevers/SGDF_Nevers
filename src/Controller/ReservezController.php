@@ -16,7 +16,7 @@ class ReservezController extends AbstractController
   /**
   * @Route("/app/reservez", name="reservez")
   */
-    public function index(Request $request)
+    public function reservez(Request $request)
     {
       $newReservation = new Reservation();
       $form = $this -> createForm(ReservezForm::class, $newReservation);

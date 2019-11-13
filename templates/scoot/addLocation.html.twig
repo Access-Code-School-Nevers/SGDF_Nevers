@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un emplacement{% endblock %}
+
+{% block body %}
+
+<section class="support_view">
+  <div class="container_view">
+    <div class="alert alert-secondary mb-5" role="alert">
+      <div class="mid-form">
+        <div class="text-center"><b>Emplacement</b></div>
+        <div class="text-center">Un emplacement définit un code-barre d'emplacement pour situer les différents articles en stock.</div>
+      </div>
+    </div>
+    <div class="w-100">
+      <div class="d-flex justify-content-center mt-4">
+        <div class="mid-form">
+          {{ form_start(form) }}
+            <div class="form-group">
+              <label class="required" for="emplacement_site">Site</label>
+              <select id="emplacement_site" name="siteId" class="form-control">
+              {% for site in sites %}
+                <option value="{{ site.id }}">{{ site.description }}</option>
+              {% endfor %}
+              </select>
+            </div>
+
+            {{ form_widget(form.save, { 'label': 'Enregistrer' }) }}
+
+            <div class="my-custom-class-for-errors">
+              {{ form_errors(form) }}
+            </div>
+          {{ form_end(form) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
