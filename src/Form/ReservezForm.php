@@ -27,6 +27,7 @@ class ReservezForm extends AbstractType
       ))
       ->add('Valider', SubmitType::class, [
           'attr' => ['class' => 'w-100 btn-primary main-blue-color second-blue-color mb-5'],
+          'disabled' => 'true'
         ])
     ;
   }
