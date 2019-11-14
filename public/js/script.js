@@ -81,10 +81,25 @@ function initScan(id){
 // Stop scan after detection
 Quagga.onDetected(function(result) {
   document.getElementById('codebar'+idScan).value = result.codeResult.code;
+  if(document.getElementById('codebar'+idScan).getAttribute('data-id-required') == result.codeResult.code)
+    console.log('equivalent');
+  else
+    console.log('code barre different');
+
   document.getElementById('barcode-scanner').style.display = "none";
   Quagga.stop();
 });
 
+
+// ----------------------------- CHECK INPUT WITH VALUE ------------- */
+// Check than input barcode is equivalent with the one needed
+function verifyScan(el,id){
+  if(el.getAttribute('data-id-required') == el.value){
+    document.querySelector("#el"+id).classList.add("bar-success");
+    document.querySelector("#el"+id+" .scan-in-progress").classList.add("d-none");
+    document.querySelector("#el"+id+" .scan-success").classList.remove("d-none");
+  }
+}
 
 
 // ------------------------------- RESERVATION -------------------------- //

@@ -206,15 +206,4 @@ return $this->redirectToRoute("saisi_article");
         'backUrl' => './home',
       ]);
     }
-
-    /**
-    * @Route("/app/retrait", name="retrait")
-    */
-    public function retrait()
-    {
-      return $this->render('scoot/retrait.html.twig', [
-        'title' => 'retrait',
-        'backUrl' => './home',
-      ]);
-    }
 }

@@ -94,6 +94,9 @@ hr{
 .w-150px{
   width: 150px !important;
 }
+.plr-6{
+    padding: 0 5em;
+}
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< sccrollbar >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 /* width */
 ::-webkit-scrollbar {
