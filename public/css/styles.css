@@ -976,6 +976,12 @@ footer{
     top: 5px;
     right: 5px;
 }
+.bar-success2 {
+    border: 1px solid var(--success-green-color) !important;
+    background-color: #f2fff8 !important;
+    box-shadow: inset 0px 40px 1px 0px var(--success-green-color) !important;
+}
+
     /* .quantity-articles{
       display: none !important;
     } */
