@@ -33,7 +33,7 @@
                                 <div class="">
                                   <p>Article{% if object.listArticles|length > 1 %}(s){% endif %}<strong>id</strong></p>
                                   {% for article in object.listArticles %}
-                                    <p>{{ object.titre }}<strong>{{ article }}</strong></p>
+                                    <p>{{ object.titre }}<strong class="pl-1">{{ article }}</strong></p>
                                   {% endfor %}
                                 </div>
                                   <p class="quantity-articles">Quantité <span>{{ object.listArticles|length }}</span></p>

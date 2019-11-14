@@ -924,7 +924,9 @@ footer{
     .body_table_restituer tr {
       justify-content: flex-start;
     }
-
+    .quantity-articles{
+      display: none !important;
+    }
   }
   @media screen and (max-width: 700px) {
     .search_article_reservez_form{
@@ -937,6 +939,7 @@ footer{
     .table_container_color{
       width: 90%;
     }
+
   }
   @media screen and (max-width: 1082px) {
       .logo_home{
