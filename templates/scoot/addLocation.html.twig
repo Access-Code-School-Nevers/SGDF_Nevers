@@ -5,13 +5,11 @@
 {% block body %}
 
 <section class="support_view">
-  <div class="container_view">
-    <div class="alert alert-secondary mb-5" role="alert">
-      <div class="mid-form">
-        <div class="text-center"><b>Emplacement</b></div>
-        <div class="text-center">Un emplacement définit un code-barre d'emplacement pour situer les différents articles en stock.</div>
-      </div>
+  <div class="container_view flex-height flex-column justify-content-center">
+    <div class="info_articles p-3">
+      <p><i class="fas fa-quote-right mr-1"></i>Un emplacement définit un code-barre d'emplacement pour situer les différents articles en stock.</p>
     </div>
+
     <div class="w-100">
       <div class="d-flex justify-content-center mt-4">
         <div class="mid-form">
@@ -35,6 +33,30 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 
+{% set modal = 0 %}
+{% for message in app.flashes('newBarcode') %}
+  {% set modal = message %}
+{% endfor %}
+
+<!-- Modal -->
+<div class="modal {% if modal > 0 %} show {% else %} hide {% endif %}" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Emplacement ajouté</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Code-barres : <span id="idLocation">{{ modal }}</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="hideModal()">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

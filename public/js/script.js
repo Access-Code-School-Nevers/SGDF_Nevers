@@ -5,8 +5,8 @@ var containerElt = document.querySelector(".container_view");
 function reportWindowSize() {
   if(window.innerWidth >= 1268) {
   containerElt.classList.remove("container_full_view");
-  console.log(window.innerWidth);
-  } else {
+  }
+  else {
     containerElt.classList.add("container_full_view");
   }
 }
@@ -55,7 +55,6 @@ function initScan(id){
     }
   }, function(err) {
       if (err) {
-          console.log(err);
           return
       }
 
@@ -67,6 +66,7 @@ function initScan(id){
 // Stop scan after detection
 Quagga.onDetected(function(result) {
   document.getElementById('codebar'+idScan).value = result.codeResult.code;
+
   if(document.getElementById('codebar'+idScan).getAttribute('data-id-required') == result.codeResult.code)
     console.log('equivalent');
   else
@@ -202,4 +202,11 @@ function displayAlert(text){
     if(document.getElementsByClassName('alert')[0] != undefined)
       document.getElementsByClassName('alert')[0].remove();
   }, 3000);
+}
+
+
+// Hide modal box
+function hideModal(){
+  document.getElementById('exampleModal').classList.remove('show');
+  document.getElementById('exampleModal').classList.add('hide');
 }
