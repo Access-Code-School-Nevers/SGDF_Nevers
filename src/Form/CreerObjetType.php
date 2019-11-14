@@ -27,7 +27,9 @@ class CreerObjetType extends AbstractType
           'non périssable' => 0]]
         )
         ->add('photo')
-        ->add('enregistrer', SubmitType::class,['label' => 'Enregister'])
+        ->add('enregistrer', SubmitType::class,[
+          'attr' => ['class' => 'btn btn-primary main-blue-color second-blue-color']
+        ])
         ->getForm();
 
     ;
