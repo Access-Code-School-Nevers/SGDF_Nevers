@@ -23,7 +23,7 @@
                       <th>Articles à retirer</th>
                     </tr>
                   </thead>
-                  <tbody class="body_table_resituer">
+                  <tbody class="body_table_restituer">
 
 
                               {% for article in articles %}
@@ -32,11 +32,12 @@
                                     <div class="scan-in-progress"> <!-- par default "display: flex;" || rajouter la class "d-none" lors de la validation -->
                                       <i class="fas fa-boxes"></i>
                                       <div class="">
-                                        <p>{{ article.titre }}<strong>id:<span>21</span></strong></p>
+                                        <p>Article(s)<strong>id</strong></p>
+                                        <p>{{ article.titre }}<strong>21</strong></p>
                                       </div>
                                         <p>Quantités <span>{{ article.quantite }}</span></p>
                                       <div class="scan_articles_resituer">
-                                          <input id="codebar{{ loop.index }}" data-id-required="{{ article.emplacement_id }}" class="input_style_restituer" type="text" name="codebar{{ loop.index }}" placeholder="Code-barre à scanner :{{ article.emplacement_id }}" oninput="verifyScan(this, {{ loop.index }})" required>
+                                          <input id="codebar{{ loop.index }}" data-id-required="{{ article.emplacement_id }}" class="input_style_restituer" type="text" name="codebar{{ loop.index }}" placeholder="CAB à scanné :{{ article.emplacement_id }}" oninput="verifyScan(this, {{ loop.index }})" required>
                                           <a onClick="initScan({{ loop.index }})" class="button-scan input_button">
                                               <div class="button_scan_restituer m-0"></div>
                                           </a>
@@ -57,26 +58,16 @@
 
                               <!-- Exemple -->
                               <tr class="bar-default"><!-- rajouter la class "bar-success" lors de la validation -->
-                                  <th class="pl-4">
+                                  <th class="plr-6">
                                     <div class="scan-in-progress"> <!-- par default "display: flex;" || rajouter la class "d-none" lors de la validation -->
                                       <i class="fas fa-boxes"></i>
                                       <div class="">
-                                        <p>
-                                          Pelle<strong>id:<span>21</span></strong>
-                                         </p>
-                                         <p>
-                                           Pelle<strong>id:<span>22</span></strong>
-                                          </p>
-                                          <p>
-                                            Pelle<strong>id:<span>23</span></strong>
-                                           </p>
-                                           <p>
-                                             Pelle<strong>id:<span>24</span></strong>
-                                            </p>
+                                        <p>Article(s)<strong>id</strong></p>
+                                         <p>Pelle<strong>22</strong></p>
                                       </div>
                                         <p>Quantités <span>12</span></p>
                                       <div class="scan_articles_resituer">
-                                          <input class="input_style_restituer" type="text" name="" value="" placeholder="Code à barre 12" required>
+                                          <input class="input_style_restituer" type="text" name="" value="" placeholder="CAB à scanné :" required>
                                           <a href="#" class="button-scan input_button">
                                               <div class="button_scan_restituer m-0"></div>
                                           </a>
@@ -98,7 +89,7 @@
                   <tfoot class="position-relative">
                     <tr>
                       <th scope="row"><div class="button_confirm_restituer">
-                        <input class="button_style submit_search_article color_button" type="submit" name="Envoyer"></input>
+                        <input class="button_style w-150px submit_search_article color_button" type="submit" name="Envoyer"></input>
                       </div></th>
                    </tr>
                   </tfoot>
