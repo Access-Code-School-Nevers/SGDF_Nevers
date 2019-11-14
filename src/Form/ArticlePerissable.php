@@ -15,11 +15,13 @@ class ArticlePerissable extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+        ->add('objet', TextType::class, [
+          'attr' => array('list' => 'objects')
+        ])
         ->add('peremption', DateType::class, array(
-              'widget' => 'single_text',
-            ))
-
-            ->getForm()
+          'widget' => 'single_text',
+        ))
+        ->getForm()
             ;
 
     }

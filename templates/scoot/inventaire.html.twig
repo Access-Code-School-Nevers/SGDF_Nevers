@@ -13,34 +13,15 @@
         <div class="card-body">
           <div class="container">
             <div class="form-group">
-<<<<<<< HEAD
               {{form_start(form)}}
-=======
-
->>>>>>> 3945e31be83424d8e18bfc32252993913a94e096
               {{form_row(form.titre)}}
               {{form_row(form.description)}}
               {{form_row(form.pcb)}}
-
-              <div class="perissable">
-                <label for="">Type d'objet</label>
-<<<<<<< HEAD
-                <div class="row">
-                  {{form_row(form.perissable)}}
-
-                  <!-- <button type="button" class="btn btn-outline-primary">perissable</button>
-                  <button type="button" class="btn btn-outline-primary">non perissable</button> -->
-=======
-                <div class="">
-                  <button type="button" class="btn second-blue-color color_button">perissable</button>
-                  <button type="button" class="btn second-blue-color color_button">non perissable</button>
->>>>>>> 3945e31be83424d8e18bfc32252993913a94e096
-                </div>
-              </div>
+              {{form_row(form.perissable)}}
 
               <div class="row">
                 <div class="margeButton col-5 ">
-                  <button type="submit" class="btn btn-primary"> photos <i class="fas fa-camera"></i> </button>
+                  <button type="submit" class="btn btn-primary main-blue-color second-blue-color"> photos <i class="fas fa-camera"></i> </button>
                 </div>
                 <div class="col-5">
                   {{form_row(form.photo)}}
@@ -48,7 +29,6 @@
               </div>
               <div class="col-md-12 text-center">
                 {{form_widget(form.enregistrer)}}
-                <!-- <button type="submit" class="btn btn-primary">ENREGISTRER</button> -->
               </div>
               {{form_end(form)}}
             </div>
@@ -56,9 +36,7 @@
         </div>
         </nav>
     </section>
-    <div class="loader_display">
-
-    </div>
+    <!-- <div class="loader_display"></div> -->
     <!-- footer -->
     <footer>
 
