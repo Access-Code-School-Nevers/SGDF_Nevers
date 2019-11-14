@@ -2,17 +2,6 @@
 var idScan = 0;
 var containerElt = document.querySelector(".container_view");
 //viewResponsive
-
-
-
-function containerSizeStart(){
-  if(window.innerWidth >= 1268) {
-  containerElt.classList.remove("container_full_view");
-  console.log(window.innerWidth);
-  } else {
-    containerElt.classList.add("container_full_view");
-  }
-}
 function reportWindowSize() {
   if(window.innerWidth >= 1268) {
   containerElt.classList.remove("container_full_view");
@@ -21,9 +10,8 @@ function reportWindowSize() {
     containerElt.classList.add("container_full_view");
   }
 }
-
 window.onresize = reportWindowSize;
-containerSizeStart();
+reportWindowSize(); //viewResponsive start
 
 
 /* When the user clicks on the button,
