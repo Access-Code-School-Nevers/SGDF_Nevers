@@ -65,7 +65,6 @@ class ScootController extends AbstractController
           'title' => 'Inventaire test',
           'backUrl' => './menu-ajout',
         ]);
-
     }
 
 

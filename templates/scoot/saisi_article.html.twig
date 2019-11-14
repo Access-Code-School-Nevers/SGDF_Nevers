@@ -4,18 +4,17 @@
 
 {% block body %}
 
-  <div class="support_view">
-    <div class="container_view">
-      <nav class="container_button">
-        <div class="card border-primary mb-3" style="max-width: 60rem;">
-          <h4> Ajouter des articles </h4>
-          <div class="container">
+<div class="support_view">
+  <div class="container_view">
+    <nav class="container_button">
+      <div class="card border-primary mb-3" style="max-width: 60rem;">
+        <h4>Ajouter des articles</h4>
+        <div class="container">
           <div class="form-group">
             {{form_start(form)}}
-             <div class="card mb-3 border-0" style="width: 20rem;">
-
+            <div class="card mb-3 border-0" style="width: 20rem;">
               <div class="my-custom-class-for-errors">
-                  {{ form_errors(form) }}
+                {{ form_errors(form) }}
               </div>
 
               <div class="row">
@@ -23,7 +22,7 @@
                   <label for="idObjet">Objet</label>
                   <input list="objects" type="text" name="objet">
                   <datalist id="objects">
-                  {% for obj in objects %}  // objects provient du controller
+                  {% for obj in objects %}  <!-- objects list -->
                     <option>{{obj.titre}}</option>
                   {% endfor %}
                   </datalist>
@@ -31,78 +30,105 @@
               </div>
             </div>
 
-           <div class="row inputsaisiarticle">
-             <div class="col">
-               <span> état </span>
-             </div>
-             <div class="col">
-               <span> quantitées </span>
-             </div>
-           </div>
-           <div class="row inputsaisiarticle">
-             <div class="col">
-               <span> neuf </span>
-             </div>
-             <div class="col">
-             <input type="text" id="neuf" name="neuf" required
-             minlength="0" maxlength="3" size="10">
-             </div>
-           </div>
-           <div class="row inputsaisiarticle">
-             <div class="col">
-               <span> bon </span>
-             </div>
-             <div class="col">
-               <span> <input type="text" id="bon" name="bon" required
-               minlength="0" maxlength="3" size="10"> </span>
-             </div>
-           </div>
-           <div class="row inputsaisiarticle">
-             <div class="col">
-               <span> moyen </span>
-             </div>
-             <div class="col">
-             <input type="text" id="moyen" name="moyen" required
-             minlength="0" maxlength="3" size="10">
-             </div>
-           </div>
-           <div class="row inputsaisiarticle">
-             <div class="col">
-               <span> defectueux </span>
-             </div>
-             <div class="col">
-             <input type="text" id="defectueux" name="defectueux" required
-             minlength="0" maxlength="3" size="10">
-             </div>
-           </div>
-           <div class="row inputsaisiarticle">
-            <div class="col">
-              <span> incomplet </span>
+            <div class="row inputsaisiarticle">
+              <div class="col">
+                <span>Etat</span>
+              </div>
+              <div class="col">
+                <span>Quantités</span>
+              </div>
             </div>
-            <div class="col">
-            <input type="text" id="incomplet" name="incomplet" required
-            minlength="0" maxlength="3" size="10">
+            <div class="row inputsaisiarticle">
+              <div class="col">
+                <span>Neuf</span>
+              </div>
+              <div class="col">
+                <input type="text" id="neuf" name="neuf" required
+                minlength="0" maxlength="3" size="10">
+              </div>
             </div>
+            <div class="row inputsaisiarticle">
+              <div class="col">
+                <span>Bon</span>
+              </div>
+              <div class="col">
+                <span> <input type="text" id="bon" name="bon" required
+                minlength="0" maxlength="3" size="10"> </span>
+              </div>
+            </div>
+            <div class="row inputsaisiarticle">
+              <div class="col">
+                <span>Moyen</span>
+              </div>
+              <div class="col">
+                <input type="text" id="moyen" name="moyen" required
+                minlength="0" maxlength="3" size="10">
+              </div>
+            </div>
+            <div class="row inputsaisiarticle">
+              <div class="col">
+                <span>Défectueux</span>
+              </div>
+              <div class="col">
+                  <input type="text" id="defectueux" name="defectueux" required
+                  minlength="0" maxlength="3" size="10">
+              </div>
+            </div>
+            <div class="row inputsaisiarticle">
+              <div class="col">
+                <span>Incomplet</span>
+              </div>
+              <div class="col">
+                <input type="text" id="incomplet" name="incomplet" required
+                minlength="0" maxlength="3" size="10">
+              </div>
             </div>
             <div class="scan_articles_resituer">
               <input type="text" name="cab" value="" required>
               <button class="button_scan_restituer " type="button" name="button"><i class="fas fa-barcode"></i></button>
             </div>
             <div class="margeButton ajouter ">
-              <button type="submit" class="btn btn-primary pull-right"> AJOUTER </button>
+              <button type="submit" class="btn btn-primary pull-right">AJOUTER</button>
             </div>
-              {{form_end(form)}}
-            </div>
-
-            </nav>
+            {{form_end(form)}}
           </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
 
-          </div>
 
+{% if app.flashes('displayModal')|length > 0 %}
+{% set modal = 1 %}
+{% else %}
+{% set modal = 0 %}
+{% endif %}
 
+<!-- Modal -->
+<div class="modal {% if modal > 0 %} show {% else %} hide {% endif %}" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Articles ajoutés</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% for message in app.flashes('newBarcode') %}
+          {% set infos = message|split(',') %}
+          <div>Article {{ infos.0 }} : Code-barres {{ infos.1 }}</div>
+        {% endfor %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="hideModal()">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- footer -->
 <footer>
-
 </footer>
 {% endblock %}

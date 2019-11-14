@@ -34,12 +34,13 @@ class AddArticleController extends AbstractController
       $objet = $request->request->get('objet');
       $cab = intval($request->request->get('cab'));
       $articles = [];
-      $etatArticles = [];
 
       $nbArticlesTotal = $neuf + $bon + $moyen + $defectueux + $incomplet;
 
       // Check that user filled all input
       if($nbArticlesTotal > 0 && $objet != "" && $cab != ""){
+        $etatArticles = [];
+
         // Adding all status to create articles later
         $etatArticles = $this->addToEtat($neuf, 5, $etatArticles);
         $etatArticles = $this->addToEtat($bon, 4, $etatArticles);
@@ -67,13 +68,20 @@ class AddArticleController extends AbstractController
 
           $entityManager = $this->getDoctrine()->getManager();
           $entityManager->persist($articles[$i]);
+
+          $displayArticles[$i]['etat'] = $this->getStringStatus($etatArticles[$i]);
         }
 
         // Insert into DB
         $entityManager->flush();
 
+        for($i=0 ; $i<$nbArticlesTotal ; $i++){
+          $this->addFlash('newBarcode', $this->getStringStatus($etatArticles[$i]).','.$articles[$i]->getId());
+        }
+
         // Success message
-        $this->addFlash('success', 'Article crée avec succès !');
+        $this->addFlash('displayModal', "1");
+        $this->addFlash('success', 'Articles créés avec succès !');
         return $this->redirectToRoute("saisi_article");
       }
       else
@@ -95,5 +103,15 @@ class AddArticleController extends AbstractController
     }
 
     return $table;
+  }
+
+  // Return string of given status
+  function getStringStatus($status){
+    if($status == 1) return 'Incomplet';
+    else if($status == 2) return 'Défectueux';
+    else if($status == 3) return 'Moyen';
+    else if($status == 4) return 'Bon';
+    else if($status == 5) return 'Neuf';
+    else return '';
   }
 }
