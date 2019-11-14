@@ -122,6 +122,7 @@ class ScootController extends AbstractController
       return $this->render('scoot/restituer.html.twig', [
         'title' => 'Restituer',
         'backUrl' => './home',
+        
       ]);
     }
 

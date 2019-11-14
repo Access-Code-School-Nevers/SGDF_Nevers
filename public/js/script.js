@@ -103,7 +103,6 @@ function getAvailablesObjets(el){
       for(var i=0, v=listObjects.length ; i<v ; i++){
         tmpOptions += '<option>'+listObjects[i].titre+' ('+listObjects[i].quantite+' max.)</option>';
       }
-
       document.getElementById('listOfObjects').innerHTML = tmpOptions;
     }
   };
