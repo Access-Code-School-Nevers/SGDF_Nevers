@@ -67,19 +67,19 @@ class ReservationRepository extends ServiceEntityRepository
       return $stmt->fetchAll();
     }
 
+
     // Return all the articles of a reservation for a specific user
     public function getReservationArticles($idReservation,$type){
       $conn = $this->getEntityManager()->getConnection();
 
-      $sql = "SELECT O.id, O.titre, A.emplacement_id, count(*) AS quantite
+      $sql = "SELECT O.id AS objet_id, O.titre, A.emplacement_id, A.id article_id
               FROM reservation R
               LEFT JOIN reservation_has_articles RAS ON R.id = RAS.reservation_id
               LEFT JOIN article A ON RAS.article_id = A.id
               LEFT JOIN objet O ON A.objet_id = O.id
               WHERE R.id = :idReservation
               AND R.statut = :type
-              GROUP BY O.id, A.emplacement_id
-              ORDER BY O.id ASC";
+              ORDER BY A.emplacement_id ASC";
 
       // PDO to escape values to avoid injections
       $stmt = $conn->prepare($sql);
@@ -88,6 +88,7 @@ class ReservationRepository extends ServiceEntityRepository
       // returns an array of arrays (i.e. a raw data set)
       return $stmt->fetchAll();
     }
+
 
     // Update reservation of a specific user
     public function updateReservationStatus($idReservation,$status){
