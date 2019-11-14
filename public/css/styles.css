@@ -970,7 +970,11 @@ footer{
   display:none;
 }
 
-/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SCAN >>>>>>>>>>>>>>>>>>>> */
 .alert{
   font-size:0.9rem;
+}
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< MODAL >>>>>>>>>>>>>>>>>>>> */
+.modal{
+  background-color:var(--second-blue-color);
 }
