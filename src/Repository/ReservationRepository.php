@@ -48,6 +48,30 @@ class ReservationRepository extends ServiceEntityRepository
     }
     */
 
+    // Return the number of reservation of statut 1 and 2
+    public function getNumberOfReservation($user){
+      $reservations = [];
+      $conn = $this->getEntityManager()->getConnection();
+
+      $sql = "SELECT statut, count(*) AS number_reservation
+              FROM reservation
+              WHERE utilisateur_id = :user
+              AND (statut = 1 OR statut = 2)
+              GROUP BY statut";
+
+      // PDO to escape values to avoid injections
+      $stmt = $conn->prepare($sql);
+      $stmt->execute(['user' => $user]);
+
+      // returns an array of arrays (i.e. a raw data set)
+      while($row = $stmt->fetch()){
+        if($row['statut'] == 1) $reservations['reservation'] = $row['number_reservation'];
+        else $reservations['emprunt'] = $row['number_reservation'];
+      }
+
+      return $reservations;
+    }
+
     // Return the id of the next reservation to be withraw
     public function getFirstReservation($user){
       $conn = $this->getEntityManager()->getConnection();

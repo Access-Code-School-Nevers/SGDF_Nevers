@@ -4,6 +4,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Reservation;
 use App\Entity\Objet;
 use App\Form\CreerObjetType;
 use App\Entity\Article;
@@ -24,9 +25,12 @@ class ScootController extends AbstractController
      */
     public function home()
     {
+      $reservations = $this->getDoctrine()->getRepository(Reservation::class)->getNumberOfReservation($this->getUser()->getId());
+
       return $this->render('scoot/home.html.twig', [
         'title' => 'Accueil',
-        'arrow' => '' // Hide the back arrow if on main page
+        'arrow' => '', // Hide the back arrow if on main page
+        'reservations' => $reservations
       ]);
     }
 
