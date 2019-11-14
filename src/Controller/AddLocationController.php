@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Form\EmplacementType;
 use Symfony\Component\HttpFoundation\Request;
 
-class EmplacementController extends AbstractController
+class AddLocationController extends AbstractController
 {
   /**
    * @Route("/app/ajout-emplacement", name="ajout-emplacement")
@@ -37,10 +37,11 @@ class EmplacementController extends AbstractController
 
           // Adding user to DB
           $entityManager = $this->getDoctrine()->getManager();
-          $entityManager->persist($task);
+          $entityManager->persist($newEmplacement);
           $entityManager->flush();
 
           // Success message
+          $this->addFlash('newBarcode', $newEmplacement->getId());
           $this->addFlash('success', 'Emplacement crée !');
           return $this->redirectToRoute("ajout-emplacement");
         }
@@ -50,7 +51,7 @@ class EmplacementController extends AbstractController
     return $this->render('scoot/addLocation.html.twig', [
       'form' => $form->createView(),
       'title' => 'Ajouter un emplacement',
-      'backUrl' => './home',
+      'backUrl' => './menu-ajout',
       'sites' => $sites
     ]);
   }
