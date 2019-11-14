@@ -24,11 +24,9 @@
                     </tr>
                   </thead>
                   <tbody class="body_table_restituer">
-                    {% set barCodeId = 1 %} <!--  Used to list the codeBar naes -->
-
                     {% for keyEmplacement, emplacement in objectsByEmplacement %}
                       {% for object in emplacement %}
-                        <tr class="bar-default" id="el{{ barCodeId }}"><!-- rajouter la class "bar-success" lors de la validation -->
+                        <tr class="bar-default" id="el{{ keyEmplacement }}"><!-- rajouter la class "bar-success" lors de la validation -->
                             <th class="plr-6">
                               <div class="scan-in-progress"> <!-- par default "display: flex;" || rajouter la class "d-none" lors de la validation -->
                                 <i class="fas fa-boxes"></i>
@@ -40,8 +38,8 @@
                                 </div>
                                   <p>Quantité <span>{{ object.listArticles|length }}</span></p>
                                 <div class="scan_articles_resituer">
-                                  <input id="codebar{{ barCodeId }}" data-id-required="{{ keyEmplacement }}" class="input_style_restituer" type="text" name="codebar{{ barCodeId }}" placeholder="CAB à scan : {{ keyEmplacement }}" oninput="verifyScan(this, {{ barCodeId }})" required>
-                                  <a onClick="initScan({{ barCodeId }})" class="button-scan input_button">
+                                  <input id="codebar{{ keyEmplacement }}" data-id-required="{{ keyEmplacement }}" class="input_style_restituer" type="text" name="codebar{{ keyEmplacement }}" placeholder="CAB à scan : {{ keyEmplacement }}" oninput="verifyScan(this, {{ keyEmplacement }})" required>
+                                  <a onClick="initScan({{ keyEmplacement }})" class="button-scan input_button">
                                       <div class="button_scan_restituer m-0"></div>
                                   </a>
                                 </div>
@@ -58,7 +56,6 @@
                           </th>
                         </tr>
                       {% endfor %}
-                      {% set barCodeId = barCodeId + 1 %}
                     {% endfor %}
 
                   </tbody>

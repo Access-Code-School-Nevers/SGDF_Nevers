@@ -20,17 +20,14 @@ class WithdrawController extends AbstractController
     // Get all the articles reserved
     $articles = $this->getDoctrine()->getRepository(Reservation::class)->getReservationArticles($idReservation[0]['id'],1);
 
-/*
-    tableau d'objets :
-      - emplacement
-      - objet_id
-      - articles_id []
-      - titre
-*/
-
     // Parse articles to regroup them in visual
     $objectsByEmplacement = [];
+    $firstEmplacement = 0;
     foreach($articles as $article){
+      // used to check if we get a value in POST after
+      if($firstEmplacement == 0)
+        $firstEmplacement = $article['emplacement_id'];
+
       if(!isset($objectsByEmplacement[$article['emplacement_id']]))
         $objectsByEmplacement[$article['emplacement_id']] = [];
 
@@ -41,35 +38,37 @@ class WithdrawController extends AbstractController
 
       array_push($objectsByEmplacement[$article['emplacement_id']][$article['objet_id']]['listArticles'],$article['article_id']);
     }
-    dump($objectsByEmplacement);
 
     // Handle request if user has completed the form
-    // if($request->request->get('codebar1')){
-    //   $hasFilledAll = 1;
-    //
-    //   // Check if all barcode inserted are correct with the values asked
-    //   for($i=0, $v=count($articles) ; $i<$v ; $i++){
-    //     if($request->request->get('codebar'.($i+1)) && is_numeric(intval($request->request->get('codebar'.($i+1))))){
-    //       if(intval($request->request->get('codebar'.($i+1))) != intval($articles[$i]['emplacement_id'])){
-    //         $hasFilledAll = 0;
-    //         break;
-    //       }
-    //     }
-    //     else{
-    //       $hasFilledAll = 0;
-    //       break;
-    //     }
-    //   }
-    //
-    //   // Update status of reservation
-    //   if($hasFilledAll == 1){
-    //     $articles = $this->getDoctrine()->getRepository(Reservation::class)->updateReservationStatus($idReservation[0]['id'],2);
-    //
-    //     // Success message
-    //     $this->addFlash('success', 'Retrait enregistré !');
-    //     return $this->redirectToRoute("home");
-    //   }
-    // }
+    if($request->request->get('codebar'.$firstEmplacement)){
+      $hasFilledAll = 1;
+
+      // Check if all barcode inserted are correct with the values asked
+      foreach($objectsByEmplacement as $key => $emplacement){
+        if($request->request->get('codebar'.$key) && is_numeric(intval($request->request->get('codebar'.$key)))){
+          if(intval($request->request->get('codebar'.$key)) != intval($key)){
+            $hasFilledAll = 0;
+            break;
+          }
+        }
+        else{
+          $hasFilledAll = 0;
+          break;
+        }
+      }
+
+      // Update status of reservation
+      if($hasFilledAll == 1){
+        $articles = $this->getDoctrine()->getRepository(Reservation::class)->updateReservationStatus($idReservation[0]['id'],2);
+
+        // Success message
+        $this->addFlash('success', 'Retrait enregistré !');
+        return $this->redirectToRoute("home");
+      }
+      else{
+        $this->addFlash('danger', 'Au moins un code-barres est incorrect.');
+      }
+    }
 
 
     return $this->render('scoot/retrait.html.twig', [
