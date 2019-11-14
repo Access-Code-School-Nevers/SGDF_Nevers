@@ -910,23 +910,49 @@ footer{
     }
   }
   @media screen and (max-width:800px) {
-    .check-box-success{
-      display: none!important;
-    }
     .scan-in-progress {
-      flex-direction: column;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
     }
     .scan_articles_resituer {
-      position: absolute;
-      top: 5px;
-      right: 5%;
-  }
+    position: absolute;
+    top: 5px;
+    }
     .body_table_restituer tr {
-      justify-content: flex-start;
+    justify-content: flex-start;
+    min-height: 120px;
+    padding-top: 40px;
+    box-shadow: inset 0px 40px 1px 0px #00619c;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 3px;
+}
+    .body_table_restituer tr th {
+    justify-content: center;
+    width: 100%;
     }
-    .quantity-articles{
+    .input_style_restituer{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid darkgrey;
+    }
+    .scan-in-progress .fa-boxes {
+    top: 8px;
+}
+.check-box-success {
+    height: 30px;
+    width: 30px;
+    box-shadow: none;
+    font-size: 3em;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+    /* .quantity-articles{
       display: none !important;
-    }
+    } */
   }
   @media screen and (max-width: 700px) {
     .search_article_reservez_form{
@@ -981,15 +1007,11 @@ footer{
     body{
       font-size:0.8rem;
     }
-    .scan_articles_resituer {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-    }
   }
   @media screen and (max-width: 500px) {
     .body_table_restituer tr th p {
         margin-right: 5px;
+        width: 140px;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -998,16 +1020,7 @@ footer{
     .input_style_restituer{
       width: 30vw;
     }
-    .body_table_restituer tr {
-      box-shadow: inset 1px -9px 1px 0px #00619c;
-  }
-  .scan-in-progress p .fa-boxes{
-    display: none;
-  }
   .body_table_restituer tr th{
     padding: 0 !important;
-  }
-  .scan-in-progress .fa-boxes{
-    display: none;
   }
   }
