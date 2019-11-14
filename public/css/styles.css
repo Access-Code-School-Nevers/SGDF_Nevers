@@ -626,7 +626,7 @@ header nav h1 {
   border: 0;
 }
 .body_table_restituer{
-  padding: 10px 30px 20px;
+  padding: 10px 15px 20px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -752,6 +752,14 @@ header nav h1 {
     background-color: #f2fff8 !important;
     box-shadow: inset 55px -9px 1px 0px #00619c;
 }
+.bar-success2{
+    border: 1px solid var(--success-green-color) !important;
+    background-color: #f2fff8 !important;
+    box-shadow: inset 55px -9px 1px 0px var(--success-green-color) !important;
+}
+.bar-success2 th .scan-in-progress p{
+  border-bottom: 1px solid var(--success-green-color) !important;
+}
 .fa-check{
     display: flex !important;
     justify-content: center;
@@ -777,7 +785,7 @@ header nav h1 {
 .button_confirm_restituer{
   display: flex;
   justify-content: center;
-  margin-bottom: 130px;
+  margin-bottom: 50px;
 }
 .button_confirm_restituer button{
     margin-right: 0 !important;
