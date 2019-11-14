@@ -44,6 +44,7 @@
         <!-- Reservation -->
         <div class="card text-center">
           <div class="card-body">
+
             <div class="card_title_custom">
               <i class="fas fa-tools"></i>
               <h5>Réserver votre matériel</h5>
@@ -56,6 +57,7 @@
         <!-- Withdraw -->
         <div class="card text-center">
           <div class="card-body">
+            {% if reservations.reservation is defined %}<div class="notification">{{ reservations.reservation }}</div>{% endif %}
             <div class="card_title_custom">
               <i class="fas fa-calendar-check"></i>
               <h5>Retrait</h5>
@@ -68,6 +70,7 @@
         <!-- Restitution -->
         <div class="card text-center">
           <div class="card-body">
+            {% if reservations.emprunt is defined %}<div class="notification">{{ reservations.emprunt }}</div>{% endif %}
             <div class="card_title_custom">
               <i class="fas fa-handshake"></i>
               <h5>Restituer votre matériel</h5>
