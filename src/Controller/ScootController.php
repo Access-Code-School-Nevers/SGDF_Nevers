@@ -99,72 +99,85 @@ class ScootController extends AbstractController
     * @Route("/app/saisi_article", name="saisi_article")
     */
     public function saisi_articles(Request $request)
-    { // We take the proprerties and functions of "Objet" Entity that we put in var $objets
+    {
+// field tab article creation of a new article
+
+// We find all the objetcs that have the properties and functions of "Objet" Entity that we put in a tab
       $objects = $this->getDoctrine()->getRepository(Objet::class)->findAll();
-      // creation of a new article
+
+
       $article = new Article();
       $form = $this -> createForm(ArticleNonPerissable::class, $article);
-      $task = $form->getData();
+    //  $task = $form->getData();
 
       // Handle request if user has submitted the form
        $form->handleRequest($request);
        if ($form->isSubmitted() && $form->isValid()) {
-//get the ID of the article
-$id_article = $request->request->get('id');
+          //get the database ID of the article object
+          $id_article = $request->request->get('id');
+          //  the name of the object 'objet' is the name of the input in the form
+          $objet = $request->request->get('objet');
+          // We take the proprerties and functions of "Objet" Entity that we put in var $objets
+          $recupere_Objet_props = $this->getDoctrine()->getRepository(Objet::class);
+          //I get the object dial in the input "objet" box by the user
+          $product=$recupere_Objet_props->findBy(['titre'=>$objet]);
+
+
+
+          ////// id Emplacement///////
+
+          //We take the proprerties and functions of Entity "Emplacement" et les fonctions de son Repository
+         $recupere_Emplacement_props = $this->getDoctrine()->getRepository(Emplacement::class);
+
+         // get the number entered in the code a barre field
+         //cab is the name of the input of the cab
+         $cab = $request->request->get('cab');
+
+          //on recupere le cab de input ou il y a le code a bar
+          $cab_recuperer=$recupere_Emplacement_props->findBy(['id'=>$cab]);
+
+          if(isset($product[0]&&$cab_recuperer[0])){
+          // set of Entity "Objet"
+          $article->setObjet($product[0]);
+          // set of Entity "Emplacement"
+          $article->setEmplacement($cab_recuperer[0]);
+
+          $entityManager = $this->getDoctrine()->getManager(); //use the entityManager
+          $entityManager->persist($article); //   objet "article" ready to be flush in dbb
+          $entityManager->flush();
+
+
+// field tab etat
+
 //get the quantity of the field "neuf"
-$neuf = $request->request->get('neuf');
-$bon = $request->request->get('bon');
-$moyen = $request->request->get('moyen');
-$defectueux = $request->request->get('defectueux');
-$incomplet = $request->request->get('incomplet');
-$objet = $request->request->get('objet');
-
-// get the code a barre of the user
-$cab = $request->request->get('cab');
-
-// We take the proprerties and functions of "Objet" Entity that we put in var $objets
-$recupere_Objet_props = $this->getDoctrine()->getRepository(Objet::class);
-//I get the object dial in the input "objet" box by the user
-$product=$recupere_Objet_props->findBy(['titre'=>$objet]);
-// recuperation de l id de l objet
-// $id_objet = $product.id;
-
-
-////// id Emplacement///////
-
-//We take the proprerties and functions of Entity "Emplacement" et les fonctions de son Repository
-$recupere_Emplacement_props = $this->getDoctrine()->getRepository(Emplacement::class);
-
-//on recupere le cab de input ou il y a le code a bar
-$cab=$recupere_Emplacement_props->findBy(['id'=>$cab]);
-
-// set of Entity "Objet"
-$article->setObjet($product[0]);
-// set of Entity "Emplacement"
-$article->setEmplacement($cab[0]);
-
-$entityManager = $this->getDoctrine()->getManager(); //use the entityManager
-$entityManager->persist($article); //   objet "article" ready to be flush in dbb
-$entityManager->flush();
+// $neuf = $request->request->get('neuf');
+// dump($neuf)
+// $bon = $request->request->get('bon');
+// $moyen = $request->request->get('moyen');
+// $defectueux = $request->request->get('defectueux');
+// $incomplet = $request->request->get('incomplet');
 
 
 
-
-
+// foreach ($neuf as $key) {
+//   if (is_numeric($key))
+//   }
 // if($neuf>0)
 // $etat='5'
 // for(i=0;i<$neuf;i++) {
-  // $entityManager = $this->getDoctrine()->getManager(); //recuperation de l entityManager
-  // $entityManager->persist($cab); // prepare l objet ajoutvaleur pour le mettre dans bdd
-  // $entityManager->flush();
-//}
-
+//
+//   if
+//    $entityManager = $this->getDoctrine()->getManager(); //recuperation de l entityManager
+//    $entityManager->persist($cab); // prepare l objet ajoutvaleur pour le mettre dans bdd
+//    $entityManager->flush();
+}
+}
 
 
 // Success message
-$this->addFlash('success', 'Article crée avec succès!');
-return $this->redirectToRoute("saisi_article");
-    }
+// $this->addFlash('success', 'Article crée avec succès!');
+// return $this->redirectToRoute("saisi_article");
+
 
       return $this->render('scoot/saisi_article.html.twig', [
           'form' => $form->createView(),
