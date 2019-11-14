@@ -33,10 +33,10 @@
                                 <div class="">
                                   <p>Article{% if object.listArticles|length > 1 %}(s){% endif %}<strong>id</strong></p>
                                   {% for article in object.listArticles %}
-                                    <p>{{ object.titre }}<strong>{{ article }}</strong></p>
+                                    <p>{{ object.titre }}<strong class="pl-1">{{ article }}</strong></p>
                                   {% endfor %}
                                 </div>
-                                  <p>Quantité <span>{{ object.listArticles|length }}</span></p>
+                                  <p class="quantity-articles">Quantité <span>{{ object.listArticles|length }}</span></p>
                                 <div class="scan_articles_resituer">
                                   <input id="codebar{{ keyEmplacement }}" data-id-required="{{ keyEmplacement }}" class="input_style_restituer" type="text" name="codebar{{ keyEmplacement }}" placeholder="CAB à scan : {{ keyEmplacement }}" oninput="verifyScan(this, {{ keyEmplacement }})" required>
                                   <a onClick="initScan({{ keyEmplacement }})" class="button-scan input_button">
@@ -57,6 +57,7 @@
                         </tr>
                       {% endfor %}
                     {% endfor %}
+
 
                   </tbody>
                   <tfoot class="position-relative">
