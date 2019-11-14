@@ -7,9 +7,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Objet;
 use App\Form\CreerObjetType;
 use App\Entity\Article;
-use App\Form\ArticleNonPerissable;
-use App\Entity\Emplacement;
 use App\Form\ArticlePerissable;
+use App\Form\ArticleNonPerissable;
+use App\Form\EmplacementType;
+use App\Entity\Emplacement;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -73,13 +74,20 @@ class ScootController extends AbstractController
       // Handle request if user has submitted the form
        $form->handleRequest($request);
        if ($form->isSubmitted() && $form->isValid()) {
-
+         //get the database ID of the article object
+         $id_article = $request->request->get('id');
+         //  the name of the object 'objet' is the name of the input in the form
+         $objet = $request->request->get('objet');
+         // We take the proprerties and functions of "Objet" Entity that we put in var $objets
+         $recupere_Objet_props = $this->getDoctrine()->getRepository(Objet::class);
+         //I get the object dial in the input "objet" box by the user
+         $product=$recupere_Objet_props->findBy(['titre'=>$objet]);
          //Adding user to DB
-         $entityManager = $this->getDoctrine()->getManager(); //recuperation de l entityManager
-         $entityManager->persist($ajoutvaleur); // prepare l objet ajoutvaleur pour le mettre dans bdd
-         $entityManager->flush();//envoi l objet dans la bdd
+         // $entityManager = $this->getDoctrine()->getManager(); //recuperation de l entityManager
+         // $entityManager->persist($ajoutvaleur); // prepare l objet ajoutvaleur pour le mettre dans bdd
+         // $entityManager->flush();//envoi l objet dans la bdd
 
-         return new Response('états ajoutés');
+
 
          //Success message
 
@@ -108,13 +116,12 @@ class ScootController extends AbstractController
 
       $article = new Article();
       $form = $this -> createForm(ArticleNonPerissable::class, $article);
-    //  $task = $form->getData();
+
 
       // Handle request if user has submitted the form
        $form->handleRequest($request);
        if ($form->isSubmitted() && $form->isValid()) {
-          //get the database ID of the article object
-          $id_article = $request->request->get('id');
+
           //  the name of the object 'objet' is the name of the input in the form
           $objet = $request->request->get('objet');
           // We take the proprerties and functions of "Objet" Entity that we put in var $objets
@@ -127,54 +134,68 @@ class ScootController extends AbstractController
           ////// id Emplacement///////
 
           //We take the proprerties and functions of Entity "Emplacement" et les fonctions de son Repository
-         $recupere_Emplacement_props = $this->getDoctrine()->getRepository(Emplacement::class);
+    // $recupere_Emplacement_props = $this->getDoctrine()->getRepository(Emplacement::class);
 
          // get the number entered in the code a barre field
          //cab is the name of the input of the cab
          $cab = $request->request->get('cab');
+         // We take the Object "Emplacement" with his proprerties and functions from Entity tab that we put in a var
+         $recupere_Emplacement_props = $this->getDoctrine()->getRepository(Emplacement::class);
+
 
           //on recupere le cab de input ou il y a le code a bar
-          $cab_recuperer=$recupere_Emplacement_props->findBy(['id'=>$cab]);
+         $cab_recuperer=$recupere_Emplacement_props->findBy(['id'=>$cab]);
 
-          if(isset($product[0]&&$cab_recuperer[0])){
+        //  if(isset($product[0]&&$cab_recuperer[0])){
           // set of Entity "Objet"
           $article->setObjet($product[0]);
           // set of Entity "Emplacement"
-          $article->setEmplacement($cab_recuperer[0]);
-
-          $entityManager = $this->getDoctrine()->getManager(); //use the entityManager
-          $entityManager->persist($article); //   objet "article" ready to be flush in dbb
-          $entityManager->flush();
+         $article->setEmplacement($cab_recuperer[0]);
 
 
-// field tab etat
-
-//get the quantity of the field "neuf"
-// $neuf = $request->request->get('neuf');
-// dump($neuf)
-// $bon = $request->request->get('bon');
-// $moyen = $request->request->get('moyen');
-// $defectueux = $request->request->get('defectueux');
-// $incomplet = $request->request->get('incomplet');
+/////////////// Fill "etat" table in dbb (for the moment "article table do not exist") ///////////
+         $newEtat = new Etat();
 
 
+         $article_neuf = ($request->request->get('neuf'));
+         $article_bon = ($request->request->get('bon'));
+         $article_moyen = ($request->request->get('moyen'));
+         $article_defectueux = ($request->request->get('defectueux'));
+         $article_incomplet = ($request->request->get('incomplet'));
 
-// foreach ($neuf as $key) {
-//   if (is_numeric($key))
-//   }
-// if($neuf>0)
-// $etat='5'
-// for(i=0;i<$neuf;i++) {
-//
-//   if
-//    $entityManager = $this->getDoctrine()->getManager(); //recuperation de l entityManager
-//    $entityManager->persist($cab); // prepare l objet ajoutvaleur pour le mettre dans bdd
-//    $entityManager->flush();
-}
-}
+         $nbr_articles = $article_neuf + $article_bon + $article_moyen + $article_defectueux + $article_incomplet;
+         $tab_id = array();
+         $compteur = 0;
 
 
-// Success message
+         // we fill or tab "$tab_art_crees" with all the articles dial in the form saisi_article
+
+         if ('$article_neuf' not NULL)
+         for (i=1;i<$article_neuf+1;i++) {
+           $tab_id[]=i
+           $newEtat->setEtat(tab_id[i])
+         }
+
+         for (art in $tab_art_crees[]) {
+           $etat_etat = $this->getDoctrine()->getRepository(Article::class)->findBy(['id' => art]);
+           $etat->getEtat();
+           $tab_etat[]=etat;
+
+         }
+
+        for (i=0;i<$nbr_articles,i++) {
+          // set the article ID in "etat" database
+          $newEtat->setArticle($etat_id[i]);
+          $newEtat->setEtat($etat_etat[i]);
+        }
+
+        $entityManager = $this->getDoctrine()->getManager(); //use the entityManager
+        $entityManager->persist($task); //   objet "article" ready to be flush in dbb
+        $entityManager->flush();
+
+         //Success message
+
+//Success message
 // $this->addFlash('success', 'Article crée avec succès!');
 // return $this->redirectToRoute("saisi_article");
 
@@ -186,6 +207,7 @@ class ScootController extends AbstractController
           'backUrl' => './home',
       ]);
   }
+}
 
     /**
     * @Route("/app/historique", name="historique")

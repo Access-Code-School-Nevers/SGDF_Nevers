@@ -4,11 +4,15 @@
 
 {% block body %}
 
-  <div class="support_view">
+  <div class="support_view ">
+    <div class="info-center">
+    <h4>  Saisissez uniquement des articles qui se trouvent au même emplacement (le code barre correspond à un emplacement unique il n'est pas possible de scanner plusieurs emplacement différents lors d'une même saisie)
+    </h4>
+    </div>
     <div class="container_view">
       <nav class="container_button">
-        <div class="card border-primary mb-3" style="max-width: 60rem;">
-          <h4> Ajouter des articles </h4>
+        <div class="card border-primary mb-3 " style="max-width: 60rem;">
+          <h4 > Ajouter des articles </h4>
           <div class="container">
           <div class="form-group">
             {{form_start(form)}}
