@@ -15,8 +15,9 @@
               <div>
                   <div class="row">
                     <div class="col">
-                      <label for="idObjet">Objet</label>
-                      <input list="objects" type="text">
+                      <!-- <label for="idObjet">Objet</label> -->
+                      {{form_row(form.objet)}}
+                      <!-- <input list="objects" type="text"> -->
                         <datalist id="objects">
                             {% for obj in objects %}
                             <option>{{obj.titre}}</option>

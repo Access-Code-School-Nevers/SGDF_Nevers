@@ -5,12 +5,14 @@ var containerElt = document.querySelector(".container_view");
 function reportWindowSize() {
   if(window.innerWidth >= 1268) {
   containerElt.classList.remove("container_full_view");
-  console.log(window.innerWidth);
-  } else {
+  }
+  else {
     containerElt.classList.add("container_full_view");
   }
 }
 window.onresize = reportWindowSize;
+reportWindowSize(); //viewResponsive start
+
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
@@ -55,7 +57,6 @@ function initScan(id){
     }
   }, function(err) {
       if (err) {
-          console.log(err);
           return
       }
 
@@ -67,10 +68,26 @@ function initScan(id){
 // Stop scan after detection
 Quagga.onDetected(function(result) {
   document.getElementById('codebar'+idScan).value = result.codeResult.code;
+
+  if(document.getElementById('codebar'+idScan).getAttribute('data-id-required') == result.codeResult.code)
+    console.log('equivalent');
+  else
+    console.log('code barre different');
+
   document.getElementById('barcode-scanner').style.display = "none";
   Quagga.stop();
 });
 
+
+// ----------------------------- CHECK INPUT WITH VALUE ------------- */
+// Check than input barcode is equivalent with the one needed
+function verifyScan(el,id){
+  if(el.getAttribute('data-id-required') == el.value){
+    document.querySelector("#el"+id).classList.add("bar-success");
+    document.querySelector("#el"+id+" .scan-in-progress").classList.add("d-none");
+    document.querySelector("#el"+id+" .scan-success").classList.remove("d-none");
+  }
+}
 
 
 // ------------------------------- RESERVATION -------------------------- //
@@ -187,4 +204,11 @@ function displayAlert(text){
     if(document.getElementsByClassName('alert')[0] != undefined)
       document.getElementsByClassName('alert')[0].remove();
   }, 3000);
+}
+
+
+// Hide modal box
+function hideModal(){
+  document.getElementById('exampleModal').classList.remove('show');
+  document.getElementById('exampleModal').classList.add('hide');
 }
