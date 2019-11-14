@@ -4,77 +4,62 @@
 
 {% block body %}
 <section class="support_view">
-  <div class="container_view">
-    <div class="alert alert-secondary mb-5" role="alert">
-      <div class="mid-form">
-        <div class="text-center"><b>Définition</b></div>
-        <ul>
-          <li><b>Objet</b> : Définit un type d'objet et sa description.</li>
-          <li><b>Article</b> : Définit tous les articles présents en stock, leurs état. Peut représenter un article périssable ou non.</li>
-        </ul>
-      </div>
+  <div class="container_view flex-height flex-column justify-content-center">
+    <div class="info_articles p-3">
+      <p><i class="fas fa-quote-right mr-1"></i>Un objet définit un type d'objet et sa description. Un article définit tous les articles présents en stock, leurs états.</p>
     </div>
-    <div class="w-100">
-      <div class="d-flex justify-content-center mt-4">
-        <div class="mid-form">
-          <!-- Add an object -->
-          <div class="container_card">
-            <div class="card text-center">
-              <div class="card-body">
-                <div class="card_title_custom">
-                  <i class="fas fa-box"></i>
-                  <h5>Objet</h5>
-                </div>
-                <p class="card-text">Cliquer ci-dessous pour ajouter un objet dans l'inventaire.</p>
-              </div>
-              <a href="/app/inventaire" class="card-footer color_button button_style text-muted">AJOUTER UN OBJET</a>
-            </div>
-          </div>
 
-          <!-- Add an article non perissable -->
-          <div class="container_card">
-            <div class="card text-center">
-              <div class="card-body">
-                <div class="card_title_custom">
-                  <i class="fas fa-box"></i>
-                  <h5>Article non périssable</h5>
-                </div>
-                <p class="card-text">Cliquer ci-dessous pour ajouter un article dans l'inventaire.</p>
-              </div>
-              <a href="/app/saisi_article" class="card-footer color_button button_style text-muted">AJOUTER UN ARTICLE</a>
+    <nav class="container_button">
+      <!-- Add an object -->
+      <div class="container_card">
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="card_title_custom">
+              <i class="fas fa-box"></i>
+              <h5>Objet</h5>
             </div>
+            <p class="card-text">Cliquer ci-dessous pour ajouter un objet dans l'inventaire.</p>
           </div>
+          <a href="/app/inventaire" class="card-footer color_button button_style text-muted">AJOUTER UN OBJET</a>
+        </div>
 
-          <!-- Add an article perissable -->
-          <div class="container_card">
-            <div class="card text-center">
-              <div class="card-body">
-                <div class="card_title_custom">
-                  <i class="fas fa-box"></i>
-                  <h5>Article périssable</h5>
-                </div>
-                <p class="card-text">Cliquer ci-dessous pour ajouter un article dans l'inventaire.</p>
-              </div>
-              <a href="/app/saisi_article_perissable" class="card-footer color_button button_style text-muted">AJOUTER UN ARTICLE</a>
+      <!-- Add an article non perissable -->
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="card_title_custom">
+              <i class="fas fa-box"></i>
+              <h5>Article non périssable</h5>
             </div>
+            <p class="card-text">Cliquer ci-dessous pour ajouter un article dans l'inventaire.</p>
           </div>
+          <a href="/app/saisi_article" class="card-footer color_button button_style text-muted">AJOUTER UN ARTICLE</a>
+        </div>
 
-          <!-- Add a location -->
-          <div class="container_card">
-            <div class="card text-center">
-              <div class="card-body">
-                <div class="card_title_custom">
-                  <i class="fas fa-box"></i>
-                  <h5>Emplacement</h5>
-                </div>
-                <p class="card-text">Cliquer ci-dessous pour ajouter un emplacement de code-barres.</p>
-              </div>
-              <a href="/app/ajout-emplacement" class="card-footer color_button button_style text-muted">AJOUTER UN EMPLACEMENT</a>
+      <!-- Add an article perissable -->
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="card_title_custom">
+              <i class="fas fa-box"></i>
+              <h5>Article périssable</h5>
             </div>
+            <p class="card-text">Cliquer ci-dessous pour ajouter un article dans l'inventaire.</p>
           </div>
+          <a href="/app/saisi_article_perissable" class="card-footer color_button button_style text-muted">AJOUTER UN ARTICLE</a>
+        </div>
+
+      <!-- Add a location -->
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="card_title_custom">
+              <i class="fas fa-box"></i>
+              <h5>Emplacement</h5>
+            </div>
+            <p class="card-text">Cliquer ci-dessous pour ajouter un emplacement de code-barres.</p>
+          </div>
+          <a href="/app/ajout-emplacement" class="card-footer color_button button_style text-muted">AJOUTER UN EMPLACEMENT</a>
         </div>
       </div>
-    </div>
+    </nav>
   </div>
 </div>
 {% endblock %}
