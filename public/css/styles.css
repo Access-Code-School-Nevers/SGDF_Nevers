@@ -1035,10 +1035,18 @@ footer{
         align-items: center;
         margin-left: 10px;
     }
-    .input_style_restituer{
-      width: 30vw;
-    }
   .body_table_restituer tr th{
     padding: 0 !important;
   }
+  .input_style_restituer {
+    width: 100%;
+}
+  }
+  @media screen and (max-width: 400px) {
+    .body_table_restituer {
+        padding: 10px 0px 20px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
   }
