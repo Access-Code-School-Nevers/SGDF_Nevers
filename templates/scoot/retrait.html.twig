@@ -25,33 +25,74 @@
                   </thead>
                   <tbody class="body_table_resituer">
 
-                    {% for article in articles %}
-                    <tr class="bar-default" id="el{{ loop.index }}"><!-- rajouter la class "bar-success" lors de la validation -->
-                      <th class="pl-4">
-                        <div class="scan-in-progress"> <!-- par default "display: flex;" || rajouter la class "d-none" lors de la validation -->
-                          <p><i class="fas fa-boxes"></i></p>
-                          <p>{{ article.titre }} <span>x{{ article.quantite }}</span> </p>
-                          <p>Code-barre à scanner : <span>{{ article.emplacement_id }}</span></p>
-                          <div class="scan_articles_resituer">
-                            <input id="codebar{{ loop.index }}" data-id-required="{{ article.emplacement_id }}" class="input_style_restituer" type="text" name="codebar{{ loop.index }}" placeholder="ex: 0100457896543" oninput="verifyScan(this, {{ loop.index }})" required>
-                            <a onClick="initScan({{ loop.index }})" class="button-scan input_button">
-                                <div class="button_scan_restituer m-0"></div>
-                            </a>
-                          </div>
-                          <div class="check-box-success">
-                          </div>
-                        </div>
-                        <div class="d-none scan-success"> <!-- par default en display: none;  || enlever la class "d-none" lors de la validation -->
-                          <p>Article scanné avec <span class="font-weight-bold">succès!</span></p>
-                          <button type="button" name="button" class="button_success button_style">ok</button>
-                          <div class="check-box-success">
-                            <i class="fas fa-check check-success"></i>
-                          </div>
-                        </div>
-                      </th>
-                    </tr>
 
-                    {% endfor %}
+                              {% for article in articles %}
+                              <tr class="bar-default" id="el{{ loop.index }}"><!-- rajouter la class "bar-success" lors de la validation -->
+                                  <th class="plr-6">
+                                    <div class="scan-in-progress"> <!-- par default "display: flex;" || rajouter la class "d-none" lors de la validation -->
+                                      <i class="fas fa-boxes"></i>
+                                      <div class="">
+                                        <p>{{ article.titre }}<strong>id:<span>21</span></strong></p>
+                                      </div>
+                                        <p>Quantités <span>{{ article.quantite }}</span></p>
+                                      <div class="scan_articles_resituer">
+                                          <input id="codebar{{ loop.index }}" data-id-required="{{ article.emplacement_id }}" class="input_style_restituer" type="text" name="codebar{{ loop.index }}" placeholder="Code-barre à scanner :{{ article.emplacement_id }}" oninput="verifyScan(this, {{ loop.index }})" required>
+                                          <a onClick="initScan({{ loop.index }})" class="button-scan input_button">
+                                              <div class="button_scan_restituer m-0"></div>
+                                          </a>
+                                      </div>
+                                      <div class="check-box-success">
+                                      </div>
+                                    </div>
+                                    <div class="d-none scan-success"> <!-- par default en display: none;  || enlever la class "d-none" lors de la validation -->
+                                      <p>Article scanné avec succès!</p>
+                                      <button type="button" name="button" class="button_success button_style">ok</button>
+                                      <div class="check-box-success">
+                                        <i class="fas fa-check check-success"></i>
+                                      </div>
+                                    </div>
+                                </th>
+                              </tr>
+                              {% endfor %}
+
+                              <!-- Exemple -->
+                              <tr class="bar-default"><!-- rajouter la class "bar-success" lors de la validation -->
+                                  <th class="pl-4">
+                                    <div class="scan-in-progress"> <!-- par default "display: flex;" || rajouter la class "d-none" lors de la validation -->
+                                      <i class="fas fa-boxes"></i>
+                                      <div class="">
+                                        <p>
+                                          Pelle<strong>id:<span>21</span></strong>
+                                         </p>
+                                         <p>
+                                           Pelle<strong>id:<span>22</span></strong>
+                                          </p>
+                                          <p>
+                                            Pelle<strong>id:<span>23</span></strong>
+                                           </p>
+                                           <p>
+                                             Pelle<strong>id:<span>24</span></strong>
+                                            </p>
+                                      </div>
+                                        <p>Quantités <span>12</span></p>
+                                      <div class="scan_articles_resituer">
+                                          <input class="input_style_restituer" type="text" name="" value="" placeholder="Code à barre 12" required>
+                                          <a href="#" class="button-scan input_button">
+                                              <div class="button_scan_restituer m-0"></div>
+                                          </a>
+                                      </div>
+                                      <div class="check-box-success">
+                                      </div>
+                                    </div>
+                                    <div class="d-none scan-success"> <!-- par default en display: none;  || enlever la class "d-none" lors de la validation -->
+                                      <p>Article scanné avec succès!</p>
+                                      <button type="button" name="button" class="button_success button_style">ok</button>
+                                      <div class="check-box-success">
+                                        <i class="fas fa-check check-success"></i>
+                                      </div>
+                                    </div>
+                                </th>
+                              </tr>
 
                   </tbody>
                   <tfoot class="position-relative">
