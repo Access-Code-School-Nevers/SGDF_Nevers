@@ -38,17 +38,17 @@ class ScootController extends AbstractController
       $creerObjet = new Objet();
       $form = $this -> createForm(CreerObjetType::class, $creerObjet);
 
-      // $form->handleRequest($request);
-      // if ($form->isSubmitted() && $form->isValid()) {
-      //
-      //   //add object to data base
-      //   $entityManager = $this->getDoctrine()->getManager();
-      //   $entityManager->persist($creerObjet);
-      //   $entityManager->flush();
-      //
-      //   $this->addFlash('success', 'objet créer !');
-      //   return $this->redirectToRoute("inventaire");
-      // }
+      $form->handleRequest($request);
+      if ($form->isSubmitted() && $form->isValid()) {
+        dump($creerObjet);
+        //add object to data base
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($creerObjet);
+        $entityManager->flush();
+
+        // $this->addFlash('success', 'objet créer !');
+        // return $this->redirectToRoute("inventaire");
+      }
 
         return $this->render('scoot/inventaire.html.twig', [
           'form' => $form->createView(),
