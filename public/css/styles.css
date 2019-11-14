@@ -610,6 +610,9 @@ header nav h1 {
   border-bottom: 2px solid;
   border-color: #b9b9b9;
 }
+.info_articles p{
+  z-index:10;
+}
 .content_restituer_list_articles{
   width: 100%;
 }
