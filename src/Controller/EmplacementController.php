@@ -50,7 +50,7 @@ class EmplacementController extends AbstractController
     return $this->render('scoot/addLocation.html.twig', [
       'form' => $form->createView(),
       'title' => 'Ajouter un emplacement',
-      'backUrl' => './home',
+      'backUrl' => './menu-ajout',
       'sites' => $sites
     ]);
   }
