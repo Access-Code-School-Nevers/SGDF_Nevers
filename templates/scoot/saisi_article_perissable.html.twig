@@ -16,7 +16,11 @@
                   <div class="row">
                     <div class="col">
                       {{form_start(form)}}
-                      {{form_row(form.objet)}}
+                      <div class="form-group">
+                        <label for="exampleInputText">Objet</label>
+                        <input type="Text" class="form-control" list="objects" id="exampleInputText" aria-describedby="textHelp">
+
+                      </div>
                         <datalist id="objects">
                             {% for obj in objects %}
                             <option>{{obj.titre}}</option>

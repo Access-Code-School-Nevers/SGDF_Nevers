@@ -83,10 +83,9 @@ Quagga.onDetected(function(result) {
 // Check than input barcode is equivalent with the one needed
 function verifyScanRestituer(el,id){
   if(el.getAttribute('data-id-required') == el.value){
-    document.querySelector("#el"+id).classList.add("bar-success2");
+    document.querySelector("#el"+id).classList.add("bar-success1");
     document.querySelector("#el"+id+" .scan-in-progress .check-box-success .check-success").classList.remove("d-none");
     document.querySelector("#el"+id+" .scan-in-progress .scan_articles_restituer").classList.add("d-none");
-
   }
 }
 function verifyScanRetrait(el,id){
