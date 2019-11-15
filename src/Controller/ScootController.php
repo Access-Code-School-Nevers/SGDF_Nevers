@@ -8,9 +8,10 @@ use App\Entity\Reservation;
 use App\Entity\Objet;
 use App\Form\CreerObjetType;
 use App\Entity\Article;
-use App\Form\ArticleNonPerissable;
-use App\Entity\Emplacement;
 use App\Form\ArticlePerissable;
+use App\Form\ArticleNonPerissable;
+use App\Form\EmplacementType;
+use App\Entity\Emplacement;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -82,13 +83,20 @@ class ScootController extends AbstractController
       // Handle request if user has submitted the form
        $form->handleRequest($request);
        if ($form->isSubmitted() && $form->isValid()) {
-
+         //get the database ID of the article object
+         $id_article = $request->request->get('id');
+         //  the name of the object 'objet' is the name of the input in the form
+         $objet = $request->request->get('objet');
+         // We take the proprerties and functions of "Objet" Entity that we put in var $objets
+         $recupere_Objet_props = $this->getDoctrine()->getRepository(Objet::class);
+         //I get the object dial in the input "objet" box by the user
+         $product=$recupere_Objet_props->findBy(['titre'=>$objet]);
          //Adding user to DB
-         $entityManager = $this->getDoctrine()->getManager(); //recuperation de l entityManager
-         $entityManager->persist($ajoutvaleur); // prepare l objet ajoutvaleur pour le mettre dans bdd
-         $entityManager->flush();//envoi l objet dans la bdd
+         // $entityManager = $this->getDoctrine()->getManager(); //recuperation de l entityManager
+         // $entityManager->persist($ajoutvaleur); // prepare l objet ajoutvaleur pour le mettre dans bdd
+         // $entityManager->flush();//envoi l objet dans la bdd
 
-         return new Response('états ajoutés');
+
 
          //Success message
 
@@ -122,6 +130,8 @@ class ScootController extends AbstractController
       return $this->render('scoot/restituer.html.twig', [
         'title' => 'Restituer',
         'backUrl' => './home',
+        'objectsByEmplacement' => '1'
+
       ]);
     }
 

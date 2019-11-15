@@ -5,11 +5,16 @@
 {% block body %}
 
 <div class="support_view">
-  <div class="container_view">
+  <div class="container_view justify-content-center d-flex flex-column">
+    <div class="centrer p-3">
+      <p><i class="fas fa-quote-right mr-1"></i>Vous ne devez ajouter que des articles situés à un même emplacement, faites autant de saisie qu'il y a d'emplacements.</p>
+    </div>
     <nav class="container_button">
       <div class="card border-primary mb-3" style="max-width: 60rem;">
-        <h4>Ajouter des articles</h4>
-        <div class="container">
+        <div class="container ">
+          <div class=" head_saisi_article">
+            <h4 >Ajouter des articles non perissable</h4>
+          </div>
           <div class="form-group">
             {{form_start(form)}}
             <div class="card mb-3 border-0" style="width: 20rem;">
@@ -83,10 +88,14 @@
                 minlength="0" maxlength="3" size="10">
               </div>
             </div>
+
             <div class="scan_articles_resituer">
-              <input type="text" name="cab" value="" required>
-              <button class="button_scan_restituer " type="button" name="button"><i class="fas fa-barcode"></i></button>
+                <input class="input_style_restituer" type="text" name="" value="" placeholder="ex: 01 0045 7896 543" required>
+                <a href="#" class="button-scan input_button">
+                    <div class="button_scan_restituer m-0"></div>
+                </a>
             </div>
+
             <div class="margeButton ajouter ">
               <button type="submit" class="btn btn-primary pull-right">AJOUTER</button>
             </div>

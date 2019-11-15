@@ -552,6 +552,25 @@ header nav h1 {
 
 
 /* <<<<< saisi_article >>>> */
+.centrer {
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  border: 2px solid #b9b9b9;
+  border-radius: 5px;
+  background-color: #f2fbff;
+  max-width: 500px;
+  width: 100%;
+  height: 90px;
+  padding-left: 1em;
+  align-items: center;
+}
+.head_saisi_article {
+  text-align: center;
+  color: #00619c;
+  font-size: 1.3em;
+}
+
 .ajouter {
   float: right
 }
