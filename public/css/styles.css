@@ -623,11 +623,14 @@ header nav h1 {
   position: absolute;
   top: 5px;
 }
-
-
-
-
-
+.body_table_restituer .scan-in-progress .fa-boxes {
+top: 8px;
+}
+.body_table_restituer .scan-in-progress{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .body_table_restituer > tr{
   position: relative;
   display: flex;
@@ -640,13 +643,18 @@ header nav h1 {
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 3px;
   margin-bottom: 20px;
-  align-items: center;
+  align-items: baseline;
   box-shadow: inset 0px 40px 1px 0px #00619c;
   padding-top: 40px;
 }
 .body_table_restituer > tr th{
   display: flex;
   margin-bottom: 8px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: 400;
 }
 .body_table_restituer > tr th p{
   width: 213px;
@@ -781,17 +789,22 @@ header nav h1 {
   box-shadow: 0px 0px 54px 7px white;
   font-size: 3em;
 }
-.bar-success{
+.bar-success3{
     animation: transitionRight 1.5s linear;
     animation-fill-mode: forwards;
     border: 1px solid var(--success-green-color) !important;
     background-color: #f2fff8 !important;
     box-shadow: inset 55px -9px 1px 0px #00619c;
 }
+.bar-success1 {
+  border: 1px solid var(--success-green-color) !important;
+  background-color: #f2fff8 !important;
+  box-shadow: inset 0px 40px 1px 0px var(--success-green-color) !important;
+}
 .bar-success2 {
     border: 1px solid var(--success-green-color) !important;
     background-color: #f2fff8 !important;
-    box-shadow: inset 0px 40px 1px 0px var(--success-green-color) !important;
+    box-shadow: inset 55px -9px 1px 0px var(--success-green-color) !important;
 }
 
 .bar-success2 th .scan-in-progress p{
@@ -850,7 +863,18 @@ header nav h1 {
 .row_table_articles_restituer{
   display: flex;
 }
-
+.input_etat_restituer{
+  width: 90px;
+  height: 20px;
+  padding-left: 3px;
+}
+.etat_retrait{
+  margin-bottom: 5px;
+}
+.head_table_restituer_articles tr th{
+  margin-top: 3px;
+  font-weight: bold!important;
+}
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<RETRAIT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 .head_table_retrait tr th{
@@ -1067,7 +1091,7 @@ footer{
     position: absolute;
     top: 5px;
     }
-    .body_table_retrait tr {
+    .body_table_retrait > tr {
     justify-content: flex-start;
     min-height: 120px;
     padding-top: 40px;
@@ -1077,7 +1101,7 @@ footer{
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 3px;
 }
-    .body_table_restituer tr {
+    .body_table_restituer > tr {
       justify-content: flex-start;
       min-height: 120px;
       padding-top: 40px;
@@ -1087,11 +1111,7 @@ footer{
       border-bottom-right-radius: 0px;
       border-bottom-left-radius: 3px;
     }
-    .body_table_retrait tr th {
-    justify-content: center;
-    width: 100%;
-    }
-    .body_table_restituer tr th {
+    .body_table_retrait > tr th {
     justify-content: center;
     width: 100%;
     }
@@ -1105,9 +1125,12 @@ footer{
       border-bottom-left-radius: 5px;
       border: 1px solid darkgrey;
     }
-    .scan-in-progress .fa-boxes {
+    .body_table_restituer .scan-in-progress .fa-boxes {
     top: 8px;
 }
+    .body_table_retrait .scan-in-progress .fa-boxes {
+    top: 8px;
+    }
 .check-box-success {
     height: 30px;
     width: 30px;
