@@ -16,75 +16,24 @@
               <thead class="head_table">
                 <tr>
                   <th>Date</th>
-                  <th>Quantités</th>
-                  <th>Articles</th>
+                  <th>Emplacement</th>
+                  <th>Articles - Id</th>
                 </tr>
               </thead>
               <tbody>
-                <div class="table_gen">
-                  <tr>
-                    <th scope="rowgroup" rowspan="1">10/01/2018</th>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                </div>
-                <div class="table_gen">
-                  <tr>
-                    <th scope="rowgroup" rowspan="6">11/01/2018</th>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-
-                </div>
-                <div class="table_gen">
-                  <tr>
-                    <th scope="rowgroup" rowspan="6">12/01/2018</th>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-
-                </div>
-
+                {% for reservation in listReservations %}
+                  <div class="table_gen">
+                    <tr>
+                      <th scope="rowgroup" rowspan="{{ reservation.articles|length + 1 }}">Du {{ reservation.dateDebut|date("d/m/Y") }} au {{ reservation.dateFin|date("d/m/Y") }}</th>
+                    </tr>
+                    {% for article in reservation.articles %}
+                    <tr>
+                      <th>{{ article.emplacement }}</th>
+                      <th class="pl-4">{{ article.titre }} - N°{{ article.article }}</th>
+                    </tr>
+                    {% endfor %}
+                  </div>
+                {% endfor %}
               </tbody>
             </table>
           </div>
