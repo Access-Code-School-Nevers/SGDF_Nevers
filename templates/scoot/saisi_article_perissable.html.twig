@@ -26,7 +26,11 @@
                             <option>{{obj.titre}}</option>
                             {% endfor %}
                         </datalist>
-                        {{form_row(form.peremption)}}
+                        
+                        <div class="form-group">
+                          <label for="exampleInputDate">Date péremption</label>
+                          <input type="date" class="form-control" id="exampleInputDate" aria-describedby="dateHelp">
+                        </div>
 
                         <!--Quantité-->
                         <div class="form-group">
