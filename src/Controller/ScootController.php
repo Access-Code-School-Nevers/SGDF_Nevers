@@ -70,45 +70,6 @@ class ScootController extends AbstractController
 
 
 
-    /**
-    * @Route("/app/saisi_article_perissable", name="saisi_article_perissable")
-    */
-    public function saisi_articles_perissables(Request $request)
-    {
-      $objects = $this->getDoctrine()->getRepository(Objet::class)->findAll();
-
-      $article = new Article();
-      $form = $this -> createForm(ArticlePerissable::class, $article);
-
-      // Handle request if user has submitted the form
-       $form->handleRequest($request);
-       if ($form->isSubmitted() && $form->isValid()) {
-         //get the database ID of the article object
-         $id_article = $request->request->get('id');
-         //  the name of the object 'objet' is the name of the input in the form
-         $objet = $request->request->get('objet');
-         // We take the proprerties and functions of "Objet" Entity that we put in var $objets
-         $recupere_Objet_props = $this->getDoctrine()->getRepository(Objet::class);
-         //I get the object dial in the input "objet" box by the user
-         $product=$recupere_Objet_props->findBy(['titre'=>$objet]);
-         //Adding user to DB
-         // $entityManager = $this->getDoctrine()->getManager(); //recuperation de l entityManager
-         // $entityManager->persist($ajoutvaleur); // prepare l objet ajoutvaleur pour le mettre dans bdd
-         // $entityManager->flush();//envoi l objet dans la bdd
-
-
-
-         //Success message
-
-       }
-
-      return $this->render('scoot/saisi_article_perissable.html.twig', [
-          'form' => $form->createView(),
-          'title' => 'Inventaire articles',
-          'objects' => $objects,
-          'backUrl' => './home',
-      ]);
-    }
 
     /**
     * @Route("/app/restituer", name="restituer")
