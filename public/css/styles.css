@@ -635,22 +635,22 @@ header nav h1 {
   width: 100%;
 }
 /* tableau restituer */
-.head_table_resistuer tr th{
+.head_table_retrait tr th{
   text-align: center;
   color: #00619c;
   font-size: 1.3em;
 }
-.head_table_resistuer tr{
+.head_table_retrait tr{
   height: 60px;
   border: 0;
 }
-.body_table_restituer{
+.body_table_retrait{
   padding: 10px 15px 20px;
   position: relative;
   display: flex;
   flex-direction: column;
 }
-.body_table_restituer tr{
+.body_table_retrait tr{
   position: relative;
   display: flex;
   justify-content: center;
@@ -665,11 +665,11 @@ header nav h1 {
   align-items: center;
   box-shadow: inset 55px -9px 1px 0px #00619c;
 }
-.body_table_restituer tr th{
+.body_table_retrait tr th{
   display: flex;
   margin-bottom: 8px;
 }
-.body_table_restituer tr th p{
+.body_table_retrait tr th p{
   width: 160px;
   margin-right: 20px;
   line-height: 25px;
@@ -678,7 +678,7 @@ header nav h1 {
   justify-content: space-between;
   border-bottom: 1px solid #00619c;
 }
-.body_table_restituer tr th p span{
+.body_table_retrait tr th p span{
   margin-left: 5px;
 }
 .fa-boxes{
@@ -810,6 +810,7 @@ header nav h1 {
     margin-right: 0 !important;
 }
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<RETRAIT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
 .button_confirm_retrait{
   display: flex;
   justify-content: center;
@@ -964,7 +965,7 @@ footer{
     position: absolute;
     top: 5px;
     }
-    .body_table_restituer tr {
+    .body_table_retrait tr {
     justify-content: flex-start;
     min-height: 120px;
     padding-top: 40px;
@@ -974,7 +975,7 @@ footer{
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 3px;
 }
-    .body_table_restituer tr th {
+    .body_table_retrait tr th {
     justify-content: center;
     width: 100%;
     }
@@ -1060,7 +1061,7 @@ footer{
     }
   }
   @media screen and (max-width: 500px) {
-    .body_table_restituer tr th p {
+    .body_table_retrait tr th p {
         margin-right: 5px;
         width: 140px;
         display: flex;
@@ -1068,7 +1069,7 @@ footer{
         align-items: center;
         margin-left: 10px;
     }
-  .body_table_restituer tr th{
+  .body_table_retrait tr th{
     padding: 0 !important;
   }
   .input_style_restituer {
@@ -1076,7 +1077,7 @@ footer{
 }
   }
   @media screen and (max-width: 400px) {
-    .body_table_restituer {
+    .body_table_retrait {
         padding: 10px 0px 20px;
         position: relative;
         display: flex;
