@@ -62,7 +62,6 @@ class ReservationRepository extends ServiceEntityRepository
       $stmt = $conn->prepare($sql);
       $stmt->execute(['user' => $user]);
 
-      // returns an array of arrays (i.e. a raw data set)
       while($row = $stmt->fetch()){
         if($row['statut'] == 1) $reservations['reservation'] = $row['number_reservation'];
         else $reservations['emprunt'] = $row['number_reservation'];
@@ -85,7 +84,6 @@ class ReservationRepository extends ServiceEntityRepository
       $stmt = $conn->prepare($sql);
       $stmt->execute(['user' => $user]);
 
-      // returns an array of arrays (i.e. a raw data set)
       return $stmt->fetchAll();
     }
 
@@ -106,7 +104,6 @@ class ReservationRepository extends ServiceEntityRepository
       $stmt = $conn->prepare($sql);
       $stmt->execute(['idReservation' => $idReservation, 'type' => $type]);
 
-      // returns an array of arrays (i.e. a raw data set)
       return $stmt->fetchAll();
     }
 

@@ -23,7 +23,6 @@ class ArticlePerissable extends AbstractType
         ->add('peremption', DateType::class, array(
           'widget' => 'single_text',
         ))
-        // ->add('archive', NumberType::class, ['label' => 'code barre'])
         ->add('scan', ButtonType::class, [
           'attr' => array('class' => 'button_scan_restituer')
         ])
