@@ -11,7 +11,6 @@
           <div class="info_articles p-3">
             <p><i class="fas fa-quote-right mr-1"></i>Scannez vos articles ou rentrez manuellement le code à chiffre (sous le code barre), puis attendez la confirmation.</p>
           </div>
-          <!-- List of articles to withdraw -->
           <form class="w-100" method="POST">
 
           <div class="content_restituer_list_articles">
@@ -24,6 +23,7 @@
                     </tr>
                   </thead>
                   <tbody class="body_table_retrait">
+                    <!-- List of articles to withdraw -->
                     {% for keyEmplacement, emplacement in objectsByEmplacement %}
                       {% for object in emplacement %}
                         <tr class="bar-default" id="el{{ keyEmplacement }}"><!-- rajouter la class "bar-success" lors de la validation -->
@@ -51,8 +51,6 @@
                         </tr>
                       {% endfor %}
                     {% endfor %}
-
-
                   </tbody>
                   <tfoot class="position-relative">
                     <tr>
@@ -76,5 +74,4 @@
     <canvas class="drawingBuffer"></canvas>
   </div>
 </section>
-{% include 'components/footer.html.twig' %}
 {% endblock %}

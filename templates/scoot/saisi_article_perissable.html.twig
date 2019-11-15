@@ -15,44 +15,33 @@
               <div>
                   <div class="row">
                     <div class="col">
-                      <!-- <label for="idObjet">Objet</label> -->
+                      {{form_start(form)}}
                       {{form_row(form.objet)}}
-                      <!-- <input list="objects" type="text"> -->
                         <datalist id="objects">
                             {% for obj in objects %}
                             <option>{{obj.titre}}</option>
                             {% endfor %}
                         </datalist>
                         {{form_row(form.peremption)}}
+
+                        <!--Quantité-->
+                        <div class="form-group">
+                          <label for="exampleInputNumber">Quantité</label>
+                          <input type="number" class="form-control" id="exampleInputNumber" aria-describedby="numberHelp">
+                        </div>
+
+                        <label for="">code barre</label>
+                        <div class="scan_articles_resituer input-group mb-4">
+                          <input id="codebar1" data-id-required="1" class="input_style_restituer form-control pl-1" type="text" name="codebar1" placeholder="CAB à scan : 1" oninput="verifyScan(this, 1)" required>
+                          <a onClick="initScan(1)" class="button-scan input_button">
+                              <div class="button_scan_restituer m-0"></div>
+                          </a>
+                        </div>
                     </div>
                   </div>
+                  {{form_widget(form.ajouter)}}
               </div>
-              <div>
-                <div class="row">
-                   <div class="col">
-
-                  </div>
-                  <div class="col">
-                      <!-- {{form_widget(form.peremption)}} -->
-                  </div>
-                </div>
-
-              </div>
-
-
-                    <div class="scan_articles_resituer">
-
-                      <input type="text" name="" value="" placeholder="ex: 01 0045 7896 543" required>
-                      <!-- {{form_row(form.scan)}} -->
-                      <!-- <button class="button_scan_restituer" type="button" name="button"> -->
-                        <!-- <i class="fas fa-barcode"></i> -->
-                      </button>
-                    </div>
-                    {{form_widget(form.ajouter)}}
-
-              <!-- <div class="margeButton ajouter ">
-                 <button type="submit" class="btn btn-primary pull-right"> AJOUTER </button>
-              </div> -->
+              {{form_end(form)}}
           </div>
 
         </div>
