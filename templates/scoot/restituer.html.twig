@@ -31,16 +31,15 @@
                                     <thead class="head_table_restituer_articles">
                                       <tr class="row_table_articles_restituer">
                                         <th>Article(s)</th>
-                                        <th>id</th>
-                                        <th>Quantités</th>
+                                        <th  class="w-50">Quantités</th>
                                         <th>Etat</th>
                                       </tr>
                                     </thead>
                                     <tbody>
+
                                       <tr class="row_table_articles_restituer">
-                                        <th>Pack d'eau de 6 bouteilles</th>
-                                        <th>72</th>
-                                        <th>5</th>
+                                        <th><span>(id: 72)</span> Pack d'eau de 6 bouteilles</th>
+                                        <th class="w-50">5</th>
                                         <th>
                                           retrait: <span class="etat_retrait">neuf</span>
                                           restitution:
@@ -53,15 +52,31 @@
                                             <option value="incomplet">
                                           </datalist>
                                         </th>
-
                                       </tr>
+
+                                      <tr class="row_table_articles_restituer">
+                                        <th><span>(id: 75)</span> Tente </th>
+                                        <th class="w-50">2</th>
+                                        <th>
+                                          retrait: <span class="etat_retrait">neuf</span>
+                                          restitution:
+                                          <input class="input_etat_restituer" list="browsers" name="browser">
+                                          <datalist id="browsers">
+                                            <option value="neuf">
+                                            <option value="bon">
+                                            <option value="moyen">
+                                            <option value="défectueux">
+                                            <option value="incomplet">
+                                          </datalist>
+                                        </th>
+                                      </tr>
+
                                     </tbody>
                                   </table>
-
                                 </div>
                                 <div class="scan_articles_restituer">
                                   <input id="codebar1" data-id-required="1" class="input_style_restituer" type="text" name="codebar1" placeholder="CAB à scan : 1" oninput="verifyScanRestituer(this, 1)" required>
-                                  <a onClick="initScan(1)" class="button-scan input_button">
+                                  <a onClick="initScan(1)" class="h-30px button-scan input_button">
                                       <div class="button_scan_restituer m-0"></div>
                                   </a>
                                 </div>
@@ -71,6 +86,79 @@
                               </div>
                           </th>
                         </tr>
+
+                        <tr class="bar-default" id="el2"><!-- rajouter la class "bar-success" lors de la validation -->
+                            <th>
+                              <div class="scan-in-progress"> <!-- par default "display: flex;" || rajouter la class "d-none" lors de la validation -->
+                                <i class="fas fa-boxes"></i>
+                                <div class="w-100">
+                                  <table class="w-100">
+                                    <thead class="head_table_restituer_articles">
+                                      <tr class="row_table_articles_restituer">
+                                        <th>Article(s)</th>
+                                        <th  class="w-50">Quantités</th>
+                                        <th>Etat</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+
+                                      <tr class="row_table_articles_restituer">
+                                        <th><span>(id: 73)</span> Piquet</th>
+                                        <th class="w-50">20</th>
+                                        <th>
+                                          retrait: <span class="etat_retrait">neuf</span>
+                                          restitution:
+                                          <input class="input_etat_restituer" list="browsers" name="browser">
+                                          <datalist id="browsers">
+                                            <option value="neuf">
+                                            <option value="bon">
+                                            <option value="moyen">
+                                            <option value="défectueux">
+                                            <option value="incomplet">
+                                          </datalist>
+                                        </th>
+                                      </tr>
+
+                                      <tr class="row_table_articles_restituer">
+                                        <th><span>(id: 77)</span> Marteau </th>
+                                        <th class="w-50">3</th>
+                                        <th>
+                                          retrait: <span class="etat_retrait">neuf</span>
+                                          restitution:
+                                          <input class="input_etat_restituer" list="browsers" name="browser">
+                                          <datalist id="browsers">
+                                            <option value="neuf">
+                                            <option value="bon">
+                                            <option value="moyen">
+                                            <option value="défectueux">
+                                            <option value="incomplet">
+                                          </datalist>
+                                        </th>
+                                      </tr>
+
+                                    </tbody>
+                                  </table>
+                                </div>
+                                <div class="scan_articles_restituer">
+                                  <input id="codebar1" data-id-required="2" class="input_style_restituer" type="text" name="codebar1" placeholder="CAB à scan : 2" oninput="verifyScanRestituer(this, 2)" required>
+                                  <a onClick="initScan(2)" class="h-30px button-scan input_button">
+                                      <div class="button_scan_restituer m-0"></div>
+                                  </a>
+                                </div>
+                                <div class="check-box-success">
+                                  <i class="fas fa-check check-success d-none"></i>
+                                </div>
+                              </div>
+                          </th>
+                        </tr>
+
+
+
+
+
+
+
+
 
                   </tbody>
                   <tfoot class="position-relative">
