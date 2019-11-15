@@ -30,15 +30,36 @@
                             <th>
                               <div class="scan-in-progress"> <!-- par default "display: flex;" || rajouter la class "d-none" lors de la validation -->
                                 <i class="fas fa-boxes"></i>
-                                <div class="">
-                                  <table>
-                                    <thead>
+                                <div class="w-100">
+                                  <table class="w-100">
+                                    <thead class="head_table_restituer_articles">
                                       <tr class="row_table_articles_restituer">
                                         <th>Article(s)</th>
                                         <th>id</th>
                                         <th>Quantités</th>
+                                        <th>Etat</th>
                                       </tr>
                                     </thead>
+                                    <tbody>
+                                      <tr class="row_table_articles_restituer">
+                                        <th>Pack d'eau de 6 bouteilles</th>
+                                        <th>72</th>
+                                        <th>5</th>
+                                        <th>
+                                          retrait: <span class="etat_retrait">neuf</span>
+                                          restitution:
+                                          <input class="input_etat_restituer" list="browsers" name="browser">
+                                          <datalist id="browsers">
+                                            <option value="neuf">
+                                            <option value="bon">
+                                            <option value="moyen">
+                                            <option value="défectueux">
+                                            <option value="incomplet">
+                                          </datalist>
+                                        </th>
+
+                                      </tr>
+                                    </tbody>
                                   </table>
 
                                 </div>
