@@ -29,8 +29,10 @@ class AddArticlePerishableController extends AbstractController
     $article = new Article();
     $form = $this -> createForm(ArticlePerissable::class, $article);
 
+
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
+      $task = $form->getData();
 
       //get the total numeber of object  (eg : 5 packs of water  we get 5)
       $nbArticles = intval($request->request->get('quantite'));
@@ -46,31 +48,24 @@ class AddArticlePerishableController extends AbstractController
       $recupere_emplacement_props = $this->getDoctrine()->getRepository(Emplacement::class);
       $cab = $recupere_emplacement_props->findBy(['id'=>$cab]);
 
-      // Getting peremption by his date
-      $recupere_emplacement_props = $this->getDoctrine()->getRepository(Peremption::class);
-      $cab = $recupere_emplacement_props->findBy(['datePeremption'=>$cab]);
 
-
+      if(count($product) > 0 && count($cab) > 0){
       // Creating articles and status
       for($i=0 ; $i<$nbArticles ; $i++){
 
         $articles[$i] = new Article();
         $articles[$i]->setObjet($product[0]);
         $articles[$i]->setEmplacement($cab[0]);
-        $articles[$i]->setDatePeremption($etats[$i]);
+        // $articles[$i]->setDatePeremption($peremption[$i]);
 
+// Insert into DB
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($articles[$i]);
+        $entityManager->flush();
 
-        $displayArticles[$i]['etat'] = $this->getStringStatus($etatArticles[$i]);
       }
 
-      // Insert into DB
-      $entityManager->flush();
 
-      for($i=0 ; $i<$nbArticles ; $i++){
-        $this->addFlash('newBarcode', $this->getStringStatus($etatArticles[$i]).','.$articles[$i]->getId());
-      }
 
       // Success message
       $this->addFlash('displayModal', "1");
@@ -83,6 +78,7 @@ class AddArticlePerishableController extends AbstractController
     else
       $this->addFlash('danger', 'Au moins un champ n\'est pas renseigné.');
     }
+  }
 
 
     return $this->render('scoot/saisi_article_perissable.html.twig', [
