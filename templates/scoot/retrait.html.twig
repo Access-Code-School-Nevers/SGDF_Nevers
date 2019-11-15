@@ -37,10 +37,10 @@
                                   {% endfor %}
                                 </div>
                                   <p class="quantity-articles">Quantité <span>{{ object.listArticles|length }}</span></p>
-                                <div class="scan_articles_resituer">
-                                  <input id="codebar{{ keyEmplacement }}" data-id-required="{{ keyEmplacement }}" class="input_style_restituer" type="text" name="codebar{{ keyEmplacement }}" placeholder="CAB à scan : {{ keyEmplacement }}" oninput="verifyScan(this, {{ keyEmplacement }})" required>
+                                <div class="scan_articles_retrait">
+                                  <input id="codebar{{ keyEmplacement }}" data-id-required="{{ keyEmplacement }}" class="input_style_retrait" type="text" name="codebar{{ keyEmplacement }}" placeholder="CAB à scan : {{ keyEmplacement }}" oninput="verifyScanRetrait(this, {{ keyEmplacement }})" required>
                                   <a onClick="initScan({{ keyEmplacement }})" class="button-scan input_button">
-                                      <div class="button_scan_restituer m-0"></div>
+                                      <div class="button_scan_retrait m-0"></div>
                                   </a>
                                 </div>
                                 <div class="check-box-success">
