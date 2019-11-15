@@ -3,43 +3,37 @@
 {% block title %}Inventaire : créer un objet{% endblock %}
 
 {% block body %}
-    <!-- Inventaire-->
+<!-- Inventaire-->
+<section class="support_view">
+  <nav class="container_button">
+  <div class="card border-primary mb-3" style="max-width: 60rem;">
+    <div class="card-header">Pour commencer, je crée mes objets </div>
 
-    <section class="support_view">
-      <nav class="container_button">
-      <div class="card border-primary mb-3" style="max-width: 60rem;">
-        <div class="card-header">Pour commencer, je crée mes objets </div>
+    <div class="card-body">
+      <div class="container">
+        <div class="form-group">
+          {{form_start(form)}}
+          {{form_row(form.titre)}}
+          {{form_row(form.description)}}
+          {{form_row(form.pcb)}}
+          {{form_row(form.perissable)}}
 
-        <div class="card-body">
-          <div class="container">
-            <div class="form-group">
-              {{form_start(form)}}
-              {{form_row(form.titre)}}
-              {{form_row(form.description)}}
-              {{form_row(form.pcb)}}
-              {{form_row(form.perissable)}}
-
-              <div class="row">
-                <div class="margeButton col-5 ">
-                  <button type="submit" class="btn btn-primary main-blue-color second-blue-color"> photos <i class="fas fa-camera"></i> </button>
-                </div>
-                <div class="col-5">
-                  {{form_row(form.photo)}}
-                </div>
-              </div>
-              <div class="col-md-12 text-center">
-                {{form_widget(form.enregistrer)}}
-              </div>
-              {{form_end(form)}}
+          <div class="row">
+            <div class="margeButton col-5 ">
+              <button type="submit" class="btn btn-primary main-blue-color second-blue-color"> photos <i class="fas fa-camera"></i> </button>
+            </div>
+            <div class="col-5">
+              {{form_row(form.photo)}}
             </div>
           </div>
+          <div class="col-md-12 text-center">
+            {{form_widget(form.enregistrer)}}
+          </div>
+          {{form_end(form)}}
         </div>
-        </nav>
-    </section>
-    <!-- <div class="loader_display"></div> -->
-    <!-- footer -->
-    <footer>
-
-    </footer>
-
+      </div>
+    </div>
+    </nav>
+</section>
+<!-- <div class="loader_display"></div> -->
 {% endblock %}

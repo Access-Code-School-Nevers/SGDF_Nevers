@@ -23,6 +23,12 @@ class ArticlePerissable extends AbstractType
         ->add('peremption', DateType::class, array(
           'widget' => 'single_text',
         ))
+<<<<<<< HEAD
+=======
+        ->add('scan', ButtonType::class, [
+          'attr' => array('class' => 'button_scan_restituer')
+        ])
+>>>>>>> 01d1db2ffc10c78d0458a7a9c4c1366ed27ea55c
         ->add('ajouter', SubmitType::class, [
           'attr' => ['class' => 'w-100 btn-primary main-blue-color second-blue-color']
         ])

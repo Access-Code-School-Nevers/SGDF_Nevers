@@ -595,6 +595,71 @@ header nav h1 {
   max-height: 80vh !important;
 }
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< RESTITUER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.head_table_restituer tr th{
+  text-align: center;
+  color: #00619c;
+  font-size: 1.3em;
+}
+.head_table_restituer tr{
+  height: 60px;
+  border: 0;
+}
+.body_table_restituer{
+  padding: 10px 15px 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.body_table_restituer .bar-default .check-box-success{
+    height: 30px;
+    width: 30px;
+    box-shadow: none;
+    font-size: 3em;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.body_table_restituer .bar-default .scan-in-progress .scan_articles_restituer{
+  position: absolute;
+  top: 5px;
+}
+
+
+
+
+
+.body_table_restituer > tr{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  min-height: 150px;
+  background-color: #f2fbff;
+  border: 1px solid #565656;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 3px;
+  margin-bottom: 20px;
+  align-items: center;
+  box-shadow: inset 0px 40px 1px 0px #00619c;
+  padding-top: 40px;
+}
+.body_table_restituer > tr th{
+  display: flex;
+  margin-bottom: 8px;
+}
+.body_table_restituer > tr th p{
+  width: 213px;
+  margin-right: 20px;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #00619c;
+}
+.body_table_restituer > tr th p span{
+  margin-left: 5px;
+}
 .content_restituer_articles{
   display: flex;
   justify-content: center;
@@ -634,53 +699,7 @@ header nav h1 {
 .content_restituer_list_articles{
   width: 100%;
 }
-/* tableau restituer */
-.head_table_resistuer tr th{
-  text-align: center;
-  color: #00619c;
-  font-size: 1.3em;
-}
-.head_table_resistuer tr{
-  height: 60px;
-  border: 0;
-}
-.body_table_restituer{
-  padding: 10px 15px 20px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-.body_table_restituer tr{
-  position: relative;
-  display: flex;
-  justify-content: center;
-  min-height: 60px;
-  background-color: #f2fbff;
-  border: 1px solid #565656;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border-bottom-left-radius: 15px;
-  margin-bottom: 20px;
-  align-items: center;
-  box-shadow: inset 55px -9px 1px 0px #00619c;
-}
-.body_table_restituer tr th{
-  display: flex;
-  margin-bottom: 8px;
-}
-.body_table_restituer tr th p{
-  width: 160px;
-  margin-right: 20px;
-  line-height: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #00619c;
-}
-.body_table_restituer tr th p span{
-  margin-left: 5px;
-}
+
 .fa-boxes{
   font-size: 1.5em;
 }
@@ -691,10 +710,8 @@ header nav h1 {
   color: white;
   text-shadow: 0px 0px 6px black;
 }
-.scan_articles_resituer{
+.scan_articles_restituer{
   display: flex;
-}
-.scan_articles_resituer{
   height: 30px;
 }
 .button_scan_restituer{
@@ -771,11 +788,12 @@ header nav h1 {
     background-color: #f2fff8 !important;
     box-shadow: inset 55px -9px 1px 0px #00619c;
 }
-.bar-success2{
+.bar-success2 {
     border: 1px solid var(--success-green-color) !important;
     background-color: #f2fff8 !important;
-    box-shadow: inset 55px -9px 1px 0px var(--success-green-color) !important;
+    box-shadow: inset 0px 40px 1px 0px var(--success-green-color) !important;
 }
+
 .bar-success2 th .scan-in-progress p{
   border-bottom: 1px solid var(--success-green-color) !important;
 }
@@ -809,7 +827,79 @@ header nav h1 {
 .button_confirm_restituer button{
     margin-right: 0 !important;
 }
+.button_scan_retrait{
+  height: 18px;
+  width: 25px;
+  font-size: 1.6em;
+  padding: 0;
+  text-align: center;
+  background-image: url(../img/icon_scan.svg);
+  background-size: contain;
+  background-position: center;
+  background-color: #ff505000;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px;
+  border: none;
+  margin-left: 25px;
+  padding-left: 10px;
+}
+/* second tableau dans le tableau restituer avec l'etat */
+.row_table_articles_restituer{
+  display: flex;
+}
+
+
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<RETRAIT>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.head_table_retrait tr th{
+  text-align: center;
+  color: #00619c;
+  font-size: 1.3em;
+}
+.head_table_retrait tr{
+  height: 60px;
+  border: 0;
+}
+.body_table_retrait{
+  padding: 10px 15px 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.body_table_retrait tr{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  min-height: 60px;
+  background-color: #f2fbff;
+  border: 1px solid #565656;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 15px;
+  margin-bottom: 20px;
+  align-items: center;
+  box-shadow: inset 55px -9px 1px 0px #00619c;
+}
+.body_table_retrait tr th{
+  display: flex;
+  margin-bottom: 8px;
+}
+.body_table_retrait tr th p{
+  width: 160px;
+  margin-right: 20px;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #00619c;
+}
+.body_table_retrait tr th p span{
+  margin-left: 5px;
+}
+
 .button_confirm_retrait{
   display: flex;
   justify-content: center;
@@ -821,7 +911,16 @@ header nav h1 {
 .button-scan{
   cursor: pointer;
 }
-
+.scan_articles_retrait{
+  display: flex;
+  height: 30px;
+}
+.input_style_retrait{
+  padding-left: 10px;
+}
+.content_retrait_list_articles{
+  width: 100%;
+}
 
 @-webkit-keyframes pulse {
   0% {
@@ -960,11 +1059,15 @@ footer{
       align-items: center;
       justify-content: center;
     }
-    .scan_articles_resituer {
+    .scan_articles_restituer {
     position: absolute;
     top: 5px;
     }
-    .body_table_restituer tr {
+    .scan_articles_retrait {
+    position: absolute;
+    top: 5px;
+    }
+    .body_table_retrait tr {
     justify-content: flex-start;
     min-height: 120px;
     padding-top: 40px;
@@ -974,6 +1077,20 @@ footer{
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 3px;
 }
+    .body_table_restituer tr {
+      justify-content: flex-start;
+      min-height: 120px;
+      padding-top: 40px;
+      box-shadow: inset 0px 40px 1px 0px #00619c;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 3px;
+    }
+    .body_table_retrait tr th {
+    justify-content: center;
+    width: 100%;
+    }
     .body_table_restituer tr th {
     justify-content: center;
     width: 100%;
@@ -982,6 +1099,11 @@ footer{
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     border: 1px solid darkgrey;
+    }
+    .input_style_retrait{
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border: 1px solid darkgrey;
     }
     .scan-in-progress .fa-boxes {
     top: 8px;
@@ -1060,7 +1182,7 @@ footer{
     }
   }
   @media screen and (max-width: 500px) {
-    .body_table_restituer tr th p {
+    .body_table_retrait tr th p {
         margin-right: 5px;
         width: 140px;
         display: flex;
@@ -1068,7 +1190,7 @@ footer{
         align-items: center;
         margin-left: 10px;
     }
-  .body_table_restituer tr th{
+  .body_table_retrait tr th{
     padding: 0 !important;
   }
   .input_style_restituer {
@@ -1076,7 +1198,7 @@ footer{
 }
   }
   @media screen and (max-width: 400px) {
-    .body_table_restituer {
+    .body_table_retrait {
         padding: 10px 0px 20px;
         position: relative;
         display: flex;

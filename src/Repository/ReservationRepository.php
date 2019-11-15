@@ -59,11 +59,9 @@ class ReservationRepository extends ServiceEntityRepository
               AND (statut = 1 OR statut = 2)
               GROUP BY statut";
 
-      // PDO to escape values to avoid injections
       $stmt = $conn->prepare($sql);
       $stmt->execute(['user' => $user]);
 
-      // returns an array of arrays (i.e. a raw data set)
       while($row = $stmt->fetch()){
         if($row['statut'] == 1) $reservations['reservation'] = $row['number_reservation'];
         else $reservations['emprunt'] = $row['number_reservation'];
@@ -83,11 +81,9 @@ class ReservationRepository extends ServiceEntityRepository
               ORDER BY date_debut ASC
               LIMIT 1";
 
-      // PDO to escape values to avoid injections
       $stmt = $conn->prepare($sql);
       $stmt->execute(['user' => $user]);
 
-      // returns an array of arrays (i.e. a raw data set)
       return $stmt->fetchAll();
     }
 
@@ -96,7 +92,7 @@ class ReservationRepository extends ServiceEntityRepository
     public function getReservationArticles($idReservation,$type){
       $conn = $this->getEntityManager()->getConnection();
 
-      $sql = "SELECT O.id AS objet_id, O.titre, A.emplacement_id, A.id article_id
+      $sql = "SELECT O.id AS objet_id, O.titre, A.emplacement_id, A.id AS article_id
               FROM reservation R
               LEFT JOIN reservation_has_articles RAS ON R.id = RAS.reservation_id
               LEFT JOIN article A ON RAS.article_id = A.id
@@ -105,11 +101,9 @@ class ReservationRepository extends ServiceEntityRepository
               AND R.statut = :type
               ORDER BY A.emplacement_id ASC";
 
-      // PDO to escape values to avoid injections
       $stmt = $conn->prepare($sql);
       $stmt->execute(['idReservation' => $idReservation, 'type' => $type]);
 
-      // returns an array of arrays (i.e. a raw data set)
       return $stmt->fetchAll();
     }
 
@@ -122,10 +116,28 @@ class ReservationRepository extends ServiceEntityRepository
               SET statut = :status
               WHERE id = :id";
 
-      // PDO to escape values to avoid injections
       $stmt = $conn->prepare($sql);
       $stmt->execute(['status' => $status, 'id' => $idReservation]);
 
       return true;
+    }
+
+    // Return all historical of a user
+    public function getHistorical($user){
+      $conn = $this->getEntityManager()->getConnection();
+
+      $sql = "SELECT R.id AS reservation_id, R.date_debut, R.date_fin, O.titre, A.emplacement_id, A.id AS article_id
+              FROM reservation R
+              LEFT JOIN reservation_has_articles RAS ON R.id = RAS.reservation_id
+              LEFT JOIN article A ON RAS.article_id = A.id
+              LEFT JOIN objet O ON A.objet_id = O.id
+              WHERE R.utilisateur_id = :user
+              AND R.statut = 3
+              ORDER BY R.id ASC, A.emplacement_id ASC, O.id ASC";
+
+      $stmt = $conn->prepare($sql);
+      $stmt->execute(['user' => $user]);
+
+      return $stmt->fetchAll();
     }
 }

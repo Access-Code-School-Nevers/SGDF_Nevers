@@ -11,19 +11,19 @@
           <div class="info_articles p-3">
             <p><i class="fas fa-quote-right mr-1"></i>Scannez vos articles ou rentrez manuellement le code à chiffre (sous le code barre), puis attendez la confirmation.</p>
           </div>
-          <!-- List of articles to withdraw -->
           <form class="w-100" method="POST">
 
           <div class="content_restituer_list_articles">
             <div class="table_container mt-5">
               <div class="table_container_color w-100 height_table_historique">
                 <table class="table_articles">
-                  <thead class="head_table_resistuer">
+                  <thead class="head_table_retrait">
                     <tr>
                       <th>Articles à retirer</th>
                     </tr>
                   </thead>
-                  <tbody class="body_table_restituer">
+                  <tbody class="body_table_retrait">
+                    <!-- List of articles to withdraw -->
                     {% for keyEmplacement, emplacement in objectsByEmplacement %}
                       {% for object in emplacement %}
                         <tr class="bar-default" id="el{{ keyEmplacement }}"><!-- rajouter la class "bar-success" lors de la validation -->
@@ -37,10 +37,10 @@
                                   {% endfor %}
                                 </div>
                                   <p class="quantity-articles">Quantité <span>{{ object.listArticles|length }}</span></p>
-                                <div class="scan_articles_resituer">
-                                  <input id="codebar{{ keyEmplacement }}" data-id-required="{{ keyEmplacement }}" class="input_style_restituer" type="text" name="codebar{{ keyEmplacement }}" placeholder="CAB à scan : {{ keyEmplacement }}" oninput="verifyScan(this, {{ keyEmplacement }})" required>
+                                <div class="scan_articles_retrait">
+                                  <input id="codebar{{ keyEmplacement }}" data-id-required="{{ keyEmplacement }}" class="input_style_retrait" type="text" name="codebar{{ keyEmplacement }}" placeholder="CAB à scan : {{ keyEmplacement }}" oninput="verifyScanRetrait(this, {{ keyEmplacement }})" required>
                                   <a onClick="initScan({{ keyEmplacement }})" class="button-scan input_button">
-                                      <div class="button_scan_restituer m-0"></div>
+                                      <div class="button_scan_retrait m-0"></div>
                                   </a>
                                 </div>
                                 <div class="check-box-success">
@@ -51,8 +51,6 @@
                         </tr>
                       {% endfor %}
                     {% endfor %}
-
-
                   </tbody>
                   <tfoot class="position-relative">
                     <tr>
@@ -76,6 +74,4 @@
     <canvas class="drawingBuffer"></canvas>
   </div>
 </section>
-<script src="/js/scan_articles.js"></script>
-{% include 'components/footer.html.twig' %}
 {% endblock %}
