@@ -100,25 +100,13 @@ class ScootController extends AbstractController
 
          //Success message
 
-    }
+       }
 
       return $this->render('scoot/saisi_article_perissable.html.twig', [
           'form' => $form->createView(),
           'title' => 'Inventaire articles',
           'objects' => $objects,
           'backUrl' => './home',
-      ]);
-  }
-
-
-    /**
-    * @Route("/app/historique", name="historique")
-    */
-    public function historique()
-    {
-      return $this->render('scoot/historique.html.twig', [
-        'title' => 'Historique',
-        'backUrl' => './home',
       ]);
     }
 

@@ -6,93 +6,39 @@
 
 <!-- Home -->
 <section class="support_view">
-    <div class="container_view">
-      <div class="mt-3 flex-height d-flex flex-column justify-content-center">
-        <h2>Mes emprunts antérieurs</h2>
-        <div class="table_container mt-5 mb-5">
-
-          <div class="table_container_color height_table_historique">
-            <table class="table_articles">
-              <thead class="head_table">
-                <tr>
-                  <th>Date</th>
-                  <th>Quantités</th>
-                  <th>Articles</th>
-                </tr>
-              </thead>
-              <tbody>
+  <div class="container_view">
+    <div class="mt-3 flex-height d-flex flex-column justify-content-center">
+      <h2>Mes emprunts antérieurs</h2>
+      <div class="table_container mt-5 mb-5">
+        <div class="table_container_color height_table_historique">
+          <table class="table_articles">
+            <thead class="head_table">
+              <tr>
+                <th>Date</th>
+                <th>Emplacement</th>
+                <th>Articles - Id</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for reservation in listReservations %}
                 <div class="table_gen">
                   <tr>
-                    <th scope="rowgroup" rowspan="1">10/01/2018</th>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
+                    <th scope="rowgroup" rowspan="{{ reservation.articles|length + 1 }}">Du {{ reservation.dateDebut|date("d/m/Y") }} au {{ reservation.dateFin|date("d/m/Y") }}</th>
                   </tr>
+                  {% for article in reservation.articles %}
+                  <tr>
+                    <th>{{ article.emplacement }}</th>
+                    <th class="pl-4">{{ article.titre }} - N°{{ article.article }}</th>
+                  </tr>
+                  {% endfor %}
                 </div>
-                <div class="table_gen">
-                  <tr>
-                    <th scope="rowgroup" rowspan="6">11/01/2018</th>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-
-                </div>
-                <div class="table_gen">
-                  <tr>
-                    <th scope="rowgroup" rowspan="6">12/01/2018</th>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <th class="pl-4">Pelles</th>
-                  </tr>
-
-                </div>
-
-              </tbody>
-            </table>
-          </div>
-        </div>
-
+              {% endfor %}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
+  </div>
 </section>
 {% include 'components/footer.html.twig' %}
 {% endblock %}
