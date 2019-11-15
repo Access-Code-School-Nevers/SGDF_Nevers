@@ -18,7 +18,7 @@
 
               <div class="table_container_color w-100 height_table_historique">
                 <table class="table_articles">
-                  <thead class="head_table_resistuer">
+                  <thead class="head_table_restituer">
                     <tr>
                       <th>Liste de mes emprunts</th>
 
@@ -27,18 +27,23 @@
                   <tbody class="body_table_restituer">
 
                         <tr class="bar-default" id="el1"><!-- rajouter la class "bar-success" lors de la validation -->
-                            <th class="plr-6">
+                            <th>
                               <div class="scan-in-progress"> <!-- par default "display: flex;" || rajouter la class "d-none" lors de la validation -->
                                 <i class="fas fa-boxes"></i>
                                 <div class="">
-                                  <p>Article(s)<strong>id</strong> <strong>Quantité</strong> </p>
-
-                                    <p>Pelle<strong class="pl-1">1</strong></p>
+                                  <table>
+                                    <thead>
+                                      <tr class="row_table_articles_restituer">
+                                        <th>Article(s)</th>
+                                        <th>id</th>
+                                        <th>Quantités</th>
+                                      </tr>
+                                    </thead>
+                                  </table>
 
                                 </div>
-                                  <p class="quantity-articles">Quantité <span>2</span></p>
-                                <div class="scan_articles_resituer">
-                                  <input id="codebar1" data-id-required="1" class="input_style_restituer" type="text" name="codebar1" placeholder="CAB à scan : 1" oninput="verifyScan(this, 1)" required>
+                                <div class="scan_articles_restituer">
+                                  <input id="codebar1" data-id-required="1" class="input_style_restituer" type="text" name="codebar1" placeholder="CAB à scan : 1" oninput="verifyScanRestituer(this, 1)" required>
                                   <a onClick="initScan(1)" class="button-scan input_button">
                                       <div class="button_scan_restituer m-0"></div>
                                   </a>
@@ -69,6 +74,5 @@
       </div>
     </div>
 </section>
-<script src="/js/scan_articles.js"></script>
 {% include 'components/footer.html.twig' %}
 {% endblock %}
