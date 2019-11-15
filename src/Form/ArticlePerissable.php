@@ -15,10 +15,7 @@ class ArticlePerissable extends AbstractType
     {
         $builder
 
-        ->add('peremption', DateType::class, array(
-          'widget' => 'single_text',
-        ))
-
+        
         ->add('ajouter', SubmitType::class, [
           'attr' => ['class' => 'w-100 btn-primary main-blue-color second-blue-color']
         ])

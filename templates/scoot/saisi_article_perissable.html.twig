@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inventaire{% endblock %}
+
+{% block body %}
+
+  <div class="support_view">
+    <div class="container_view">
+      <nav class="container_button">
+        <div class="card border-primary mb-3" style="max-width: 60rem;">
+          <h4> Ajouter des articles </h4>
+
+          <div class="container">
+            <div class="form-group">
+              <div>
+                  <div class="row">
+                    <div class="col">
+                      {{form_start(form)}}
+                      <div class="form-group">
+                        <label for="exampleInputText">Objet</label>
+                        <input type="Text" class="form-control" list="objects" id="exampleInputText" aria-describedby="textHelp">
+
+                      </div>
+                        <datalist id="objects">
+                            {% for obj in objects %}
+                            <option>{{obj.titre}}</option>
+                            {% endfor %}
+                        </datalist>
+                        {{form_row(form.peremption)}}
+
+                        <!--Quantité-->
+                        <div class="form-group">
+                          <label for="exampleInputNumber">Quantité</label>
+                          <input type="number" class="form-control" id="exampleInputNumber" aria-describedby="numberHelp">
+                        </div>
+
+                        <label for="">code barre</label>
+                        <div class="scan_articles_resituer input-group mb-4">
+                          <input id="codebar1" data-id-required="1" class="input_style_restituer form-control pl-1" type="text" name="codebar1" placeholder="CAB à scan : 1" oninput="verifyScan(this, 1)" required>
+                          <a onClick="initScan(1)" class="button-scan input_button">
+                              <div class="button_scan_restituer m-0"></div>
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  {{form_widget(form.ajouter)}}
+              </div>
+              {{form_end(form)}}
+          </div>
+
+        </div>
+    </div>
+    </nav>
+  </div>
+</div>
+
+
+{% endblock %}
