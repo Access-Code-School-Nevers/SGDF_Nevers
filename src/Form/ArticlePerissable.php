@@ -5,6 +5,8 @@ namespace App\Form;
 use App\Entity\Article;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,7 +23,14 @@ class ArticlePerissable extends AbstractType
         ->add('peremption', DateType::class, array(
           'widget' => 'single_text',
         ))
-        
+        // ->add('archive', NumberType::class, ['label' => 'code barre'])
+        ->add('scan', ButtonType::class, [
+          'attr' => array('class' => 'button_scan_restituer')
+        ])
+        ->add('ajouter', SubmitType::class, [
+          'attr' => ['class' => 'w-100 btn-primary main-blue-color second-blue-color']
+        ])
+
         ->getForm()
             ;
 
