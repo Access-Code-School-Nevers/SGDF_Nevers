@@ -59,33 +59,37 @@ class AddArticleController extends AbstractController
         $recupere_emplacement_props = $this->getDoctrine()->getRepository(Emplacement::class);
         $cab = $recupere_emplacement_props->findBy(['id'=>$cab]);
 
-        // Creating articles and status
-        for($i=0 ; $i<$nbArticlesTotal ; $i++){
-          $etats[$i] = new Etat();
-          $etats[$i]->setEtat($etatArticles[$i]);
+        if(count($product) > 0 && count($cab) > 0){
+          // Creating articles and status
+          for($i=0 ; $i<$nbArticlesTotal ; $i++){
+            $etats[$i] = new Etat();
+            $etats[$i]->setEtat($etatArticles[$i]);
 
-          $articles[$i] = new Article();
-          $articles[$i]->setObjet($product[0]);
-          $articles[$i]->setEmplacement($cab[0]);
-          $articles[$i]->setEtat($etats[$i]);
+            $articles[$i] = new Article();
+            $articles[$i]->setObjet($product[0]);
+            $articles[$i]->setEmplacement($cab[0]);
+            $articles[$i]->setEtat($etats[$i]);
 
-          $entityManager = $this->getDoctrine()->getManager();
-          $entityManager->persist($articles[$i]);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($articles[$i]);
 
-          $displayArticles[$i]['etat'] = $this->getStringStatus($etatArticles[$i]);
+            $displayArticles[$i]['etat'] = $this->getStringStatus($etatArticles[$i]);
+          }
+
+          // Insert into DB
+          $entityManager->flush();
+
+          for($i=0 ; $i<$nbArticlesTotal ; $i++){
+            $this->addFlash('newBarcode', $this->getStringStatus($etatArticles[$i]).','.$articles[$i]->getId());
+          }
+
+          // Success message
+          $this->addFlash('displayModal', "1");
+          $this->addFlash('success', 'Articles créés avec succès !');
+          return $this->redirectToRoute("saisi_article");
         }
-
-        // Insert into DB
-        $entityManager->flush();
-
-        for($i=0 ; $i<$nbArticlesTotal ; $i++){
-          $this->addFlash('newBarcode', $this->getStringStatus($etatArticles[$i]).','.$articles[$i]->getId());
-        }
-
-        // Success message
-        $this->addFlash('displayModal', "1");
-        $this->addFlash('success', 'Articles créés avec succès !');
-        return $this->redirectToRoute("saisi_article");
+        else
+          $this->addFlash('danger', 'Article ou code-barres introuvable.');
       }
       else
         $this->addFlash('danger', 'Au moins un champ n\'est pas renseigné.');
@@ -95,7 +99,7 @@ class AddArticleController extends AbstractController
         'form' => $form->createView(),
         'title' => 'Inventaire articles',
         'objects' => $objects,
-        'backUrl' => './home',
+        'backUrl' => './menu-ajout',
     ]);
   }
 
