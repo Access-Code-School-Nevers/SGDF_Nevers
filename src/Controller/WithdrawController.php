@@ -17,33 +17,40 @@ class WithdrawController extends AbstractController
     // Get the first reservation id to be withdraw
     $idReservation = $this->getDoctrine()->getRepository(Reservation::class)->getFirstReservation($this->getUser()->getId());
 
-    // Get all the articles reserved
-    $articles = $this->getDoctrine()->getRepository(Reservation::class)->getReservationArticles($idReservation[0]['id'],1);
+    // If the user has a reservation
+    if(isset($idReservation[0])){
+      // Get all the articles reserved
+      $articles = $this->getDoctrine()->getRepository(Reservation::class)->getReservationArticles($idReservation[0]['id'],1);
 
-    // Parse articles to regroup them in visual
-    $objectsByEmplacement = [];
-    $firstEmplacement = 0;
-    foreach($articles as $article){
-      // used to check if we get a value in POST after
-      if($firstEmplacement == 0)
-        $firstEmplacement = $article['emplacement_id'];
+      // Parse articles to regroup them in visual
+      $objectsByEmplacement = [];
+      $firstEmplacement = 0; // Used to check if we get a value in POST after
+      foreach($articles as $article){
+        if($firstEmplacement == 0)
+          $firstEmplacement = $article['emplacement_id'];
 
-      if(!isset($objectsByEmplacement[$article['emplacement_id']]))
-        $objectsByEmplacement[$article['emplacement_id']] = [];
+        if(!isset($objectsByEmplacement[$article['emplacement_id']]))
+          $objectsByEmplacement[$article['emplacement_id']] = [];
 
-      if(!isset($objectsByEmplacement[$article['emplacement_id']][$article['objet_id']])){
-        $objectsByEmplacement[$article['emplacement_id']][$article['objet_id']]['titre'] = $article['titre'];
-        $objectsByEmplacement[$article['emplacement_id']][$article['objet_id']]['listArticles'] = [];
+        if(!isset($objectsByEmplacement[$article['emplacement_id']][$article['objet_id']])){
+          $objectsByEmplacement[$article['emplacement_id']][$article['objet_id']]['titre'] = $article['titre'];
+          $objectsByEmplacement[$article['emplacement_id']][$article['objet_id']]['listArticles'] = [];
+        }
+
+        array_push($objectsByEmplacement[$article['emplacement_id']][$article['objet_id']]['listArticles'],$article['article_id']);
       }
-
-      array_push($objectsByEmplacement[$article['emplacement_id']][$article['objet_id']]['listArticles'],$article['article_id']);
+    }
+    // Else we create empty variables
+    else{
+      $objectsByEmplacement = [];
+      $firstEmplacement = 0;
     }
 
     // Handle request if user has completed the form
     if($request->request->get('codebar'.$firstEmplacement)){
       $hasFilledAll = 1;
 
-      // Check if all barcode inserted are correct with the values asked
+      // Check if all barcodes inserted are correct with the values asked
       foreach($objectsByEmplacement as $key => $emplacement){
         if($request->request->get('codebar'.$key) && is_numeric(intval($request->request->get('codebar'.$key)))){
           if(intval($request->request->get('codebar'.$key)) != intval($key)){
