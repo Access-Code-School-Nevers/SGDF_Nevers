@@ -21,7 +21,7 @@ class AddArticlePerishableController extends AbstractController
   // */
   public function saisi_articles_perissables(Request $request)
   {
-    $objects = $this->getDoctrine()->getRepository(Objet::class)->findAll();
+    $objects = $this->getDoctrine()->getRepository(Objet::class)->findBy(['perissable'=>1]);
 
     $article = new Article();
     $form = $this -> createForm(ArticlePerissable::class, $article);
@@ -30,6 +30,8 @@ class AddArticlePerishableController extends AbstractController
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
       $task = $form->getData();
+      $objet = $request->request->get('objet');
+      $cab = intval($request->request->get('cab'));
 
       //get the total numeber of object  (eg : 5 packs of water  we get 5)
       $nbArticles = intval($request->request->get('quantite'));

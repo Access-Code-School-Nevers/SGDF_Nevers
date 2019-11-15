@@ -21,7 +21,7 @@ class AddArticleController extends AbstractController
   */
   public function saisi_articles(Request $request)
   {
-    $objects = $this->getDoctrine()->getRepository(Objet::class)->findAll();
+    $objects = $this->getDoctrine()->getRepository(Objet::class)->findBy(['perissable'=>1]);
 
     $article = new Article();
     $form = $this -> createForm(ArticleNonPerissable::class, $article);
