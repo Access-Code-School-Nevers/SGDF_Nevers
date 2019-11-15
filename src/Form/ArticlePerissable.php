@@ -21,15 +21,13 @@ class ArticlePerissable extends AbstractType
         ->add('peremption', DateType::class, array(
           'widget' => 'single_text',
         ))
-        // ->add('archive', NumberType::class, ['label' => 'code barre'])
-        
+      
         ->add('ajouter', SubmitType::class, [
           'attr' => ['class' => 'w-100 btn-primary main-blue-color second-blue-color']
         ])
 
         ->getForm()
             ;
-
     }
 
     public function configureOptions(OptionsResolver $resolver)

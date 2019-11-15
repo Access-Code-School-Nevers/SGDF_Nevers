@@ -19,9 +19,6 @@ class AddArticlePerishableController extends AbstractController
   // /**
   // * @Route("/app/saisi_article_perissable", name="saisi_article_perissable")
   // */
-
-
-
   public function saisi_articles_perissables(Request $request)
   {
     $objects = $this->getDoctrine()->getRepository(Objet::class)->findAll();

@@ -16,23 +16,31 @@
               <div>
                   <div class="row">
                     <div class="col">
-                      <!-- <label for="idObjet">Objet</label> -->
+                      {{form_start(form)}}
                       {{form_row(form.objet)}}
-                      <!-- <input list="objects" type="text"> -->
                         <datalist id="objects">
                             {% for obj in objects %}
                             <option>{{obj.titre}}</option>
                             {% endfor %}
                         </datalist>
                         {{form_row(form.peremption)}}
+
+                        <!--Quantité-->
+                        <div class="form-group">
+                          <label for="exampleInputNumber">Quantité</label>
+                          <input type="number" class="form-control" id="exampleInputNumber" aria-describedby="numberHelp">
+                        </div>
+
+                        <label for="">code barre</label>
+                        <div class="scan_articles_resituer input-group mb-4">
+                          <input id="codebar1" data-id-required="1" class="input_style_restituer form-control pl-1" type="text" name="codebar1" placeholder="CAB à scan : 1" oninput="verifyScan(this, 1)" required>
+                          <a onClick="initScan(1)" class="button-scan input_button">
+                              <div class="button_scan_restituer m-0"></div>
+                          </a>
+                        </div>
                     </div>
                   </div>
-              </div>
-              <div>
-                <div class="row">
-                   <div class="col">
-
-                  </div>
+<<<<<<< HEAD
                   <div class="col">
                       <!-- {{form_widget(form.peremption)}} -->
                   </div>
@@ -74,6 +82,11 @@
               <!-- <div class="margeButton ajouter ">
                  <button type="submit" class="btn btn-primary pull-right"> AJOUTER </button>
               </div> -->
+=======
+                  {{form_widget(form.ajouter)}}
+              </div>
+              {{form_end(form)}}
+>>>>>>> 61484db6ed41f8644017f6492c53e247fb76a331
           </div>
 
         </div>
