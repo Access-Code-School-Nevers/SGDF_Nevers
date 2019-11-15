@@ -13,8 +13,9 @@ use App\Form\ArticleNonPerissable;
 use App\Form\ArticlePerissable;
 
 class AddArticleController extends AbstractController
-{ ////////////add article Non perissable//////////////
+{
 
+  ////////////add article Non perissable//////////////
   /**
   * @Route("/app/saisi_article", name="saisi_article")
   */
@@ -117,64 +118,3 @@ class AddArticleController extends AbstractController
     else return '';
   }
 }
-
-////////////add article perissable//////////////
-
-  // /**
-  // * @Route("/app/saisi_article_perissable", name="saisi_article_perissable")
-  // */
-  // public function saisi_articles_perissables(Request $request)
-  // {
-  //   $objects = $this->getDoctrine()->getRepository(Objet::class)->findAll();
-  //
-  //   $article = new Article();
-  //   $form = $this -> createForm(ArticlePerissable::class, $article);
-  //
-  //   $form->handleRequest($request);
-  //   if ($form->isSubmitted() && $form->isValid()) {
-  //
-  //     // Getting objet by his name
-  //     $recupere_objet_props = $this->getDoctrine()->getRepository(Objet::class);
-  //     $product = $recupere_objet_props->findBy(['titre'=>$objet]);
-  //
-  //     // Getting emplacement by his id
-  //     $recupere_emplacement_props = $this->getDoctrine()->getRepository(Emplacement::class);
-  //     $cab = $recupere_emplacement_props->findBy(['id'=>$cab]);
-  //
-  //     // Creating articles and status
-  //     for($i=0 ; $i<$nbArticlesTotal ; $i++){
-  //
-  //       $articles[$i] = new Article();
-  //       $articles[$i]->setObjet($product[0]);
-  //       $articles[$i]->setEmplacement($cab[0]);
-  //       $articles[$i]->setEtat($etats[$i]);
-  //
-  //       $entityManager = $this->getDoctrine()->getManager();
-  //       $entityManager->persist($articles[$i]);
-  //
-  //       $displayArticles[$i]['etat'] = $this->getStringStatus($etatArticles[$i]);
-  //     }
-  //
-  //     // Insert into DB
-  //     $entityManager->flush();
-  //
-  //     for($i=0 ; $i<$nbArticlesTotal ; $i++){
-  //       $this->addFlash('newBarcode', $this->getStringStatus($etatArticles[$i]).','.$articles[$i]->getId());
-  //     }
-  //
-  //     // Success message
-  //     $this->addFlash('displayModal', "1");
-  //     $this->addFlash('success', 'Articles créés avec succès !');
-  //     return $this->redirectToRoute("saisi_article_perissable");
-  //   }
-  //   else
-  //     $this->addFlash('danger', 'Au moins un champ n\'est pas renseigné.');
-  //   }
-  //
-  //   return $this->render('scoot/saisi_article_perissable.html.twig', [
-  //     'form' => $form->createView(),
-  //     'title' => 'Inventaire articles',
-  //     'objects' => $objects,
-  //     'backUrl' => './home',
-  //   ]);
-  //   }
