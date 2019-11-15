@@ -5,12 +5,13 @@
 {% block body %}
 
 <section class="support_view">
-    <div id="containerElt" class="container_view">
-      <div class="mt-3 flex-height d-flex flex-column justify-content-center">
-        <div class="content_restituer_articles">
-          <div class="centrer p-3">
-            <p><i class="fas fa-quote-right mr-1"></i>Après chaque sortie, je ramène le matériel à l'entrepôt.<br>Je scan mon article et je le dépose au bon emplacement.</p>
-          </div>
+  <div id="containerElt" class="container_view">
+    <div class="mt-3 flex-height d-flex flex-column justify-content-center">
+      <div class="content_restituer_articles">
+        <div class="centrer p-3">
+          <p><i class="fas fa-quote-right mr-1"></i>Après chaque sortie, je ramène le matériel à l'entrepôt.<br>Je scan mon article et je le dépose au bon emplacement.</p>
+        </div>
+        <form class="w-100" method="POST">
           <div class="content_restituer_list_articles">
             <div class="table_container mt-5">
               <div class="table_container_color w-100 height_table_historique">
@@ -21,155 +22,65 @@
                     </tr>
                   </thead>
                   <tbody class="body_table_restituer">
+                    <!-- Listing all emplacements -->
+                    {% for keyEmplacement, emplacement in objectsByEmplacement %}
+                      <tr class="bar-default" id="el1"><!-- rajouter la class "bar-success" lors de la validation -->
+                          <th>
+                            <div class="scan-in-progress"> <!-- par default "display: flex;" || rajouter la class "d-none" lors de la validation -->
+                              <i class="fas fa-boxes"></i>
+                              <div class="w-100">
+                                <table class="w-100">
+                                  <thead class="head_table_restituer_articles">
+                                    <tr class="row_table_articles_restituer">
+                                      <th>Article(s)</th>
+                                      <th class="w-50">Etat antérieur</th>
+                                      <th>Etat actuel</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
 
-                        <tr class="bar-default" id="el1"><!-- rajouter la class "bar-success" lors de la validation -->
-                            <th>
-                              <div class="scan-in-progress"> <!-- par default "display: flex;" || rajouter la class "d-none" lors de la validation -->
-                                <i class="fas fa-boxes"></i>
-                                <div class="w-100">
-                                  <table class="w-100">
-                                    <thead class="head_table_restituer_articles">
+                                  <!-- Listing all articles from an emplacement -->
+                                  {% for objects in emplacement %}
+                                    {% for article in objects.listArticles %}
                                       <tr class="row_table_articles_restituer">
-                                        <th>Article(s)</th>
-                                        <th  class="w-50">Quantités</th>
-                                        <th>Etat</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-
-                                      <tr class="row_table_articles_restituer">
-                                        <th><span>(id: 72)</span> Pack d'eau de 6 bouteilles</th>
-                                        <th class="w-50">5</th>
+                                        <th>{{ objects.titre }} - N° {{ article.id }}</th>
+                                        <th class="w-50">
+                                          {{ article.etat }}
+                                        </th>
                                         <th>
-                                          retrait:
-                                          <input class="input_etat_restituer" list="browsers" name="browser" value="neuf" disabled>
-                                          restitution:
-                                          <input class="input_etat_restituer" list="browsers" name="browser">
-                                          <datalist id="browsers">
-                                            <option value="neuf">
-                                            <option value="bon">
-                                            <option value="moyen">
-                                            <option value="défectueux">
-                                            <option value="incomplet">
-                                          </datalist>
+                                          <select name="newState{{ article.id }}">
+                                            <option value="5" {% if article.etat == "Neuf" %}selected="selected"{% endif %}>Neuf</option>
+                                            <option value="4" {% if article.etat == "Bon" %}selected="selected"{% endif %}>Bon</option>
+                                            <option value="3" {% if article.etat == "Moyen" %}selected="selected"{% endif %}>Moyen</option>
+                                            <option value="2" {% if article.etat == "Défectueux" %}selected="selected"{% endif %}>Défectueux</option>
+                                            <option value="1" {% if article.etat == "Incomplet" %}selected="selected"{% endif %}>Incomplet</option>
+                                          </select>
                                         </th>
                                       </tr>
+                                    {% endfor %}
+                                  {% endfor %}
 
-                                      <tr class="row_table_articles_restituer">
-                                        <th><span>(id: 75)</span> Tente </th>
-                                        <th class="w-50">2</th>
-                                        <th>
-                                          retrait:
-                                          <input class="input_etat_restituer" list="browsers" name="browser" value="neuf" disabled>
-                                          restitution:
-                                          <input class="input_etat_restituer" list="browsers" name="browser">
-                                          <datalist id="browsers">
-                                            <option value="neuf">
-                                            <option value="bon">
-                                            <option value="moyen">
-                                            <option value="défectueux">
-                                            <option value="incomplet">
-                                          </datalist>
-                                        </th>
-                                      </tr>
-
-                                    </tbody>
-                                  </table>
-                                </div>
-                                <div class="scan_articles_restituer">
-                                  <input id="codebar1" data-id-required="1" class="input_style_restituer" type="text" name="codebar1" placeholder="CAB à scan : 1" oninput="verifyScanRestituer(this, 1)" required>
-                                  <a onClick="initScan(1)" class="h-30px button-scan input_button">
-                                      <div class="button_scan_restituer m-0"></div>
-                                  </a>
-                                </div>
-                                <div class="check-box-success">
-                                  <i class="fas fa-check check-success d-none"></i>
-                                </div>
+                                  </tbody>
+                                </table>
                               </div>
-                          </th>
-                        </tr>
-
-                        <tr class="bar-default" id="el2"><!-- rajouter la class "bar-success" lors de la validation -->
-                            <th>
-                              <div class="scan-in-progress"> <!-- par default "display: flex;" || rajouter la class "d-none" lors de la validation -->
-                                <i class="fas fa-boxes"></i>
-                                <div class="w-100">
-                                  <table class="w-100">
-                                    <thead class="head_table_restituer_articles">
-                                      <tr class="row_table_articles_restituer">
-                                        <th>Article(s)</th>
-                                        <th  class="w-50">Quantités</th>
-                                        <th>Etat</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-
-                                      <tr class="row_table_articles_restituer">
-                                        <th><span>(id: 73)</span> Piquet</th>
-                                        <th class="w-50">20</th>
-                                        <th>
-                                          retrait:
-                                          <input class="input_etat_restituer" list="browsers" name="browser" value="neuf" disabled>
-
-                                          restitution:
-                                          <input class="input_etat_restituer" list="browsers" name="browser">
-                                          <datalist id="browsers">
-                                            <option value="neuf">
-                                            <option value="bon">
-                                            <option value="moyen">
-                                            <option value="défectueux">
-                                            <option value="incomplet">
-                                          </datalist>
-                                        </th>
-                                      </tr>
-
-                                      <tr class="row_table_articles_restituer">
-                                        <th><span>(id: 77)</span> Marteau </th>
-                                        <th class="w-50">3</th>
-                                        <th>
-                                          retrait:
-                                          <input class="input_etat_restituer" list="browsers" name="browser" value="neuf" disabled>
-                                          restitution:
-                                          <input class="input_etat_restituer" list="browsers" name="browser">
-                                          <datalist id="browsers">
-                                            <option value="neuf">
-                                            <option value="bon">
-                                            <option value="moyen">
-                                            <option value="défectueux">
-                                            <option value="incomplet">
-                                          </datalist>
-                                        </th>
-                                      </tr>
-
-                                    </tbody>
-                                  </table>
-                                </div>
-                                <div class="scan_articles_restituer">
-                                  <input id="codebar1" data-id-required="2" class="input_style_restituer" type="text" name="codebar1" placeholder="CAB à scan : 2" oninput="verifyScanRestituer(this, 2)" required>
-                                  <a onClick="initScan(2)" class="h-30px button-scan input_button">
-                                      <div class="button_scan_restituer m-0"></div>
-                                  </a>
-                                </div>
-                                <div class="check-box-success">
-                                  <i class="fas fa-check check-success d-none"></i>
-                                </div>
+                              <div class="scan_articles_restituer">
+                                <input id="codebar{{ keyEmplacement }}" data-id-required="1" class="input_style_restituer" type="text" name="codebar{{ keyEmplacement }}" placeholder="CAB à scan : {{ keyEmplacement }}" oninput="verifyScanRestituer(this, {{ keyEmplacement }})" required>
+                                <a onClick="initScan({{ keyEmplacement }})" class="h-30px button-scan input_button">
+                                    <div class="button_scan_restituer m-0"></div>
+                                </a>
                               </div>
-                          </th>
-                        </tr>
-
-
-
-
-
-
-
-
-
+                              <div class="check-box-success">
+                                <i class="fas fa-check check-success d-none"></i>
+                              </div>
+                            </div>
+                        </th>
+                      </tr>
+                    {% endfor %}
                   </tbody>
                   <tfoot class="position-relative">
                     <tr>
                       <th scope="row"><div class="button_confirm_restituer">
-                       <button class="button_style submit_search_article w-150px color_button" type="button" name="button">Restituer</button>
+                        <input class="button_style w-150px submit_search_article color_button" type="submit" name="Envoyer" value="Restituer"></input>
                       </div></th>
                     </tr>
                   </tfoot>
@@ -177,8 +88,9 @@
               </div>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
+  </div>
 </section>
 {% endblock %}
