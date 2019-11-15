@@ -28,7 +28,7 @@ class CreerObjetType extends AbstractType
         )
         ->add('photo')
         ->add('enregistrer', SubmitType::class,[
-          'attr' => ['class' => 'btn btn-primary main-blue-color second-blue-color']
+          'attr' => ['class' => 'w-100 btn-primary main-blue-color second-blue-color btn']
         ])
         ->getForm();
 

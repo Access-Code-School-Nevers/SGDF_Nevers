@@ -11,36 +11,30 @@
     </div>
     <nav class="container_button">
       <div class="card border-primary mb-3" style="max-width: 60rem;">
+        <h4 class="text-center my-2">Ajouter des articles non périssable</h4>
         <div class="container ">
-          <div class=" head_saisi_article">
-            <h4 >Ajouter des articles non perissable</h4>
-          </div>
           <div class="form-group">
             {{form_start(form)}}
-            <div class="card mb-3 border-0" style="width: 20rem;">
-              <div class="my-custom-class-for-errors">
-                {{ form_errors(form) }}
+            <div class="row my-3">
+              <div class="col-6">
+                <label for="idObjet" class="font-weight-bold">Objet</label>
               </div>
-
-              <div class="row">
-                <div class="col">
-                  <label for="idObjet">Objet</label>
-                  <input list="objects" type="text" name="objet">
-                  <datalist id="objects">
-                  {% for obj in objects %}  <!-- objects list -->
-                    <option>{{obj.titre}}</option>
-                  {% endfor %}
-                  </datalist>
-                </div>
+              <div class="col-6">
+                <input list="objects" type="text" name="objet" class="w-75">
+                <datalist id="objects">
+                {% for obj in objects %}  <!-- objects list -->
+                  <option>{{obj.titre}}</option>
+                {% endfor %}
+                </datalist>
               </div>
             </div>
 
             <div class="row inputsaisiarticle">
               <div class="col">
-                <span>Etat</span>
+                <span class="font-weight-bold">Etat</span>
               </div>
               <div class="col">
-                <span>Quantités</span>
+                <span class="font-weight-bold">Quantités</span>
               </div>
             </div>
             <div class="row inputsaisiarticle">
@@ -48,8 +42,8 @@
                 <span>Neuf</span>
               </div>
               <div class="col">
-                <input type="text" id="neuf" name="neuf" required
-                minlength="0" maxlength="3" size="10">
+                <input type="text" id="neuf" name="neuf"
+                minlength="0" maxlength="3" size="10" class="w-75">
               </div>
             </div>
             <div class="row inputsaisiarticle">
@@ -57,8 +51,8 @@
                 <span>Bon</span>
               </div>
               <div class="col">
-                <span> <input type="text" id="bon" name="bon" required
-                minlength="0" maxlength="3" size="10"> </span>
+                <span> <input type="text" id="bon" name="bon"
+                minlength="0" maxlength="3" size="10" class="w-75"> </span>
               </div>
             </div>
             <div class="row inputsaisiarticle">
@@ -66,8 +60,8 @@
                 <span>Moyen</span>
               </div>
               <div class="col">
-                <input type="text" id="moyen" name="moyen" required
-                minlength="0" maxlength="3" size="10">
+                <input type="text" id="moyen" name="moyen"
+                minlength="0" maxlength="3" size="10" class="w-75">
               </div>
             </div>
             <div class="row inputsaisiarticle">
@@ -75,8 +69,8 @@
                 <span>Défectueux</span>
               </div>
               <div class="col">
-                  <input type="text" id="defectueux" name="defectueux" required
-                  minlength="0" maxlength="3" size="10">
+                  <input type="text" id="defectueux" name="defectueux"
+                  minlength="0" maxlength="3" size="10" class="w-75">
               </div>
             </div>
             <div class="row inputsaisiarticle">
@@ -84,21 +78,20 @@
                 <span>Incomplet</span>
               </div>
               <div class="col">
-                <input type="text" id="incomplet" name="incomplet" required
-                minlength="0" maxlength="3" size="10">
+                <input type="text" id="incomplet" name="incomplet"
+                minlength="0" maxlength="3" size="10" class="w-75">
               </div>
             </div>
 
-            <div class="scan_articles_resituer">
-                <input class="input_style_restituer" type="text" name="cab" value="" placeholder="ex: 01 0045 7896 543" required>
-                <a href="#" class="button-scan input_button">
-                    <div class="button_scan_restituer m-0"></div>
-                </a>
+            <div class="font-weight-bold mt-2">Emplacement des articles</div>
+            <div class="scan_articles_resituer input-group mb-4">
+              <input class="input_style_restituer form-control pl-1" type="text" name="cab" value="" placeholder="ex: 01 0045 7896 543" required>
+              <a href="#" class="button-scan input_button">
+                  <div class="button_scan_restituer m-0"></div>
+              </a>
             </div>
 
-            <div class="margeButton ajouter ">
-              <button type="submit" class="btn btn-primary pull-right">AJOUTER</button>
-            </div>
+            <button type="submit" class="w-100 btn-primary main-blue-color second-blue-color btn">AJOUTER</button>
             {{form_end(form)}}
           </div>
         </div>

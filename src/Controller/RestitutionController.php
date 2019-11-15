@@ -5,26 +5,28 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Reservation;
+use App\Entity\Etat;
 use Symfony\Component\HttpFoundation\Request;
 
-class WithdrawController extends AbstractController
+class RestitutionController extends AbstractController
 {
   /**
-  * @Route("/app/retrait", name="retrait")
+  * @Route("/app/restituer", name="restituer")
   */
-  public function retrait(Request $request)
+  public function restituer(Request $request)
   {
     // Get the first reservation id to be withdraw
-    $idReservation = $this->getDoctrine()->getRepository(Reservation::class)->getFirstReservation($this->getUser()->getId());
+    $idReservation = $this->getDoctrine()->getRepository(Reservation::class)->getFirstRestitution($this->getUser()->getId());
 
     // If the user has a reservation
     if(isset($idReservation[0])){
       // Get all the articles reserved
-      $articles = $this->getDoctrine()->getRepository(Reservation::class)->getReservationArticles($idReservation[0]['id'],1);
+      $articles = $this->getDoctrine()->getRepository(Reservation::class)->getRestitutionArticles($idReservation[0]['id'],2);
 
       // Parse articles to regroup them in visual
       $objectsByEmplacement = [];
       $firstEmplacement = 0; // Used to check if we get a value in POST after
+      $listArticlesId = [];
       foreach($articles as $article){
         if($firstEmplacement == 0)
           $firstEmplacement = $article['emplacement_id'];
@@ -37,7 +39,13 @@ class WithdrawController extends AbstractController
           $objectsByEmplacement[$article['emplacement_id']][$article['objet_id']]['listArticles'] = [];
         }
 
-        array_push($objectsByEmplacement[$article['emplacement_id']][$article['objet_id']]['listArticles'],$article['article_id']);
+        array_push($objectsByEmplacement[$article['emplacement_id']][$article['objet_id']]['listArticles'],
+          [
+            'id' => $article['article_id'],
+            'etat' => $this->getStringStatus($article['etat'])
+          ]);
+
+        $listArticlesId[$article['article_id']] = $article['etat'];
       }
     }
     // Else we create empty variables
@@ -64,12 +72,27 @@ class WithdrawController extends AbstractController
         }
       }
 
-      // Update status of reservation
       if($hasFilledAll == 1){
-        $this->getDoctrine()->getRepository(Reservation::class)->updateReservationStatus($idReservation[0]['id'],2);
+        $changeState = [];
 
-        // Success message
-        $this->addFlash('success', 'Retrait enregistré !');
+        // Verify states of all articles
+        foreach($listArticlesId as $key => $etatArticle){
+          dump($request->request->get('newState'.$key).' - '.$etatArticle);
+          if($request->request->get('newState'.$key) && intval($request->request->get('newState'.$key)) > 0){
+            if(intval($request->request->get('newState'.$key)) != $etatArticle){
+              $changeState[$key] = intval($request->request->get('newState'.$key));
+            }
+          }
+        }
+
+        // Change reservation state
+        $this->getDoctrine()->getRepository(Reservation::class)->updateReservationStatus($idReservation[0]['id'],3);
+
+        // Change articles state
+        $this->getDoctrine()->getRepository(Etat::class)->changeStateOfArticles($changeState);
+
+        // // Success message
+        $this->addFlash('success', 'Restitution enregistrée !');
         return $this->redirectToRoute("home");
       }
       else{
@@ -77,11 +100,20 @@ class WithdrawController extends AbstractController
       }
     }
 
-
-    return $this->render('scoot/retrait.html.twig', [
-      'title' => 'retrait',
+    return $this->render('scoot/restituer.html.twig', [
+      'title' => 'Restituer',
       'backUrl' => './home',
       'objectsByEmplacement' => $objectsByEmplacement
     ]);
+  }
+
+  // Return string of given status
+  function getStringStatus($status){
+    if($status == 1) return 'Incomplet';
+    else if($status == 2) return 'Défectueux';
+    else if($status == 3) return 'Moyen';
+    else if($status == 4) return 'Bon';
+    else if($status == 5) return 'Neuf';
+    else return '';
   }
 }

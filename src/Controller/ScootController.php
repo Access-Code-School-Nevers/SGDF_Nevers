@@ -45,44 +45,25 @@ class ScootController extends AbstractController
 
       $form->handleRequest($request);
       if ($form->isSubmitted() && $form->isValid()) {
-        if(!empty($_POST['titre']) && !empty($_POST['description']) && !empty($_POST['pcb']) && !empty($_POST['perissable']))
-        {
-        }
-        else
-        {
-          $error = "tous les champs du formulaire doivent être remplis excepté celui des photos";
-        }
-        //add object to data base
+        // Add object to DB
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($creerObjet);
         $entityManager->flush();
 
-        $this->addFlash('success', 'objet créer !');
+        $this->addFlash('success', 'Objet créé !');
         return $this->redirectToRoute("inventaire");
       }
 
-        return $this->render('scoot/inventaire.html.twig', [
-          'form' => $form->createView(),
-          'title' => 'Inventaire test',
-          'backUrl' => './menu-ajout',
-        ]);
-    }
-
-
-
-
-    /**
-    * @Route("/app/restituer", name="restituer")
-    */
-    public function restituer()
-    {
-      return $this->render('scoot/restituer.html.twig', [
-        'title' => 'Restituer',
-        'backUrl' => './home',
-        'objectsByEmplacement' => '1'
-
+      return $this->render('scoot/inventaire.html.twig', [
+        'form' => $form->createView(),
+        'title' => 'Inventaire test',
+        'backUrl' => './menu-ajout',
       ]);
     }
+
+
+
+
 
     /**
      * @Route("/app/menu-ajout", name="menu-ajout")

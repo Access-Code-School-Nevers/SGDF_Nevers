@@ -47,4 +47,32 @@ class EtatRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    // Update articles states that have changed
+    public function changeStateOfArticles($listArticles){
+      $listId = '';
+      $tmpReq = '';
+
+      // prepare the request to update values
+      foreach($listArticles as $key => $state){
+        if(is_int($key) && is_int($state)){
+          $listId .= $key.',';
+          $tmpReq .= ' WHEN '.$key.' THEN '.$state;
+        }
+      }
+
+      $conn = $this->getEntityManager()->getConnection();
+
+      $sql = "UPDATE etat
+              SET etat = CASE article_id
+                ".$tmpReq."
+                ELSE etat
+                END
+              WHERE article_id IN(".substr($listId,0,-1).");";
+
+      $stmt = $conn->prepare($sql);
+      $stmt->execute();
+
+      return true;
+    }
 }
