@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Article;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use App\Entity\Peremption;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,9 +14,6 @@ class ArticlePerissable extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('peremption', DateType::class, array(
-          'widget' => 'single_text',
-        ))
         ->add('ajouter', SubmitType::class, [
           'attr' => ['class' => 'w-100 btn-primary main-blue-color second-blue-color']
         ])
