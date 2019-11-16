@@ -49,7 +49,7 @@ height: 100%;
 top: 0;
 width: 100vw;
 height: 100vh;
-position: absolute;
+position: fixed;
 }
 body.addBlur:before{
   filter: blur(5px);
@@ -156,7 +156,8 @@ input:disabled {
 header{
     height: 40px;
     background-color: var(--main-blue-color);
-    position: relative;
+    position: fixed;
+    width: 100%;
 }
 header nav{
   width: 100%;
