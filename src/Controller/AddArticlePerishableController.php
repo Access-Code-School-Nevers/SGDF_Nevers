@@ -31,17 +31,15 @@ class AddArticlePerishableController extends AbstractController
       $objet = $request->request->get('objet');
       $cab = intval($request->request->get('cab'));
       $date = $request->request->get('date');
-      $nbArticles = intval($request->request->get('quantite'));
-
       //get the total numeber of object  (eg : 5 packs of water  we get 5)
-dump($nbArticles.'-'.$objet.'-'.$cab.'-'.$date);
+      $nbArticles = intval($request->request->get('quantite'));
 
       // Getting objet by his name
       // Check that user filled all input
       if($nbArticles > 0 && $objet != "" && $cab != ""){
         $recupere_objet_props = $this->getDoctrine()->getRepository(Objet::class);
         $product = $recupere_objet_props->findBy(['titre'=>$objet]);
-dump('oob');
+
         // Getting emplacement by his id
         $recupere_emplacement_props = $this->getDoctrine()->getRepository(Emplacement::class);
         $cab = $recupere_emplacement_props->findBy(['id'=>$cab]);
@@ -65,22 +63,23 @@ dump('oob');
 
           $entityManager->flush();
 
-          //Success message
-          $this->addFlash('displayModal', "1");
-          $this->addFlash('success', 'Articles créés avec succès !');
-          return $this->redirectToRoute("saisi_article_perissable");
-        }
-        else
-          $this->addFlash('danger', 'Au moins un champ n\'est pas renseigné.');
+        //Success message
+
+        $this->addFlash('displayModal', "1");
+        $this->addFlash('success', 'Articles créés avec succès !');
+        return $this->redirectToRoute("saisi_article_perissable");
       }
+      else
+        $this->addFlash('danger', 'Au moins un champ n\'est pas renseigné.');
     }
 
-
+  }
     return $this->render('scoot/saisi_article_perissable.html.twig', [
       'form' => $form->createView(),
       'title' => 'Inventaire articles',
       'objects' => $objects,
       'backUrl' => './home',
     ]);
-    }
+
   }
+}

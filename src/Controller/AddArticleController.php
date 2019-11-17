@@ -10,7 +10,7 @@ use App\Entity\Objet;
 use App\Entity\Etat;
 use App\Entity\Emplacement;
 use App\Form\ArticleNonPerissable;
-use App\Form\ArticlePerissable;
+
 
 class AddArticleController extends AbstractController
 {
@@ -21,7 +21,7 @@ class AddArticleController extends AbstractController
   */
   public function saisi_articles(Request $request)
   {
-    $objects = $this->getDoctrine()->getRepository(Objet::class)->findBy(['perissable'=>1]);
+    $objects = $this->getDoctrine()->getRepository(Objet::class)->findBy(['perissable'=>0]);
 
     $article = new Article();
     $form = $this -> createForm(ArticleNonPerissable::class, $article);
