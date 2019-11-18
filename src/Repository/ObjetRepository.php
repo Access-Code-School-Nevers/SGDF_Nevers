@@ -64,7 +64,7 @@ class ObjetRepository extends ServiceEntityRepository
                   LEFT JOIN article A ON O.id = A.objet_id
                   LEFT JOIN reservation_has_articles RAS ON A.id = RAS.article_id
                   LEFT JOIN reservation R ON RAS.reservation_id = R.id
-                  WHERE R.date_fin < :dateFin
+                  WHERE (R.date_fin < :dateFin OR R.statut = 3)
                   AND O.perissable = 0
                   GROUP BY O.id
               	) t
