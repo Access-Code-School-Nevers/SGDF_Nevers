@@ -33,8 +33,8 @@
                             <th class="plr-6">
                               <div class="scan-in-progress"> <!-- par default "display: flex;" || rajouter la class "d-none" lors de la validation -->
                                 <i class="fas fa-boxes"></i>
-                                <div class="">
-                                  <h4>réservation du: 18/11/2019 au 22/11/2019 </h4>
+                                <div>
+                                  <p>réservation du: 18/11/2019 au 22/11/2019</p>
                                   <p>Article{% if object.listArticles|length > 1 %}(s){% endif %}<strong>id</strong></p>
                                   {% for article in object.listArticles %}
                                     <p>{{ object.titre }}<strong class="pl-1">{{ article }}</strong></p>
@@ -59,7 +59,7 @@
                   <tfoot class="position-relative">
                     <tr>
                       <th scope="row"><div class="button_confirm_restituer">
-                        <input class="button_style w-150px submit_search_article color_button" type="submit" name="Envoyer" value="Valider"></input>
+                        <input class="button_style w-150px submit_search_article color_button" type="submit" name="Envoyer" value="Valider">
                       </div></th>
                    </tr>
                   </tfoot>
@@ -79,7 +79,7 @@
 
   <!-- Scanner -->
   <div id="barcode-scanner">
-    <video src=""></video>
+    <video src="#"></video>
     <canvas class="drawingBuffer"></canvas>
   </div>
 </section>
