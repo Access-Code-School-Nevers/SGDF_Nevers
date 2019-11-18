@@ -22,7 +22,7 @@ class CreerObjetType extends AbstractType
         ->add('titre',TextType::class, array(
               'required' => false,
               'attr' => ['class' => 'font-weight-bold'],
-
+              ['label' => 'par combien']
         ))
         ->add('description',TextareaType::class, ['required' => false])
         ->add('pcb',IntegerType::class, ['label' => 'par combien'])
