@@ -62,7 +62,6 @@ class ScootController extends AbstractController
     }
 
 
-
     /**
     * @Route("/app/saisi_article_perissable", name="saisi_article_perissable")
     */
@@ -102,6 +101,7 @@ class ScootController extends AbstractController
           'backUrl' => './menu-ajout',
       ]);
     }
+
 
 
     /**
