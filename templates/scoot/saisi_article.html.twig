@@ -20,7 +20,7 @@
                 <label for="idObjet" class="font-weight-bold">Objet</label>
               </div>
               <div class="col-6">
-                <input list="objects" type="text" name="objet" class="w-75" autocomplete="off">
+                <input list="objects" type="text" name="objet" class="w-75" autocomplete="off" >
                 <datalist id="objects">
                 {% for obj in objects %}  <!-- objects list -->
                   <option>{{obj.titre}}</option>
@@ -85,7 +85,7 @@
 
             <div class="font-weight-bold mt-2">Emplacement des articles</div>
             <div class="scan_articles_resituer input-group mb-4">
-              <input class="input_style_restituer form-control pl-1" type="text" name="cab" value="" placeholder="ex: 01 0045 7896 543" required>
+              <input class="input_style_restituer form-control pl-1" type="text" name="cab" value="" placeholder="ex: 01 0045 7896 543" autocomplete="off" required>
               <a href="#" class="button-scan input_button">
                   <div class="button_scan_restituer m-0"></div>
               </a>

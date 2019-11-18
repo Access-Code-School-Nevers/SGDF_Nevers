@@ -73,7 +73,6 @@ class AddArticleController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($articles[$i]);
 
-            $displayArticles[$i]['etat'] = $this->getStringStatus($etatArticles[$i]);
           }
 
           // Insert into DB

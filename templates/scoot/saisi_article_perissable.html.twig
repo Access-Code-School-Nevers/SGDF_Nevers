@@ -54,4 +54,34 @@
     </nav>
   </div>
 </div>
+
+{% if app.flashes('displayModal')|length > 0 %}
+{% set modal = 1 %}
+{% else %}
+{% set modal = 0 %}
+{% endif %}
+
+<!-- Modal -->
+<div class="modal {% if modal > 0 %} show {% else %} hide {% endif %}" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Articles ajoutés</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% for message in app.flashes('newBarcode') %}
+          {% set infos = message|split(',') %}
+          <div>Article {{ infos.0 }} : Code-barres {{ infos.1 }}</div>
+        {% endfor %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="hideModal()">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}

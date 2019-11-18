@@ -61,10 +61,6 @@ class ScootController extends AbstractController
       ]);
     }
 
-
-
-
-
     /**
      * @Route("/app/menu-ajout", name="menu-ajout")
      */

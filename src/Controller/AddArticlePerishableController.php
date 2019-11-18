@@ -12,6 +12,7 @@ use App\Entity\Peremption;
 use App\Form\ArticlePerissable;
 
 
+
 class AddArticlePerishableController extends AbstractController
 {
 
@@ -62,7 +63,11 @@ class AddArticlePerishableController extends AbstractController
           }
 
           $entityManager->flush();
+        }
+        for($i=0 ; $i<$nbArticles ; $i++){
+          $this->addFlash('newBarcode', date_format($newPeremption[$i]->getDatePeremption(),'d/m/Y').','.$articles[$i]->getId());
 
+        }
         //Success message
 
         $this->addFlash('displayModal', "1");
@@ -73,7 +78,7 @@ class AddArticlePerishableController extends AbstractController
         $this->addFlash('danger', 'Au moins un champ n\'est pas renseigné.');
     }
 
-  }
+
     return $this->render('scoot/saisi_article_perissable.html.twig', [
       'form' => $form->createView(),
       'title' => 'Inventaire articles',
