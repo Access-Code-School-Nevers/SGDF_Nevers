@@ -252,7 +252,7 @@ header nav h1 {
     margin-top: 20px;
     background-color: #ffffffde;
     position: fixed;
-    overflow: overlay;
+    overflow: auto;
     border-radius: 5px;
 }
 
