@@ -77,7 +77,6 @@ class RestitutionController extends AbstractController
 
         // Verify states of all articles
         foreach($listArticlesId as $key => $etatArticle){
-          dump($request->request->get('newState'.$key).' - '.$etatArticle);
           if($request->request->get('newState'.$key) && intval($request->request->get('newState'.$key)) > 0){
             if(intval($request->request->get('newState'.$key)) != $etatArticle){
               $changeState[$key] = intval($request->request->get('newState'.$key));
@@ -89,7 +88,9 @@ class RestitutionController extends AbstractController
         $this->getDoctrine()->getRepository(Reservation::class)->updateReservationStatus($idReservation[0]['id'],3);
 
         // Change articles state
-        $this->getDoctrine()->getRepository(Etat::class)->changeStateOfArticles($changeState);
+        if(count($changeState) > 0){
+          $this->getDoctrine()->getRepository(Etat::class)->changeStateOfArticles($changeState);
+        }
 
         // // Success message
         $this->addFlash('success', 'Restitution enregistrée !');
