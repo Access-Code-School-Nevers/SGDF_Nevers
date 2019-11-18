@@ -74,7 +74,7 @@ class ReservationRepository extends ServiceEntityRepository
     public function getFirstReservation($user){
       $conn = $this->getEntityManager()->getConnection();
 
-      $sql = "SELECT id
+      $sql = "SELECT id, date_debut, date_fin
               FROM reservation
               WHERE utilisateur_id = :user
               AND statut = 1
@@ -92,7 +92,7 @@ class ReservationRepository extends ServiceEntityRepository
     public function getReservationArticles($idReservation,$type){
       $conn = $this->getEntityManager()->getConnection();
 
-      $sql = "SELECT O.id AS objet_id, O.titre, A.emplacement_id, A.id AS article_id
+      $sql = "SELECT O.id AS objet_id, O.titre, A.emplacement_id, A.id AS article_id, O.perissable
               FROM reservation R
               LEFT JOIN reservation_has_articles RAS ON R.id = RAS.reservation_id
               LEFT JOIN article A ON RAS.article_id = A.id
@@ -146,7 +146,7 @@ class ReservationRepository extends ServiceEntityRepository
     public function getFirstRestitution($user){
       $conn = $this->getEntityManager()->getConnection();
 
-      $sql = "SELECT id
+      $sql = "SELECT id, date_debut, date_fin
               FROM reservation
               WHERE utilisateur_id = :user
               AND statut = 2

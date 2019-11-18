@@ -104,7 +104,9 @@ class RestitutionController extends AbstractController
     return $this->render('scoot/restituer.html.twig', [
       'title' => 'Restituer',
       'backUrl' => './home',
-      'objectsByEmplacement' => $objectsByEmplacement
+      'objectsByEmplacement' => $objectsByEmplacement,
+      'date_debut' => $idReservation[0]['date_debut'],
+      'date_fin' => $idReservation[0]['date_fin']
     ]);
   }
 

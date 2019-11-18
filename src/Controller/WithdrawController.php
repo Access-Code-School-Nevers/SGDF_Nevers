@@ -25,7 +25,11 @@ class WithdrawController extends AbstractController
       // Parse articles to regroup them in visual
       $objectsByEmplacement = [];
       $firstEmplacement = 0; // Used to check if we get a value in POST after
+      $hasPerishableOnly = 1; // Used to check if there's only perishable articles in reservation
       foreach($articles as $article){
+        if($hasPerishableOnly == 1 && $article['perissable'] == 0)
+          $hasPerishableOnly = 0;
+
         if($firstEmplacement == 0)
           $firstEmplacement = $article['emplacement_id'];
 
@@ -66,7 +70,10 @@ class WithdrawController extends AbstractController
 
       // Update status of reservation
       if($hasFilledAll == 1){
-        $this->getDoctrine()->getRepository(Reservation::class)->updateReservationStatus($idReservation[0]['id'],2);
+        if($hasPerishableOnly == 0)
+          $this->getDoctrine()->getRepository(Reservation::class)->updateReservationStatus($idReservation[0]['id'],2);
+        else
+          $this->getDoctrine()->getRepository(Reservation::class)->updateReservationStatus($idReservation[0]['id'],3);
 
         // Success message
         $this->addFlash('success', 'Retrait enregistré !');
@@ -81,7 +88,10 @@ class WithdrawController extends AbstractController
     return $this->render('scoot/retrait.html.twig', [
       'title' => 'retrait',
       'backUrl' => './home',
-      'objectsByEmplacement' => $objectsByEmplacement
+      'objectsByEmplacement' => $objectsByEmplacement,
+      'hasPerishableOnly' => $hasPerishableOnly,
+      'date_debut' => $idReservation[0]['date_debut'],
+      'date_fin' => $idReservation[0]['date_fin']
     ]);
   }
 }
