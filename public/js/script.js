@@ -57,6 +57,7 @@ function initScan(id){
     }
   }, function(err) {
       if (err) {
+      window.alert(err);
           return
       }
 

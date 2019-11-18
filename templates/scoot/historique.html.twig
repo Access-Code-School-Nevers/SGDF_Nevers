@@ -22,7 +22,6 @@
             </thead>
             <tbody>
               {% for reservation in listReservations %}
-                <div class="table_gen">
                   <tr>
                     <th scope="rowgroup" rowspan="{{ reservation.articles|length + 1 }}">Du {{ reservation.dateDebut|date("d/m/Y") }} au {{ reservation.dateFin|date("d/m/Y") }}</th>
                   </tr>
@@ -32,7 +31,6 @@
                     <th class="pl-4">{{ article.titre }} - N°{{ article.article }}</th>
                   </tr>
                   {% endfor %}
-                </div>
               {% endfor %}
             </tbody>
           </table>
