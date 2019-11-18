@@ -99,7 +99,7 @@ class ScootController extends AbstractController
           'form' => $form->createView(),
           'title' => 'Inventaire articles',
           'objects' => $objects,
-          'backUrl' => './home',
+          'backUrl' => './menu-ajout',
       ]);
     }
 

@@ -508,7 +508,12 @@ header nav h1 {
 }
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< INVENTAIRE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-
+.head_card_inventaire{
+    background-color: rgb(0, 58, 93) !important;
+    color: white !important;
+    font-weight: bold !important;
+    text-align: center !important;
+}
 .inventaire {
   display: flex;
   justify-content: center;
