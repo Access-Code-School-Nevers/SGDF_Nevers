@@ -20,7 +20,7 @@
                 <label for="idObjet" class="font-weight-bold">Objet</label>
               </div>
               <div class="col-6">
-                <input list="objects" type="text" name="objet" class="w-75">
+                <input list="objects" type="text" name="objet" class="w-75" autocomplete="off">
                 <datalist id="objects">
                 {% for obj in objects %}  <!-- objects list -->
                   <option>{{obj.titre}}</option>
@@ -43,7 +43,7 @@
               </div>
               <div class="col">
                 <input type="text" id="neuf" name="neuf"
-                minlength="0" maxlength="3" size="10" class="w-75">
+                minlength="0" maxlength="3" size="10" class="w-75" autocomplete="off" >
               </div>
             </div>
             <div class="row inputsaisiarticle">
@@ -52,7 +52,7 @@
               </div>
               <div class="col">
                 <span> <input type="text" id="bon" name="bon"
-                minlength="0" maxlength="3" size="10" class="w-75"> </span>
+                minlength="0" maxlength="3" size="10" class="w-75" autocomplete="off"> </span>
               </div>
             </div>
             <div class="row inputsaisiarticle">
@@ -61,7 +61,7 @@
               </div>
               <div class="col">
                 <input type="text" id="moyen" name="moyen"
-                minlength="0" maxlength="3" size="10" class="w-75">
+                minlength="0" maxlength="3" size="10" class="w-75" autocomplete="off">
               </div>
             </div>
             <div class="row inputsaisiarticle">
@@ -70,7 +70,7 @@
               </div>
               <div class="col">
                   <input type="text" id="defectueux" name="defectueux"
-                  minlength="0" maxlength="3" size="10" class="w-75">
+                  minlength="0" maxlength="3" size="10" class="w-75" autocomplete="off">
               </div>
             </div>
             <div class="row inputsaisiarticle">
@@ -79,7 +79,7 @@
               </div>
               <div class="col">
                 <input type="text" id="incomplet" name="incomplet"
-                minlength="0" maxlength="3" size="10" class="w-75">
+                minlength="0" maxlength="3" size="10" class="w-75" autocomplete="off">
               </div>
             </div>
 
