@@ -29,8 +29,12 @@
           <div class="col-md-12 text-center">
             {{form_widget(form.enregistrer)}}
           </div>
+          <div class="my-custom-class-for-errors">
+            {{ form_errors(form) }}
+          </div>
           {{form_end(form)}}
         </div>
+
       </div>
     </div>
     </nav>

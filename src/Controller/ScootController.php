@@ -45,19 +45,26 @@ class ScootController extends AbstractController
 
       $form->handleRequest($request);
       if ($form->isSubmitted() && $form->isValid()) {
-        if(!empty($_POST['titre']) && !empty($_POST['description']) && !empty($_POST['pcb']) && !empty($_POST['perissable']))
-        {
-        }
-        else
-        {
-          $error = "tous les champs du formulaire doivent être remplis excepté celui des photos";
-        }
-        //add object to data base
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($creerObjet);
-        $entityManager->flush();
 
-        $this->addFlash('success', 'objet créer !');
+        $formData = $form->getData();
+        $titre = $formData->getTitre();
+        // var_dump($request);
+        // dump($titre);
+        $recup_titre = $this->getDoctrine()->getRepository(Objet::class);
+        $product = $recup_titre->findBy(['titre'=>$titre]);
+
+        if (count($product) == 0) {
+          //add object to data base
+          $entityManager = $this->getDoctrine()->getManager();
+          $entityManager->persist($creerObjet);
+          $entityManager->flush();
+
+
+        } else {
+            $this->addFlash('danger', 'Objet déjà existant');
+        }
+
+        $this->addFlash('success', 'objet créé !');
         return $this->redirectToRoute("inventaire");
       }
 

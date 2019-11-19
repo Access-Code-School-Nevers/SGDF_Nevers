@@ -19,8 +19,8 @@ class CreerObjetType extends AbstractType
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
     $builder
-        ->add('titre',TextType::class, ['required' => false])
-        ->add('description',TextareaType::class, ['required' => false])
+        ->add('titre',TextType::class, ['required' => true])
+        ->add('description',TextareaType::class, ['required' => true])
         ->add('pcb',IntegerType::class, ['label' => 'par combien'])
         ->add('perissable',ChoiceType::class, ['choices' =>[
           'périssable' => 1,

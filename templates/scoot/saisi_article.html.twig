@@ -48,8 +48,7 @@
                 <span>Neuf</span>
               </div>
               <div class="col">
-                <input type="text" id="neuf" name="neuf" required
-                minlength="0" maxlength="3" size="10">
+                <input type="number" name="number" class="form-control" id="exampleInputNumber" aria-describedby="numberHelp">
               </div>
             </div>
             <div class="row inputsaisiarticle">
@@ -57,8 +56,7 @@
                 <span>Bon</span>
               </div>
               <div class="col">
-                <span> <input type="text" id="bon" name="bon" required
-                minlength="0" maxlength="3" size="10"> </span>
+                <span><input type="number" name="number" class="form-control" id="exampleInputNumber" aria-describedby="numberHelp"> </span>
               </div>
             </div>
             <div class="row inputsaisiarticle">
@@ -66,8 +64,7 @@
                 <span>Moyen</span>
               </div>
               <div class="col">
-                <input type="text" id="moyen" name="moyen" required
-                minlength="0" maxlength="3" size="10">
+                <input type="number" name="number" class="form-control" id="exampleInputNumber" aria-describedby="numberHelp">
               </div>
             </div>
             <div class="row inputsaisiarticle">
@@ -75,8 +72,7 @@
                 <span>Défectueux</span>
               </div>
               <div class="col">
-                  <input type="text" id="defectueux" name="defectueux" required
-                  minlength="0" maxlength="3" size="10">
+                  <input type="number" name="number" class="form-control" id="exampleInputNumber" aria-describedby="numberHelp">
               </div>
             </div>
             <div class="row inputsaisiarticle">
@@ -84,17 +80,23 @@
                 <span>Incomplet</span>
               </div>
               <div class="col">
-                <input type="text" id="incomplet" name="incomplet" required
-                minlength="0" maxlength="3" size="10">
+                <input type="number" name="number" class="form-control" id="exampleInputNumber" aria-describedby="numberHelp">
               </div>
             </div>
 
-            <div class="scan_articles_resituer">
+            <div class="scan_articles_resituer input-group mb-4">
+              <input id="codebar1" data-id-required="1" class="input_style_restituer form-control pl-1" type="text" name="codebar1" placeholder="CAB à scan : 1" oninput="verifyScan(this, 1)" required>
+              <a onClick="initScan(1)" class="button-scan input_button">
+                  <div class="button_scan_restituer m-0"></div>
+              </a>
+            </div>
+
+            <!-- <div class="scan_articles_resituer">
                 <input class="input_style_restituer" type="text" name="cab" value="" placeholder="ex: 01 0045 7896 543" required>
                 <a href="#" class="button-scan input_button">
                     <div class="button_scan_restituer m-0"></div>
                 </a>
-            </div>
+            </div> -->
 
             <div class="margeButton ajouter ">
               <button type="submit" class="btn btn-primary pull-right">AJOUTER</button>
