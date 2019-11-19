@@ -74,7 +74,7 @@ class ReservationRepository extends ServiceEntityRepository
     public function getFirstReservation($user){
       $conn = $this->getEntityManager()->getConnection();
 
-      $sql = "SELECT id
+      $sql = "SELECT id, date_debut, date_fin
               FROM reservation
               WHERE utilisateur_id = :user
               AND statut = 1
@@ -92,7 +92,7 @@ class ReservationRepository extends ServiceEntityRepository
     public function getReservationArticles($idReservation,$type){
       $conn = $this->getEntityManager()->getConnection();
 
-      $sql = "SELECT O.id AS objet_id, O.titre, A.emplacement_id, A.id AS article_id
+      $sql = "SELECT O.id AS objet_id, O.titre, A.emplacement_id, A.id AS article_id, O.perissable
               FROM reservation R
               LEFT JOIN reservation_has_articles RAS ON R.id = RAS.reservation_id
               LEFT JOIN article A ON RAS.article_id = A.id
@@ -137,6 +137,45 @@ class ReservationRepository extends ServiceEntityRepository
 
       $stmt = $conn->prepare($sql);
       $stmt->execute(['user' => $user]);
+
+      return $stmt->fetchAll();
+    }
+
+
+    // Return the id of the next restitution
+    public function getFirstRestitution($user){
+      $conn = $this->getEntityManager()->getConnection();
+
+      $sql = "SELECT id, date_debut, date_fin
+              FROM reservation
+              WHERE utilisateur_id = :user
+              AND statut = 2
+              ORDER BY date_debut ASC
+              LIMIT 1";
+
+      $stmt = $conn->prepare($sql);
+      $stmt->execute(['user' => $user]);
+
+      return $stmt->fetchAll();
+    }
+
+    // Return all the articles of a restitution for a specific user
+    public function getRestitutionArticles($idReservation,$type){
+      $conn = $this->getEntityManager()->getConnection();
+
+      $sql = "SELECT O.id AS objet_id, O.titre, A.emplacement_id, A.id AS article_id, E.etat
+              FROM reservation R
+              LEFT JOIN reservation_has_articles RAS ON R.id = RAS.reservation_id
+              LEFT JOIN article A ON RAS.article_id = A.id
+              LEFT JOIN objet O ON A.objet_id = O.id
+              LEFT JOIN etat E ON A.id = E.article_id
+              WHERE R.id = :idReservation
+              AND R.statut = :type
+              AND E.etat != 'null'
+              ORDER BY A.emplacement_id ASC";
+
+      $stmt = $conn->prepare($sql);
+      $stmt->execute(['idReservation' => $idReservation, 'type' => $type]);
 
       return $stmt->fetchAll();
     }

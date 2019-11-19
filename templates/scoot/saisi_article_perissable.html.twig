@@ -8,58 +8,80 @@
     <div class="container_view">
       <nav class="container_button">
         <div class="card border-primary mb-3" style="max-width: 60rem;">
-          <h4> Ajouter des articles </h4>
+          <h4 class="text-center">Ajouter des articles périssables</h4>
 
           <div class="container">
             <div class="form-group">
               <div>
-                  <div class="row">
-                    <div class="col">
-                      {{form_start(form)}}
+                <div class="row">
+                  <div class="col">
+                    {{form_start(form)}}
                       <div class="form-group">
                         <label for="exampleInputText">Objet</label>
-                        <input type="Text" class="form-control" list="objects" id="exampleInputText" aria-describedby="textHelp">
-
-                      </div>
+                        <input type="Text" class="form-control" list="objects" id="exampleInputText" aria-describedby="textHelp" name="objet" autocomplete="off">
                         <datalist id="objects">
                             {% for obj in objects %}
                             <option>{{obj.titre}}</option>
                             {% endfor %}
                         </datalist>
-                        
-                        <div class="form-group">
-                          <label for="exampleInputDate">Date péremption</label>
-                          <input type="date" class="form-control" id="exampleInputDate" aria-describedby="dateHelp">
-                        </div>
+                      </div>
 
-                        <!--Quantité-->
-                        <div class="form-group">
-                          <label for="exampleInputNumber">Quantité</label>
-                          <input type="number" class="form-control" id="exampleInputNumber" aria-describedby="numberHelp">
-                        </div>
+                      <div class="form-group">
+                        <label for="exampleInputDate">Date péremption</label>
+                        <input type="date" class="form-control" id="exampleInputDate" aria-describedby="dateHelp" name="date">
+                      </div>
 
-                        <label for="">code barre</label>
-                        <div class="scan_articles_resituer input-group mb-4">
-                          <input id="codebar1" data-id-required="1" class="input_style_restituer form-control pl-1" type="text" name="codebar1" placeholder="CAB à scan : 1" oninput="verifyScan(this, 1)" required>
-                          <a onClick="initScan(1)" class="button-scan input_button">
-                              <div class="button_scan_restituer m-0"></div>
-                          </a>
-                        </div>
+                      <div class="form-group">
+                        <label for="exampleInputNumber">Quantité</label>
+                        <input type="number" class="form-control" id="exampleInputNumber" aria-describedby="numberHelp" name="quantite" autocomplete="off">
+                      </div>
+
+                      <label for="">Emplacement de l'article</label>
+                      <div class="scan_articles_resituer input-group mb-4">
+                        <input id="codebar1" data-id-required="1" class="input_style_restituer form-control pl-1" type="text" name="cab" placeholder="CAB à scan : 1" oninput="verifyScan(this, 1)" autocomplete="off" required>
+                        <a onClick="initScan(1)" class="button-scan input_button">
+                            <div class="button_scan_restituer m-0"></div>
+                        </a>
+                      </div>
                     </div>
                   </div>
-                  {{form_widget(form.ajouter)}}
+                {{form_widget(form.ajouter)}}
               </div>
-              {{form_end(form)}}
+            {{form_end(form)}}
           </div>
-
         </div>
-    </div>
+      </div>
     </nav>
   </div>
 </div>
 
-<!-- footer -->
-<footer>
+{% if app.flashes('displayModal')|length > 0 %}
+{% set modal = 1 %}
+{% else %}
+{% set modal = 0 %}
+{% endif %}
 
-</footer>
+<!-- Modal -->
+<div class="modal {% if modal > 0 %} show {% else %} hide {% endif %}" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Articles ajoutés</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% for message in app.flashes('newBarcode') %}
+          {% set infos = message|split(',') %}
+          <div>Article {{ infos.0 }} : Code-barres {{ infos.1 }}</div>
+        {% endfor %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="hideModal()">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}

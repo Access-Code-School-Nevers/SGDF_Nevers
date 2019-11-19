@@ -3,7 +3,7 @@
 Voici le projet d'une application pour Scouts Guides de France.
 
 
-## Installation
+## Installation locale
 
 Pour installer le projet il vous faut le logiciel "Composer" et une version PHP en 7.3.5. ouvrez une console. Et placez-vous dans le dossier de votre choix.
 
@@ -11,23 +11,39 @@ Pour installer le projet il vous faut le logiciel "Composer" et une version PHP 
 ```bash
 git clone https://github.com/Access-Code-School-Nevers/SGDF_Nevers.git
 ```
-2. Ensuite installez "Symfony" avec "Composer" :
+2. Mettre à jour les dépendances du projet :
 ```bash
 composer install
 ```
 
-### 3. Et lancez le serveur :
+3. Et lancez le serveur :
 ```bash
 symfony server:start
 ```
 
-### Les bundles
+### Mise en production
 
-Voici la liste des bundles installés et leurs commandes.
 
-1. ???
+1. Dans le fichier .env, passer la variable APP_ENV en prod
 ```bash
-???
+APP_ENV=prod
+```
+
+2. Dans le fichier .env, modifier les informations d'accès à la base de données
+```bash
+DATABASE_URL=mysql://nomUtilisateur:motDePasseUtilisateur@urlHebergement/nomDeLaBase
+```
+
+3. Vider le cache de l'application
+```bash
+APP_ENV=prod APP_DEBUG=0 php bin/console cache:clear
+```
+
+4. Déployer les fichiers sur le serveur
+
+5. Configurer les routes de redirection
+```bash
+composer require symfony/apache-pack
 ```
 
 ## Contributeur
