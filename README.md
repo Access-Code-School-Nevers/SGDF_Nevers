@@ -36,6 +36,7 @@ DATABASE_URL=mysql://nomUtilisateur:motDePasseUtilisateur@urlHebergement/nomDeLa
 
 3. Vider le cache de l'application
 ```bash
+php bin/console cache:clear
 APP_ENV=prod APP_DEBUG=0 php bin/console cache:clear
 ```
 
