@@ -21,10 +21,10 @@ class CreerObjetType extends AbstractType
     $builder
         ->add('titre',TextType::class, ['required' => true])
         ->add('description',TextareaType::class, ['required' => true])
-        ->add('pcb',IntegerType::class, ['label' => 'par combien'])
+        ->add('pcb',IntegerType::class, ['label' => 'Par combien'])
         ->add('perissable',ChoiceType::class, ['choices' =>[
-          'périssable' => 1,
-          'non périssable' => 0]]
+          'Périssable' => 1,
+          'Non périssable' => 0]]
         )
         ->add('photo')
         ->add('enregistrer', SubmitType::class,[

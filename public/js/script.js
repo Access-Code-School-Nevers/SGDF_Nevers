@@ -114,7 +114,7 @@ function getAvailablesObjets(el){
       document.getElementById('listOfObjects').innerHTML = tmpOptions;
     }
   };
-  xhr.open('GET', 'http://127.0.0.1:8000/api/objets-disponibles?date='+el.value);
+  xhr.open('GET', 'https://sgdf.promo-29.codeur.online/api/objets-disponibles?date='+el.value);
   xhr.send();
 }
 

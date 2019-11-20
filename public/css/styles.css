@@ -75,9 +75,6 @@ label{
 hr{
   width: 30%;
 }
-.form-control{
-  padding: 0 !important;
-}
 .color_button{
     background-color: var(--main-blue-color) !important;
     color: white !important;
@@ -309,6 +306,9 @@ header nav h1 {
 .card{
     width: 400px;
     margin: 0 30px 30px 30px
+}
+.card-text{
+  padding-top:0.5rem;
 }
 .container_card{
     flex-direction: row;
