@@ -32,7 +32,7 @@
                               <div class="scan-in-progress"> <!-- par default "display: flex;" || rajouter la class "d-none" lors de la validation -->
                                 <i class="fas fa-boxes"></i>
                                 <div>
-                                  <p>Réservation du {{ date_debut|date("d/m/Y") }} au {{ date_fin|date("d/m/Y") }}</p>
+                                  <h4 class="date_retrait">Réservation du {{ date_debut|date("d/m/Y") }} au {{ date_fin|date("d/m/Y") }}</h4>
                                   <p>Article{% if object.listArticles|length > 1 %}(s){% endif %}<strong>id</strong></p>
                                   {% for article in object.listArticles %}
                                     <p>{{ object.titre }}<strong class="pl-1">{{ article }}</strong></p>
