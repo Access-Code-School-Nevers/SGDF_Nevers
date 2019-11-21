@@ -7,7 +7,7 @@ Voici le projet d'une application pour Scouts Guides de France.
 
 Pour installer le projet il vous faut le logiciel "Composer" et une version PHP en 7.3.5. ouvrez une console. Et placez-vous dans le dossier de votre choix.
 
-1. Commencez par cloner le projet dans le dossier :
+# 1. Commencez par cloner le projet dans le dossier :
 ```bash
 git clone https://github.com/Access-Code-School-Nevers/SGDF_Nevers.git
 ```
