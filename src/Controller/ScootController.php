@@ -16,6 +16,8 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -46,10 +48,29 @@ class ScootController extends AbstractController
       $form->handleRequest($request);
       if ($form->isSubmitted() && $form->isValid()) {
 
+        //upload file
+        /** @var UploadedFile $photo */
+        $photo = $form['photo']->getData();
+        if ($photo) {
+          $originalFilename = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
+          $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+          $newFilename = $safeFilename.'-'.uniqid().'.'.$photo->guessExtension();
+
+          try {
+              $photo->move(
+                  $this->getParameter('files_directory'),
+                  $newFilename
+              );
+          } catch (FileException $e) {
+              // ... handle exception if something happens during file upload
+          }
+          $creerObjet->setPhoto($newFilename);
+        }
+
+
         $formData = $form->getData();
         $titre = $formData->getTitre();
-        // var_dump($request);
-        // dump($titre);
+
         $recup_titre = $this->getDoctrine()->getRepository(Objet::class);
         $product = $recup_titre->findBy(['titre'=>$titre]);
 
@@ -58,7 +79,6 @@ class ScootController extends AbstractController
           $entityManager = $this->getDoctrine()->getManager();
           $entityManager->persist($creerObjet);
           $entityManager->flush();
-
 
         } else {
             $this->addFlash('danger', 'Objet déjà existant');
