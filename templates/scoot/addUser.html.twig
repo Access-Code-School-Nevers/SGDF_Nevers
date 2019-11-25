@@ -3,7 +3,6 @@
 {% block title %}Ajouter un utilisateur{% endblock %}
 
 {% block body %}
-
 <section class="support_view">
   <div class="container_view flex-height flex-column justify-content-center">
     <div class="info_articles p-3">
@@ -13,14 +12,11 @@
     <div class="w-100">
       <div class="d-flex justify-content-center mt-4">
         <div class="mid-form">
-
           {{ form_start(form) }}
             {{ form_row(form.nom) }}
             {{ form_row(form.password) }}
             {{ form_row(form.role) }}
-
             {{ form_widget(form.save, { 'label': 'Enregistrer' }) }}
-
             <div class="my-custom-class-for-errors">
               {{ form_errors(form) }}
             </div>
