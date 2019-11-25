@@ -75,9 +75,6 @@ label{
 hr{
   width: 30%;
 }
-.form-control{
-  padding: 0 !important;
-}
 .color_button{
     background-color: var(--main-blue-color) !important;
     color: white !important;
@@ -309,6 +306,9 @@ header nav h1 {
 .card{
     width: 400px;
     margin: 0 30px 30px 30px
+}
+.card-text{
+  padding-top:0.5rem;
 }
 .container_card{
     flex-direction: row;
@@ -932,9 +932,15 @@ top: 8px;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #00619c;
+  background-color: #d4f2ff;
 }
 .body_table_retrait tr th p span{
   margin-left: 5px;
+}
+.body_table_retrait .scan-in-progress{
+  align-items: flex-end !important;
+  margin-bottom: 25px;
+  padding-right: 5px; 
 }
 
 .button_confirm_retrait{
@@ -958,7 +964,14 @@ top: 8px;
 .content_retrait_list_articles{
   width: 100%;
 }
-
+.date_retrait{
+  font-size: 1em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  margin-left: 1em;
+  /* border-bottom: 1px solid #00619c; */
+  font-weight: bold;
+}
 @-webkit-keyframes pulse {
   0% {
     -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);

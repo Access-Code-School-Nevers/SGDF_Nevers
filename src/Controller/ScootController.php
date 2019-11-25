@@ -84,7 +84,7 @@ class ScootController extends AbstractController
             $this->addFlash('danger', 'Objet déjà existant');
         }
 
-        $this->addFlash('success', 'objet créé !');
+        $this->addFlash('success', 'Objet créé !');
         return $this->redirectToRoute("inventaire");
       }
 

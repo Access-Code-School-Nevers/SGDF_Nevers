@@ -60,6 +60,7 @@ class ReservationHasArticlesRepository extends ServiceEntityRepository
         $sql = 'INSERT INTO reservation_has_articles VALUES ';
         for($i=0, $v=$nbArticles ; $i<$v ; $i++){
           $listArticles[$i] = intval($listArticles[$i]);
+          
           if(is_int($listArticles[$i])){
             $sql .= '('.$reservationId.', :id'.$i.'),';
             $articlesToExecute['id'.$i] = $listArticles[$i];

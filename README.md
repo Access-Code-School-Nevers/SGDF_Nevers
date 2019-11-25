@@ -36,15 +36,23 @@ DATABASE_URL=mysql://nomUtilisateur:motDePasseUtilisateur@urlHebergement/nomDeLa
 
 3. Vider le cache de l'application
 ```bash
+php bin/console cache:clear
 APP_ENV=prod APP_DEBUG=0 php bin/console cache:clear
 ```
 
 4. Déployer les fichiers sur le serveur
 
-5. Configurer les routes de redirection
+5. Configurer les routes de redirection (créer un fichier .htaccess dans le dossier public - peut être fait en local)
 ```bash
 composer require symfony/apache-pack
 ```
+
+6. Créer un utilisateur admin dans la table utilisateur (la commande permet de créer un mot de passe crypté pour être inséré dans la base de données)
+```bash
+php bin/console security:encode-password
+```
+
+7. Insérer le site de Nevers dans la table Site
 
 ## Contributeur
 
