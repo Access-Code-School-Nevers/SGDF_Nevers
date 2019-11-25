@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -147,5 +149,19 @@ class Objet
         $this->perissable = $perissable;
 
         return $this;
+    }
+
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
+    {
+        $metadata->addPropertyConstraint('titre', new Assert\Regex([
+            'pattern' => '/\d/',
+            'match' => false,
+            'message' => 'Ceci est un champ texte !',
+        ]));
+        $metadata->addPropertyConstraint('pcb', new Assert\Regex([
+            'pattern' => '[0-9]',
+            'match' => false,
+            'message' => 'ne prend en compte que des nombres entiers !',
+        ]));
     }
 }
