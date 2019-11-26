@@ -105,8 +105,8 @@ class RestitutionController extends AbstractController
       'title' => 'Restituer',
       'backUrl' => './home',
       'objectsByEmplacement' => $objectsByEmplacement,
-      'date_debut' => $idReservation[0]['date_debut'],
-      'date_fin' => $idReservation[0]['date_fin']
+      'date_debut' => ((isset($idReservation[0]))?$idReservation[0]['date_debut']:''),
+      'date_fin' => ((isset($idReservation[0]))?$idReservation[0]['date_fin']:'')
     ]);
   }
 
