@@ -89,9 +89,9 @@ class WithdrawController extends AbstractController
       'title' => 'retrait',
       'backUrl' => './home',
       'objectsByEmplacement' => $objectsByEmplacement,
-      'hasPerishableOnly' => $hasPerishableOnly,
-      'date_debut' => $idReservation[0]['date_debut'],
-      'date_fin' => $idReservation[0]['date_fin']
+      'hasPerishableOnly' => ((isset($hasPerishableOnly))?$hasPerishableOnly:''),
+      'date_debut' => ((isset($idReservation[0]))?$idReservation[0]['date_debut']:''),
+      'date_fin' => ((isset($idReservation[0]))?$idReservation[0]['date_fin']:'')
     ]);
   }
 }
