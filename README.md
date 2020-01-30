@@ -23,7 +23,7 @@ symfony server:start
 
 
 ### Installation de la base de données (peut être fait en ligne après mise en production ou en local)
-1. Dans le fichier .env, modifiez les informations d'accès à la base de données
+1. Dans le fichier .env, modifiez les informations d'accès à la base de données à la ligne 28
 ```bash
 DATABASE_URL=mysql://nomUtilisateur:motDePasseUtilisateur@urlHebergement/nomDeLaBase
 ```
