@@ -21,38 +21,54 @@ composer install
 symfony server:start
 ```
 
-### Mise en production
 
-
-1. Dans le fichier .env, passer la variable APP_ENV en prod
-```bash
-APP_ENV=prod
-```
-
-2. Dans le fichier .env, modifier les informations d'accès à la base de données
+### Installation de la base de données (peut être fait en ligne après mise en production ou en local)
+1. Dans le fichier .env, modifiez les informations d'accès à la base de données
 ```bash
 DATABASE_URL=mysql://nomUtilisateur:motDePasseUtilisateur@urlHebergement/nomDeLaBase
 ```
 
-3. Vider le cache de l'application
+2. Utilisez la ligne de commande suivante pour créer la base de données
+```bash
+php bin/console doctrine:database:create
+```
+
+3. Utilisez la ligne de commande suivante pour ajouter les tables à la base de données
+```bash
+php bin/console doctrine:migrations:migrate
+```
+
+4.1. Ouvrez le fichier src/DataFixtures/UtilisateurFixture.php et modifiez le mot de passe de l'administrateur à la ligne 33 par le mot de passe de votre choix.
+
+4.2. Utilisez la ligne de commande suivante pour ajouter l'utilisateur admin
+```bash
+php bin/console doctrine:fixtures:load
+```
+
+
+
+### Mise en production
+
+1. Dans le fichier .env, passez la variable APP_ENV en prod
+```bash
+APP_ENV=prod
+```
+
+2. Videz le cache de l'application
 ```bash
 php bin/console cache:clear
 APP_ENV=prod APP_DEBUG=0 php bin/console cache:clear
 ```
 
-4. Déployer les fichiers sur le serveur
+3. Déployez les fichiers sur le serveur
 
-5. Configurer les routes de redirection (créer un fichier .htaccess dans le dossier public - peut être fait en local)
+4. Configurez les routes de redirection (créé un fichier .htaccess dans le dossier public - peut être fait en local)
 ```bash
 composer require symfony/apache-pack
 ```
 
-6. Créer un utilisateur admin dans la table utilisateur (la commande permet de créer un mot de passe crypté pour être inséré dans la base de données)
-```bash
-php bin/console security:encode-password
-```
+5. Insérez le site de Nevers dans la table Site
 
-7. Insérer le site de Nevers dans la table Site
 
 ## Contributeur
 
@@ -60,6 +76,7 @@ php bin/console security:encode-password
 [Blaster91](https://github.com/Blaster91)
 [SolangeHarmoniePICARD](https://github.com/SolangeHarmoniePICARD)
 [jlc92130](https://github.com/jlc92130)
+
 
 ## License
 [GNU General Public License](https://github.com/Access-Code-School-Nevers/SGDF_Nevers/blob/master/LICENSE)
