@@ -45,6 +45,8 @@ php bin/console doctrine:migrations:migrate
 php bin/console doctrine:fixtures:load
 ```
 
+4.3. Vous pouvez à présent supprimer le fichier src/DataFixtures/UtilisateurFixture.php.
+
 
 
 ### Mise en production
